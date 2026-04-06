@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L'Origine — Don Alberto Café · Specialty Coffee Boyacá Colombia · Rondón · 1670m</title>
+<meta name="description" content="L'Origine Don Alberto Café — Rondón, Boyacá, Colombie. Specialty Coffee 84.5 SCA. Terroir unique à 1670m. Seule Green Coffee Farm du département. 59 microclimats. Coffea Arabica Castillo.">
+<meta name="keywords" content="Specialty Coffee Boyacá Colombia, Rondón terroir, Green Coffee Farm, Arabica Castillo altitude, single origin Colombia">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+/* ORIGIN HERO */
+.ori-hero{height:88vh;min-height:520px;position:relative;display:flex;align-items:flex-end;overflow:hidden;}
+.ori-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;}
+.ori-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(4,40,52,.96) 0%,rgba(4,40,52,.5) 50%,rgba(4,40,52,.15) 100%);}
+.ori-hero-content{position:relative;z-index:2;padding:clamp(40px,5vw,80px) clamp(18px,5vw,80px);max-width:900px;}
+.ori-hero-eyebrow{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--gold-light);margin-bottom:16px;animation:fadeUp .9s .2s both;}
+.ori-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(38px,6vw,82px);font-weight:300;color:white;line-height:1.03;animation:fadeUp .9s .4s both;}
+.ori-hero h1 em{font-style:italic;color:var(--gold-light);}
+.ori-hero-coords{display:flex;gap:36px;margin-top:28px;flex-wrap:wrap;animation:fadeUp .9s .6s both;}
+.ori-coord{border-left:2px solid rgba(255,255,255,.15);padding:8px 0 8px 16px;}
+.ori-coord-val{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:white;}
+.ori-coord-lbl{font-size:8px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:2px;}
+
+/* DATA STRIP */
+.data-strip{background:var(--teal-deep);padding:clamp(32px,3vw,48px) clamp(18px,5vw,80px);}
+.data-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0;text-align:center;}
+.ds-item{border-right:1px solid rgba(255,255,255,.07);padding:0 20px;}
+.ds-item:last-child{border-right:none;}
+.ds-val{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--gold-light);line-height:1;}
+.ds-lbl{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.32);margin-top:6px;}
+
+/* EDITORIAL BLOCKS */
+.editorial{padding:clamp(70px,6vw,110px) clamp(18px,5vw,80px);}
+.editorial-block{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(40px,6vw,100px);align-items:center;padding:clamp(50px,4vw,80px) 0;border-bottom:1px solid rgba(9,102,133,.08);}
+.editorial-block:last-of-type{border-bottom:none;}
+.editorial-block.reverse{direction:rtl;}
+.editorial-block.reverse>*{direction:ltr;}
+.block-num{font-family:'Cormorant Garamond',serif;font-size:100px;font-weight:300;color:rgba(9,102,133,.07);line-height:1;margin-bottom:-30px;display:block;}
+.block-eyebrow{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--teal);margin-bottom:16px;display:block;}
+.editorial-block h2{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,2.8vw,38px);font-weight:300;color:var(--dark);line-height:1.2;margin-bottom:24px;}
+.editorial-block h2 em{font-style:italic;color:var(--teal);}
+.editorial-block p{font-size:clamp(13.5px,1.3vw,15.5px);line-height:2;color:var(--mid);font-weight:300;margin-bottom:16px;}
+.editorial-block p strong{color:var(--teal-deep);font-weight:500;}
+.editorial-block-visual{position:relative;}
+.editorial-img-main{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;}
+.editorial-img-inset{position:absolute;bottom:-22px;right:-22px;width:44%;aspect-ratio:1;object-fit:cover;border:5px solid var(--cream);box-shadow:0 14px 44px rgba(0,0,0,.18);}
+.editorial-img-inset.left{right:auto;left:-22px;}
+.editorial-stat-box{margin-top:30px;padding:18px 22px;background:var(--teal-pale);border-left:3px solid var(--teal);}
+.editorial-stat-val{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:var(--teal-deep);line-height:1;}
+.editorial-stat-lbl{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--light);margin-top:4px;}
+
+/* PULL QUOTE */
+.origin-quote{padding:clamp(60px,5vw,90px) clamp(18px,5vw,80px);background:var(--teal-deep);text-align:center;}
+.origin-quote blockquote{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2.8vw,36px);font-weight:300;font-style:italic;color:white;max-width:860px;margin:0 auto;line-height:1.55;}
+.origin-quote blockquote em{color:var(--gold-light);}
+.origin-quote cite{display:block;margin-top:20px;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.3);font-style:normal;}
+
+/* MAP / LOCATION SECTION */
+.location-section{background:var(--warm);padding:clamp(60px,5vw,100px) clamp(18px,5vw,80px);}
+.location-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:40px;}
+.location-map-wrap{position:relative;}
+.location-map-wrap img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;}
+.location-tag{position:absolute;bottom:0;left:0;background:var(--teal-deep);color:white;padding:10px 18px;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;}
+.location-facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px;}
+.location-fact{padding:16px 18px;background:white;border-left:2px solid var(--teal);}
+.lf-val{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:var(--teal-deep);line-height:1;}
+.lf-lbl{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--light);margin-top:3px;}
+
+@media(max-width:900px){
+  .editorial-block{grid-template-columns:1fr;gap:36px;}
+  .editorial-block.reverse{direction:ltr;}
+  .editorial-img-inset{display:none;}
+  .data-grid{grid-template-columns:repeat(3,1fr);gap:12px;}
+  .ds-item:nth-child(3){border-right:none;}
+  .location-layout{grid-template-columns:1fr;gap:40px;}
+}
+@media(max-width:600px){
+  .ori-hero-coords{gap:18px;}
+  .data-grid{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="lang-bar">
+  <button class="lang-btn active" data-lang="fr">FR</button>
+  <button class="lang-btn" data-lang="en">EN</button>
+  <button class="lang-btn" data-lang="es">ES</button>
+</div>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo-wrap">
+      <div class="logo-icon-wrap"><img src="logo.png" alt="Don Alberto Café" width="64" height="64"></div>
+      <div class="logo-text-wrap"><span class="logo-text-main">Don Alberto</span><span class="logo-text-sub">Café</span></div>
+    </a>
+    <div class="header-slogans">
+      <div class="header-slogan-main" id="slogan1">Terre de caractère, grain d'exception</div>
+      <div class="header-slogan-sub" id="slogan2">L'Artisanat du Café Ancestral</div>
+    </div>
+    <nav class="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-dropdown">
+          <a href="origine.html" class="active" id="nav-da">Don Alberto®</a>
+          <ul class="dropdown">
+            <li><a href="origine.html" class="active" id="nav-origine">L'Origine</a></li>
+            <li><a href="maison.html" id="nav-maison">La Maison</a></li>
+          </ul>
+        </li>
+        <li><a href="boutique.html" id="nav-boutique">Boutique</a></li>
+        <li><a href="atelier.html" id="nav-atelier">Atelier</a></li>
+        <li><a href="b2b.html" id="nav-b2b">Espace Pro</a></li>
+        <li><a href="boutique.html" class="cta-nav" id="nav-commander">Commander</a></li>
+      </ul>
+    </nav>
+    <button class="mob-toggle" id="mob-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="mob-nav" id="mob-nav">
+    <div class="mob-nav-section">Don Alberto®</div>
+    <a href="origine.html" id="mob-nav-origine">L'Origine</a>
+    <a href="maison.html" id="mob-nav-maison">La Maison</a>
+    <a href="boutique.html" id="mob-nav-boutique">Boutique</a>
+    <a href="atelier.html" id="mob-nav-atelier">Atelier</a>
+    <a href="b2b.html" id="mob-nav-b2b">Espace Pro</a>
+    <a href="boutique.html" class="cta-mob" id="mob-nav-commander">Commander</a>
+    <div class="mob-lang"><button data-lang="fr">FR</button><button data-lang="en">EN</button><button data-lang="es">ES</button></div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="ori-hero">
+  <img class="ori-hero-img" src="Boyaca_Beutiful_Landscapes.jpg" alt="Paysage Boyacá — Rondón, Colombie · Specialty Coffee Boyacá Colombia">
+  <div class="ori-hero-overlay"></div>
+  <div class="ori-hero-content">
+    <p class="ori-hero-eyebrow">L'Origine · Rondón · Boyacá · Colombia</p>
+    <h1>Là où naît<br><em>l'exception</em></h1>
+    <div class="ori-hero-coords">
+      <div class="ori-coord"><div class="ori-coord-val">1 670m</div><div class="ori-coord-lbl">Altitude MSNM</div></div>
+      <div class="ori-coord"><div class="ori-coord-val">Boyacá</div><div class="ori-coord-lbl">Département · Colombie</div></div>
+      <div class="ori-coord"><div class="ori-coord-val">Castillo</div><div class="ori-coord-lbl">Variété Arabica</div></div>
+      <div class="ori-coord"><div class="ori-coord-val">84.5</div><div class="ori-coord-lbl">Score SCA</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DATA STRIP -->
+<div class="data-strip">
+  <div class="data-grid">
+    <div class="ds-item"><div class="ds-val">59</div><div class="ds-lbl">Microclimats distincts</div></div>
+    <div class="ds-item"><div class="ds-val">#2</div><div class="ds-lbl">Biodiversité mondiale</div></div>
+    <div class="ds-item"><div class="ds-val">1670</div><div class="ds-lbl">Mètres d'altitude</div></div>
+    <div class="ds-item"><div class="ds-val">#1</div><div class="ds-lbl">Seule ferme spécialité Boyacá</div></div>
+    <div class="ds-item"><div class="ds-val">100%</div><div class="ds-lbl">Arabica Castillo</div></div>
+  </div>
+</div>
+
+<!-- EDITORIAL BLOCKS -->
+<section class="editorial" id="terroir">
+
+  <!-- BLOCK 1: THE GENETIC SANCTUARY -->
+  <article class="editorial-block reveal" id="sanctuaire">
+    <div>
+      <span class="block-num">01</span>
+      <span class="block-eyebrow">Le Sanctuaire Génétique · Terroir Colombien</span>
+      <h2>THE GENETIC SANCTUARY:<br><em>Colombian Terroir</em></h2>
+      <p>La Colombie n'est pas simplement un producteur ; c'est un <strong>miracle biogéographique</strong>. Deuxième territoire le plus diversifié au monde. Positionnée à l'intersection équatoriale des Andes et de l'Amazonie, le pays abrite <strong>59 microclimats distincts</strong>.</p>
+      <p>Cette hyper-biodiversité agit comme un laboratoire naturel, où la densité minérale volcanique et les cycles solaires constants créent l'équilibre parfait pour l'espèce <em>Coffea Arabica</em>. Dans ce sanctuaire, le café n'est pas simplement cultivé — <strong>il est façonné par l'environnement.</strong></p>
+      <div class="editorial-stat-box">
+        <div class="editorial-stat-val">59</div>
+        <div class="editorial-stat-lbl">Microclimats distincts en Colombie</div>
+      </div>
+      <a href="atelier.html" class="btn-primary" style="margin-top:26px;display:inline-flex;">Voir la fiche technique →</a>
+    </div>
+    <div class="editorial-block-visual">
+      <img class="editorial-img-main" src="Boyaca_Beutiful_Landscapes.jpg" alt="Terroir Colombie Boyacá — Spécialité Coffee Boyacá Colombia 59 microclimats">
+      <img class="editorial-img-inset" src="farm_cherries1.jpeg" alt="Cerises Arabica Castillo à Rondón Boyacá altitude 1670m">
+    </div>
+  </article>
+
+  <!-- BLOCK 2: RONDÓN / BOYACÁ -->
+  <article class="editorial-block reverse reveal" id="rondon">
+    <div>
+      <span class="block-num">02</span>
+      <span class="block-eyebrow">La Région · Rondón, Boyacá · 1670 ASNM</span>
+      <h2>Complexité née<br>du <em>stress positif</em></h2>
+      <p>Là où les régions traditionnelles offrent la consistance, <strong>Boyacá offre la complexité</strong>. Dans la topographie accidentée de Rondón, l'environnement est défini par ses étages thermiques dramatiques.</p>
+      <p>À <strong>1 670 ASNM</strong>, les niveaux d'oxygène réduits et les fortes fluctuations thermiques entre le jour et la nuit forcent les cerises Castillo dans un état de « stress positif ». Ce cycle de maturation plus lent permet à la plante de <strong>concentrer des esters complexes et des acides organiques</strong> au cœur du grain.</p>
+      <p>C'est l'origine du profil Don Alberto : <strong>une densité raffinée qui se manifeste en cacao profond et miel visqueux.</strong></p>
+      <div class="editorial-stat-box">
+        <div class="editorial-stat-val">1 670m</div>
+        <div class="editorial-stat-lbl">Altitude · Rondón, Boyacá, Colombia</div>
+      </div>
+    </div>
+    <div class="editorial-block-visual">
+      <img class="editorial-img-main" src="Sen_or_Cafetero.jpg" alt="Señor Cafetero — récolte manuelle cerises Castillo Rondón Boyacá altitude">
+      <img class="editorial-img-inset left" src="farm_cherries1.jpeg" alt="Cerises café maturité Boyacá Castillo">
+    </div>
+  </article>
+
+  <!-- BLOCK 3: GREEN STANDARD -->
+  <article class="editorial-block reveal" id="green-standard">
+    <div>
+      <span class="block-num">03</span>
+      <span class="block-eyebrow">Standard Vert · Au-delà de l'Origine</span>
+      <h2>GREEN STANDARD:<br><em>Beyond Origin</em></h2>
+      <p>La qualité est une mesure du respect. En tant que <strong>seule Green Coffee Farm du département</strong>, notre origine est définie par l'intégrité écologique.</p>
+      <p>En préservant la flore native de Boyacá, nous maintenons un <strong>écosystème autorégulatoire qui protège le microbiome de notre sol</strong>. C'est la distinction « Don Alberto » — une récolte single-source où l'héritage de la terre et la précision du processus se goûtent dans chaque extraction.</p>
+      <p>Notre engagement vert n'est pas un label. C'est une philosophie de culture inscrite dans chaque grain, dans chaque tasse.</p>
+      <div class="editorial-stat-box">
+        <div class="editorial-stat-val">#1</div>
+        <div class="editorial-stat-lbl">Seule Green Coffee Farm · Boyacá</div>
+      </div>
+      <a href="boutique.html" class="btn-gold" style="margin-top:26px;display:inline-flex;">Commander Don Alberto →</a>
+    </div>
+    <div class="editorial-block-visual">
+      <img class="editorial-img-main" src="farm_cherries1.jpeg" alt="Écologie ferme Don Alberto Boyacá — Green Coffee Farm Specialty Coffee">
+      <img class="editorial-img-inset" src="Boyaca_Beutiful_Landscapes.jpg" alt="Paysage natif Boyacá Colombie microbiome">
+    </div>
+  </article>
+
+</section>
+
+<!-- PULL QUOTE -->
+<div class="origin-quote">
+  <blockquote>"Dans ce sanctuaire, le café n'est pas simplement cultivé —<br><em>il est façonné par l'environnement.</em>"</blockquote>
+  <cite>Don Alberto Café · Rondón, Boyacá, Colombia</cite>
+</div>
+
+<!-- MAP / LOCATION -->
+<section class="location-section" id="localisation">
+  <div class="section-label">Localisation · Rondón, Boyacá</div>
+  <h2 class="h2" style="margin-top:8px;">Un terroir qui ne <em>se réplique pas</em></h2>
+  <div class="location-layout">
+    <div class="location-map-wrap reveal">
+      <img src="Boyaca_Beutiful_Landscapes.jpg" alt="Paysage Boyacá — vallée fluviale dans les Andes colombiennes, Rondón Specialty Coffee">
+      <div class="location-tag">Rondón · Boyacá · Colombia · 1670m</div>
+    </div>
+    <div class="reveal">
+      <p class="body-text">À 1 670 mètres d'altitude, niché dans le département de Boyacá — berceau de la famille fondatrice — pousse un café qu'aucun autre terroir ne peut reproduire. La combinaison unique d'altitude, de sol volcanique et de microclimats andins fait de Rondón un lieu à part.</p>
+      <p class="body-text">Notre ferme est <strong>la seule productrice de café vert de spécialité de tout le département de Boyacá</strong>. Ce n'est pas un titre — c'est une responsabilité que nous assumons avec chaque récolte.</p>
+      <div class="location-facts">
+        <div class="location-fact"><div class="lf-val">59</div><div class="lf-lbl">Microclimats Colombie</div></div>
+        <div class="location-fact"><div class="lf-val">#2</div><div class="lf-lbl">Biodiversité mondiale</div></div>
+        <div class="location-fact"><div class="lf-val">1670m</div><div class="lf-lbl">Altitude MSNM</div></div>
+        <div class="location-fact"><div class="lf-val">#1</div><div class="lf-lbl">Spécialité Boyacá</div></div>
+      </div>
+      <a href="atelier.html" class="btn-outline" style="margin-top:26px;display:inline-flex;">Score SCA & fiche technique →</a>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER CTA -->
+<section class="nl-cta">
+  <div class="nl-cta-inner">
+    <h2 id="nl-h">Rejoignez la communauté <em>Don Alberto</em></h2>
+    <p id="nl-p">Nouvelles récoltes · Actualités de la ferme · FR · EN · ES</p>
+    <form class="nl-form" action="https://tally.so/r/LZ04RG" method="GET" target="_blank">
+      <input type="email" name="email" class="nl-input" id="nl-input" placeholder="Votre adresse email" required>
+      <button type="submit" class="nl-submit" id="nl-btn">S'inscrire</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo-wrap">
+        <img src="logo.png" alt="Don Alberto Café">
+        <div><div class="footer-logo-text">Don Alberto</div><div class="footer-logo-sub">Café · Specialty · Boyacá</div></div>
+      </div>
+      <p class="footer-slogan">Terre de caractère,<br>grain d'exception</p>
+      <div class="footer-socials">
+        <a href="https://instagram.com" target="_blank" rel="noopener" class="footer-social" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="https://facebook.com" target="_blank" rel="noopener" class="footer-social" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="https://wa.me/33761528450" target="_blank" rel="noopener" class="footer-social" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51A11.945 11.945 0 0011.43 9c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.09.543 4.05 1.496 5.754L0 24l6.394-1.467A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.88 9.88 0 01-5.031-1.378l-.36-.214-3.742.858.899-3.628-.235-.374A9.861 9.861 0 012.118 12C2.118 6.533 6.533 2.118 12 2.118S21.882 6.533 21.882 12 17.467 21.882 12 21.882z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col"><h4 id="footer-col-h1">La Maison &amp; Origine</h4><ul><li><a href="maison.html">La Maison</a></li><li><a href="origine.html">L'Origine</a></li><li><a href="atelier.html">Atelier</a></li></ul></div>
+      <div class="footer-col"><h4 id="footer-col-h2">Commander</h4><ul><li><a href="boutique.html">Boutique</a></li><li><a href="boutique.html#abonnement">Club Don Alberto</a></li><li><a href="boutique.html">Commander maintenant</a></li></ul></div>
+      <div class="footer-col"><h4 id="footer-col-h3">Partenaires &amp; B2B</h4><ul><li><a href="b2b.html">Espace Pro</a></li><li><a href="b2b.html#contact">Contact B2B</a></li></ul></div>
+      <div class="footer-col"><h4 id="footer-col-h4">Newsletter</h4><p class="footer-nl-desc">Nouvelles récoltes et actualités.</p><form class="footer-nl-form" action="https://tally.so/r/LZ04RG" method="GET" target="_blank"><input type="email" name="email" class="footer-nl-input" id="fnl-input" placeholder="Votre email" required><button type="submit" class="footer-nl-btn" id="fnl-btn">S'inscrire</button></form></div>
+    </div>
+  </div>
+  <div class="footer-vlog"><a href="#vlog" id="footer-vlog">▸ Notre Vlog</a></div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Don Alberto Café · Rondón, Boyacá, Colombia</span>
+    <div class="footer-bottom-links"><a href="#">Mentions légales</a><a href="#">Confidentialité</a><a href="b2b.html">Espace Pro</a></div>
+  </div>
+</footer>
+
+<div class="wa-wrap">
+  <div class="wa-bubble" id="wa-bubble"><span id="wa-bubble-txt">Besoin d'aide ?</span><button class="wa-bubble-close" onclick="this.parentElement.style.display='none'">✕</button></div>
+  <a id="wa-link" href="https://wa.me/33761528450" target="_blank" rel="noopener" class="wa-btn"><svg viewBox="0 0 24 24" fill="white" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51A11.945 11.945 0 0011.43 9c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.09.543 4.05 1.496 5.754L0 24l6.394-1.467A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.88 9.88 0 01-5.031-1.378l-.36-.214-3.742.858.899-3.628-.235-.374A9.861 9.861 0 012.118 12C2.118 6.533 6.533 2.118 12 2.118S21.882 6.533 21.882 12 17.467 21.882 12 21.882z"/></svg></a>
+</div>
+
+<script src="shared.js"></script>
+</body>
+</html>

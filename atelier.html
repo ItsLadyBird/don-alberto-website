@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atelier — Don Alberto Café · Score SCA 84.5 · Cupping Notes · Procédé Lavé · Arabica Castillo</title>
+<meta name="description" content="Atelier Don Alberto Café — Score SCA 84.5 détaillé, notes de cupping, procédé lavé artisanal, variété Arabica Castillo, recommandations d'extraction. Specialty Coffee Boyacá Colombia.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+/* HERO */
+.atelier-hero{background:var(--dark);padding:clamp(60px,6vw,110px) clamp(18px,5vw,80px);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative;overflow:hidden;}
+.atelier-hero::before{content:'';position:absolute;inset:0;background:url('farm_cherries1.jpeg') center/cover;opacity:.05;}
+.atelier-hero-text{position:relative;z-index:1;}
+.atelier-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,68px);font-weight:300;color:white;line-height:1.05;margin-top:14px;}
+.atelier-hero h1 em{font-style:italic;color:var(--gold-light);}
+.atelier-hero p{font-size:clamp(13px,1.3vw,15.5px);line-height:2;color:rgba(255,255,255,.5);margin-top:18px;}
+.score-box{position:relative;z-index:1;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);padding:44px;border-top:2px solid var(--gold);text-align:center;}
+.score-num{font-family:'Cormorant Garamond',serif;font-size:clamp(80px,10vw,120px);font-weight:300;color:var(--gold-light);line-height:1;}
+.score-unit{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:10px;}
+.score-sub{font-size:11px;color:rgba(255,255,255,.25);margin-top:5px;letter-spacing:1px;}
+
+/* SCA SECTION */
+.sca-section{background:var(--teal-deep);padding:clamp(60px,5vw,100px) clamp(18px,5vw,80px);}
+.sca-layout{display:grid;grid-template-columns:1fr 1.1fr;gap:60px;align-items:start;margin-top:50px;}
+
+/* SCORE TIERS */
+.score-tiers{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:32px;}
+.tier{padding:14px 16px;position:relative;}
+.tier.active{background:var(--teal-pale);border:2px solid var(--teal);}
+.tier:not(.active){background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);opacity:.55;}
+.tier-range{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;}
+.tier.active .tier-range{color:var(--teal-deep);}
+.tier:not(.active) .tier-range{color:rgba(255,255,255,.4);}
+.tier-lbl{font-size:8px;letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
+.tier.active .tier-lbl{color:var(--mid);}
+.tier:not(.active) .tier-lbl{color:rgba(255,255,255,.3);}
+.tier-badge{position:absolute;top:-8px;right:8px;background:var(--teal);color:white;font-size:7px;letter-spacing:1px;text-transform:uppercase;padding:3px 7px;}
+
+/* SCA STEPS */
+.sca-steps-list{display:flex;flex-direction:column;gap:22px;}
+.sca-step-item{display:flex;gap:18px;align-items:flex-start;}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:300;color:var(--gold);line-height:1;flex-shrink:0;width:48px;text-align:right;}
+.step-body h3{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:400;color:white;margin-bottom:5px;}
+.step-body p{font-size:12.5px;line-height:1.9;color:rgba(255,255,255,.5);}
+
+/* CUPPING NOTES */
+.cupping-section{background:var(--warm);padding:clamp(60px,5vw,100px) clamp(18px,5vw,80px);}
+.cupping-intro{text-align:center;max-width:660px;margin:12px auto 44px;font-size:13.5px;line-height:1.9;color:var(--mid);}
+.cupping-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.cupping-card{background:white;padding:28px 22px;border-bottom:3px solid var(--gold);transition:box-shadow .3s,transform .3s;}
+.cupping-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.08);transform:translateY(-3px);}
+.cupping-icon{width:40px;height:40px;margin-bottom:14px;color:var(--teal);}
+.cupping-icon svg{width:40px;height:40px;}
+.cupping-name{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:var(--dark);margin-bottom:7px;}
+.cupping-desc{font-size:12px;line-height:1.9;color:var(--mid);}
+.cupping-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px;}
+.cupping-tag{font-size:8px;letter-spacing:1.5px;text-transform:uppercase;border:1px solid rgba(212,161,36,.3);padding:3px 8px;color:var(--gold);}
+
+/* FLAVOR BARS */
+.flavor-section{background:var(--cream);padding:clamp(50px,4vw,80px) clamp(18px,5vw,80px);}
+.flavor-layout{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:40px;}
+.flavor-bars{display:flex;flex-direction:column;gap:13px;}
+.flavor-row{display:flex;align-items:center;gap:14px;}
+.flavor-lbl{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--mid);width:96px;text-align:right;flex-shrink:0;}
+.flavor-track{flex:1;height:7px;background:rgba(9,102,133,.1);overflow:hidden;}
+.flavor-fill{height:7px;background:linear-gradient(to right,var(--teal),var(--gold));width:0%;transition:width 1.3s cubic-bezier(.23,1,.32,1);}
+.flavor-val{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:300;color:var(--teal-deep);width:34px;text-align:right;flex-shrink:0;}
+.aroma-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:22px;}
+.aroma-tag{border:1px solid rgba(9,102,133,.2);padding:6px 13px;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--teal);}
+
+/* VARIÉTÉ ARABICA CASTILLO */
+.variete-section{background:var(--teal-deep);padding:clamp(60px,5vw,100px) clamp(18px,5vw,80px);}
+.variete-layout{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;margin-top:44px;}
+.variete-img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;}
+.variete-intro{font-size:13.5px;line-height:2;color:rgba(255,255,255,.6);margin-bottom:24px;}
+.spec-list{display:flex;flex-direction:column;}
+.spec-row{display:flex;justify-content:space-between;align-items:baseline;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.06);}
+.spec-key{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.32);}
+.spec-val{font-size:12px;color:rgba(255,255,255,.72);text-align:right;max-width:58%;}
+.variete-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px;}
+.variete-tag{border:1px solid rgba(196,150,58,.3);padding:5px 12px;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.55);}
+
+/* WASHED PROCESS */
+.process-section{background:var(--cream);padding:clamp(60px,5vw,100px) clamp(18px,5vw,80px);}
+.process-layout{display:grid;grid-template-columns:1fr 1fr;gap:70px;margin-top:50px;align-items:start;}
+.process-steps-list{display:flex;flex-direction:column;}
+.process-step{display:grid;grid-template-columns:42px 1fr;gap:16px;padding:22px 0;border-bottom:1px solid rgba(9,102,133,.06);align-items:start;}
+.step-icon{width:36px;height:36px;border:1px solid rgba(9,102,133,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--teal);}
+.step-icon svg{width:17px;height:17px;}
+.process-step h3{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:var(--dark);margin-bottom:5px;}
+.process-step p{font-size:12.5px;line-height:1.9;color:var(--mid);}
+.proc-benefits{display:flex;flex-direction:column;gap:14px;}
+.proc-benefit{background:white;border:1px solid rgba(9,102,133,.08);padding:22px;border-top:2px solid var(--teal-mid);box-shadow:0 3px 14px rgba(0,0,0,.04);}
+.proc-benefit h3{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--dark);margin-bottom:6px;}
+.proc-benefit p{font-size:12.5px;line-height:1.9;color:var(--mid);}
+
+/* WHOLE BEAN */
+.grain-section{background:var(--teal-pale);padding:clamp(60px,5vw,100px) clamp(18px,5vw,80px);}
+.grain-header-center{max-width:640px;margin:0 auto 48px;text-align:center;}
+.grain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.grain-card{background:white;padding:38px 28px;border-top:2px solid transparent;transition:border-color .3s,box-shadow .3s;}
+.grain-card:hover{border-top-color:var(--teal);box-shadow:0 8px 36px rgba(9,102,133,.1);}
+.grain-icon{width:38px;height:38px;margin-bottom:18px;color:var(--teal);}
+.grain-icon svg{width:38px;height:38px;}
+.grain-card h3{font-family:'Cormorant Garamond',serif;font-size:20px;margin-bottom:10px;color:var(--dark);}
+.grain-card p{font-size:12.5px;line-height:1.9;color:var(--mid);}
+
+/* EXTRACTION RECS */
+.extraction-section{background:var(--dark);padding:clamp(60px,5vw,100px) clamp(18px,5vw,80px);position:relative;overflow:hidden;}
+.extraction-section::before{content:'';position:absolute;inset:0;background:url('farm_cherries1.jpeg') center/cover;opacity:.04;}
+.extraction-inner{position:relative;z-index:1;}
+.extraction-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px;}
+.ex-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:28px 22px;border-top:2px solid var(--gold);}
+.ex-method{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-light);margin-bottom:10px;}
+.ex-name{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:300;color:white;margin-bottom:12px;}
+.ex-specs{display:flex;flex-direction:column;gap:7px;margin-top:14px;}
+.ex-row{display:flex;justify-content:space-between;font-size:10.5px;}
+.ex-k{color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:1px;font-size:9px;}
+.ex-v{color:rgba(255,255,255,.7);}
+
+/* TECH SPECS */
+.tech-section{background:var(--warm);padding:clamp(50px,4vw,80px) clamp(18px,5vw,80px);}
+.tech-layout{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:36px;}
+.tech-list{display:flex;flex-direction:column;}
+.tech-item{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0;border-bottom:1px solid rgba(9,102,133,.07);}
+.tech-key{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--light);}
+.tech-val{font-size:12px;color:var(--dark);text-align:right;max-width:60%;}
+.certif-list{display:flex;flex-direction:column;gap:10px;margin-top:24px;}
+.certif-item{display:flex;align-items:center;gap:11px;font-size:12px;color:var(--mid);}
+.cdot{width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+
+@media(max-width:900px){
+  .atelier-hero,.sca-layout,.variete-layout,.process-layout,.flavor-layout{grid-template-columns:1fr;gap:40px;}
+  .cupping-grid{grid-template-columns:1fr 1fr;}
+  .grain-grid{grid-template-columns:1fr;}
+  .extraction-grid{grid-template-columns:1fr 1fr;}
+  .tech-layout{grid-template-columns:1fr;}
+  .score-tiers{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+  .cupping-grid,.extraction-grid{grid-template-columns:1fr;}
+  .sca-row{grid-template-columns:74px 1fr 28px!important;gap:8px!important;}
+}
+</style>
+</head>
+<body>
+
+<div class="lang-bar">
+  <button class="lang-btn active" data-lang="fr">FR</button>
+  <button class="lang-btn" data-lang="en">EN</button>
+  <button class="lang-btn" data-lang="es">ES</button>
+</div>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo-wrap">
+      <div class="logo-icon-wrap"><img src="logo.png" alt="Don Alberto Café" width="64" height="64"></div>
+      <div class="logo-text-wrap"><span class="logo-text-main">Don Alberto</span><span class="logo-text-sub">Café</span></div>
+    </a>
+    <div class="header-slogans">
+      <div class="header-slogan-main" id="slogan1">Terre de caractère, grain d'exception</div>
+      <div class="header-slogan-sub" id="slogan2">L'Artisanat du Café Ancestral</div>
+    </div>
+    <nav class="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-dropdown">
+          <a href="origine.html" id="nav-da">Don Alberto®</a>
+          <ul class="dropdown">
+            <li><a href="origine.html" id="nav-origine">L'Origine</a></li>
+            <li><a href="maison.html" id="nav-maison">La Maison</a></li>
+          </ul>
+        </li>
+        <li><a href="boutique.html" id="nav-boutique">Boutique</a></li>
+        <li><a href="atelier.html" class="active" id="nav-atelier">Atelier</a></li>
+        <li><a href="b2b.html" id="nav-b2b">Espace Pro</a></li>
+        <li><a href="boutique.html" class="cta-nav" id="nav-commander">Commander</a></li>
+      </ul>
+    </nav>
+    <button class="mob-toggle" id="mob-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="mob-nav" id="mob-nav">
+    <div class="mob-nav-section">Don Alberto®</div>
+    <a href="origine.html" id="mob-nav-origine">L'Origine</a>
+    <a href="maison.html" id="mob-nav-maison">La Maison</a>
+    <a href="boutique.html" id="mob-nav-boutique">Boutique</a>
+    <a href="atelier.html" id="mob-nav-atelier">Atelier</a>
+    <a href="b2b.html" id="mob-nav-b2b">Espace Pro</a>
+    <a href="boutique.html" class="cta-mob" id="mob-nav-commander">Commander</a>
+    <div class="mob-lang"><button data-lang="fr">FR</button><button data-lang="en">EN</button><button data-lang="es">ES</button></div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="atelier-hero">
+  <div class="atelier-hero-text">
+    <div class="section-label light">Atelier · Autorité Technique</div>
+    <h1>Score SCA <em>84.5</em> —<br>Ce que ça révèle</h1>
+    <p>L'Atelier Don Alberto est l'espace de l'excellence technique. Score SCA certifié Q-Grader, notes de cupping, procédé lavé artisanal, variété Arabica Castillo — tout ce qui fait la signature d'un café de spécialité exceptionnel issu de Boyacá, Colombie.</p>
+    <a href="boutique.html" class="btn-gold" style="margin-top:26px;display:inline-flex;">Commander ce café →</a>
+  </div>
+  <div class="score-box">
+    <div class="score-num">84.5</div>
+    <div class="score-unit">Score SCA Certifié Q-Grader</div>
+    <div class="score-sub">Specialty Grade · Top 10% Mondial</div>
+  </div>
+</section>
+
+<!-- SCA BARS -->
+<section class="sca-section" id="sca">
+  <div class="section-label light center">Évaluation SCA · Specialty Coffee Association</div>
+  <h2 class="h2 light" style="text-align:center;margin-top:10px;">Décomposition du <em>Score 84.5</em></h2>
+  <div class="sca-layout">
+    <div class="sca-wrap">
+      <div class="sca-header-row">
+        <div>
+          <div class="sca-big-score">84.5</div>
+          <div class="sca-big-lbl">Score SCA Total</div>
+        </div>
+        <div class="sca-meta">
+          <div class="badge">SPECIALTY</div>
+          <div class="badgesub">Top 10% Mondial</div>
+          <div class="eval">Évalué par Q-Grader<br>certifié SCA · Blind tasting</div>
+        </div>
+      </div>
+      <div class="sca-bars">
+        <div class="sca-row"><div class="sca-lbl">Arôme</div><div class="sca-track"><div class="sca-fill" data-pct="83"></div></div><div class="sca-val">8.3</div></div>
+        <div class="sca-row"><div class="sca-lbl">Saveur</div><div class="sca-track"><div class="sca-fill" data-pct="84"></div></div><div class="sca-val">8.4</div></div>
+        <div class="sca-row"><div class="sca-lbl">Fin de bouche</div><div class="sca-track"><div class="sca-fill" data-pct="83"></div></div><div class="sca-val">8.3</div></div>
+        <div class="sca-row"><div class="sca-lbl">Acidité</div><div class="sca-track"><div class="sca-fill" data-pct="84"></div></div><div class="sca-val">8.4</div></div>
+        <div class="sca-row"><div class="sca-lbl">Corps</div><div class="sca-track"><div class="sca-fill" data-pct="83"></div></div><div class="sca-val">8.3</div></div>
+        <div class="sca-row"><div class="sca-lbl">Équilibre</div><div class="sca-track"><div class="sca-fill" data-pct="83"></div></div><div class="sca-val">8.3</div></div>
+        <div class="sca-row"><div class="sca-lbl">Uniformité</div><div class="sca-track"><div class="sca-fill perfect" data-pct="100"></div></div><div class="sca-val perfect">10.0</div></div>
+        <div class="sca-row"><div class="sca-lbl">Tasse propre</div><div class="sca-track"><div class="sca-fill perfect" data-pct="100"></div></div><div class="sca-val perfect">10.0</div></div>
+        <div class="sca-row"><div class="sca-lbl">Douceur</div><div class="sca-track"><div class="sca-fill perfect" data-pct="100"></div></div><div class="sca-val perfect">10.0</div></div>
+        <div class="sca-row"><div class="sca-lbl">Global</div><div class="sca-track"><div class="sca-fill" data-pct="83"></div></div><div class="sca-val">8.3</div></div>
+      </div>
+      <div class="sca-foot">
+        <div class="sca-foot-grid">
+          <div class="sca-foot-item"><div class="v">84.5</div><div class="l">Score total</div></div>
+          <div class="sca-foot-item"><div class="v">3/3</div><div class="l">Critères parfaits</div></div>
+          <div class="sca-foot-item"><div class="v">Top 10%</div><div class="l">Mondial</div></div>
+          <div class="sca-foot-item"><div class="v">Lavé</div><div class="l">Procédé</div></div>
+        </div>
+        <div class="sca-notes">Miel velouté · Cacao profond · Texture soyeuse · Finale propre et élégante</div>
+      </div>
+    </div>
+    <div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:white;margin-bottom:18px;">Les niveaux <em style="font-style:italic;color:var(--gold-light)">SCA</em> expliqués</h3>
+      <div class="score-tiers">
+        <div class="tier"><div class="tier-range">90–100</div><div class="tier-lbl">Outstanding</div></div>
+        <div class="tier active"><div class="tier-badge">Don Alberto</div><div class="tier-range">84.5</div><div class="tier-lbl">Specialty ✓</div></div>
+        <div class="tier"><div class="tier-range">80–84</div><div class="tier-lbl">Specialty entry</div></div>
+        <div class="tier"><div class="tier-range">&lt; 80</div><div class="tier-lbl">Commercial grade</div></div>
+      </div>
+      <div class="sca-steps-list" style="margin-top:28px;">
+        <div class="sca-step-item">
+          <div class="step-num">01</div>
+          <div class="step-body"><h3>Dégustation à l'aveugle</h3><p>Un Q-Grader certifié SCA évalue le café à l'aveugle sur 10 critères sensoriels avec une précision au dixième de point.</p></div>
+        </div>
+        <div class="sca-step-item">
+          <div class="step-num">02</div>
+          <div class="step-body"><h3>Scores parfaits sur 3 critères</h3><p>Notre Castillo obtient 10/10 en uniformité, tasse propre et douceur — marqueurs d'un procédé lavé impeccable.</p></div>
+        </div>
+        <div class="sca-step-item">
+          <div class="step-num">03</div>
+          <div class="step-body"><h3>84.5 — Top 10% mondial</h3><p>Moins de 10% de la production mondiale atteint 80+ points. Don Alberto fait partie de ce club exclusif.</p></div>
+        </div>
+        <div class="sca-step-item">
+          <div class="step-num">04</div>
+          <div class="step-body"><h3>Ce que ça signifie pour vous</h3><p>Complexité aromatique, clarté et équilibre en tasse. La promesse d'une expérience gustative exceptionnelle.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CUPPING NOTES -->
+<section class="cupping-section" id="cupping">
+  <div class="section-label center">Notes de Cupping · Profil Aromatique</div>
+  <h2 class="h2" style="text-align:center;margin-top:8px;">Le profil <em>Don Alberto</em></h2>
+  <p class="cupping-intro">Une densité raffinée qui s'ouvre sur le cacao profond et le chocolat noir, transite par un miel visqueux et une douceur caramel, et se termine sur une acidité agrumée propre et lumineuse — la signature du stress positif à 1 670m.</p>
+  <div class="cupping-grid">
+    <div class="cupping-card reveal">
+      <div class="cupping-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M24 8C20 14 18 19 18 24a6 6 0 0012 0c0-5-2-10-6-16z"/></svg></div>
+      <div class="cupping-name">Miel velouté</div>
+      <div class="cupping-desc">Douceur naturelle et persistante rappelant le miel d'acacia. Rondeur et onctuosité caractéristiques de l'Arabica Castillo en procédé lavé.</div>
+      <div class="cupping-tags"><span class="cupping-tag">Sucré</span><span class="cupping-tag">Persistant</span></div>
+    </div>
+    <div class="cupping-card reveal">
+      <div class="cupping-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="10" y="22" width="28" height="18" rx="2"/><path d="M18 22v-8a6 6 0 0112 0v8"/></svg></div>
+      <div class="cupping-name">Cacao profond</div>
+      <div class="cupping-desc">Notes chocolatées intenses et complexes. La densité minérale du terroir à 1 670m se traduit par une base cacaotée distinguée et longue en bouche.</div>
+      <div class="cupping-tags"><span class="cupping-tag">Chocolat noir</span><span class="cupping-tag">Profond</span></div>
+    </div>
+    <div class="cupping-card reveal">
+      <div class="cupping-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 32s6-9 10-9 10 9 10 9 6-9 10-9"/></svg></div>
+      <div class="cupping-name">Texture soyeuse</div>
+      <div class="cupping-desc">Corps plein et soyeux, sans astringence. Le procédé lavé préserve la pureté aromatique et délivre une texture en bouche exceptionnellement élégante.</div>
+      <div class="cupping-tags"><span class="cupping-tag">Corps</span><span class="cupping-tag">Soyeux</span></div>
+    </div>
+    <div class="cupping-card reveal">
+      <div class="cupping-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="24" r="15"/><path d="M24 16v16M16 24h16"/></svg></div>
+      <div class="cupping-name">Finale propre</div>
+      <div class="cupping-desc">Score 10/10 SCA en tasse propre. Absence totale de défauts et d'amertume résiduelle. Finale longue, nette et élégante qui persiste plusieurs minutes.</div>
+      <div class="cupping-tags"><span class="cupping-tag">10/10 SCA</span><span class="cupping-tag">Élégant</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FLAVOR BARS -->
+<section class="flavor-section" id="profil">
+  <div class="section-label">Profil Sensoriel</div>
+  <h2 class="h2" style="margin-top:8px;">Intensité des <em>dimensions aromatiques</em></h2>
+  <div class="flavor-layout">
+    <div class="flavor-bars reveal">
+      <div class="flavor-row"><div class="flavor-lbl">Douceur</div><div class="flavor-track"><div class="flavor-fill" data-pct="88"></div></div><div class="flavor-val">8.8</div></div>
+      <div class="flavor-row"><div class="flavor-lbl">Acidité</div><div class="flavor-track"><div class="flavor-fill" data-pct="84"></div></div><div class="flavor-val">8.4</div></div>
+      <div class="flavor-row"><div class="flavor-lbl">Corps</div><div class="flavor-track"><div class="flavor-fill" data-pct="83"></div></div><div class="flavor-val">8.3</div></div>
+      <div class="flavor-row"><div class="flavor-lbl">Arôme</div><div class="flavor-track"><div class="flavor-fill" data-pct="83"></div></div><div class="flavor-val">8.3</div></div>
+      <div class="flavor-row"><div class="flavor-lbl">Équilibre</div><div class="flavor-track"><div class="flavor-fill" data-pct="83"></div></div><div class="flavor-val">8.3</div></div>
+      <div class="flavor-row"><div class="flavor-lbl">Amertume</div><div class="flavor-track"><div class="flavor-fill" data-pct="28" style="background:var(--light)"></div></div><div class="flavor-val" style="font-size:10px;color:var(--light)">Faible</div></div>
+    </div>
+    <div>
+      <div class="section-label">Notes de dégustation</div>
+      <div class="aroma-tags">
+        <span class="aroma-tag">Cacao profond</span>
+        <span class="aroma-tag">Miel velouté</span>
+        <span class="aroma-tag">Agrumes</span>
+        <span class="aroma-tag">Caramel</span>
+        <span class="aroma-tag">Texture soyeuse</span>
+        <span class="aroma-tag">Finale propre</span>
+      </div>
+      <p class="body-text">Une densité raffinée qui s'ouvre sur le cacao profond, transite par le miel visqueux, et se termine sur une acidité agrumée propre et lumineuse — la signature directe du stress positif à 1 670m.</p>
+      <p class="body-text">Le procédé lavé permet à chaque dimension de s'exprimer sans interférence de la pulpe. Résultat : un profil cristallin, fidèle au terroir de Boyacá.</p>
+      <a href="boutique.html" class="btn-primary" style="margin-top:12px;display:inline-flex;">Commander maintenant →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ARABICA CASTILLO -->
+<section class="variete-section" id="arabica-castillo">
+  <div class="section-label light">Variété · Arabica Castillo</div>
+  <h2 class="h2 light" style="margin-top:8px;">Pourquoi le <em>Castillo</em> ?</h2>
+  <div class="variete-layout">
+    <div>
+      <img class="variete-img" src="farm_cherries1.jpeg" alt="Cerises Arabica Castillo mûres à Rondón Boyacá — Specialty Coffee Colombia">
+    </div>
+    <div>
+      <p class="variete-intro">La variété Castillo est une sélection colombienne qui allie résistance naturelle et excellence aromatique. À 1 670 m, dans les conditions de stress thermique de Rondón, elle exprime son plein potentiel gustatif. Le cycle de maturation plus lent concentre les esters complexes et les acides organiques dans chaque grain.</p>
+      <div class="spec-list">
+        <div class="spec-row"><span class="spec-key">Espèce</span><span class="spec-val">Coffea Arabica</span></div>
+        <div class="spec-row"><span class="spec-key">Variété</span><span class="spec-val">Castillo (sélection colombienne)</span></div>
+        <div class="spec-row"><span class="spec-key">Altitude</span><span class="spec-val">1 670 m MSNM · Rondón, Boyacá</span></div>
+        <div class="spec-row"><span class="spec-key">Récolte</span><span class="spec-val">Manuelle · cerises rouges uniquement</span></div>
+        <div class="spec-row"><span class="spec-key">Maturation</span><span class="spec-val">Cycle lent par stress positif</span></div>
+        <div class="spec-row"><span class="spec-key">Profil</span><span class="spec-val">Cacao · Miel · Agrumes · Corps soyeux</span></div>
+        <div class="spec-row"><span class="spec-key">Procédé</span><span class="spec-val">Lavé (Washed) · Lits africains</span></div>
+      </div>
+      <div class="variete-tags">
+        <span class="variete-tag">Résistance naturelle</span>
+        <span class="variete-tag">Rendement maîtrisé</span>
+        <span class="variete-tag">Complexité aromatique</span>
+        <span class="variete-tag">Single Origin</span>
+        <span class="variete-tag">100% Arabica</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WASHED PROCESS -->
+<section class="process-section" id="procede-lave">
+  <div class="section-label">Le Procédé Lavé</div>
+  <h2 class="h2" style="margin-top:8px;">Café <em>Lavé</em> — La voie<br>de la pureté aromatique</h2>
+  <div class="process-layout">
+    <div class="process-steps-list reveal">
+      <div class="process-step">
+        <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8 6 6 10 6 14a6 6 0 0012 0c0-4-2-8-6-12z"/></svg></div>
+        <div><h3>1 · Récolte sélective à la main</h3><p>Seules les cerises mûres à point sont cueillies grain par grain lors de passages multiples. Cette sélection rigoureuse est la première condition de la qualité SCA 84.5.</p></div>
+      </div>
+      <div class="process-step">
+        <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 3"/></svg></div>
+        <div><h3>2 · Dépulpage immédiat</h3><p>La pulpe est retirée mécaniquement dans les heures suivant la récolte. La graine, encore recouverte de mucilage, entre en fermentation contrôlée.</p></div>
+      </div>
+      <div class="process-step">
+        <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M4 8h16M4 16h10"/></svg></div>
+        <div><h3>3 · Fermentation aquatique</h3><p>Le café fermente dans des cuves d'eau pendant 24 à 48 heures. Ce processus développe la clarté aromatique signature du café lavé sans aucune interférence de la pulpe.</p></div>
+      </div>
+      <div class="process-step">
+        <div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v13M7 9l5 7 5-7"/><line x1="5" y1="21" x2="19" y2="21"/></svg></div>
+        <div><h3>4 · Lavage &amp; Séchage sur lits africains</h3><p>Un lavage abondant élimine tout résidu. Le café est séché sur lits africains à l'air libre à 1 670m d'altitude, préservant les arômes délicats du terroir de Boyacá.</p></div>
+      </div>
+    </div>
+    <div class="proc-benefits reveal">
+      <div class="proc-benefit"><h3>Pureté aromatique totale</h3><p>Le terroir de Boyacá s'exprime avec une clarté maximale. Sans interférence de la pulpe, chaque nuance aromatique du grain Castillo est préservée intacte.</p></div>
+      <div class="proc-benefit"><h3>Acidité vive et élégante</h3><p>Acidité moyenne agréable, vivacité sans agressivité — signature du procédé lavé. Un équilibre parfait entre corps et légèreté en tasse.</p></div>
+      <div class="proc-benefit"><h3>Tasse propre · Score 10/10 SCA</h3><p>Score parfait SCA en tasse propre — reconnaissance directe de la rigueur du procédé artisanal de Don Alberto. Absence totale de défauts.</p></div>
+      <div class="proc-benefit"><h3>Consistance lot après lot</h3><p>La même promesse de saveur dans chaque bag Don Alberto. La précision du procédé garantit une expérience reproductible à chaque extraction.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHOLE BEAN -->
+<section class="grain-section" id="grain-entier">
+  <div class="grain-header-center">
+    <div class="section-label center">Grain Entier vs Moulu</div>
+    <h2 class="h2" style="margin-top:8px;">Grain entier —<br><em>l'art de la fraîcheur</em></h2>
+    <p style="font-size:13.5px;line-height:1.9;color:var(--mid);margin-top:12px;">La mouture libère immédiatement les arômes volatils. Avec le grain entier, vous restez maître du moment — et de la qualité. Don Alberto est disponible en grain entier et moulu (précisé à la commande).</p>
+  </div>
+  <div class="grain-grid">
+    <div class="grain-card">
+      <div class="grain-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l1.5 4L17 7l-3 3 1 4-3-2-3 2 1-4-3-3 3.5-1L12 2z"/><circle cx="12" cy="12" r="9"/></svg></div>
+      <h3>Fraîcheur maximale</h3>
+      <p>Le café en grain conserve ses huiles aromatiques jusqu'à 12 mois. Moulu juste avant l'infusion, il révèle la pleine complexité du terroir andin de Boyacá — rien n'est perdu.</p>
+    </div>
+    <div class="grain-card">
+      <div class="grain-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg></div>
+      <h3>Contrôle de la mouture</h3>
+      <p>Espresso, filtre, French press, Chemex, moka — chaque méthode d'extraction demande une granulométrie précise. Le grain entier vous donne cette liberté totale de personnalisation.</p>
+    </div>
+    <div class="grain-card">
+      <div class="grain-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8 6 6 10 6 14a6 6 0 0012 0c0-4-2-8-6-12z"/></svg></div>
+      <h3>Arômes intacts</h3>
+      <p>Une fois moulu, le café perd 60% de ses arômes en 15 minutes. Avec Don Alberto en grain, vous êtes la première personne à briser le grain — la fraîcheur absolue dans votre tasse.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXTRACTION RECOMMENDATIONS -->
+<section class="extraction-section" id="extraction">
+  <div class="extraction-inner">
+    <div class="section-label light">Recommandations d'Extraction</div>
+    <h2 class="h2 light" style="margin-top:8px;">Comment révéler le <em>profil Don Alberto</em></h2>
+    <p style="font-size:13px;color:rgba(255,255,255,.45);margin-top:10px;max-width:600px;">Ces paramètres sont optimisés pour révéler les notes de miel, de cacao et la finale propre de l'Arabica Castillo à 1 670m. Adaptez selon votre goût.</p>
+    <div class="extraction-grid">
+      <div class="ex-card">
+        <div class="ex-method">Espresso</div>
+        <div class="ex-name">Espresso</div>
+        <p style="font-size:12px;color:rgba(255,255,255,.45);line-height:1.8;">Corps concentré, crema dorée, cacao en première note. Idéal pour apprécier la densité du Castillo.</p>
+        <div class="ex-specs">
+          <div class="ex-row"><span class="ex-k">Mouture</span><span class="ex-v">Très fine</span></div>
+          <div class="ex-row"><span class="ex-k">Dose</span><span class="ex-v">18–20g</span></div>
+          <div class="ex-row"><span class="ex-k">Extraction</span><span class="ex-v">25–30 sec</span></div>
+          <div class="ex-row"><span class="ex-k">Temp.</span><span class="ex-v">92–94°C</span></div>
+          <div class="ex-row"><span class="ex-k">Pression</span><span class="ex-v">9 bars</span></div>
+        </div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-method">Filtre</div>
+        <div class="ex-name">V60 / Chemex</div>
+        <p style="font-size:12px;color:rgba(255,255,255,.45);line-height:1.8;">Révèle l'acidité agrumée et la douceur de miel. La méthode filtre met en valeur le profil lavé dans toute sa clarté.</p>
+        <div class="ex-specs">
+          <div class="ex-row"><span class="ex-k">Mouture</span><span class="ex-v">Moyenne-fine</span></div>
+          <div class="ex-row"><span class="ex-k">Ratio</span><span class="ex-v">1:15 à 1:17</span></div>
+          <div class="ex-row"><span class="ex-k">Temps total</span><span class="ex-v">3–4 min</span></div>
+          <div class="ex-row"><span class="ex-k">Temp.</span><span class="ex-v">93–96°C</span></div>
+          <div class="ex-row"><span class="ex-k">Bloom</span><span class="ex-v">30s · 2× dose</span></div>
+        </div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-method">Immersion</div>
+        <div class="ex-name">French Press</div>
+        <p style="font-size:12px;color:rgba(255,255,255,.45);line-height:1.8;">Corps plein et texture soyeuse au premier plan. Idéal pour apprécier la structure riche du profil Don Alberto.</p>
+        <div class="ex-specs">
+          <div class="ex-row"><span class="ex-k">Mouture</span><span class="ex-v">Grossière</span></div>
+          <div class="ex-row"><span class="ex-k">Ratio</span><span class="ex-v">1:12 à 1:14</span></div>
+          <div class="ex-row"><span class="ex-k">Infusion</span><span class="ex-v">4 min</span></div>
+          <div class="ex-row"><span class="ex-k">Temp.</span><span class="ex-v">93–95°C</span></div>
+          <div class="ex-row"><span class="ex-k">Piston</span><span class="ex-v">Lent et régulier</span></div>
+        </div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-method">Espresso maison</div>
+        <div class="ex-name">Moka</div>
+        <p style="font-size:12px;color:rgba(255,255,255,.45);line-height:1.8;">Concentré intense, notes de cacao dominantes. La cafetière italienne révèle la puissance du Castillo.</p>
+        <div class="ex-specs">
+          <div class="ex-row"><span class="ex-k">Mouture</span><span class="ex-v">Fine-moyenne</span></div>
+          <div class="ex-row"><span class="ex-k">Tassage</span><span class="ex-v">Léger, non tassé</span></div>
+          <div class="ex-row"><span class="ex-k">Chaleur</span><span class="ex-v">Feu moyen</span></div>
+          <div class="ex-row"><span class="ex-k">Eau</span><span class="ex-v">Sous la valve</span></div>
+        </div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-method">Cold Brew</div>
+        <div class="ex-name">Infusion à froid</div>
+        <p style="font-size:12px;color:rgba(255,255,255,.45);line-height:1.8;">Douceur naturelle décuplée, acidité fondante. Le cold brew révèle le miel et caramel du Castillo sans amertume.</p>
+        <div class="ex-specs">
+          <div class="ex-row"><span class="ex-k">Mouture</span><span class="ex-v">Très grossière</span></div>
+          <div class="ex-row"><span class="ex-k">Ratio</span><span class="ex-v">1:8 (concentré)</span></div>
+          <div class="ex-row"><span class="ex-k">Infusion</span><span class="ex-v">12–18h réfrig.</span></div>
+          <div class="ex-row"><span class="ex-k">Temp.</span><span class="ex-v">4–6°C</span></div>
+        </div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-method">Immersion</div>
+        <div class="ex-name">AeroPress</div>
+        <p style="font-size:12px;color:rgba(255,255,255,.45);line-height:1.8;">Polyvalent et précis. Permet d'explorer toute la palette aromatique de l'Arabica Castillo, de l'espresso-style au filtre.</p>
+        <div class="ex-specs">
+          <div class="ex-row"><span class="ex-k">Mouture</span><span class="ex-v">Fine à moyenne</span></div>
+          <div class="ex-row"><span class="ex-k">Dose</span><span class="ex-v">15–18g</span></div>
+          <div class="ex-row"><span class="ex-k">Temps total</span><span class="ex-v">1:30–2:30 min</span></div>
+          <div class="ex-row"><span class="ex-k">Temp.</span><span class="ex-v">85–95°C</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH SPECS -->
+<section class="tech-section" id="fiche-technique">
+  <div class="section-label">Fiche Technique Complète</div>
+  <h2 class="h2" style="margin-top:8px;">Spécifications <em>Don Alberto</em></h2>
+  <div class="tech-layout">
+    <div>
+      <div class="tech-list">
+        <div class="tech-item"><span class="tech-key">Espèce</span><span class="tech-val">100% Coffea Arabica</span></div>
+        <div class="tech-item"><span class="tech-key">Variété</span><span class="tech-val">Castillo</span></div>
+        <div class="tech-item"><span class="tech-key">Origine</span><span class="tech-val">Single Farm · Rondón, Boyacá, Colombia</span></div>
+        <div class="tech-item"><span class="tech-key">Altitude</span><span class="tech-val">1 670 m MSNM</span></div>
+        <div class="tech-item"><span class="tech-key">Procédé</span><span class="tech-val">Lavé (Washed) — Pureté aromatique</span></div>
+        <div class="tech-item"><span class="tech-key">Torréfaction</span><span class="tech-val">Moyenne artisanale</span></div>
+        <div class="tech-item"><span class="tech-key">Score SCA</span><span class="tech-val">84.5 · Specialty Grade</span></div>
+        <div class="tech-item"><span class="tech-key">Formats</span><span class="tech-val">250g · 500g · 1kg · 3×250g</span></div>
+        <div class="tech-item"><span class="tech-key">Évaluateur</span><span class="tech-val">Q-Grader certifié SCA · Blind tasting</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="certif-list">
+        <div class="certif-item"><div class="cdot"></div>Micro-lot sélectionné à la main · cerises rouges uniquement</div>
+        <div class="certif-item"><div class="cdot"></div>Traçabilité totale ferme → tasse</div>
+        <div class="certif-item"><div class="cdot"></div>Seule ferme de café vert de spécialité de Boyacá</div>
+        <div class="certif-item"><div class="cdot"></div>Green Coffee Farm · Chaîne d'approvisionnement verte</div>
+        <div class="certif-item"><div class="cdot"></div>Scores parfaits 10/10 : Uniformité, Tasse propre, Douceur</div>
+      </div>
+      <div style="margin-top:28px;padding:22px 24px;background:var(--gold-pale);border-left:3px solid var(--gold);">
+        <div style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--light);margin-bottom:10px;">Notes de dégustation</div>
+        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:var(--teal-deep);line-height:1.7;">Miel velouté · Cacao profond · Texture soyeuse · Finale propre et élégante</p>
+      </div>
+      <a href="boutique.html" class="btn-primary" style="margin-top:22px;display:inline-flex;">Commander Don Alberto →</a>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER CTA -->
+<section class="nl-cta">
+  <div class="nl-cta-inner">
+    <h2 id="nl-h">Rejoignez la communauté <em>Don Alberto</em></h2>
+    <p id="nl-p">Nouvelles récoltes · Actualités de la ferme · FR · EN · ES</p>
+    <form class="nl-form" action="https://tally.so/r/LZ04RG" method="GET" target="_blank">
+      <input type="email" name="email" class="nl-input" id="nl-input" placeholder="Votre adresse email" required>
+      <button type="submit" class="nl-submit" id="nl-btn">S'inscrire</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo-wrap">
+        <img src="logo.png" alt="Don Alberto Café">
+        <div><div class="footer-logo-text">Don Alberto</div><div class="footer-logo-sub">Café · Specialty · Boyacá</div></div>
+      </div>
+      <p class="footer-slogan">Terre de caractère,<br>grain d'exception</p>
+      <div class="footer-socials">
+        <a href="https://instagram.com" target="_blank" rel="noopener" class="footer-social" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="https://facebook.com" target="_blank" rel="noopener" class="footer-social" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="https://wa.me/33761528450" target="_blank" rel="noopener" class="footer-social" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51A11.945 11.945 0 0011.43 9c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.09.543 4.05 1.496 5.754L0 24l6.394-1.467A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.88 9.88 0 01-5.031-1.378l-.36-.214-3.742.858.899-3.628-.235-.374A9.861 9.861 0 012.118 12C2.118 6.533 6.533 2.118 12 2.118S21.882 6.533 21.882 12 17.467 21.882 12 21.882z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col"><h4 id="footer-col-h1">La Maison &amp; Origine</h4><ul><li><a href="maison.html">La Maison</a></li><li><a href="origine.html">L'Origine</a></li><li><a href="atelier.html">Atelier</a></li></ul></div>
+      <div class="footer-col"><h4 id="footer-col-h2">Commander</h4><ul><li><a href="boutique.html">Boutique</a></li><li><a href="boutique.html#abonnement">Club Don Alberto</a></li><li><a href="boutique.html">Commander maintenant</a></li></ul></div>
+      <div class="footer-col"><h4 id="footer-col-h3">Partenaires &amp; B2B</h4><ul><li><a href="b2b.html">Espace Pro</a></li><li><a href="b2b.html#contact">Contact B2B</a></li></ul></div>
+      <div class="footer-col"><h4 id="footer-col-h4">Newsletter</h4><p class="footer-nl-desc">Nouvelles récoltes et actualités.</p><form class="footer-nl-form" action="https://tally.so/r/LZ04RG" method="GET" target="_blank"><input type="email" name="email" class="footer-nl-input" id="fnl-input" placeholder="Votre email" required><button type="submit" class="footer-nl-btn" id="fnl-btn">S'inscrire</button></form></div>
+    </div>
+  </div>
+  <div class="footer-vlog"><a href="#vlog" id="footer-vlog">▸ Notre Vlog</a></div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Don Alberto Café · Rondón, Boyacá, Colombia</span>
+    <div class="footer-bottom-links"><a href="#">Mentions légales</a><a href="#">Confidentialité</a><a href="b2b.html">Espace Pro</a></div>
+  </div>
+</footer>
+
+<div class="wa-wrap">
+  <div class="wa-bubble" id="wa-bubble"><span id="wa-bubble-txt">Besoin d'aide ?</span><button class="wa-bubble-close" onclick="this.parentElement.style.display='none'">✕</button></div>
+  <a id="wa-link" href="https://wa.me/33761528450" target="_blank" rel="noopener" class="wa-btn"><svg viewBox="0 0 24 24" fill="white" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51A11.945 11.945 0 0011.43 9c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.09.543 4.05 1.496 5.754L0 24l6.394-1.467A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.88 9.88 0 01-5.031-1.378l-.36-.214-3.742.858.899-3.628-.235-.374A9.861 9.861 0 012.118 12C2.118 6.533 6.533 2.118 12 2.118S21.882 6.533 21.882 12 17.467 21.882 12 21.882z"/></svg></a>
+</div>
+
+<script src="shared.js"></script>
+<script>
+// Flavor bars animation (separate from SCA bars)
+document.addEventListener('DOMContentLoaded', function() {
+  const flavorBars = document.querySelectorAll('.flavor-fill[data-pct]');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.style.width = e.target.dataset.pct + '%'; obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.3 });
+  flavorBars.forEach(b => obs.observe(b));
+});
+</script>
+</body>
+</html>

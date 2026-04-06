@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Maison — Don Alberto Café · Notre Histoire · La Famille · Boyacá Colombia</title>
+<meta name="description" content="La Maison Don Alberto Café — Notre histoire, la famille fondatrice de Boyacá. Un café né de la mémoire d'Alberto, cultivé avec amour au cœur des Andes colombiennes.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+/* MAISON HERO */
+.maison-hero{background:var(--teal-deep);padding:clamp(70px,7vw,120px) clamp(18px,5vw,80px);position:relative;overflow:hidden;}
+.maison-hero::before{content:'';position:absolute;inset:0;background:url('Boyaca_Beutiful_Landscapes.jpg') center/cover;opacity:.08;}
+.maison-hero-inner{position:relative;z-index:1;max-width:740px;}
+.maison-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,5.5vw,76px);font-weight:300;color:white;line-height:1.05;margin-top:14px;}
+.maison-hero h1 em{font-style:italic;color:var(--gold-light);}
+.maison-hero p{font-size:clamp(14px,1.4vw,16px);line-height:2;color:rgba(255,255,255,.55);margin-top:20px;max-width:580px;}
+
+/* HISTOIRE SECTION — Notre histoire FIRST */
+.histoire-section{padding:clamp(60px,5vw,100px) clamp(18px,5vw,80px);background:var(--cream);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.histoire-photos{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.histoire-photo{overflow:hidden;}
+.histoire-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s;}
+.histoire-photo:hover img{transform:scale(1.04);}
+.histoire-photo.tall{grid-row:span 2;height:460px;}
+.histoire-photo:not(.tall){height:220px;}
+.quote-block{margin-top:32px;border-left:2px solid var(--gold);padding:16px 22px;background:var(--gold-pale);}
+.quote-block p{font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;font-weight:300;color:var(--teal-deep);line-height:1.65;margin-bottom:7px;}
+.quote-block cite{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--light);font-style:normal;}
+
+/* FACES — La Famille below Histoire */
+.faces-section{background:var(--warm);padding:clamp(60px,5vw,100px) clamp(18px,5vw,80px);}
+.faces-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:48px;}
+.faces-photos{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.faces-photo{overflow:hidden;}
+.faces-photo img{width:100%;object-fit:cover;display:block;transition:transform .5s;}
+.faces-photo:first-child{grid-column:span 2;}
+.faces-photo:first-child img{height:280px;}
+.faces-photo:not(:first-child) img{height:230px;}
+.faces-photo img:hover{transform:scale(1.04);}
+
+/* VALUES */
+.values-section{background:var(--teal-deep);padding:clamp(60px,5vw,100px) clamp(18px,5vw,80px);}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:48px;}
+.value-card{padding:32px 26px;border:1px solid rgba(255,255,255,.08);border-top:2px solid var(--gold);}
+.value-icon{width:40px;height:40px;margin-bottom:18px;color:var(--gold);}
+.value-icon svg{width:40px;height:40px;}
+.value-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:white;margin-bottom:10px;}
+.value-desc{font-size:12.5px;line-height:1.9;color:rgba(255,255,255,.5);}
+
+/* TIMELINE */
+.timeline-section{background:var(--cream);padding:clamp(60px,5vw,100px) clamp(18px,5vw,80px);}
+.timeline{display:flex;flex-direction:column;gap:0;margin-top:48px;max-width:720px;}
+.tl-item{display:grid;grid-template-columns:80px 1fr;gap:24px;padding:28px 0;border-bottom:1px solid rgba(9,102,133,.07);align-items:start;}
+.tl-year{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--teal);line-height:1;padding-top:3px;}
+.tl-content h3{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:400;color:var(--dark);margin-bottom:7px;}
+.tl-content p{font-size:12.5px;line-height:1.9;color:var(--mid);}
+
+@media(max-width:900px){
+  .histoire-section,.faces-layout{grid-template-columns:1fr;gap:40px;}
+  .values-grid{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+  .tl-item{grid-template-columns:60px 1fr;gap:14px;}
+  .tl-year{font-size:20px;}
+}
+</style>
+</head>
+<body>
+
+<div class="lang-bar">
+  <button class="lang-btn active" data-lang="fr">FR</button>
+  <button class="lang-btn" data-lang="en">EN</button>
+  <button class="lang-btn" data-lang="es">ES</button>
+</div>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo-wrap">
+      <div class="logo-icon-wrap"><img src="logo.png" alt="Don Alberto Café" width="64" height="64"></div>
+      <div class="logo-text-wrap"><span class="logo-text-main">Don Alberto</span><span class="logo-text-sub">Café</span></div>
+    </a>
+    <div class="header-slogans">
+      <div class="header-slogan-main" id="slogan1">Terre de caractère, grain d'exception</div>
+      <div class="header-slogan-sub" id="slogan2">L'Artisanat du Café Ancestral</div>
+    </div>
+    <nav class="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-dropdown">
+          <a href="origine.html" class="active" id="nav-da">Don Alberto®</a>
+          <ul class="dropdown">
+            <li><a href="origine.html" id="nav-origine">L'Origine</a></li>
+            <li><a href="maison.html" class="active" id="nav-maison">La Maison</a></li>
+          </ul>
+        </li>
+        <li><a href="boutique.html" id="nav-boutique">Boutique</a></li>
+        <li><a href="atelier.html" id="nav-atelier">Atelier</a></li>
+        <li><a href="b2b.html" id="nav-b2b">Espace Pro</a></li>
+        <li><a href="boutique.html" class="cta-nav" id="nav-commander">Commander</a></li>
+      </ul>
+    </nav>
+    <button class="mob-toggle" id="mob-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="mob-nav" id="mob-nav">
+    <div class="mob-nav-section">Don Alberto®</div>
+    <a href="origine.html" id="mob-nav-origine">L'Origine</a>
+    <a href="maison.html" id="mob-nav-maison">La Maison</a>
+    <a href="boutique.html" id="mob-nav-boutique">Boutique</a>
+    <a href="atelier.html" id="mob-nav-atelier">Atelier</a>
+    <a href="b2b.html" id="mob-nav-b2b">Espace Pro</a>
+    <a href="boutique.html" class="cta-mob" id="mob-nav-commander">Commander</a>
+    <div class="mob-lang"><button data-lang="fr">FR</button><button data-lang="en">EN</button><button data-lang="es">ES</button></div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="maison-hero">
+  <div class="maison-hero-inner">
+    <div class="section-label light">La Maison · Notre Histoire</div>
+    <h1>Une tasse née de<br>la <em>mémoire</em>,<br>l'amour et le terroir</h1>
+    <p>Don Alberto Café est né d'un hommage à un homme, d'un amour pour la terre de Boyacá, et d'un savoir ancestral transmis de génération en génération. Ce n'est pas une marque — c'est une famille.</p>
+  </div>
+</section>
+
+<!-- ══ NOTRE HISTOIRE — placed first ══ -->
+<section class="histoire-section" id="notre-histoire">
+  <div class="histoire-photos reveal">
+    <div class="histoire-photo tall">
+      <img src="Sen_or_Cafetero.jpg" alt="Señor cafetero — récolte manuelle Arabica Castillo Rondón Boyacá">
+    </div>
+    <div class="histoire-photo">
+      <img src="farm_cherries1.jpeg" alt="Cerises Arabica Castillo mûres Don Alberto Boyacá">
+    </div>
+    <div class="histoire-photo">
+      <img src="Boyaca_Beutiful_Landscapes.jpg" alt="Paysage Boyacá Colombie ferme Don Alberto">
+    </div>
+  </div>
+  <div class="reveal">
+    <div class="section-label">Notre Histoire</div>
+    <h2 class="h2">L'histoire de <em>Don Alberto</em></h2>
+    <p class="body-text" style="margin-top:22px;">Don Alberto est né en hommage à Alberto — un homme des champs, épris de nature et de café, dont la mémoire s'est effacée dans le brouillard de la maladie d'Alzheimer. Sa fille a voulu garder son âme vivante à travers chaque grain.</p>
+    <p class="body-text">Son mari — qui a grandi entouré des fermes de café de ses grands-parents en Boyacá, ramassant le café à la main depuis l'enfance — apporte un <strong>savoir ancestral et une passion authentique pour la terre</strong>.</p>
+    <p class="body-text">Ensemble, ils ont fondé la <strong>seule ferme de café vert de spécialité de tout le département de Boyacá</strong> — un terroir unique, révélé par une famille passionnée qui cultive l'héritage autant que le café.</p>
+    <div class="quote-block">
+      <p>"Il aimait la terre comme peu d'hommes savent l'aimer. Nous cultivons sa mémoire à chaque récolte."</p>
+      <cite>La famille fondatrice · Don Alberto Café</cite>
+    </div>
+    <a href="origine.html" class="btn-primary" style="margin-top:26px;display:inline-flex;">Découvrir l'origine →</a>
+  </div>
+</section>
+
+<!-- ══ LA FAMILLE — Faces behind every grain ══ -->
+<section class="faces-section" id="la-famille">
+  <div class="section-label center">La Famille</div>
+  <h2 class="h2" style="text-align:center;margin-top:8px;">Faces behind<br>every <em>grain</em></h2>
+  <div class="faces-layout">
+    <div class="faces-photos reveal">
+      <div class="faces-photo">
+        <img src="farm_family1.jpeg" alt="La famille Don Alberto dans la ferme de Boyacá Colombie">
+      </div>
+      <div class="faces-photo">
+        <img src="farm_cherries1.jpeg" alt="Récolte manuelle cerises Arabica Castillo Don Alberto">
+      </div>
+      <div class="faces-photo">
+        <img src="Sen_or_Cafetero.jpg" alt="Señor cafetero Don Alberto — Boyacá Colombia">
+      </div>
+    </div>
+    <div class="reveal">
+      <p class="body-text">Don Alberto Café n'est pas une marque — c'est une famille. Une femme cultive la terre de Boyacá avec l'amour de toute une vie. Sa fille porte le flambeau de son père. Son mari apporte le savoir des ancêtres.</p>
+      <p class="body-text">Chaque bag est une <strong>signature familiale</strong>, une promesse de transparence totale, de la ferme à votre tasse. Derrière chaque grain, il y a des mains qui ont ramassé, trié, lavé, séché avec soin.</p>
+      <p class="body-text">"Cuando era niño, recogía el café con mi abuelo en estos mismos campos. Hoy, somos nosotros quienes te lo ofrecemos."</p>
+      <div class="quote-block">
+        <p>"Enfant, je récoltais le café avec mon grand-père dans ces mêmes champs. Aujourd'hui, c'est nous qui vous l'offrons."</p>
+        <cite>Le père fondateur · Enfant de Boyacá</cite>
+      </div>
+      <a href="boutique.html" class="btn-gold" style="margin-top:26px;display:inline-flex;">Commander leur café →</a>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values-section" id="valeurs">
+  <div class="section-label light center">Nos Valeurs</div>
+  <h2 class="h2 light" style="text-align:center;margin-top:8px;">Ce qui guide <em>chaque récolte</em></h2>
+  <div class="values-grid">
+    <div class="value-card reveal">
+      <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div class="value-title">Intégrité écologique</div>
+      <div class="value-desc">Seule Green Coffee Farm du département. La préservation de la flore native de Boyacá est au cœur de notre pratique agricole — pas un label, une philosophie.</div>
+    </div>
+    <div class="value-card reveal">
+      <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+      <div class="value-title">Excellence sans compromis</div>
+      <div class="value-desc">Un score SCA 84.5 certifié Q-Grader. Chaque cerise est sélectionnée à la main. Chaque lot est lavé, séché et évalué avec la même rigueur — la qualité n'est pas négociable.</div>
+    </div>
+    <div class="value-card reveal">
+      <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/><circle cx="9" cy="7" r="4"/></svg></div>
+      <div class="value-title">Traçabilité totale</div>
+      <div class="value-desc">De la cerise à votre tasse, chaque étape est traçable et documentée. Nous sommes la seule ferme Single Origin de spécialité en Boyacá — vous savez exactement d'où vient votre café.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline-section" id="chronologie">
+  <div class="section-label">Notre Parcours</div>
+  <h2 class="h2" style="margin-top:8px;">De la <em>mémoire</em> à la tasse</h2>
+  <div class="timeline">
+    <div class="tl-item reveal">
+      <div class="tl-year">Avant</div>
+      <div class="tl-content">
+        <h3>L'héritage de Boyacá</h3>
+        <p>Le père fondateur grandit dans les fermes de café de ses grands-parents à Boyacá, ramassant les cerises à la main depuis l'enfance. Le savoir ancestral s'inscrit dans sa mémoire.</p>
+      </div>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-year">À la source</div>
+      <div class="tl-content">
+        <h3>L'hommage à Alberto</h3>
+        <p>Alberto, l'homme des champs épris de café et de nature, voit sa mémoire s'effacer avec la maladie d'Alzheimer. Sa fille décide de garder son âme vivante à travers chaque grain.</p>
+      </div>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-year">La ferme</div>
+      <div class="tl-content">
+        <h3>La première Green Coffee Farm de Boyacá</h3>
+        <p>La famille fonde Don Alberto Café à Rondón — l'unique ferme de café vert de spécialité de tout le département de Boyacá. SCA 84.5 certifié dès les premières récoltes.</p>
+      </div>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-year">Aujourd'hui</div>
+      <div class="tl-content">
+        <h3>Don Alberto dans le monde</h3>
+        <p>Le café de Rondón voyage jusqu'en France, en Europe et au-delà. Chaque bag porte la signature de la famille, la mémoire d'Alberto, et la promesse d'un terroir irremplaçable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER CTA -->
+<section class="nl-cta">
+  <div class="nl-cta-inner">
+    <h2 id="nl-h">Rejoignez la communauté <em>Don Alberto</em></h2>
+    <p id="nl-p">Nouvelles récoltes · Actualités de la ferme · FR · EN · ES</p>
+    <form class="nl-form" action="https://tally.so/r/LZ04RG" method="GET" target="_blank">
+      <input type="email" name="email" class="nl-input" id="nl-input" placeholder="Votre adresse email" required>
+      <button type="submit" class="nl-submit" id="nl-btn">S'inscrire</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo-wrap">
+        <img src="logo.png" alt="Don Alberto Café">
+        <div><div class="footer-logo-text">Don Alberto</div><div class="footer-logo-sub">Café · Specialty · Boyacá</div></div>
+      </div>
+      <p class="footer-slogan">Terre de caractère,<br>grain d'exception</p>
+      <div class="footer-socials">
+        <a href="https://instagram.com" target="_blank" rel="noopener" class="footer-social" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="https://facebook.com" target="_blank" rel="noopener" class="footer-social" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="https://wa.me/33761528450" target="_blank" rel="noopener" class="footer-social" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51A11.945 11.945 0 0011.43 9c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.09.543 4.05 1.496 5.754L0 24l6.394-1.467A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.88 9.88 0 01-5.031-1.378l-.36-.214-3.742.858.899-3.628-.235-.374A9.861 9.861 0 012.118 12C2.118 6.533 6.533 2.118 12 2.118S21.882 6.533 21.882 12 17.467 21.882 12 21.882z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col"><h4 id="footer-col-h1">La Maison &amp; Origine</h4><ul><li><a href="maison.html">La Maison</a></li><li><a href="origine.html">L'Origine</a></li><li><a href="atelier.html">Atelier</a></li></ul></div>
+      <div class="footer-col"><h4 id="footer-col-h2">Commander</h4><ul><li><a href="boutique.html">Boutique</a></li><li><a href="boutique.html#abonnement">Club Don Alberto</a></li><li><a href="boutique.html">Commander maintenant</a></li></ul></div>
+      <div class="footer-col"><h4 id="footer-col-h3">Partenaires &amp; B2B</h4><ul><li><a href="b2b.html">Espace Pro</a></li><li><a href="b2b.html#contact">Contact B2B</a></li></ul></div>
+      <div class="footer-col"><h4 id="footer-col-h4">Newsletter</h4><p class="footer-nl-desc">Nouvelles récoltes et actualités.</p><form class="footer-nl-form" action="https://tally.so/r/LZ04RG" method="GET" target="_blank"><input type="email" name="email" class="footer-nl-input" id="fnl-input" placeholder="Votre email" required><button type="submit" class="footer-nl-btn" id="fnl-btn">S'inscrire</button></form></div>
+    </div>
+  </div>
+  <div class="footer-vlog"><a href="#vlog" id="footer-vlog">▸ Notre Vlog</a></div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Don Alberto Café · Rondón, Boyacá, Colombia</span>
+    <div class="footer-bottom-links"><a href="#">Mentions légales</a><a href="#">Confidentialité</a><a href="b2b.html">Espace Pro</a></div>
+  </div>
+</footer>
+
+<div class="wa-wrap">
+  <div class="wa-bubble" id="wa-bubble"><span id="wa-bubble-txt">Besoin d'aide ?</span><button class="wa-bubble-close" onclick="this.parentElement.style.display='none'">✕</button></div>
+  <a id="wa-link" href="https://wa.me/33761528450" target="_blank" rel="noopener" class="wa-btn"><svg viewBox="0 0 24 24" fill="white" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51A11.945 11.945 0 0011.43 9c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.09.543 4.05 1.496 5.754L0 24l6.394-1.467A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.88 9.88 0 01-5.031-1.378l-.36-.214-3.742.858.899-3.628-.235-.374A9.861 9.861 0 012.118 12C2.118 6.533 6.533 2.118 12 2.118S21.882 6.533 21.882 12 17.467 21.882 12 21.882z"/></svg></a>
+</div>
+
+<script src="shared.js"></script>
+</body>
+</html>

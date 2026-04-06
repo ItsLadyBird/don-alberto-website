@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Don Alberto Café — Specialty Coffee Boyacá Colombia · SCA 84.5 · Single Origin</title>
+<meta name="description" content="Don Alberto Café — Café de spécialité Single Origin. Arabica Castillo, Rondón, Boyacá, Colombie. Score SCA 84.5. Procédé Lavé artisanal. La seule ferme de café vert de spécialité de Boyacá.">
+<meta name="keywords" content="Specialty Coffee Boyacá Colombia, café de spécialité, single origin, SCA 84.5, Castillo Arabica, Don Alberto, Rondón Boyacá">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+/* ── HERO ── */
+.hero{position:relative;height:92vh;min-height:580px;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(4,40,52,.86) 0%,rgba(4,40,52,.55) 60%,rgba(9,78,101,.4) 100%);z-index:1;}
+.hero-content{position:relative;z-index:2;text-align:center;color:white;padding:0 40px;max-width:820px;}
+.hero-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold-light);margin-bottom:20px;animation:fadeUp 1s .3s both;}
+.hero-title{font-family:'BowlbyOne','Lato',sans-serif;font-size:clamp(52px,9vw,96px);line-height:.95;color:white;letter-spacing:2px;animation:fadeUp 1s .5s both;}
+.hero-title span{display:block;color:var(--teal-mid);font-size:.32em;letter-spacing:10px;margin-top:8px;font-family:'CeraPro','Lato',sans-serif;font-weight:300;}
+.hero-slogan{margin-top:26px;font-family:'Cormorant Garamond',serif;font-size:clamp(17px,2.2vw,25px);font-style:italic;font-weight:300;color:rgba(255,255,255,.9);line-height:1.4;animation:fadeUp 1s .7s both;}
+.hero-sub{margin-top:8px;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.4);animation:fadeUp 1s .85s both;}
+.hero-stats{display:flex;justify-content:center;gap:50px;margin-top:36px;animation:fadeUp 1s 1s both;}
+.hstat-num{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--gold-light);line-height:1;}
+.hstat-lbl{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.38);margin-top:4px;}
+.hero-divider{width:1px;height:46px;background:rgba(255,255,255,.13);}
+.hero-cta-row{margin-top:40px;display:flex;justify-content:center;gap:14px;animation:fadeUp 1s 1.1s both;flex-wrap:wrap;}
+.hero-cta{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--gold);color:var(--gold-light);padding:14px 34px;font-family:'CeraPro','Lato',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;background:transparent;transition:all .3s;}
+.hero-cta:hover{background:var(--gold);color:var(--teal-deep);}
+.hero-cta.filled{background:var(--teal);border-color:var(--teal);color:white;}
+.hero-cta.filled:hover{background:var(--teal-deep);border-color:var(--teal-deep);}
+.hero-scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;animation:fadeIn 1s 1.5s both;}
+.hero-scroll span{font-size:8px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.35);}
+.scroll-line{width:1px;height:36px;background:linear-gradient(to bottom,rgba(255,255,255,.28),transparent);animation:scrollPulse 2s infinite;}
+
+/* ── HOME PANELS — two rectangular CTAs below hero ── */
+.home-panels{display:grid;grid-template-columns:1fr 1fr;height:460px;}
+.home-panel{position:relative;overflow:hidden;display:block;cursor:pointer;}
+.home-panel img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.25,.46,.45,.94);}
+.home-panel:hover img{transform:scale(1.05);}
+.home-panel-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.7) 0%,rgba(0,0,0,.15) 55%,transparent 100%);}
+.home-panel-content{position:absolute;bottom:0;left:0;right:0;padding:32px 36px;color:#fff;}
+.home-panel-label{font-size:10px;letter-spacing:3.5px;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,.65);margin-bottom:10px;}
+.home-panel-title{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,38px);font-weight:600;line-height:1.15;margin-bottom:16px;}
+.home-panel-cta{display:inline-block;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;font-weight:700;color:#fff;border-bottom:1px solid rgba(255,255,255,.45);padding-bottom:3px;transition:border-color .2s;}
+.home-panel:hover .home-panel-cta{border-color:#fff;}
+.home-panel:first-child{border-right:1px solid rgba(255,255,255,.08);}
+
+/* ── QUALITY SECTION — señor cafetero photo + SCA badge ── */
+.quality-section{padding:clamp(60px,5vw,100px) clamp(18px,5vw,80px);background:var(--cream);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.quality-img-wrap{position:relative;}
+.quality-img-wrap img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;display:block;}
+.quality-badge{position:absolute;bottom:24px;right:-18px;background:var(--teal-deep);color:white;padding:20px 22px;text-align:center;box-shadow:0 8px 32px rgba(0,0,0,.3);}
+.quality-badge .score{font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:300;color:var(--gold-light);line-height:1;}
+.quality-badge .score-lbl{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:4px;}
+.quality-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:32px;}
+.qstat{padding:14px 12px;background:white;border-left:2px solid var(--teal);border-bottom:none;}
+.qstat-val{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:var(--teal-deep);line-height:1;}
+.qstat-lbl{font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--light);margin-top:3px;}
+.quote-box{margin-top:30px;border-left:2px solid var(--gold);padding:16px 22px;background:var(--gold-pale);}
+.quote-box p{font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;font-weight:300;color:var(--teal-deep);line-height:1.6;margin-bottom:6px;}
+.quote-box cite{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--light);font-style:normal;}
+
+/* ── ORIGIN MAP / TEASER ── */
+.origin-teaser{background:var(--warm);padding:clamp(60px,5vw,100px) clamp(18px,5vw,80px);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.origin-map-wrap{position:relative;}
+.origin-map-wrap img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;}
+.origin-tag{position:absolute;bottom:0;left:0;background:var(--teal-deep);color:white;padding:10px 18px;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;}
+.origin-facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:30px;}
+.origin-fact{padding:16px 18px;background:white;border-left:2px solid var(--teal);}
+.origin-fact-val{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:var(--teal-deep);line-height:1;}
+.origin-fact-lbl{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--light);margin-top:3px;}
+
+/* ── TRUST BAR ── */
+.trust-bar{background:white;padding:clamp(32px,3vw,50px) clamp(18px,5vw,80px);border-top:1px solid rgba(9,102,133,.07);border-bottom:1px solid rgba(9,102,133,.07);}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.trust-item{display:flex;align-items:flex-start;gap:14px;}
+.trust-icon{width:36px;height:36px;border:1px solid var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--teal);}
+.trust-icon svg{width:17px;height:17px;}
+.trust-h{font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:var(--dark);margin-bottom:3px;font-weight:400;}
+.trust-d{font-size:11px;color:var(--light);}
+
+@media(max-width:900px){
+  .quality-section{grid-template-columns:1fr;gap:40px;}
+  .origin-teaser{grid-template-columns:1fr;gap:40px;}
+  .home-panels{grid-template-columns:1fr;height:auto;}
+  .home-panel{height:280px;}
+  .trust-grid{grid-template-columns:1fr 1fr;}
+  .quality-stats{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:600px){
+  .hero-stats{gap:20px;}
+  .hstat-num{font-size:22px;}
+  .trust-grid{grid-template-columns:1fr;}
+  .quality-badge{right:0;bottom:0;}
+}
+</style>
+</head>
+<body>
+
+<!-- LANG BAR -->
+<div class="lang-bar">
+  <button class="lang-btn active" data-lang="fr">FR</button>
+  <button class="lang-btn" data-lang="en">EN</button>
+  <button class="lang-btn" data-lang="es">ES</button>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo-wrap">
+      <div class="logo-icon-wrap"><img src="logo.png" alt="Don Alberto Café" width="64" height="64"></div>
+      <div class="logo-text-wrap">
+        <span class="logo-text-main">Don Alberto</span>
+        <span class="logo-text-sub">Café</span>
+      </div>
+    </a>
+    <div class="header-slogans">
+      <div class="header-slogan-main" id="slogan1">Terre de caractère, grain d'exception</div>
+      <div class="header-slogan-sub" id="slogan2">L'Artisanat du Café Ancestral</div>
+    </div>
+    <nav class="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-dropdown">
+          <a href="origine.html" id="nav-da">Don Alberto®</a>
+          <ul class="dropdown">
+            <li><a href="origine.html" id="nav-origine">L'Origine</a></li>
+            <li><a href="maison.html" id="nav-maison">La Maison</a></li>
+          </ul>
+        </li>
+        <li><a href="boutique.html" id="nav-boutique">Boutique</a></li>
+        <li><a href="atelier.html" id="nav-atelier">Atelier</a></li>
+        <li><a href="b2b.html" id="nav-b2b">Espace Pro</a></li>
+        <li><a href="javascript:void(0)" onclick="openCheckout()" class="cta-nav" id="nav-commander">Commander</a></li>
+      </ul>
+    </nav>
+    <button class="mob-toggle" id="mob-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <nav class="mob-nav" id="mob-nav">
+    <div class="mob-nav-section">Don Alberto®</div>
+    <a href="origine.html" id="mob-nav-origine">L'Origine</a>
+    <a href="maison.html" id="mob-nav-maison">La Maison</a>
+    <a href="boutique.html" id="mob-nav-boutique">Boutique</a>
+    <a href="atelier.html" id="mob-nav-atelier">Atelier</a>
+    <a href="b2b.html" id="mob-nav-b2b">Espace Pro</a>
+    <a href="javascript:void(0)" onclick="openCheckout()" class="cta-mob" id="mob-nav-commander">Commander</a>
+    <div class="mob-lang"><button data-lang="fr">FR</button><button data-lang="en">EN</button><button data-lang="es">ES</button></div>
+  </nav>
+</header>
+
+<!-- ═══════════════════════════════════
+   HERO — video background
+   ═══════════════════════════════════ -->
+<section class="hero" aria-label="Don Alberto Café — Specialty Coffee Boyacá Colombia">
+  <video class="hero-video" autoplay muted loop playsinline poster="farm_cherries1.jpeg">
+    <source src="hero.mp4" type="video/mp4">
+    <img src="farm_cherries1.jpeg" alt="Don Alberto coffee farm Boyacá Colombia" style="width:100%;height:100%;object-fit:cover;">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Boyacá · Colombie · Single Origin · Specialty</p>
+    <h1 class="hero-title">DON ALBERTO<span>C A F É</span></h1>
+    <p class="hero-slogan">Terre de caractère, grain d'exception</p>
+    <p class="hero-sub">L'Artisanat du Café Ancestral</p>
+    <div class="hero-stats">
+      <div><div class="hstat-num">84.5</div><div class="hstat-lbl">Score SCA</div></div>
+      <div class="hero-divider"></div>
+      <div><div class="hstat-num">1 670m</div><div class="hstat-lbl">Altitude</div></div>
+      <div class="hero-divider"></div>
+      <div><div class="hstat-num">100%</div><div class="hstat-lbl">Arabica Castillo</div></div>
+    </div>
+    <div class="hero-cta-row">
+      <a href="boutique.html" class="hero-cta filled">Découvrir le café →</a>
+      <a href="boutique.html#abonnement" class="hero-cta">Club Don Alberto</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div><span>Défiler</span></div>
+</section>
+
+<!-- ═══════════════════════════════════
+   TWO RECTANGULAR PANELS — below hero
+   ═══════════════════════════════════ -->
+<div class="home-panels">
+  <a href="boutique.html" class="home-panel">
+    <img src="bag_250g.png" alt="Café Don Alberto grain entier 250g Arabica Castillo Boyacá">
+    <div class="home-panel-overlay"></div>
+    <div class="home-panel-content">
+      <div class="home-panel-label">Notre Café</div>
+      <div class="home-panel-title">Rondón Castillo —<br>Grain entier, Boyacá</div>
+      <span class="home-panel-cta">Explorer la boutique →</span>
+    </div>
+  </a>
+  <a href="boutique.html#abonnement" class="home-panel">
+    <img src="farm_cherries1.jpeg" alt="Abonnement mensuel café de spécialité Don Alberto">
+    <div class="home-panel-overlay"></div>
+    <div class="home-panel-content">
+      <div class="home-panel-label">Abonnement Mensuel</div>
+      <div class="home-panel-title">Café de spécialité frais<br>chaque mois</div>
+      <span class="home-panel-cta">Voir le Club Don Alberto →</span>
+    </div>
+  </a>
+</div>
+
+<!-- ═══════════════════════════════════
+   HORIZONTAL ATTRIBUTES STRIP
+   ═══════════════════════════════════ -->
+<div class="attrs-strip" aria-label="Attributs Don Alberto Specialty Coffee Boyacá Colombia">
+  <div class="attrs-track">
+    <div class="attr-item"><div class="attr-dot"></div><span class="attr-text">SCA Score</span><span class="attr-value">84.5 / 100</span></div>
+    <div class="attr-item"><div class="attr-dot"></div><span class="attr-text">Altitude</span><span class="attr-value">1670 ASNM</span></div>
+    <div class="attr-item"><div class="attr-dot"></div><span class="attr-text">Variété</span><span class="attr-value">Castillo Arabica</span></div>
+    <div class="attr-item"><div class="attr-dot"></div><span class="attr-text">Traitement</span><span class="attr-value">Washed — Lavé</span></div>
+    <div class="attr-item"><div class="attr-dot"></div><span class="attr-text">Profil</span><span class="attr-value">Cacao · Miel · Agrumes</span></div>
+    <div class="attr-item"><div class="attr-dot"></div><span class="attr-text">Origine</span><span class="attr-value">Rondón, Boyacá</span></div>
+    <div class="attr-item"><div class="attr-dot"></div><span class="attr-text">Microclimats</span><span class="attr-value">59 en Colombie</span></div>
+    <div class="attr-item"><div class="attr-dot"></div><span class="attr-text">Standard</span><span class="attr-value">Green Coffee Farm</span></div>
+    <div class="attr-item"><div class="attr-dot"></div><span class="attr-text">Tasse propre</span><span class="attr-value">Score 10/10</span></div>
+    <!-- Duplicate for seamless loop -->
+    <div class="attr-item"><div class="attr-dot"></div><span class="attr-text">SCA Score</span><span class="attr-value">84.5 / 100</span></div>
+    <div class="attr-item"><div class="attr-dot"></div><span class="attr-text">Altitude</span><span class="attr-value">1670 ASNM</span></div>
+    <div class="attr-item"><div class="attr-dot"></div><span class="attr-text">Variété</span><span class="attr-value">Castillo Arabica</span></div>
+    <div class="attr-item"><div class="attr-dot"></div><span class="attr-text">Traitement</span><span class="attr-value">Washed — Lavé</span></div>
+    <div class="attr-item"><div class="attr-dot"></div><span class="attr-text">Profil</span><span class="attr-value">Cacao · Miel · Agrumes</span></div>
+    <div class="attr-item"><div class="attr-dot"></div><span class="attr-text">Origine</span><span class="attr-value">Rondón, Boyacá</span></div>
+    <div class="attr-item"><div class="attr-dot"></div><span class="attr-text">Microclimats</span><span class="attr-value">59 en Colombie</span></div>
+    <div class="attr-item"><div class="attr-dot"></div><span class="attr-text">Standard</span><span class="attr-value">Green Coffee Farm</span></div>
+    <div class="attr-item"><div class="attr-dot"></div><span class="attr-text">Tasse propre</span><span class="attr-value">Score 10/10</span></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+   QUALITY SECTION — Señor cafetero + SCA badge
+   ═══════════════════════════════════ -->
+<section class="quality-section" id="qualite">
+  <div class="quality-img-wrap reveal">
+    <img src="Sen_or_Cafetero.jpg" alt="Señor cafetero — récolte manuelle des cerises Castillo à Rondón, Boyacá">
+    <div class="quality-badge">
+      <div class="score">84.5</div>
+      <div class="score-lbl">Score SCA</div>
+    </div>
+  </div>
+  <div class="reveal">
+    <div class="section-label">L'Excellence de la Source</div>
+    <h2 class="h2">Une densité raffinée,<br>née du terroir de <em>Boyacá</em></h2>
+    <p class="body-text" style="margin-top:22px;">À 1 670 m d'altitude, les fluctuations thermiques dramatiques de Rondón forcent les cerises Castillo dans un état de « stress positif » — une maturation plus lente qui concentre des esters complexes et des acides organiques dans chaque grain.</p>
+    <p class="body-text">Le résultat est le profil Don Alberto : <strong>cacao profond et miel visqueux</strong>, obtenus non pas par intervention mais par l'intelligence de la terre.</p>
+    <div class="quality-stats">
+      <div class="qstat"><div class="qstat-val">1670</div><div class="qstat-lbl">m MSNM</div></div>
+      <div class="qstat"><div class="qstat-val">100%</div><div class="qstat-lbl">Arabica</div></div>
+      <div class="qstat"><div class="qstat-val">84.5</div><div class="qstat-lbl">SCA Score</div></div>
+      <div class="qstat"><div class="qstat-val">#1</div><div class="qstat-lbl">Green Farm</div></div>
+    </div>
+    <div class="quote-box" style="margin-top:28px;">
+      <p>"Il aimait la terre comme peu d'hommes savent l'aimer. Nous cultivons sa mémoire à chaque récolte."</p>
+      <cite>La famille fondatrice · Don Alberto Café</cite>
+    </div>
+    <a href="atelier.html" class="btn-primary" style="margin-top:26px;display:inline-flex;">Voir le score SCA complet →</a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+   ORIGIN MAP TEASER — Rondón, Boyacá
+   ═══════════════════════════════════ -->
+<section class="origin-teaser" id="origine-teaser">
+  <div class="origin-map-wrap reveal">
+    <img src="Boyaca_Beutiful_Landscapes.jpg" alt="Paysage Boyacá — vallée fluviale dans les Andes colombiennes, Rondón">
+    <div class="origin-tag">Rondón · Boyacá · Colombia · 1670m</div>
+  </div>
+  <div class="reveal">
+    <div class="section-label">L'Origine</div>
+    <h2 class="h2">Boyacá — là où la complexité<br>remplace la <em>consistance</em></h2>
+    <p class="body-text" style="margin-top:20px;">Là où les régions colombiennes traditionnelles offrent la régularité, Boyacá offre la complexité. Sa topographie accidentée et ses étages thermiques dramatiques créent un laboratoire naturel sans équivalent.</p>
+    <p class="body-text">La ferme Don Alberto est <strong>la seule Green Coffee Farm du département</strong> — une distinction qui définit non seulement notre origine, mais notre éthique.</p>
+    <div class="origin-facts">
+      <div class="origin-fact"><div class="origin-fact-val">59</div><div class="origin-fact-lbl">Microclimats</div></div>
+      <div class="origin-fact"><div class="origin-fact-val">#2</div><div class="origin-fact-lbl">Biodiversité mondiale</div></div>
+      <div class="origin-fact"><div class="origin-fact-val">1670m</div><div class="origin-fact-lbl">Altitude MSNM</div></div>
+      <div class="origin-fact"><div class="origin-fact-val">#1</div><div class="origin-fact-lbl">Ferme spécialité Boyacá</div></div>
+    </div>
+    <a href="origine.html" class="btn-outline" style="margin-top:28px;display:inline-flex;">Découvrir l'origine →</a>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-grid">
+    <div class="trust-item reveal">
+      <div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div><div class="trust-h">Paiement sécurisé</div><div class="trust-d">PayPal · Revolut · Wise</div></div>
+    </div>
+    <div class="trust-item reveal">
+      <div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+      <div><div class="trust-h">Livraison internationale</div><div class="trust-d">France, Europe & monde</div></div>
+    </div>
+    <div class="trust-item reveal">
+      <div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+      <div><div class="trust-h">Café de spécialité SCA</div><div class="trust-d">Score 84.5 · Procédé Lavé</div></div>
+    </div>
+    <div class="trust-item reveal">
+      <div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+      <div><div class="trust-h">Traçabilité totale</div><div class="trust-d">Ferme → tasse</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- NEWSLETTER CTA -->
+<section class="nl-cta">
+  <div class="nl-cta-inner">
+    <h2 id="nl-h">Rejoignez la communauté <em>Don Alberto</em></h2>
+    <p id="nl-p">Nouvelles récoltes · Actualités de la ferme · FR · EN · ES</p>
+    <form class="nl-form" action="https://tally.so/r/LZ04RG" method="GET" target="_blank">
+      <input type="email" name="email" class="nl-input" id="nl-input" placeholder="Votre adresse email" required autocomplete="email">
+      <button type="submit" class="nl-submit" id="nl-btn">S'inscrire</button>
+    </form>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════ -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo-wrap">
+        <img src="logo.png" alt="Don Alberto Café">
+        <div>
+          <div class="footer-logo-text">Don Alberto</div>
+          <div class="footer-logo-sub">Café · Specialty · Boyacá</div>
+        </div>
+      </div>
+      <p class="footer-slogan">Terre de caractère,<br>grain d'exception</p>
+      <div class="footer-socials">
+        <a href="https://instagram.com" target="_blank" rel="noopener" class="footer-social" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://facebook.com" target="_blank" rel="noopener" class="footer-social" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="https://wa.me/33761528450" target="_blank" rel="noopener" class="footer-social" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.09.543 4.05 1.496 5.754L0 24l6.394-1.467A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.88 9.88 0 01-5.031-1.378l-.36-.214-3.742.858.899-3.628-.235-.374A9.861 9.861 0 012.118 12C2.118 6.533 6.533 2.118 12 2.118S21.882 6.533 21.882 12 17.467 21.882 12 21.882z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4 id="footer-col-h1">La Maison &amp; Origine</h4>
+        <ul>
+          <li><a href="maison.html">La Maison</a></li>
+          <li><a href="origine.html">L'Origine</a></li>
+          <li><a href="atelier.html">Atelier</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 id="footer-col-h2">Commander</h4>
+        <ul>
+          <li><a href="boutique.html">Boutique</a></li>
+          <li><a href="boutique.html#abonnement">Club Don Alberto</a></li>
+          <li><a href="javascript:void(0)" onclick="openCheckout()">Commander maintenant</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 id="footer-col-h3">Partenaires &amp; B2B</h4>
+        <ul>
+          <li><a href="b2b.html">Espace Pro</a></li>
+          <li><a href="b2b.html#contact">Contact B2B</a></li>
+          <li><a href="b2b.html#equipement">Équipement Pro</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 id="footer-col-h4">Newsletter</h4>
+        <p class="footer-nl-desc">Nouvelles récoltes, exclusivités et actualités de la ferme.</p>
+        <form class="footer-nl-form" action="https://tally.so/r/LZ04RG" method="GET" target="_blank">
+          <input type="email" name="email" class="footer-nl-input" id="fnl-input" placeholder="Votre email" required>
+          <button type="submit" class="footer-nl-btn" id="fnl-btn">S'inscrire</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="footer-vlog"><a href="#vlog" id="footer-vlog">▸ Notre Vlog</a></div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Don Alberto Café · Rondón, Boyacá, Colombia</span>
+    <div class="footer-bottom-links">
+      <a href="#">Mentions légales</a>
+      <a href="#">Confidentialité</a>
+      <a href="b2b.html">Espace Pro</a>
+    </div>
+  </div>
+</footer>
+
+<!-- CHECKOUT MODAL (Tally) -->
+<div id="checkoutModal" class="co-modal">
+  <div class="co-backdrop" onclick="closeCheckout()"></div>
+  <div class="co-box">
+    <button class="co-close-btn" onclick="closeCheckout()" aria-label="Fermer">✕</button>
+    <iframe src="https://tally.so/r/LZ04RG" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0" title="Commander Don Alberto Café" style="display:block;border:none;"></iframe>
+  </div>
+</div>
+
+<!-- WHATSAPP -->
+<div class="wa-wrap">
+  <div class="wa-bubble" id="wa-bubble">
+    <span id="wa-bubble-txt">Besoin d'aide ?</span>
+    <button class="wa-bubble-close" onclick="this.parentElement.style.display='none'" aria-label="Fermer">✕</button>
+  </div>
+  <a id="wa-link" href="https://wa.me/33761528450?text=Bonjour%2C%20j%27ai%20une%20question%20sur%20Don%20Alberto%20Caf%C3%A9." target="_blank" rel="noopener" class="wa-btn" title="WhatsApp Don Alberto">
+    <svg viewBox="0 0 24 24" fill="white" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.09.543 4.05 1.496 5.754L0 24l6.394-1.467A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.88 9.88 0 01-5.031-1.378l-.36-.214-3.742.858.899-3.628-.235-.374A9.861 9.861 0 012.118 12C2.118 6.533 6.533 2.118 12 2.118S21.882 6.533 21.882 12 17.467 21.882 12 21.882z"/></svg>
+  </a>
+</div>
+
+<script src="shared.js"></script>
+</body>
+</html>
