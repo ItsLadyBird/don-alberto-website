@@ -137,7 +137,6 @@ ul{list-style:none;}
 #main-nav.shadowed{box-shadow:0 2px 20px rgba(0,0,0,.09);}
 .nav-inner{
   display:flex;
-  justify-content:center;
   align-items:center;
   height:var(--nav-h);
   padding:0 24px;
@@ -145,10 +144,10 @@ ul{list-style:none;}
   gap:0;
 }
 
-/* NAV LEFT — sits immediately left of logo */
-.nav-left{display:flex;align-items:center;justify-content:flex-end;}
-/* NAV RIGHT — sits immediately right of logo */
-.nav-right{display:flex;align-items:center;justify-content:flex-start;}
+/* NAV LEFT — flex:1 so logo is true center reference */
+.nav-left{flex:1;display:flex;align-items:center;justify-content:flex-end;}
+/* NAV RIGHT — flex:1 so logo is true center reference */
+.nav-right{flex:1;display:flex;align-items:center;justify-content:flex-start;}
 
 .ni{position:relative;}
 .ni > a{
@@ -726,7 +725,7 @@ footer{background:#0c1c24;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
   <a href="boutique.html" class="hp">
     <img
       class="hp-img"
-      src="notre-cafe.png"
+      src="Notre_Cafe.png"
       alt="Specialty Coffee Don Alberto — Boutique"
       loading="eager"
       onerror="this.style.display='none'"
@@ -882,7 +881,7 @@ footer{background:#0c1c24;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
       </div>
       <div class="footer-brand-name">DON ALBERTO</div>
       <div class="footer-brand-cafe">CAFÉ</div>
-      <p class="footer-slogan">Terre de caractère,<br>grain d'exception</p>
+      <p class="footer-slogan" id="footer-slogan">Terre de caractère,<br>grain d'exception</p>
       <div class="footer-socials">
         <a href="https://instagram.com/donalberto.cafe" target="_blank" rel="noopener" class="footer-soc" aria-label="Instagram">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
@@ -1037,8 +1036,9 @@ document.addEventListener('click', e => {
 /* ── LANGUAGE DATA ── */
 const L = {
   fr:{
-    sl:'Soul in the Soil, Being in the Bean',craft:'Ancestral Coffee Crafting',
-    sl1:'Soul in the Soil, Being in the Bean',sl2:'ANCESTRAL COFFEE CRAFTING',
+    sl:'L\'Âme du Sol, l\'Être dans le Grain',craft:'Artisanat Caféier Ancestral',
+    sl1:'L\'Âme du Sol, l\'Être dans le Grain',sl2:'ARTISANAT CAFÉIER ANCESTRAL',
+    fslogan:'Terre de caractère,<br>grain d\'exception',
     ey:'Boyacá · Colombie · Single Origin · Specialty',sc:'Défiler',
     p1e:'Specialty Coffee · Boutique',p1t:'Rondón Castillo —<br>SCA 84.5 · Grain entier',p1c:'Explorer la boutique →',
     p2e:'Club Don Alberto · Abonnement',p2t:'Café de spécialité frais<br>chaque mois',p2c:'Rejoindre le Club →',
@@ -1054,31 +1054,33 @@ const L = {
   en:{
     sl:'Soul in the Soil, Being in the Bean',craft:'Ancestral Coffee Crafting',
     sl1:'Soul in the Soil, Being in the Bean',sl2:'ANCESTRAL COFFEE CRAFTING',
+    fslogan:'Land of Character,<br>Grain of Exception',
     ey:'Boyacá · Colombia · Single Origin · Specialty',sc:'Scroll',
     p1e:'Specialty Coffee · Shop',p1t:'Rondón Castillo —<br>SCA 84.5 · Whole Bean',p1c:'Explore the shop →',
     p2e:'Club Don Alberto · Subscription',p2t:'Fresh specialty coffee<br>every month',p2c:'Join the Club →',
     nlh:'Join the <em>Don Alberto</em> community',nlp:'Harvest news · Farm updates · FR · EN · ES',nlb:'Subscribe',
     t1h:'Direct order',t1d:'PayPal · Revolut · Wise',t2h:'International shipping',t2d:'France, Europe & worldwide',
     t3h:'SCA Specialty Coffee',t3d:'Score 84.5 · Washed Process',t4h:'Full traceability',t4d:'Farm → cup',
-    ubm:'La Maison',ubv:'The Vlog',ubp:'Professional space',
+    ubm:'The House',ubv:'The Vlog',ubp:'Professional space',
     nspec:'Specialty Coffee',nclub:'Club Don Alberto',npro:'Pro Space',norig:'Origin Boutique',ncmd:'Order Now',
-    fh1:'La Marque',fh2:'Order',fh3:'Partners & B2B',
-    fm:'La Maison',fa:'The Atelier',fv:'The Vlog',fb:'Shop',fc:'Club Don Alberto',fb2:'Pro Space',fco:'Contact',
+    fh1:'The Brand',fh2:'Order',fh3:'Partners & B2B',
+    fm:'The House',fa:'The Atelier',fv:'The Vlog',fb:'Shop',fc:'Club Don Alberto',fb2:'Pro Space',fco:'Contact',
     fvt:'Our Vlog — Behind the scenes at the farm',wa:'Need help?'
   },
   es:{
     sl:'Esencia del Suelo, Vida en el Fruto',craft:'Arte cafetalero ancestral',
     sl1:'Esencia del Suelo, Vida en el Fruto',sl2:'ARTE CAFETALERO ANCESTRAL',
+    fslogan:'Tierra de carácter,<br>grano de excepción',
     ey:'Boyacá · Colombia · Origen Único · Specialty',sc:'Deslizar',
     p1e:'Specialty Coffee · Tienda',p1t:'Rondón Castillo —<br>SCA 84.5 · Grano entero',p1c:'Explorar la tienda →',
     p2e:'Club Don Alberto · Suscripción',p2t:'Café especial fresco<br>cada mes',p2c:'Unirse al Club →',
     nlh:'Únete a la comunidad <em>Don Alberto</em>',nlp:'Cosechas · Noticias de la finca · FR · EN · ES',nlb:'Suscribirse',
     t1h:'Pedido directo',t1d:'PayPal · Revolut · Wise',t2h:'Envío internacional',t2d:'Francia, Europa y mundo',
     t3h:'Café de especialidad SCA',t3d:'Puntaje 84.5 · Proceso Lavado',t4h:'Trazabilidad total',t4d:'Finca → taza',
-    ubm:'La Maison',ubv:'El Vlog',ubp:'Espacio profesional',
+    ubm:'La Casa',ubv:'El Vlog',ubp:'Espacio profesional',
     nspec:'Specialty Coffee',nclub:'Club Don Alberto',npro:'Espacio Pro',norig:'Boutique de Origen',ncmd:'Ordenar',
     fh1:'La Marca',fh2:'Ordenar',fh3:'Socios & B2B',
-    fm:'La Maison',fa:'El Atelier',fv:'El Vlog',fb:'Tienda',fc:'Club Don Alberto',fb2:'Espacio Pro',fco:'Contactar',
+    fm:'La Casa',fa:'El Atelier',fv:'El Vlog',fb:'Tienda',fc:'Club Don Alberto',fb2:'Espacio Pro',fco:'Contactar',
     fvt:'Nuestro Vlog — Detrás de escena en la finca',wa:'¿Necesitas ayuda?'
   }
 };
@@ -1146,6 +1148,8 @@ function setLang(lang) {
   document.getElementById('fl-contact').textContent = t.fco;
   document.getElementById('fv-txt').textContent = t.fvt;
   document.getElementById('wa-txt').textContent = t.wa;
+  // Footer slogan
+  document.getElementById('footer-slogan').innerHTML = t.fslogan;
 }
 
 /* ── CHECKOUT ── */
