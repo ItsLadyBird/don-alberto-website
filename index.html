@@ -234,7 +234,7 @@ ul{list-style:none;}
 }
 .mm-close{background:none;border:none;font-size:20px;color:var(--teal);cursor:pointer;}
 .mm-logo-row{display:flex;align-items:center;gap:12px;}
-.mm-logo-row img{height:38px;width:auto;object-fit:contain;}
+.mm-logo-row img{height:38px;width:auto;object-fit:contain;filter:brightness(0) invert(0);}
 .mm-body{padding:10px 0;flex:1;}
 .mm-sec{padding:16px 22px 6px;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--light);}
 .mm-lnk{
@@ -625,9 +625,6 @@ footer{background:#0d1014;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
 </head>
 <body>
 
-<!-- ═══════════════════════════════════
-   UTILITY BAR — teal-deep, hides on scroll
-   ═══════════════════════════════════ -->
 <div id="util-bar">
   <div class="ub-left">
     <a href="maison.html" class="ub-link" id="ub-maison">La Maison</a>
@@ -651,10 +648,6 @@ footer{background:#0d1014;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
   </div>
 </div>
 
-<!-- ═══════════════════════════════════
-   FULL HEADER BRAND — scrolls with page
-   icon + DON ALBERTO CAFE + slogans
-   ═══════════════════════════════════ -->
 <div id="hdr-full">
   <div class="hf-icon">
     <img src="logo-icon-no-br.png" alt="Don Alberto Café" id="hdr-icon">
@@ -662,24 +655,19 @@ footer{background:#0d1014;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
   <div class="hf-name" id="hf-name">DON ALBERTO</div>
   <div class="hf-sub">CAFÉ</div>
   <div class="hf-slogans">
-    <span class="hf-sl1" id="hf-sl1">Soul in the Soil, Being in the Bean</span>
+    <span class="hf-sl1" id="hf-sl1">Terre de caractère, grain d’excellence</span>
     <div class="hf-sep"></div>
-    <span class="hf-sl2" id="hf-sl2">ANCESTRAL COFFEE CRAFTING</span>
+    <span class="hf-sl2" id="hf-sl2">ARTISANAT CAFÉIER ANCESTRAL</span>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════
-   MAIN NAV — sticky, always at top when scrolled
-   ═══════════════════════════════════ -->
 <header id="main-nav">
   <div class="nav-inner">
-    <!-- LEFT nav -->
     <nav class="nav-left" aria-label="Nav gauche">
       <div class="ni"><a href="boutique.html" id="n-spec">Specialty Coffee</a></div>
       <div class="ni"><a href="boutique.html#abonnement" id="n-club">Club Don Alberto</a></div>
     </nav>
 
-    <!-- CENTER: compact logo (fades in on scroll) -->
     <div class="nav-center">
       <div class="nav-logo-compact" id="compact-logo">
         <a href="index.html">
@@ -688,23 +676,18 @@ footer{background:#0d1014;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
       </div>
     </div>
 
-    <!-- RIGHT nav -->
     <nav class="nav-right" aria-label="Nav droite">
       <div class="ni"><a href="b2b.html" id="n-pro">Espace Pro</a></div>
       <div class="ni"><a href="origine-boutique.html" id="n-orig">Boutique d'Origine</a></div>
       <a href="javascript:void(0)" onclick="openCheckout()" class="nav-cmd" id="n-cmd">Commander</a>
     </nav>
 
-    <!-- Hamburger -->
     <button class="mob-tog" id="mob-tog" onclick="toggleMob()" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 
-<!-- ═══════════════════════════════════
-   MOBILE MENU
-   ═══════════════════════════════════ -->
 <div class="mob-menu" id="mob-menu">
   <div class="mm-hdr">
     <div class="mm-logo-row">
@@ -733,9 +716,6 @@ footer{background:#0d1014;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
   </div>
 </div>
 
-<!-- ═══════════════════════════════════
-   HERO — video background
-   ═══════════════════════════════════ -->
 <section class="hero" aria-label="Don Alberto Café — Specialty Coffee Boyacá Colombia">
   <video class="hero-video" autoplay muted loop playsinline poster="farm_cherries1.jpeg">
     <source src="DA_Intro_Final.mp4" type="video/mp4">
@@ -745,8 +725,8 @@ footer{background:#0d1014;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
   <div class="hero-content">
     <p class="hero-eyebrow" id="h-ey">Boyacá · Colombie · Single Origin · Specialty</p>
     <h1 class="hero-title">DON ALBERTO<span id="h-sub">C A F É</span></h1>
-    <p class="hero-slogan" id="h-sl">Soul in the Soil, Being in the Bean</p>
-    <p class="hero-craft" id="h-craft">Ancestral Coffee Crafting</p>
+    <p class="hero-slogan" id="h-sl">Terre de caractère, grain d’excellence</p>
+    <p class="hero-craft" id="h-craft">ARTISANAT CAFÉIER ANCESTRAL</p>
     <div class="hero-stats">
       <div><div class="hstat-num">84.5</div><div class="hstat-lbl" id="s-sca">Score SCA</div></div>
       <div class="hero-hdiv"></div>
@@ -761,15 +741,11 @@ footer{background:#0d1014;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
   <div class="hero-scroll"><div class="scroll-line"></div><span id="s-scroll">Défiler</span></div>
 </section>
 
-<!-- ═══════════════════════════════════
-   HOME PANELS — two large CTAs
-   ═══════════════════════════════════ -->
 <div class="home-panels">
-  <!-- LEFT: Specialty Coffee / Boutique -->
   <a href="boutique.html" class="hp">
     <img
       class="hp-img"
-      src="Notre_Cafe.png"
+      src="notre-cafe.png"
       alt="Specialty Coffee Don Alberto — Boutique"
       loading="eager"
       onerror="this.style.display='none'"
@@ -781,7 +757,6 @@ footer{background:#0d1014;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
       <span class="hp-ct" id="p1-ct">Explorer la boutique →</span>
     </div>
   </a>
-  <!-- RIGHT: Club Don Alberto -->
   <a href="boutique.html#abonnement" class="hp">
     <img
       class="hp-img"
@@ -799,9 +774,6 @@ footer{background:#0d1014;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
   </a>
 </div>
 
-<!-- ═══════════════════════════════════
-   JOURNEY / PROCESS SECTION
-   ═══════════════════════════════════ -->
 <section class="journey-section">
   <div class="journey-steps">
     <div class="journey-step reveal">
@@ -846,9 +818,6 @@ footer{background:#0d1014;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
   </div>
 </section>
 
-<!-- ═══════════════════════════════════
-   ATTRIBUTES TICKER
-   ═══════════════════════════════════ -->
 <div class="attrs-strip">
   <div class="attrs-track">
     <div class="attr-item"><div class="attr-dot"></div><span class="attr-text">SCA Score</span><span class="attr-value">84.5 / 100</span></div>
@@ -872,9 +841,6 @@ footer{background:#0d1014;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
   </div>
 </div>
 
-<!-- ═══════════════════════════════════
-   QUALITY SECTION
-   ═══════════════════════════════════ -->
 <section class="quality-section" id="qualite">
   <div class="quality-img-wrap reveal">
     <img src="senor-cafetero.jpg" alt="Señor cafetero">
@@ -899,12 +865,9 @@ footer{background:#0d1014;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
   </div>
 </section>
 
-<!-- ═══════════════════════════════════
-   ORIGIN TEASER
-   ═══════════════════════════════════ -->
 <section class="origin-teaser" id="origine-teaser">
   <div class="origin-map-wrap reveal">
-    <img src="Boyaca_Beutiful_Landscapes.jpg" alt="Paysage Boyacá — Rondón, 1670m">
+    <img src="boyaca-landscapes.jpg" alt="Paysage Boyacá — Rondón, 1670m">
     <div class="origin-tag">Rondón · Boyacá · Colombia · 1670m</div>
   </div>
   <div class="reveal">
@@ -921,9 +884,6 @@ footer{background:#0d1014;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
   </div>
 </section>
 
-<!-- ═══════════════════════════════════
-   TRUST BAR
-   ═══════════════════════════════════ -->
 <div class="trust-bar">
   <div class="trust-grid">
     <div class="trust-item reveal">
@@ -945,9 +905,6 @@ footer{background:#0d1014;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
   </div>
 </div>
 
-<!-- ═══════════════════════════════════
-   NEWSLETTER — 2-column, dark bg
-   ═══════════════════════════════════ -->
 <section class="nl-section">
   <div class="nl-text">
     <h2 id="nl-h">Rejoignez la communauté <em>Don Alberto</em></h2>
@@ -959,20 +916,16 @@ footer{background:#0d1014;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
   </form>
 </section>
 
-<!-- ═══════════════════════════════════
-   FOOTER — dark navy, icon logo visible
-   ═══════════════════════════════════ -->
 <footer>
   <div class="footer-inner">
 
-    <!-- Brand column -->
     <div class="footer-brand">
       <div class="footer-logo-icon">
         <img src="logo-icon-no-br.png" alt="Don Alberto Café logo">
       </div>
       <div class="footer-brand-name">DON ALBERTO</div>
       <div class="footer-brand-cafe">CAFÉ</div>
-      <p class="footer-slogan" id="footer-slogan">Terre de caractère,<br>grain d'exception</p>
+      <p class="footer-slogan" id="footer-slogan">ARTISANAT CAFÉIER ANCESTRAL</p>
       <div class="footer-socials">
         <a href="https://instagram.com/donalberto.cafe" target="_blank" rel="noopener" class="footer-soc" aria-label="Instagram">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
@@ -992,7 +945,6 @@ footer{background:#0d1014;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
       </div>
     </div>
 
-    <!-- 3 Columns -->
     <div class="footer-cols">
       <div class="footer-col">
         <h4 id="fc-h1">La Marque</h4>
@@ -1020,7 +972,6 @@ footer{background:#0d1014;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
 
   </div>
 
-  <!-- Vlog bar -->
   <div class="footer-vlog-row">
     <a href="vlog.html" id="fv-lnk">
       <div class="fvlog-ico"><svg viewBox="0 0 24 24" fill="currentColor" width="10" height="10"><path d="M8 5v14l11-7z"/></svg></div>
@@ -1038,9 +989,6 @@ footer{background:#0d1014;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
   </div>
 </footer>
 
-<!-- ═══════════════════════════════════
-   CHECKOUT MODAL
-   ═══════════════════════════════════ -->
 <div id="coModal" class="co-modal">
   <div class="co-bd" onclick="closeCheckout()"></div>
   <div class="co-box">
@@ -1049,9 +997,6 @@ footer{background:#0d1014;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
   </div>
 </div>
 
-<!-- ═══════════════════════════════════
-   WHATSAPP
-   ═══════════════════════════════════ -->
 <div class="wa-wrap">
   <div class="wa-bubble" id="wa-bubble">
     <span id="wa-txt">Besoin d'aide ?</span>
@@ -1127,9 +1072,9 @@ document.addEventListener('click', e => {
 /* ── LANGUAGE DATA ── */
 const L = {
   fr:{
-    sl:'L\'Âme du Sol, l\'Être dans le Grain',craft:'Artisanat Caféier Ancestral',
-    sl1:'L\'Âme du Sol, l\'Être dans le Grain',sl2:'ARTISANAT CAFÉIER ANCESTRAL',
-    fslogan:'Terre de caractère,<br>grain d\'exception',
+    sl:'Terre de caractère, grain d’excellence',craft:'ARTISANAT CAFÉIER ANCESTRAL',
+    sl1:'Terre de caractère, grain d’excellence',sl2:'ARTISANAT CAFÉIER ANCESTRAL',
+    fslogan:'ARTISANAT CAFÉIER ANCESTRAL',
     nlph:'Votre adresse email',
     ey:'Boyacá · Colombie · Single Origin · Specialty',sc:'Défiler',
     p1e:'Specialty Coffee · Boutique',p1t:'Rondón Castillo —<br>SCA 84.5 · Grain entier',p1c:'Explorer la boutique →',
@@ -1165,9 +1110,9 @@ const L = {
     octa:'Découvrir l\'origine →'
   },
   en:{
-    sl:'Soul in the Soil, Being in the Bean',craft:'Ancestral Coffee Crafting',
+    sl:'Soul in the Soil, Being in the Bean',craft:'ANCESTRAL COFFEE CRAFTING',
     sl1:'Soul in the Soil, Being in the Bean',sl2:'ANCESTRAL COFFEE CRAFTING',
-    fslogan:'Land of character,<br>grain of exception',
+    fslogan:'ANCESTRAL COFFEE CRAFTING',
     nlph:'Your email address',
     ey:'Boyacá · Colombia · Single Origin · Specialty',sc:'Scroll',
     p1e:'Specialty Coffee · Shop',p1t:'Rondón Castillo —<br>SCA 84.5 · Whole Bean',p1c:'Explore the shop →',
@@ -1203,9 +1148,9 @@ const L = {
     octa:'Discover the origin →'
   },
   es:{
-    sl:'Esencia del Suelo, Vida en el Fruto',craft:'Arte cafetalero ancestral',
+    sl:'Esencia del Suelo, Vida en el Fruto',craft:'ARTE CAFETALERO ANCESTRAL',
     sl1:'Esencia del Suelo, Vida en el Fruto',sl2:'ARTE CAFETALERO ANCESTRAL',
-    fslogan:'Tierra de carácter,<br>grano de excepción',
+    fslogan:'ARTE CAFETALERO ANCESTRAL',
     nlph:'Tu dirección de correo',
     ey:'Boyacá · Colombia · Origen Único · Specialty',sc:'Deslizar',
     p1e:'Specialty Coffee · Tienda',p1t:'Rondón Castillo —<br>SCA 84.5 · Grano entero',p1c:'Explorar la tienda →',
