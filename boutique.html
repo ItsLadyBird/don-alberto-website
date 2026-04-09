@@ -10,14 +10,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared.css">
 <style>
-/* ── PAGE HERO ── */
+/* ── PAGE HERO & ATTRS ── */
 .page-hero { background:var(--teal-deep); padding:clamp(60px,6vw,100px) clamp(18px,5vw,80px); text-align:center; position:relative; overflow:hidden; }
 .page-hero::before { content:''; position:absolute; inset:0; background:url('farm_cherries1.jpeg') center/cover; opacity:.06; }
 .page-hero-inner { position:relative; z-index:1; }
 .page-hero h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(36px,5vw,64px); color:white; letter-spacing:3px; margin-top:14px; font-weight:300; line-height:1.1; }
 .page-hero p { font-family:'Lato',sans-serif; font-size:clamp(16px,2vw,22px); color:rgba(255,255,255,.7); margin-top:12px; font-weight:300; }
 
-/* ── ATTRS STRIP ── */
 .attrs-strip { background:var(--teal-deep); overflow:hidden; border-top:1px solid rgba(255,255,255,.06); border-bottom:1px solid rgba(255,255,255,.06); }
 .attrs-track { display:flex; width:max-content; animation:scrollTrack 32s linear infinite; }
 .attrs-track:hover { animation-play-state:paused; }
@@ -29,33 +28,40 @@
 
 /* ── FILTER BAR ── */
 .filter-bar { background:white; border-bottom:2px solid rgba(9,102,133,.1); padding:0 clamp(18px,5vw,80px); position:sticky; top:var(--nav-h); z-index:100; display:flex; align-items:center; gap:0; overflow-x:auto; scrollbar-width:none; }
-.filter-bar::-webkit-scrollbar { display:none; }
 .filter-btn { padding:15px 24px; font-family:'Lato',sans-serif; font-size:10px; letter-spacing:2.5px; text-transform:uppercase; color:var(--light); background:none; border:none; border-bottom:2px solid transparent; margin-bottom:-2px; cursor:pointer; white-space:nowrap; transition:color .2s,border-color .2s; }
 .filter-btn:hover { color:var(--teal); }
-.filter-btn.active { color:var(--teal); border-bottom-color:var(--teal); }
+.filter-btn.active { color:var(--teal); border-bottom-color:var(--teal); font-weight:700; }
 
-/* ── SHOP GRID ── */
+/* ── SHOP GRID (Match Boutique Format Ordering) ── */
 .shop-section { padding:clamp(50px,4vw,80px) clamp(18px,5vw,80px); }
 .products-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-.product-card { background:white; border:1px solid rgba(9,102,133,.08); transition:box-shadow .3s,transform .3s; position:relative; overflow:hidden; }
+.product-card { background:white; border:1px solid rgba(9,102,133,.08); transition:box-shadow .3s,transform .3s; position:relative; display:flex; flex-direction:column; }
 .product-card:hover { box-shadow:0 12px 48px rgba(0,0,0,.1); transform:translateY(-4px); }
 .product-card.hidden { display:none; }
 .product-img { aspect-ratio:4/5; overflow:hidden; background:var(--cream); display:flex; align-items:center; justify-content:center; position:relative; }
 .product-img img { height:88%; width:auto; object-fit:contain; transition:transform .5s; filter:drop-shadow(0 16px 36px rgba(0,0,0,.2)); }
 .product-card:hover .product-img img { transform:translateY(-6px) scale(1.04); }
 .product-badge { position:absolute; top:14px; left:14px; background:var(--teal); color:white; font-size:8px; letter-spacing:2px; text-transform:uppercase; padding:5px 10px; z-index:1; }
-.product-badge.gold { background:var(--gold); color:var(--teal-deep); }
-.product-info { padding:22px 24px; }
-.product-category { font-size:9px; letter-spacing:2.5px; text-transform:uppercase; color:var(--teal); margin-bottom:6px; }
-.product-name { font-family:'Cormorant Garamond',serif; font-size:21px; font-weight:500; color:var(--dark); margin-bottom:5px; line-height:1.2; }
-.product-desc { font-size:11.5px; color:var(--light); line-height:1.7; margin-bottom:14px; }
-.product-footer { display:flex; align-items:center; justify-content:space-between; padding-top:14px; border-top:1px solid rgba(9,102,133,.06); }
-.product-price { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; color:var(--teal-deep); display:flex; align-items:baseline; gap:8px;}
-.product-ship { font-size:10px; color:var(--light); font-family:'Lato',sans-serif; letter-spacing:0.3px; }
-.product-order-btn { background:var(--teal); color:white; border:none; padding:10px 18px; font-size:9px; letter-spacing:2px; text-transform:uppercase; font-family:'Lato',sans-serif; cursor:pointer; transition:background .2s; }
+.product-badge.gold { background:var(--gold); color:var(--teal-deep); font-weight:700; }
+
+.product-info { padding:24px; display:flex; flex-direction:column; flex:1; }
+.product-tags { display:flex; gap:6px; margin-bottom:12px; flex-wrap:wrap; }
+.product-tag { font-size:8px; letter-spacing:2px; text-transform:uppercase; color:var(--teal); border:1px solid rgba(9,102,133,.2); padding:4px 8px; }
+.product-name { font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:400; color:var(--dark); margin-bottom:8px; line-height:1.15; }
+.product-desc { font-size:12px; color:var(--mid); line-height:1.7; margin-bottom:18px; font-weight:300; }
+
+.product-meta { margin-top:auto; padding-top:16px; border-top:1px solid rgba(9,102,133,.08); display:flex; flex-direction:column; gap:6px; margin-bottom:20px; }
+.product-meta-row { display:flex; justify-content:space-between; font-size:11px; color:var(--light); }
+.product-meta-row span:first-child { text-transform:uppercase; letter-spacing:1px; font-size:9px; }
+.product-meta-row span:last-child { color:var(--dark); font-weight:400; }
+
+.product-footer { display:flex; align-items:center; justify-content:space-between; margin-top:auto; }
+.product-price { font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:300; color:var(--teal-deep); display:flex; flex-direction:column; line-height:1; }
+.product-ship { font-size:9px; color:var(--light); font-family:'Lato',sans-serif; letter-spacing:1px; text-transform:uppercase; margin-top:4px; }
+.product-order-btn { background:var(--teal); color:white; border:none; padding:12px 20px; font-size:9px; letter-spacing:2.5px; text-transform:uppercase; font-family:'Lato',sans-serif; font-weight:700; cursor:pointer; transition:background .2s; }
 .product-order-btn:hover { background:var(--teal-deep); }
 
-/* ── PAYMENT INFO ── */
+/* ── PAYMENT STRIP & MODAL ── */
 .payment-strip { background:var(--warm); padding:clamp(36px,3vw,56px) clamp(18px,5vw,80px); }
 .payment-strip h3 { font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:300; color:var(--dark); margin-bottom:24px; }
 .payment-strip h3 em { font-style:italic; color:var(--teal); }
@@ -64,7 +70,7 @@
 .payment-method:hover { border-color:var(--teal); box-shadow:0 4px 18px rgba(0,0,0,.06); }
 .pm-logo { width:80px; height:34px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
 .pm-info { flex:1; }
-.pm-name { font-size:12px; font-weight:500; color:var(--dark); margin-bottom:2px; }
+.pm-name { font-size:12px; font-weight:700; color:var(--dark); margin-bottom:2px; }
 .pm-sub { font-size:10.5px; color:var(--light); }
 .pm-arrow { font-size:18px; color:var(--teal); }
 .paypal-badge { font-family:sans-serif; font-size:15px; color:#003087; letter-spacing:0; font-weight:800; }
@@ -74,7 +80,6 @@
 .payment-note { margin-top:18px; font-size:11.5px; color:var(--light); line-height:1.8; }
 .payment-note strong { color:var(--mid); }
 
-/* ── MODAL OVERRIDES FOR BOUTIQUE ── */
 .pay-modal { position:fixed; inset:0; z-index:9999; display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity .3s; }
 .pay-modal.open { opacity:1; pointer-events:auto; }
 .pay-modal-box { position:relative; background:white; width:100%; max-width:520px; max-height:90vh; overflow-y:auto; border-radius:4px; z-index:1; margin:16px; }
@@ -93,7 +98,7 @@
 .pay-opt:hover { border-color:var(--teal); background:rgba(9,102,133,.03); }
 .pay-opt-logo { width:72px; height:26px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
 .pay-opt-info { flex:1; }
-.pay-opt-name { font-size:11.5px; font-weight:500; color:var(--dark); }
+.pay-opt-name { font-size:11.5px; font-weight:700; color:var(--dark); }
 .pay-opt-sub { font-size:10.5px; color:var(--light); margin-top:1px; }
 .pay-opt-arr { color:var(--teal); font-size:18px; }
 .pay-separator { border:none; border-top:1px solid rgba(9,102,133,.08); margin:6px 0 14px; }
@@ -103,7 +108,7 @@
 .pay-footer-note { font-size:10.5px; color:var(--light); line-height:1.8; text-align:center; }
 
 @media(max-width:900px){ .products-grid{grid-template-columns:repeat(2,1fr);} .payment-methods{grid-template-columns:1fr;} }
-@media(max-width:600px){ .products-grid{grid-template-columns:1fr;} .payment-methods{grid-template-columns:1fr;} }
+@media(max-width:600px){ .products-grid{grid-template-columns:1fr;} }
 </style>
 </head>
 <body>
@@ -124,7 +129,7 @@
 </div>
 
 <div id="hdr-full">
-  <div class="hf-icon"><img src="logo-icon-no-br.png" alt="Don Alberto Café"></div>
+  <div class="hf-icon"><a href="index.html"><img src="logo-icon-no-br.png" alt="Don Alberto Café"></a></div>
   <div class="hf-name">DON ALBERTO</div>
   <div class="hf-sub">CAFÉ</div>
   <div class="hf-slogans"><span class="hf-sl1" id="hf-sl1">Terre de caractère, grain d'excellence</span><div class="hf-sep"></div><span class="hf-sl2" id="hf-sl2">ARTISANAT CAFÉIER ANCESTRAL</span></div>
@@ -134,6 +139,7 @@
   <div class="nav-inner">
     <nav class="nav-left">
       <div class="ni"><a href="boutique.html" class="act" id="n-spec">Specialty Coffee</a></div>
+      <div class="ni"><a href="boutique.html#abonnement" id="n-club">Club Don Alberto</a></div>
     </nav>
     <div class="nav-center"><div class="nav-logo-compact" id="compact-logo"><a href="index.html"><img src="logo-icon-no-br.png" alt="Don Alberto Café" style="height:36px;width:auto;object-fit:contain;"></a></div></div>
     <nav class="nav-right">
@@ -188,20 +194,30 @@
 
 <div class="filter-bar" role="tablist">
   <button class="filter-btn active" data-filter="all" onclick="filterProducts('all',this)" id="f-all">Tous</button>
-  <button class="filter-btn" data-filter="beans" onclick="filterProducts('beans',this)" id="f-beans">Grains</button>
+  <button class="filter-btn" data-filter="whole-bean" onclick="filterProducts('whole-bean',this)" id="f-beans">Grain Entier</button>
+  <button class="filter-btn" data-filter="ground" onclick="filterProducts('ground',this)" id="f-ground">Moulu</button>
+  <button class="filter-btn" data-filter="subscriptions" onclick="filterProducts('subscriptions',this)" id="f-sub">Abonnements</button>
 </div>
 
 <section class="shop-section" id="produits">
   <div class="products-grid" id="productsGrid">
 
-    <article class="product-card reveal" data-category="beans">
+    <article class="product-card reveal" data-category="whole-bean">
       <div class="product-img">
-        <img src="bag_250g.png" alt="Don Alberto Café grain entier 250g Arabica Castillo Boyacá SCA 84.5">
+        <img src="bag_250g.png" alt="Don Alberto Café grain entier 250g">
       </div>
       <div class="product-info">
-        <p class="product-category" id="p1-cat">Format Boutique</p>
+        <div class="product-tags">
+          <span class="product-tag" id="p1-t1">Format Boutique</span>
+          <span class="product-tag" id="p1-t2">Découverte</span>
+        </div>
         <h2 class="product-name" id="p1-name">250g — Grain entier</h2>
-        <p class="product-desc" id="p1-desc">Rondon Castillo · Procédé Lavé · SCA 84.5</p>
+        <p class="product-desc" id="p1-desc">L'introduction parfaite au profil Don Alberto. Idéal pour découvrir la densité raffinée du terroir de Boyacá.</p>
+        <div class="product-meta">
+          <div class="product-meta-row"><span id="p1-m1l">Score SCA</span><span id="p1-m1v">84.5</span></div>
+          <div class="product-meta-row"><span id="p1-m2l">Procédé</span><span id="p1-m2v">Lavé</span></div>
+          <div class="product-meta-row"><span id="p1-m3l">Origine</span><span id="p1-m3v">Rondón, Boyacá</span></div>
+        </div>
         <div class="product-footer">
           <div class="product-price">€18 <span class="product-ship" id="p1-ship">+ livraison €7</span></div>
           <button class="product-order-btn" onclick="openPayment('250g — Grain entier', '€18', 'https://py.pl/I1hdx', 'DA-250g')" id="p1-btn">Commander</button>
@@ -209,15 +225,23 @@
       </div>
     </article>
 
-    <article class="product-card reveal" data-category="beans">
+    <article class="product-card reveal" data-category="whole-bean">
       <div class="product-img">
-        <div class="product-badge gold" id="p2-badge">Découverte & Cadeau</div>
-        <img src="bag_250g.png" alt="Pack découverte Don Alberto 3×250g cadeau café spécialité">
+        <div class="product-badge gold" id="p2-badge">Cadeau Idéal</div>
+        <img src="bag_250g.png" alt="Pack découverte Don Alberto 3×250g">
       </div>
       <div class="product-info">
-        <p class="product-category" id="p2-cat">Format Pack</p>
+        <div class="product-tags">
+          <span class="product-tag" id="p2-t1">Format Pack</span>
+          <span class="product-tag" id="p2-t2">Livraison Offerte</span>
+        </div>
         <h2 class="product-name" id="p2-name">Pack 3×250g — Grain entier</h2>
-        <p class="product-desc" id="p2-desc">Idéal pour offrir ou explorer notre profil aromatique.</p>
+        <p class="product-desc" id="p2-desc">Idéal pour offrir ou explorer pleinement notre profil aromatique cacao et miel visqueux sur la durée.</p>
+        <div class="product-meta">
+          <div class="product-meta-row"><span id="p2-m1l">Quantité</span><span id="p2-m1v">3 x 250g</span></div>
+          <div class="product-meta-row"><span id="p2-m2l">Procédé</span><span id="p2-m2v">Lavé</span></div>
+          <div class="product-meta-row"><span id="p2-m3l">Origine</span><span id="p2-m3v">Rondón, Boyacá</span></div>
+        </div>
         <div class="product-footer">
           <div class="product-price">€49 <span class="product-ship" id="p2-ship" style="color:var(--teal);font-weight:700;">Livraison offerte</span></div>
           <button class="product-order-btn" onclick="openPayment('Pack 3×250g — Grain entier', '€49', 'https://py.pl/1usgwo', 'DA-Pack3')" id="p2-btn">Commander</button>
@@ -225,15 +249,23 @@
       </div>
     </article>
 
-    <article class="product-card reveal" data-category="beans">
+    <article class="product-card reveal" data-category="whole-bean">
       <div class="product-img">
-        <div class="product-badge" id="p3-badge">Format Pro / Famille</div>
-        <img src="bag_250g.png" alt="Don Alberto Café grain entier 1kg format professionnel Boyacá">
+        <div class="product-badge" id="p3-badge">Volume</div>
+        <img src="bag_250g.png" alt="Don Alberto Café grain entier 1kg">
       </div>
       <div class="product-info">
-        <p class="product-category" id="p3-cat">Format Volume</p>
+        <div class="product-tags">
+          <span class="product-tag" id="p3-t1">Format Pro / Famille</span>
+          <span class="product-tag" id="p3-t2">Économique</span>
+        </div>
         <h2 class="product-name" id="p3-name">1kg — Grain entier</h2>
-        <p class="product-desc" id="p3-desc">Le meilleur rapport quantité/prix pour les passionnés.</p>
+        <p class="product-desc" id="p3-desc">Le meilleur rapport quantité/prix pour les passionnés et les familles. Conservez la fraîcheur plus longtemps.</p>
+        <div class="product-meta">
+          <div class="product-meta-row"><span id="p3-m1l">Score SCA</span><span id="p3-m1v">84.5</span></div>
+          <div class="product-meta-row"><span id="p3-m2l">Procédé</span><span id="p3-m2v">Lavé</span></div>
+          <div class="product-meta-row"><span id="p3-m3l">Origine</span><span id="p3-m3v">Rondón, Boyacá</span></div>
+        </div>
         <div class="product-footer">
           <div class="product-price">€54 <span class="product-ship" id="p3-ship">+ livraison €9</span></div>
           <button class="product-order-btn" onclick="openPayment('1kg — Grain entier', '€54', 'https://py.pl/WVmGt', 'DA-1kg')" id="p3-btn">Commander</button>
@@ -376,11 +408,11 @@
 const localDict = {
   fr: {
     ph_lbl: "Boutique · Specialty Coffee Boyacá Colombia", ph_h1: "Notre Café", ph_p: "Grain entier · Single Origin Boyacá, SCA 84.5",
-    f_all: "Tous", f_beans: "Grains",
+    f_all: "Tous", f_beans: "Grain Entier", f_ground: "Moulu", f_sub: "Abonnements",
     
-    p1_cat: "Format Boutique", p1_name: "250g — Grain entier", p1_desc: "Rondon Castillo · Procédé Lavé · SCA 84.5", p1_ship: "+ livraison €7", p1_btn: "Commander",
-    p2_badge: "Découverte & Cadeau", p2_cat: "Format Pack", p2_name: "Pack 3×250g — Grain entier", p2_desc: "Idéal pour offrir ou explorer notre profil aromatique.", p2_ship: "Livraison offerte", p2_btn: "Commander",
-    p3_badge: "Format Pro / Famille", p3_cat: "Format Volume", p3_name: "1kg — Grain entier", p3_desc: "Le meilleur rapport quantité/prix pour les passionnés.", p3_ship: "+ livraison €9", p3_btn: "Commander",
+    p1_t1: "Format Boutique", p1_t2: "Découverte", p1_name: "250g — Grain entier", p1_desc: "L'introduction parfaite au profil Don Alberto. Idéal pour découvrir la densité raffinée du terroir de Boyacá.", p1_m1l: "Score SCA", p1_m1v: "84.5", p1_m2l: "Procédé", p1_m2v: "Lavé", p1_m3l: "Origine", p1_m3v: "Rondón, Boyacá", p1_ship: "+ livraison €7", p1_btn: "Commander",
+    p2_badge: "Cadeau Idéal", p2_t1: "Format Pack", p2_t2: "Livraison Offerte", p2_name: "Pack 3×250g — Grain entier", p2_desc: "Idéal pour offrir ou explorer pleinement notre profil aromatique cacao et miel visqueux sur la durée.", p2_m1l: "Quantité", p2_m1v: "3 x 250g", p2_m2l: "Procédé", p2_m2v: "Lavé", p2_m3l: "Origine", p2_m3v: "Rondón, Boyacá", p2_ship: "Livraison offerte", p2_btn: "Commander",
+    p3_badge: "Volume", p3_t1: "Format Pro / Famille", p3_t2: "Économique", p3_name: "1kg — Grain entier", p3_desc: "Le meilleur rapport quantité/prix pour les passionnés et les familles. Conservez la fraîcheur plus longtemps.", p3_m1l: "Score SCA", p3_m1v: "84.5", p3_m2l: "Procédé", p3_m2v: "Lavé", p3_m3l: "Origine", p3_m3v: "Rondón, Boyacá", p3_ship: "+ livraison €9", p3_btn: "Commander",
     
     ps_lbl: "Comment commander", ps_h3: "<em>Modes de paiement</em> acceptés", pm1_sub: "Recommandé · Lien pré-rempli", pm2_sub: "Transfert instantané · 0 frais", pm3_sub: "Idéal hors zone euro",
     ps_note: "<strong>Comment commander :</strong> Cliquez sur votre produit → choisissez votre mode de paiement → effectuez le transfert.<br>Des questions ? <a href='https://wa.me/33761528450' target='_blank'>Contactez-nous sur WhatsApp</a>.",
@@ -388,11 +420,11 @@ const localDict = {
   },
   en: {
     ph_lbl: "Shop · Specialty Coffee Boyacá Colombia", ph_h1: "Our Coffee", ph_p: "Whole Bean · Single Origin Boyacá, SCA 84.5",
-    f_all: "All", f_beans: "Beans",
+    f_all: "All", f_beans: "Whole Bean", f_ground: "Ground", f_sub: "Subscriptions",
     
-    p1_cat: "Boutique Format", p1_name: "250g — Whole Bean", p1_desc: "Rondon Castillo · Washed Process · SCA 84.5", p1_ship: "+ shipping €7", p1_btn: "Order",
-    p2_badge: "Discovery & Gift", p2_cat: "Pack Format", p2_name: "Pack 3×250g — Whole Bean", p2_desc: "Ideal for gifting or exploring our aromatic profile.", p2_ship: "Free shipping", p2_btn: "Order",
-    p3_badge: "Pro / Family Format", p3_cat: "Volume Format", p3_name: "1kg — Whole Bean", p3_desc: "The best quantity/price ratio for coffee lovers.", p3_ship: "+ shipping €9", p3_btn: "Order",
+    p1_t1: "Boutique Format", p1_t2: "Discovery", p1_name: "250g — Whole Bean", p1_desc: "The perfect introduction to the Don Alberto profile. Ideal for exploring the refined density of the Boyacá terroir.", p1_m1l: "SCA Score", p1_m1v: "84.5", p1_m2l: "Process", p1_m2v: "Washed", p1_m3l: "Origin", p1_m3v: "Rondón, Boyacá", p1_ship: "+ shipping €7", p1_btn: "Order",
+    p2_badge: "Ideal Gift", p2_t1: "Pack Format", p2_t2: "Free Shipping", p2_name: "Pack 3×250g — Whole Bean", p2_desc: "Ideal for gifting or fully exploring our aromatic profile of cocoa and viscous honey over time.", p2_m1l: "Quantity", p2_m1v: "3 x 250g", p2_m2l: "Process", p2_m2v: "Washed", p2_m3l: "Origin", p2_m3v: "Rondón, Boyacá", p2_ship: "Free shipping", p2_btn: "Order",
+    p3_badge: "Volume", p3_t1: "Pro / Family Format", p3_t2: "Economic", p3_name: "1kg — Whole Bean", p3_desc: "The best quantity/price ratio for enthusiasts and families. Lock in freshness longer.", p3_m1l: "SCA Score", p3_m1v: "84.5", p3_m2l: "Process", p3_m2v: "Washed", p3_m3l: "Origin", p3_m3v: "Rondón, Boyacá", p3_ship: "+ shipping €9", p3_btn: "Order",
     
     ps_lbl: "How to order", ps_h3: "Accepted <em>Payment Methods</em>", pm1_sub: "Recommended · Direct link", pm2_sub: "Instant transfer · 0 fees", pm3_sub: "Ideal outside Euro zone",
     ps_note: "<strong>How to order:</strong> Click on your product → choose your payment method → complete the transfer.<br>Questions? <a href='https://wa.me/33761528450' target='_blank'>Contact us on WhatsApp</a>.",
@@ -400,11 +432,11 @@ const localDict = {
   },
   es: {
     ph_lbl: "Tienda · Specialty Coffee Boyacá Colombia", ph_h1: "Nuestro Café", ph_p: "Grano entero · Single Origin Boyacá, SCA 84.5",
-    f_all: "Todos", f_beans: "Granos",
+    f_all: "Todos", f_beans: "Grano Entero", f_ground: "Molido", f_sub: "Suscripciones",
     
-    p1_cat: "Formato Tienda", p1_name: "250g — Grano entero", p1_desc: "Rondon Castillo · Proceso Lavado · SCA 84.5", p1_ship: "+ envío €7", p1_btn: "Pedir",
-    p2_badge: "Descubrimiento & Regalo", p2_cat: "Formato Pack", p2_name: "Pack 3×250g — Grano entero", p2_desc: "Ideal para regalar o explorar nuestro perfil aromático.", p2_ship: "Envío gratis", p2_btn: "Pedir",
-    p3_badge: "Formato Pro / Familia", p3_cat: "Formato Volumen", p3_name: "1kg — Grano entero", p3_desc: "La mejor relación cantidad/precio para apasionados.", p3_ship: "+ envío €9", p3_btn: "Pedir",
+    p1_t1: "Formato Tienda", p1_t2: "Descubrimiento", p1_name: "250g — Grano entero", p1_desc: "La introducción perfecta al perfil Don Alberto. Ideal para descubrir la densidad refinada del terroir de Boyacá.", p1_m1l: "Puntaje SCA", p1_m1v: "84.5", p1_m2l: "Proceso", p1_m2v: "Lavado", p1_m3l: "Origen", p1_m3v: "Rondón, Boyacá", p1_ship: "+ envío €7", p1_btn: "Pedir",
+    p2_badge: "Regalo Ideal", p2_t1: "Formato Pack", p2_t2: "Envío Gratis", p2_name: "Pack 3×250g — Grano entero", p2_desc: "Ideal para regalar o explorar plenamente nuestro perfil aromático a cacao y miel viscosa en el tiempo.", p2_m1l: "Cantidad", p2_m1v: "3 x 250g", p2_m2l: "Proceso", p2_m2v: "Lavado", p2_m3l: "Origen", p2_m3v: "Rondón, Boyacá", p2_ship: "Envío gratis", p2_btn: "Pedir",
+    p3_badge: "Volumen", p3_t1: "Formato Pro / Familia", p3_t2: "Económico", p3_name: "1kg — Grano entero", p3_desc: "La mejor relación cantidad/precio para apasionados y familias. Conserva la frescura más tiempo.", p3_m1l: "Puntaje SCA", p3_m1v: "84.5", p3_m2l: "Proceso", p3_m2v: "Lavado", p3_m3l: "Origen", p3_m3v: "Rondón, Boyacá", p3_ship: "+ envío €9", p3_btn: "Pedir",
     
     ps_lbl: "Cómo pedir", ps_h3: "<em>Métodos de pago</em> aceptados", pm1_sub: "Recomendado · Enlace directo", pm2_sub: "Transferencia al instante · 0 comisiones", pm3_sub: "Ideal fuera de zona euro",
     ps_note: "<strong>Cómo pedir:</strong> Haz clic en el producto → elige tu método de pago → realiza la transferencia.<br>¿Preguntas? <a href='https://wa.me/33761528450' target='_blank'>Contáctanos en WhatsApp</a>.",
@@ -416,4 +448,53 @@ function updatePageContent(lang) {
   const t = localDict[lang];
   if (!t) return;
   document.getElementById('ph-lbl').textContent = t.ph_lbl; document.getElementById('ph-h1').innerHTML = t.ph_h1; document.getElementById('ph-p').innerHTML = t.ph_p;
-  document.getElementById('
+  document.getElementById('f-all').textContent = t.f_all; document.getElementById('f-beans').textContent = t.f_beans; document.getElementById('f-ground').textContent = t.f_ground; document.getElementById('f-sub').textContent = t.f_sub;
+  
+  document.getElementById('p1-t1').textContent = t.p1_t1; document.getElementById('p1-t2').textContent = t.p1_t2; document.getElementById('p1-name').textContent = t.p1_name; document.getElementById('p1-desc').textContent = t.p1_desc; document.getElementById('p1-m1l').textContent = t.p1_m1l; document.getElementById('p1-m1v').textContent = t.p1_m1v; document.getElementById('p1-m2l').textContent = t.p1_m2l; document.getElementById('p1-m2v').textContent = t.p1_m2v; document.getElementById('p1-m3l').textContent = t.p1_m3l; document.getElementById('p1-m3v').textContent = t.p1_m3v; document.getElementById('p1-btn').textContent = t.p1_btn; document.getElementById('p1-ship').textContent = t.p1_ship;
+  document.getElementById('p2-t1').textContent = t.p2_t1; document.getElementById('p2-t2').textContent = t.p2_t2; document.getElementById('p2-name').textContent = t.p2_name; document.getElementById('p2-desc').textContent = t.p2_desc; document.getElementById('p2-m1l').textContent = t.p2_m1l; document.getElementById('p2-m1v').textContent = t.p2_m1v; document.getElementById('p2-m2l').textContent = t.p2_m2l; document.getElementById('p2-m2v').textContent = t.p2_m2v; document.getElementById('p2-m3l').textContent = t.p2_m3l; document.getElementById('p2-m3v').textContent = t.p2_m3v; document.getElementById('p2-btn').textContent = t.p2_btn; document.getElementById('p2-ship').textContent = t.p2_ship; document.getElementById('p2-badge').textContent = t.p2_badge;
+  document.getElementById('p3-t1').textContent = t.p3_t1; document.getElementById('p3-t2').textContent = t.p3_t2; document.getElementById('p3-name').textContent = t.p3_name; document.getElementById('p3-desc').textContent = t.p3_desc; document.getElementById('p3-m1l').textContent = t.p3_m1l; document.getElementById('p3-m1v').textContent = t.p3_m1v; document.getElementById('p3-m2l').textContent = t.p3_m2l; document.getElementById('p3-m2v').textContent = t.p3_m2v; document.getElementById('p3-m3l').textContent = t.p3_m3l; document.getElementById('p3-m3v').textContent = t.p3_m3v; document.getElementById('p3-btn').textContent = t.p3_btn; document.getElementById('p3-ship').textContent = t.p3_ship; document.getElementById('p3-badge').textContent = t.p3_badge;
+
+  document.getElementById('ps-lbl').textContent = t.ps_lbl; document.getElementById('ps-h3').innerHTML = t.ps_h3; document.getElementById('pm1-sub').textContent = t.pm1_sub; document.getElementById('pm2-sub').textContent = t.pm2_sub; document.getElementById('pm3-sub').textContent = t.pm3_sub; document.getElementById('ps-note').innerHTML = t.ps_note;
+  document.getElementById('pm-ey').textContent = t.pm_ey; document.getElementById('pm-h').innerHTML = t.pm_h; document.getElementById('pm-t1').textContent = t.pm_t1; document.getElementById('pm-t2').textContent = t.pm_t2; document.getElementById('pm1-m').textContent = t.pm1_m; document.getElementById('pm2-m').textContent = t.pm2_m; document.getElementById('pm3-m').textContent = t.pm3_m; document.getElementById('pm-wa').textContent = t.pm_wa; document.getElementById('pm-fn').innerHTML = t.pm_fn;
+}
+
+function filterProducts(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.product-card').forEach(card => {
+    card.classList.toggle('hidden', cat !== 'all' && card.dataset.category !== cat);
+  });
+}
+
+function openPayment(name, price, ppLink, refCode) {
+  document.getElementById('pay-product-name').textContent = name || 'Don Alberto Café';
+  document.getElementById('pay-product-price').textContent = price || '';
+  
+  if(ppLink) {
+    document.getElementById('pay-paypal').href = ppLink;
+  } else {
+    document.getElementById('pay-paypal').href = "https://paypal.me/DonAlbertoCafe";
+  }
+
+  if(refCode && price) {
+    document.getElementById('pm2-m').textContent = 'Entrez ' + price + ' · Réf: ' + refCode;
+    document.getElementById('pm3-m').textContent = 'Entrez ' + price + ' · Réf: ' + refCode;
+  }
+  
+  const waEl = document.getElementById('pay-whatsapp');
+  if (waEl && name) {
+    const msg = `Bonjour, je souhaite commander : ${name} (${price}). Pouvez-vous m'indiquer les détails de livraison ?`;
+    waEl.href = 'https://wa.me/33761528450?text=' + encodeURIComponent(msg);
+  }
+
+  const m = document.getElementById('payModal');
+  if (m) { m.classList.add('open'); document.body.style.overflow = 'hidden'; }
+}
+
+function closePayment() {
+  const m = document.getElementById('payModal');
+  if (m) { m.classList.remove('open'); document.body.style.overflow = ''; }
+}
+</script>
+</body>
+</html>
