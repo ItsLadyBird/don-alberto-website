@@ -334,6 +334,50 @@ ul{list-style:none;}
 .hp:first-child{border-right:1px solid rgba(255,255,255,.08);}
 
 /* ══════════════════════════════════════════
+   JOURNEY / PROCESS SECTION
+   ══════════════════════════════════════════ */
+.journey-section{
+  background:#f7f3e8;
+  padding:64px clamp(20px,5vw,80px);
+  border-top:1px solid rgba(9,102,133,.07);
+  border-bottom:1px solid rgba(9,102,133,.07);
+}
+.journey-steps{
+  display:flex;align-items:flex-start;justify-content:center;
+  gap:0;max-width:1100px;margin:0 auto;
+}
+.journey-step{
+  display:flex;flex-direction:column;align-items:center;
+  text-align:center;flex:1;padding:0 12px;
+}
+.journey-icon{
+  width:56px;height:56px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--teal);margin-bottom:18px;
+}
+.journey-icon svg{width:48px;height:48px;stroke:var(--teal);fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;}
+.journey-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:15px;font-weight:600;line-height:1.3;
+  color:var(--teal);margin-bottom:10px;
+}
+.journey-desc{
+  font-size:12px;line-height:1.75;color:var(--mid);font-weight:300;
+  max-width:160px;
+}
+.journey-arrow{
+  flex-shrink:0;display:flex;align-items:flex-start;
+  padding-top:28px;color:var(--gold);
+}
+.journey-arrow svg{width:22px;height:22px;stroke:var(--gold);fill:none;stroke-width:1.5;}
+@media(max-width:780px){
+  .journey-steps{flex-direction:column;align-items:center;gap:32px;}
+  .journey-arrow{padding-top:0;transform:rotate(90deg);}
+  .journey-step{padding:0;}
+  .journey-desc{max-width:240px;}
+}
+
+/* ══════════════════════════════════════════
    ATTRIBUTES TICKER
    ══════════════════════════════════════════ */
 .attrs-strip{overflow:hidden;background:white;border-top:1px solid rgba(9,102,133,.07);border-bottom:1px solid rgba(9,102,133,.07);}
@@ -669,16 +713,16 @@ footer{background:#0d1014;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
     <button class="mm-close" onclick="toggleMob()">✕</button>
   </div>
   <div class="mm-body">
-    <div class="mm-sec">La Marque</div>
+    <div class="mm-sec" id="mm-sec-marque">La Marque</div>
     <a href="maison.html" class="mm-sub" id="mm-maison">La Maison</a>
     <a href="origine.html" class="mm-sub" id="mm-origine">L'Origine</a>
     <a href="atelier.html" class="mm-sub" id="mm-atelier">Atelier</a>
     <a href="vlog.html" class="mm-sub" id="mm-vlog">Le Vlog</a>
-    <div class="mm-sec">Commander</div>
+    <div class="mm-sec" id="mm-sec-cmd">Commander</div>
     <a href="boutique.html" class="mm-lnk" id="mm-spec">Specialty Coffee</a>
     <a href="boutique.html#abonnement" class="mm-lnk" id="mm-club">Club Don Alberto</a>
     <a href="origine-boutique.html" class="mm-lnk" id="mm-orig">Boutique d'Origine</a>
-    <div class="mm-sec">Pro</div>
+    <div class="mm-sec" id="mm-sec-pro">Pro</div>
     <a href="b2b.html" class="mm-lnk" id="mm-pro">Espace Pro</a>
     <a href="javascript:void(0)" onclick="openCheckout();toggleMob();" class="mm-cta" id="mm-cmd">Commander</a>
   </div>
@@ -711,7 +755,7 @@ footer{background:#0d1014;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
       <div><div class="hstat-num">100%</div><div class="hstat-lbl" id="s-ara">Arabica Castillo</div></div>
     </div>
     <div style="margin-top:36px;animation:fu .9s 1.1s both;">
-      <a href="boutique.html" id="hero-cta-btn" style="display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--teal-deep);padding:15px 38px;font-family:'Lato',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;font-weight:700;border:none;cursor:pointer;text-decoration:none;transition:background .2s;">Discover the Coffee →</a>
+      <a href="boutique.html" id="hero-cta-btn" style="display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--teal-deep);padding:15px 38px;font-family:'Lato',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;font-weight:700;border:none;cursor:pointer;text-decoration:none;transition:background .2s;" id="h-cta">Discover the Coffee →</a>
     </div>
   </div>
   <div class="hero-scroll"><div class="scroll-line"></div><span id="s-scroll">Défiler</span></div>
@@ -725,7 +769,7 @@ footer{background:#0d1014;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
   <a href="boutique.html" class="hp">
     <img
       class="hp-img"
-      src="notre-cafe.png"
+      src="Notre_Cafe.png"
       alt="Specialty Coffee Don Alberto — Boutique"
       loading="eager"
       onerror="this.style.display='none'"
@@ -754,6 +798,53 @@ footer{background:#0d1014;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
     </div>
   </a>
 </div>
+
+<!-- ═══════════════════════════════════
+   JOURNEY / PROCESS SECTION
+   ═══════════════════════════════════ -->
+<section class="journey-section">
+  <div class="journey-steps">
+    <div class="journey-step reveal">
+      <div class="journey-icon">
+        <svg viewBox="0 0 48 48"><path d="M24 4C16.268 4 10 10.268 10 18c0 10.5 14 26 14 26s14-15.5 14-26c0-7.732-6.268-14-14-14z"/><circle cx="24" cy="18" r="4.5"/></svg>
+      </div>
+      <div class="journey-title" id="jt1"></div>
+      <div class="journey-desc" id="jd1"></div>
+    </div>
+    <div class="journey-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+    <div class="journey-step reveal">
+      <div class="journey-icon">
+        <svg viewBox="0 0 48 48"><circle cx="24" cy="10" r="4.5"/><path d="M24 16v14M17 22c0 0 3-3 7-3s7 3 7 3M17 36h14M20 30l-3 6M28 30l3 6"/></svg>
+      </div>
+      <div class="journey-title" id="jt2"></div>
+      <div class="journey-desc" id="jd2"></div>
+    </div>
+    <div class="journey-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+    <div class="journey-step reveal">
+      <div class="journey-icon">
+        <svg viewBox="0 0 48 48"><path d="M10 20h28v20a2 2 0 01-2 2H12a2 2 0 01-2-2V20z"/><path d="M8 20h32M18 20V14a6 6 0 0112 0v6"/><path d="M20 30a4 4 0 008 0"/></svg>
+      </div>
+      <div class="journey-title" id="jt3"></div>
+      <div class="journey-desc" id="jd3"></div>
+    </div>
+    <div class="journey-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+    <div class="journey-step reveal">
+      <div class="journey-icon">
+        <svg viewBox="0 0 48 48"><rect x="10" y="6" width="28" height="36" rx="3"/><path d="M17 18h14M17 24h14M17 30h8"/><path d="M31 32l3 3 5-5" stroke-width="1.8"/></svg>
+      </div>
+      <div class="journey-title" id="jt4"></div>
+      <div class="journey-desc" id="jd4"></div>
+    </div>
+    <div class="journey-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+    <div class="journey-step reveal">
+      <div class="journey-icon">
+        <svg viewBox="0 0 48 48"><circle cx="24" cy="10" r="4.5"/><path d="M18 42V28l-4-8h20l-4 8v14"/><path d="M14 42h20"/><path d="M24 20v8"/></svg>
+      </div>
+      <div class="journey-title" id="jt5"></div>
+      <div class="journey-desc" id="jd5"></div>
+    </div>
+  </div>
+</section>
 
 <!-- ═══════════════════════════════════
    ATTRIBUTES TICKER
@@ -790,10 +881,10 @@ footer{background:#0d1014;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
     <div class="quality-badge"><div class="score">84.5</div><div class="score-lbl">Score SCA</div></div>
   </div>
   <div class="reveal">
-    <div class="section-label">L'Excellence de la Source</div>
-    <h2 class="h2">Une densité raffinée,<br>née du terroir de <em>Boyacá</em></h2>
-    <p class="body-text" style="margin-top:20px;">À 1 670 m d'altitude, les fluctuations thermiques dramatiques de Rondón forcent les cerises Castillo dans un état de « stress positif » — une maturation plus lente qui concentre des esters complexes et des acides organiques dans chaque grain.</p>
-    <p class="body-text">Le résultat est le profil Don Alberto : <strong>cacao profond et miel visqueux</strong>, obtenus non par intervention mais par l'intelligence de la terre.</p>
+    <div class="section-label" id="q-label">L'Excellence de la Source</div>
+    <h2 class="h2" id="q-h2">Une densité raffinée,<br>née du terroir de <em>Boyacá</em></h2>
+    <p class="body-text" id="q-p1" style="margin-top:20px;">À 1 670 m d'altitude, les fluctuations thermiques dramatiques de Rondón forcent les cerises Castillo dans un état de « stress positif » — une maturation plus lente qui concentre des esters complexes et des acides organiques dans chaque grain.</p>
+    <p class="body-text" id="q-p2">Le résultat est le profil Don Alberto : <strong>cacao profond et miel visqueux</strong>, obtenus non par intervention mais par l'intelligence de la terre.</p>
     <div class="quality-stats">
       <div class="qstat"><div class="qstat-val">1670</div><div class="qstat-lbl">m MSNM</div></div>
       <div class="qstat"><div class="qstat-val">100%</div><div class="qstat-lbl">Arabica</div></div>
@@ -801,10 +892,10 @@ footer{background:#0d1014;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
       <div class="qstat"><div class="qstat-val">#1</div><div class="qstat-lbl">Green Farm</div></div>
     </div>
     <div class="quote-box" style="margin-top:24px;">
-      <p>"Il aimait la terre comme peu d'hommes savent l'aimer. Nous cultivons sa mémoire à chaque récolte."</p>
-      <cite>La famille fondatrice · Don Alberto Café</cite>
+      <p id="q-quote">"Il aimait la terre comme peu d'hommes savent l'aimer. Nous cultivons sa mémoire à chaque récolte."</p>
+      <cite id="q-cite">La famille fondatrice · Don Alberto Café</cite>
     </div>
-    <a href="atelier.html" class="btn-primary" style="margin-top:22px;display:inline-flex;">Voir le score SCA complet →</a>
+    <a href="atelier.html" class="btn-primary" id="q-cta" style="margin-top:22px;display:inline-flex;">Voir le score SCA complet →</a>
   </div>
 </section>
 
@@ -813,20 +904,20 @@ footer{background:#0d1014;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
    ═══════════════════════════════════ -->
 <section class="origin-teaser" id="origine-teaser">
   <div class="origin-map-wrap reveal">
-    <img src="boyaca-landscapes.jpg" alt="Paysage Boyacá — Rondón, 1670m">
+    <img src="Boyaca_Beutiful_Landscapes.jpg" alt="Paysage Boyacá — Rondón, 1670m">
     <div class="origin-tag">Rondón · Boyacá · Colombia · 1670m</div>
   </div>
   <div class="reveal">
-    <div class="section-label">Specialty Coffee Boyacá Colombia</div>
-    <h2 class="h2">Rondón, Boyacá —<br><em>là où tout commence</em></h2>
-    <p class="body-text" style="margin-top:20px;">Tandis que les régions traditionnelles offrent de la constance, Boyacá offre de la complexité. À 1 670 m, les étages thermiques dramatiques de Rondón concentrent dans la cerise Castillo des esters rares — à l'origine du profil Don Alberto.</p>
+    <div class="section-label" id="o-label">Specialty Coffee Boyacá Colombia</div>
+    <h2 class="h2" id="o-h2">Rondón, Boyacá —<br><em>là où tout commence</em></h2>
+    <p class="body-text" id="o-p1" style="margin-top:20px;">Tandis que les régions traditionnelles offrent de la constance, Boyacá offre de la complexité. À 1 670 m, les étages thermiques dramatiques de Rondón concentrent dans la cerise Castillo des esters rares — à l'origine du profil Don Alberto.</p>
     <div class="origin-facts">
-      <div class="origin-fact"><div class="origin-fact-val">Boyacá</div><div class="origin-fact-lbl">Département unique</div></div>
-      <div class="origin-fact"><div class="origin-fact-val">Castillo</div><div class="origin-fact-lbl">Arabica sélectionné</div></div>
-      <div class="origin-fact"><div class="origin-fact-val">59</div><div class="origin-fact-lbl">Microclimats Colombie</div></div>
-      <div class="origin-fact"><div class="origin-fact-val">#1</div><div class="origin-fact-lbl">Seule GCF · Boyacá</div></div>
+      <div class="origin-fact"><div class="origin-fact-val">Boyacá</div><div class="origin-fact-lbl" id="o-f1">Département unique</div></div>
+      <div class="origin-fact"><div class="origin-fact-val">Castillo</div><div class="origin-fact-lbl" id="o-f2">Arabica sélectionné</div></div>
+      <div class="origin-fact"><div class="origin-fact-val">59</div><div class="origin-fact-lbl" id="o-f3">Microclimats Colombie</div></div>
+      <div class="origin-fact"><div class="origin-fact-val">#1</div><div class="origin-fact-lbl" id="o-f4">Seule GCF · Boyacá</div></div>
     </div>
-    <a href="origine.html" class="btn-primary" style="margin-top:26px;display:inline-flex;">Découvrir l'origine →</a>
+    <a href="origine.html" class="btn-primary" id="o-cta" style="margin-top:26px;display:inline-flex;">Découvrir l'origine →</a>
   </div>
 </section>
 
@@ -1036,52 +1127,148 @@ document.addEventListener('click', e => {
 /* ── LANGUAGE DATA ── */
 const L = {
   fr:{
-    sl:"L'Terre de Caractère, l'Grain d'excellence",craft:'Artisanat Caféier Ancestral',
-    sl1:"L'Terre de Caractère, l'Grain d'excellence",sl2:'ARTISANAT CAFÉIER ANCESTRAL',
-    fslogan:'ARTISANAT CAFÉIER ANCESTRAL',
+    // Header & hero
+    sl:'L\'Âme du Sol, l\'Être dans le Grain',craft:'Artisanat Caféier Ancestral',
+    sl1:'L\'Âme du Sol, l\'Être dans le Grain',sl2:'ARTISANAT CAFÉIER ANCESTRAL',
+    fslogan:'Terre de caractère,<br>grain d\'exception',
     nlph:'Votre adresse email',
     ey:'Boyacá · Colombie · Single Origin · Specialty',sc:'Défiler',
+    ssca:'Score SCA',salt:'Altitude',sara:'Arabica Castillo',
+    hcta:'Découvrir le café →',
+    // Panels
     p1e:'Specialty Coffee · Boutique',p1t:'Rondón Castillo —<br>SCA 84.5 · Grain entier',p1c:'Explorer la boutique →',
     p2e:'Club Don Alberto · Abonnement',p2t:'Café de spécialité frais<br>chaque mois',p2c:'Rejoindre le Club →',
+    // Journey steps
+    jt1:'Terroir unique<br>de Boyacá',jd1:'Seule ferme de café vert de spécialité du département. Altitude 1 670m ASNM.',
+    jt2:'Récolte à la<br>main sélective',jd2:'Cueillette grain par grain des seules cerises mûres à point, pour une qualité irréprochable.',
+    jt3:'Procédé Lavé<br>artisanal',jd3:'Fermentation contrôlée et lavage complet pour une pureté aromatique maximale.',
+    jt4:'Certifié SCA<br>84.5 points',jd4:'Évalué par un Q-Grader certifié. Scores parfaits en uniformité, tasse propre et douceur.',
+    jt5:'Torréfaction<br>artisanale moyenne',jd5:'Profil maîtrisé pour révéler les notes de miel, chocolat fin et la texture soyeuse du Castillo.',
+    // Quality section
+    qlabel:'L\'Excellence de la Source',
+    qh2:'Une densité raffinée,<br>née du terroir de <em>Boyacá</em>',
+    qp1:'À 1 670 m d\'altitude, les fluctuations thermiques dramatiques de Rondón forcent les cerises Castillo dans un état de « stress positif » — une maturation plus lente qui concentre des esters complexes et des acides organiques dans chaque grain.',
+    qp2:'Le résultat est le profil Don Alberto : <strong>cacao profond et miel visqueux</strong>, obtenus non par intervention mais par l\'intelligence de la terre.',
+    qquote:'"Il aimait la terre comme peu d\'hommes savent l\'aimer. Nous cultivons sa mémoire à chaque récolte."',
+    qcite:'La famille fondatrice · Don Alberto Café',
+    qcta:'Voir le score SCA complet →',
+    // Origin section
+    olabel:'Specialty Coffee Boyacá Colombia',
+    oh2:'Rondón, Boyacá —<br><em>là où tout commence</em>',
+    op1:'Tandis que les régions traditionnelles offrent de la constance, Boyacá offre de la complexité. À 1 670 m, les étages thermiques dramatiques de Rondón concentrent dans la cerise Castillo des esters rares — à l\'origine du profil Don Alberto.',
+    of1:'Département unique',of2:'Arabica sélectionné',of3:'Microclimats Colombie',of4:'Seule GCF · Boyacá',
+    octa:'Découvrir l\'origine →',
+    // Newsletter
     nlh:'Rejoignez la communauté <em>Don Alberto</em>',nlp:'Nouvelles récoltes · Actualités ferme · FR · EN · ES',nlb:"S'inscrire",
+    // Trust bar
     t1h:'Commande directe',t1d:'PayPal · Revolut · Wise',t2h:'Livraison internationale',t2d:'France, Europe & monde',
     t3h:'Café de spécialité SCA',t3d:'Score 84.5 · Procédé Lavé',t4h:'Traçabilité totale',t4d:'Ferme → tasse',
+    // Util bar
     ubm:'La Maison',ubv:'Le Vlog',ubp:'Espace professionnel',
+    // Nav
     nspec:'Specialty Coffee',nclub:'Club Don Alberto',npro:'Espace Pro',norig:"Boutique d'Origine",ncmd:'Commander',
+    // Mobile menu
+    mmsecmarque:'La Marque',mmseccmd:'Commander',mmsecpro:'Pro',
+    mmorig2:'L\'Origine',mmatelier:'Atelier',
+    // Footer
     fh1:'La Marque',fh2:'Commander',fh3:'Partenaires & B2B',
     fm:'La Maison',fa:'Le Atelier',fv:'Le Vlog',fb:'Boutique',fc:'Club Don Alberto',fb2:'Espace Pro',fco:'Contacter',
     fvt:'Notre Vlog — Dans les coulisses de la ferme',wa:"Besoin d'aide ?"
   },
   en:{
+    // Header & hero
     sl:'Soul in the Soil, Being in the Bean',craft:'Ancestral Coffee Crafting',
     sl1:'Soul in the Soil, Being in the Bean',sl2:'ANCESTRAL COFFEE CRAFTING',
-    fslogan:'ANCESTRAL COFFEE CRAFTING',
+    fslogan:'Land of character,<br>grain of exception',
     nlph:'Your email address',
     ey:'Boyacá · Colombia · Single Origin · Specialty',sc:'Scroll',
+    ssca:'SCA Score',salt:'Altitude',sara:'Arabica Castillo',
+    hcta:'Discover the Coffee →',
+    // Panels
     p1e:'Specialty Coffee · Shop',p1t:'Rondón Castillo —<br>SCA 84.5 · Whole Bean',p1c:'Explore the shop →',
     p2e:'Club Don Alberto · Subscription',p2t:'Fresh specialty coffee<br>every month',p2c:'Join the Club →',
+    // Journey steps
+    jt1:'Unique Boyacá<br>Terroir',jd1:'The only specialty green coffee farm in the department. Altitude 1,670m MASL.',
+    jt2:'Selective<br>Hand Harvest',jd2:'Berry by berry picking of only ripe cherries, for irreproachable quality.',
+    jt3:'Artisan<br>Washed Process',jd3:'Controlled fermentation and full washing for maximum aromatic purity.',
+    jt4:'SCA Certified<br>84.5 Points',jd4:'Evaluated by a certified Q-Grader. Perfect scores in uniformity, clean cup and sweetness.',
+    jt5:'Medium<br>Artisan Roast',jd5:'Mastered profile to reveal honey, fine chocolate notes and the silky texture of Castillo.',
+    // Quality section
+    qlabel:'The Excellence of the Source',
+    qh2:'A refined density,<br>born from the terroir of <em>Boyacá</em>',
+    qp1:'At 1,670m altitude, the dramatic thermal fluctuations of Rondón push the Castillo cherries into a state of "positive stress" — a slower ripening that concentrates complex esters and organic acids into every bean.',
+    qp2:'The result is the Don Alberto profile: <strong>deep cacao and viscous honey</strong>, achieved not through intervention but through the intelligence of the land.',
+    qquote:'"He loved the land as few men know how to. We cultivate his memory with every harvest."',
+    qcite:'The founding family · Don Alberto Café',
+    qcta:'View the full SCA score →',
+    // Origin section
+    olabel:'Specialty Coffee Boyacá Colombia',
+    oh2:'Rondón, Boyacá —<br><em>where it all begins</em>',
+    op1:'While traditional regions offer consistency, Boyacá offers complexity. At 1,670m, the dramatic thermal layers of Rondón concentrate rare esters in the Castillo cherry — the origin of the Don Alberto profile.',
+    of1:'Unique department',of2:'Selected Arabica',of3:'Colombia microclimates',of4:'Only GCF · Boyacá',
+    octa:'Discover the origin →',
+    // Newsletter
     nlh:'Join the <em>Don Alberto</em> community',nlp:'New harvests · Farm news · FR · EN · ES',nlb:'Subscribe',
+    // Trust bar
     t1h:'Direct order',t1d:'PayPal · Revolut · Wise',t2h:'International shipping',t2d:'France, Europe & worldwide',
     t3h:'SCA Specialty Coffee',t3d:'Score 84.5 · Washed Process',t4h:'Full traceability',t4d:'Farm → cup',
+    // Util bar
     ubm:'The House',ubv:'The Vlog',ubp:'Professional space',
+    // Nav
     nspec:'Specialty Coffee',nclub:'Club Don Alberto',npro:'Pro Space',norig:'Origin Boutique',ncmd:'Order Now',
+    // Mobile menu
+    mmsecmarque:'The Brand',mmseccmd:'Order',mmsecpro:'Pro',
+    mmorig2:'Origin',mmatelier:'Atelier',
+    // Footer
     fh1:'The Brand',fh2:'Order',fh3:'Partners & B2B',
     fm:'The House',fa:'The Atelier',fv:'The Vlog',fb:'Shop',fc:'Club Don Alberto',fb2:'Pro Space',fco:'Contact',
     fvt:'Our Vlog — Behind the scenes at the farm',wa:'Need help?'
   },
   es:{
-    sl:'Esencia de la Tierra, Vida en el Fruto',craft:'Arte cafetalero ancestral',
-    sl1:'Esencia de la Tierra, Vida en el Fruto',sl2:'ARTE CAFETALERO ANCESTRAL',
-    fslogan:'ARTE CAFETALERO ANCESTRAL',
+    // Header & hero
+    sl:'Esencia del Suelo, Vida en el Fruto',craft:'Arte cafetalero ancestral',
+    sl1:'Esencia del Suelo, Vida en el Fruto',sl2:'ARTE CAFETALERO ANCESTRAL',
+    fslogan:'Tierra de carácter,<br>grano de excepción',
     nlph:'Tu dirección de correo',
     ey:'Boyacá · Colombia · Origen Único · Specialty',sc:'Deslizar',
+    ssca:'Puntaje SCA',salt:'Altitud',sara:'Arabica Castillo',
+    hcta:'Descubrir el café →',
+    // Panels
     p1e:'Specialty Coffee · Tienda',p1t:'Rondón Castillo —<br>SCA 84.5 · Grano entero',p1c:'Explorar la tienda →',
     p2e:'Club Don Alberto · Suscripción',p2t:'Café especial fresco<br>cada mes',p2c:'Unirse al Club →',
+    // Journey steps
+    jt1:'Terroir único<br>de Boyacá',jd1:'Única finca de café verde de especialidad del departamento. Altitud 1.670m MSNM.',
+    jt2:'Cosecha manual<br>selectiva',jd2:'Recogida grano a grano de solo las cerezas maduras, para una calidad irreprochable.',
+    jt3:'Proceso Lavado<br>artesanal',jd3:'Fermentación controlada y lavado completo para máxima pureza aromática.',
+    jt4:'Certificado SCA<br>84.5 puntos',jd4:'Evaluado por un Q-Grader certificado. Puntajes perfectos en uniformidad, taza limpia y dulzura.',
+    jt5:'Tostado<br>artesanal medio',jd5:'Perfil dominado para revelar notas de miel, chocolate fino y la textura sedosa del Castillo.',
+    // Quality section
+    qlabel:'La Excelencia del Origen',
+    qh2:'Una densidad refinada,<br>nacida del terroir de <em>Boyacá</em>',
+    qp1:'A 1.670 m de altitud, las dramáticas fluctuaciones térmicas de Rondón someten las cerezas Castillo a un estado de "estrés positivo" — una maduración más lenta que concentra ésteres complejos y ácidos orgánicos en cada grano.',
+    qp2:'El resultado es el perfil Don Alberto: <strong>cacao profundo y miel viscosa</strong>, obtenidos no por intervención sino por la inteligencia de la tierra.',
+    qquote:'"Amaba la tierra como pocos hombres saben amarla. Cultivamos su memoria en cada cosecha."',
+    qcite:'La familia fundadora · Don Alberto Café',
+    qcta:'Ver el puntaje SCA completo →',
+    // Origin section
+    olabel:'Specialty Coffee Boyacá Colombia',
+    oh2:'Rondón, Boyacá —<br><em>donde todo comienza</em>',
+    op1:'Mientras las regiones tradicionales ofrecen constancia, Boyacá ofrece complejidad. A 1.670 m, los dramáticos pisos térmicos de Rondón concentran en la cereza Castillo ésteres raros — el origen del perfil Don Alberto.',
+    of1:'Departamento único',of2:'Arabica seleccionado',of3:'Microclimas Colombia',of4:'Única GCF · Boyacá',
+    octa:'Descubrir el origen →',
+    // Newsletter
     nlh:'Únete a la comunidad <em>Don Alberto</em>',nlp:'Cosechas · Noticias de la finca · FR · EN · ES',nlb:'Suscribirse',
+    // Trust bar
     t1h:'Pedido directo',t1d:'PayPal · Revolut · Wise',t2h:'Envío internacional',t2d:'Francia, Europa y mundo',
     t3h:'Café de especialidad SCA',t3d:'Puntaje 84.5 · Proceso Lavado',t4h:'Trazabilidad total',t4d:'Finca → taza',
+    // Util bar
     ubm:'La Casa',ubv:'El Vlog',ubp:'Espacio profesional',
+    // Nav
     nspec:'Specialty Coffee',nclub:'Club Don Alberto',npro:'Espacio Pro',norig:'Boutique de Origen',ncmd:'Ordenar',
+    // Mobile menu
+    mmsecmarque:'La Marca',mmseccmd:'Ordenar',mmsecpro:'Pro',
+    mmorig2:'El Origen',mmatelier:'Atelier',
+    // Footer
     fh1:'La Marca',fh2:'Ordenar',fh3:'Socios & B2B',
     fm:'La Casa',fa:'El Atelier',fv:'El Vlog',fb:'Tienda',fc:'Club Don Alberto',fb2:'Espacio Pro',fco:'Contactar',
     fvt:'Nuestro Vlog — Detrás de escena en la finca',wa:'¿Necesitas ayuda?'
@@ -1096,14 +1283,21 @@ function setLang(lang) {
     b.classList.toggle('active', b.getAttribute('data-lang') === lang)
   );
   document.getElementById('lang-wrap').classList.remove('open');
-  // Header
+
+  // Header slogans
   document.getElementById('hf-sl1').textContent = t.sl1;
   document.getElementById('hf-sl2').textContent = t.sl2;
+
   // Hero
   document.getElementById('h-sl').textContent = t.sl;
   document.getElementById('h-craft').textContent = t.craft;
   document.getElementById('h-ey').textContent = t.ey;
   document.getElementById('s-scroll').textContent = t.sc;
+  document.getElementById('s-sca').textContent = t.ssca;
+  document.getElementById('s-alt').textContent = t.salt;
+  document.getElementById('s-ara').textContent = t.sara;
+  document.getElementById('hero-cta-btn').textContent = t.hcta;
+
   // Panels
   document.getElementById('p1-ey').textContent = t.p1e;
   document.getElementById('p1-ti').innerHTML = t.p1t;
@@ -1111,33 +1305,70 @@ function setLang(lang) {
   document.getElementById('p2-ey').textContent = t.p2e;
   document.getElementById('p2-ti').innerHTML = t.p2t;
   document.getElementById('p2-ct').textContent = t.p2c;
+
+  // Journey steps
+  ['1','2','3','4','5'].forEach(i => {
+    document.getElementById('jt'+i).innerHTML = t['jt'+i];
+    document.getElementById('jd'+i).textContent = t['jd'+i];
+  });
+
+  // Quality section (only update if translation provided)
+  if (t.qlabel) document.getElementById('q-label').textContent = t.qlabel;
+  if (t.qh2)    document.getElementById('q-h2').innerHTML = t.qh2;
+  if (t.qp1)    document.getElementById('q-p1').innerHTML = t.qp1;
+  if (t.qp2)    document.getElementById('q-p2').innerHTML = t.qp2;
+  if (t.qquote) document.getElementById('q-quote').textContent = t.qquote;
+  if (t.qcite)  document.getElementById('q-cite').textContent = t.qcite;
+  if (t.qcta)   document.getElementById('q-cta').textContent = t.qcta;
+
+  // Origin section (only update if translation provided)
+  if (t.olabel) document.getElementById('o-label').textContent = t.olabel;
+  if (t.oh2)    document.getElementById('o-h2').innerHTML = t.oh2;
+  if (t.op1)    document.getElementById('o-p1').textContent = t.op1;
+  if (t.of1)    document.getElementById('o-f1').textContent = t.of1;
+  if (t.of2)    document.getElementById('o-f2').textContent = t.of2;
+  if (t.of3)    document.getElementById('o-f3').textContent = t.of3;
+  if (t.of4)    document.getElementById('o-f4').textContent = t.of4;
+  if (t.octa)   document.getElementById('o-cta').textContent = t.octa;
+
   // Newsletter
   document.getElementById('nl-h').innerHTML = t.nlh;
   document.getElementById('nl-p').textContent = t.nlp;
   document.getElementById('nl-btn').textContent = t.nlb;
-  // Trust
+  document.getElementById('nl-input').placeholder = t.nlph;
+
+  // Trust bar
   ['1','2','3','4'].forEach(i => {
     document.getElementById('t'+i+'h').textContent = t['t'+i+'h'];
     document.getElementById('t'+i+'d').textContent = t['t'+i+'d'];
   });
+
   // Util bar
   document.getElementById('ub-maison').textContent = t.ubm;
   document.getElementById('ub-vlog').textContent = t.ubv;
   document.getElementById('ub-pro').textContent = t.ubp;
-  // Nav
+
+  // Desktop nav
   document.getElementById('n-spec').textContent = t.nspec;
   document.getElementById('n-club').textContent = t.nclub;
   document.getElementById('n-pro').textContent = t.npro;
   document.getElementById('n-orig').textContent = t.norig;
   document.getElementById('n-cmd').textContent = t.ncmd;
-  // Mobile
+
+  // Mobile menu
+  document.getElementById('mm-sec-marque').textContent = t.mmsecmarque;
+  document.getElementById('mm-sec-cmd').textContent = t.mmseccmd;
+  document.getElementById('mm-sec-pro').textContent = t.mmsecpro;
+  document.getElementById('mm-maison').textContent = t.ubm;
+  document.getElementById('mm-origine').textContent = t.mmorig2;
+  document.getElementById('mm-atelier').textContent = t.mmatelier;
+  document.getElementById('mm-vlog').textContent = t.ubv;
   document.getElementById('mm-spec').textContent = t.nspec;
   document.getElementById('mm-club').textContent = t.nclub;
-  document.getElementById('mm-pro').textContent = t.npro;
   document.getElementById('mm-orig').textContent = t.norig;
+  document.getElementById('mm-pro').textContent = t.npro;
   document.getElementById('mm-cmd').textContent = t.ncmd;
-  document.getElementById('mm-vlog').textContent = t.ubv;
-  document.getElementById('mm-maison').textContent = t.fm;
+
   // Footer
   document.getElementById('fc-h1').textContent = t.fh1;
   document.getElementById('fc-h2').textContent = t.fh2;
@@ -1151,10 +1382,7 @@ function setLang(lang) {
   document.getElementById('fl-contact').textContent = t.fco;
   document.getElementById('fv-txt').textContent = t.fvt;
   document.getElementById('wa-txt').textContent = t.wa;
-  // Footer slogan (localized)
   document.getElementById('footer-slogan').innerHTML = t.fslogan;
-  // Newsletter placeholder
-  document.getElementById('nl-input').placeholder = t.nlph;
 }
 
 /* ── INIT: apply French on first load ── */
