@@ -144,9 +144,9 @@ ul{list-style:none;}
   gap:0;
 }
 
-/* NAV LEFT — flex:1 so logo is true center reference */
+/* NAV LEFT — flex:1 pushes logo to true horizontal center */
 .nav-left{flex:1;display:flex;align-items:center;justify-content:flex-end;}
-/* NAV RIGHT — flex:1 so logo is true center reference */
+/* NAV RIGHT — flex:1 keeps logo at true horizontal center */
 .nav-right{flex:1;display:flex;align-items:center;justify-content:flex-start;}
 
 .ni{position:relative;}
@@ -401,7 +401,7 @@ ul{list-style:none;}
    NEWSLETTER — 2-column layout (like screenshot)
    ══════════════════════════════════════════ */
 .nl-section{
-  background:#0f1e26;
+  background:#0d1014;
   padding:clamp(44px,5vw,70px) clamp(20px,5vw,80px);
   display:grid;grid-template-columns:1fr auto;gap:60px;align-items:center;
 }
@@ -432,7 +432,7 @@ ul{list-style:none;}
 /* ══════════════════════════════════════════
    FOOTER — dark navy, matches screenshot
    ══════════════════════════════════════════ */
-footer{background:#0c1c24;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
+footer{background:#0d1014;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
 .footer-inner{
   display:grid;
   grid-template-columns:240px 1fr;
@@ -1039,6 +1039,7 @@ const L = {
     sl:'L\'Âme du Sol, l\'Être dans le Grain',craft:'Artisanat Caféier Ancestral',
     sl1:'L\'Âme du Sol, l\'Être dans le Grain',sl2:'ARTISANAT CAFÉIER ANCESTRAL',
     fslogan:'Terre de caractère,<br>grain d\'exception',
+    nlph:'Votre adresse email',
     ey:'Boyacá · Colombie · Single Origin · Specialty',sc:'Défiler',
     p1e:'Specialty Coffee · Boutique',p1t:'Rondón Castillo —<br>SCA 84.5 · Grain entier',p1c:'Explorer la boutique →',
     p2e:'Club Don Alberto · Abonnement',p2t:'Café de spécialité frais<br>chaque mois',p2c:'Rejoindre le Club →',
@@ -1054,11 +1055,12 @@ const L = {
   en:{
     sl:'Soul in the Soil, Being in the Bean',craft:'Ancestral Coffee Crafting',
     sl1:'Soul in the Soil, Being in the Bean',sl2:'ANCESTRAL COFFEE CRAFTING',
-    fslogan:'Land of Character,<br>Grain of Exception',
+    fslogan:'Land of character,<br>grain of exception',
+    nlph:'Your email address',
     ey:'Boyacá · Colombia · Single Origin · Specialty',sc:'Scroll',
     p1e:'Specialty Coffee · Shop',p1t:'Rondón Castillo —<br>SCA 84.5 · Whole Bean',p1c:'Explore the shop →',
     p2e:'Club Don Alberto · Subscription',p2t:'Fresh specialty coffee<br>every month',p2c:'Join the Club →',
-    nlh:'Join the <em>Don Alberto</em> community',nlp:'Harvest news · Farm updates · FR · EN · ES',nlb:'Subscribe',
+    nlh:'Join the <em>Don Alberto</em> community',nlp:'New harvests · Farm news · FR · EN · ES',nlb:'Subscribe',
     t1h:'Direct order',t1d:'PayPal · Revolut · Wise',t2h:'International shipping',t2d:'France, Europe & worldwide',
     t3h:'SCA Specialty Coffee',t3d:'Score 84.5 · Washed Process',t4h:'Full traceability',t4d:'Farm → cup',
     ubm:'The House',ubv:'The Vlog',ubp:'Professional space',
@@ -1071,6 +1073,7 @@ const L = {
     sl:'Esencia del Suelo, Vida en el Fruto',craft:'Arte cafetalero ancestral',
     sl1:'Esencia del Suelo, Vida en el Fruto',sl2:'ARTE CAFETALERO ANCESTRAL',
     fslogan:'Tierra de carácter,<br>grano de excepción',
+    nlph:'Tu dirección de correo',
     ey:'Boyacá · Colombia · Origen Único · Specialty',sc:'Deslizar',
     p1e:'Specialty Coffee · Tienda',p1t:'Rondón Castillo —<br>SCA 84.5 · Grano entero',p1c:'Explorar la tienda →',
     p2e:'Club Don Alberto · Suscripción',p2t:'Café especial fresco<br>cada mes',p2c:'Unirse al Club →',
@@ -1148,9 +1151,14 @@ function setLang(lang) {
   document.getElementById('fl-contact').textContent = t.fco;
   document.getElementById('fv-txt').textContent = t.fvt;
   document.getElementById('wa-txt').textContent = t.wa;
-  // Footer slogan
+  // Footer slogan (localized)
   document.getElementById('footer-slogan').innerHTML = t.fslogan;
+  // Newsletter placeholder
+  document.getElementById('nl-input').placeholder = t.nlph;
 }
+
+/* ── INIT: apply French on first load ── */
+document.addEventListener('DOMContentLoaded', () => setLang('fr'));
 
 /* ── CHECKOUT ── */
 function openCheckout() {
