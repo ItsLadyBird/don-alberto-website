@@ -664,7 +664,7 @@ footer{background:#0d1014;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
   <div class="hf-slogans">
     <span class="hf-sl1" id="hf-sl1">Terre de caractère, grain d'excellence</span>
     <div class="hf-sep"></div>
-    <span class="hf-sl2" id="hf-sl2">Single Origin · Score SCA 84.5 · Boyacá · Colombie ·</span>
+    <span class="hf-sl2" id="hf-sl2">ARTISANAT CAFÉIER ANCESTRAL</span>
   </div>
 </div>
 
@@ -744,8 +744,8 @@ footer{background:#0d1014;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <p class="hero-eyebrow" id="h-ey">Boyacá · Colombie · Single Origin · Specialty</p>
-    <h1 class="hero-title">DON ALBERTO<span id="h-sub">SPECIALTY COFFEE</span></h1>
-    <p class="hero-slogan" id="h-sl">L'Art du Café de Spécialité</p>
+    <h1 class="hero-title">DON ALBERTO<span id="h-sub">C A F É</span></h1>
+    <p class="hero-slogan" id="h-sl">Terre de caractère, grain d'excellence</p>
     <p class="hero-craft" id="h-craft">ARTISANAT CAFÉIER ANCESTRAL</p>
     <div class="hero-stats">
       <div><div class="hstat-num">84.5</div><div class="hstat-lbl" id="s-sca">Score SCA</div></div>
@@ -769,7 +769,7 @@ footer{background:#0d1014;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
   <a href="boutique.html" class="hp">
     <img
       class="hp-img"
-      src="notre-cafe.png"
+      src="Notre_Cafe.png"
       alt="Specialty Coffee Don Alberto — Boutique"
       loading="eager"
       onerror="this.style.display='none'"
@@ -904,7 +904,7 @@ footer{background:#0d1014;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
    ═══════════════════════════════════ -->
 <section class="origin-teaser" id="origine-teaser">
   <div class="origin-map-wrap reveal">
-    <img src="boyaca-landscapes.jpg" alt="Paysage Boyacá — Rondón, 1670m">
+    <img src="Boyaca_Beutiful_Landscapes.jpg" alt="Paysage Boyacá — Rondón, 1670m">
     <div class="origin-tag">Rondón · Boyacá · Colombia · 1670m</div>
   </div>
   <div class="reveal">
@@ -972,7 +972,7 @@ footer{background:#0d1014;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
       </div>
       <div class="footer-brand-name">DON ALBERTO</div>
       <div class="footer-brand-cafe">CAFÉ</div>
-      <p class="footer-slogan" id="f-slogan">ARTISANAT CAFÉIER ANCESTRAL</p>
+      <p class="footer-slogan" id="footer-slogan">ARTISANAT CAFÉIER ANCESTRAL</p>
       <div class="footer-socials">
         <a href="https://instagram.com/donalberto.cafe" target="_blank" rel="noopener" class="footer-soc" aria-label="Instagram">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
@@ -1127,9 +1127,8 @@ document.addEventListener('click', e => {
 /* ── LANGUAGE DATA ── */
 const L = {
   fr:{
-    sl:'L\'Art du Café de Spécialité',craft:'ARTISANAT CAFÉIER ANCESTRAL',
-    sl1:'Terre de caractère, grain d\'excellence',sl2:'Single Origin · Score SCA 84.5 · Boyacá · Colombie ·',
-    sub:'SPECIALTY COFFEE',
+    sl:'Terre de caractère, grain d\'excellence',craft:'ARTISANAT CAFÉIER ANCESTRAL',
+    sl1:'Terre de caractère, grain d\'excellence',sl2:'ARTISANAT CAFÉIER ANCESTRAL',
     fslogan:'ARTISANAT CAFÉIER ANCESTRAL',
     nlph:'Votre adresse email',
     ey:'Boyacá · Colombie · Single Origin · Specialty',sc:'Défiler',
@@ -1166,9 +1165,8 @@ const L = {
     octa:'Découvrir l\'origine →'
   },
   en:{
-    sl:'The Art of Specialty Coffee',craft:'ANCESTRAL COFFEE CRAFTING',
-    sl1:'Soul in the Soil, Being in the Bean',sl2:'Single Origin · Score SCA 84.5 · Boyacá · Colombia ·',
-    sub:'SPECIALTY COFFEE',
+    sl:'Soul in the Soil, Being in the Bean',craft:'ANCESTRAL COFFEE CRAFTING',
+    sl1:'Soul in the Soil, Being in the Bean',sl2:'ANCESTRAL COFFEE CRAFTING',
     fslogan:'ANCESTRAL COFFEE CRAFTING',
     nlph:'Your email address',
     ey:'Boyacá · Colombia · Single Origin · Specialty',sc:'Scroll',
@@ -1205,9 +1203,8 @@ const L = {
     octa:'Discover the origin →'
   },
   es:{
-    sl:'El Arte del Café de Especialidad',craft:'ARTE CAFETALERO ANCESTRAL',
-    sl1:'Esencia del Suelo, Vida en el Fruto',sl2:'Origen Único · Score SCA 84.5 · Boyacá · Colombia ·',
-    sub:'CAFÉ DE ESPECIALIDAD',
+    sl:'Esencia del Suelo, Vida en el Fruto',craft:'ARTE CAFETALERO ANCESTRAL',
+    sl1:'Esencia del Suelo, Vida en el Fruto',sl2:'ARTE CAFETALERO ANCESTRAL',
     fslogan:'ARTE CAFETALERO ANCESTRAL',
     nlph:'Tu dirección de correo',
     ey:'Boyacá · Colombia · Origen Único · Specialty',sc:'Deslizar',
@@ -1257,7 +1254,6 @@ function setLang(lang) {
   document.getElementById('hf-sl1').textContent = t.sl1;
   document.getElementById('hf-sl2').textContent = t.sl2;
   // Hero
-  document.getElementById('h-sub').textContent = t.sub;
   document.getElementById('h-sl').textContent = t.sl;
   document.getElementById('h-craft').textContent = t.craft;
   document.getElementById('h-ey').textContent = t.ey;
@@ -1310,7 +1306,7 @@ function setLang(lang) {
   document.getElementById('fv-txt').textContent = t.fvt;
   document.getElementById('wa-txt').textContent = t.wa;
   // Footer slogan (localized)
-  document.getElementById('f-slogan').innerHTML = t.fslogan;
+  document.getElementById('footer-slogan').innerHTML = t.fslogan;
   // Newsletter placeholder
   document.getElementById('nl-input').placeholder = t.nlph;
   // Hero stat labels
