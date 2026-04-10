@@ -113,46 +113,88 @@
 </head>
 <body>
 
+<!-- ═══════════════════════════════════
+   UTILITY BAR — teal-deep, hides on scroll (same as index.html)
+   ═══════════════════════════════════ -->
 <div id="util-bar">
-  <div class="ub-left"><a href="maison.html" class="ub-link" id="ub-maison">La Maison</a><div class="ub-sep"></div><a href="vlog.html" class="ub-link" id="ub-vlog">Le Vlog</a></div>
+  <div class="ub-left">
+    <a href="maison.html" class="ub-link" id="ub-maison">La Maison</a>
+    <div class="ub-sep"></div>
+    <a href="vlog.html" class="ub-link" id="ub-vlog">Le Vlog</a>
+  </div>
   <div class="ub-right">
     <div class="lang-wrap" id="lang-wrap">
-      <button class="lang-btn" onclick="toggleLang()"><span id="lang-cur">FR</span><svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l4 4 4-4"/></svg></button>
+      <button class="lang-btn" onclick="toggleLang()">
+        <span id="lang-cur">FR</span>
+        <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M1 1l4 4 4-4"/></svg>
+      </button>
       <div class="lang-drop" id="lang-drop">
         <button class="active" data-lang="fr" onclick="setLang('fr')">FR</button>
         <button data-lang="en" onclick="setLang('en')">EN</button>
         <button data-lang="es" onclick="setLang('es')">ES</button>
       </div>
     </div>
-    <div class="ub-sep"></div><a href="b2b.html" class="ub-pro" id="ub-pro">Espace professionnel</a>
+    <div class="ub-sep"></div>
+    <a href="b2b.html" class="ub-pro" id="ub-pro">Espace professionnel</a>
   </div>
 </div>
 
+<!-- ═══════════════════════════════════
+   FULL HEADER BRAND (same as index.html)
+   ═══════════════════════════════════ -->
 <div id="hdr-full">
-  <div class="hf-icon"><a href="index.html"><img src="logo-icon-no-br.png" alt="Don Alberto Café"></a></div>
-  <div class="hf-name">DON ALBERTO</div>
+  <div class="hf-icon">
+    <img src="logo-icon-no-br.png" alt="Don Alberto Café" id="hdr-icon">
+  </div>
+  <div class="hf-name" id="hf-name">DON ALBERTO</div>
   <div class="hf-sub">CAFÉ</div>
-  <div class="hf-slogans"><span class="hf-sl1" id="hf-sl1">Terre de caractère, grain d'excellence</span><div class="hf-sep"></div><span class="hf-sl2" id="hf-sl2">ARTISANAT CAFÉIER ANCESTRAL</span></div>
+  <div class="hf-slogans">
+    <span class="hf-sl1" id="hf-sl1">Terre de caractère, grain d'excellence</span>
+    <div class="hf-sep"></div>
+    <span class="hf-sl2" id="hf-sl2">ARTISANAT CAFÉIER ANCESTRAL</span>
+  </div>
 </div>
 
+<!-- ═══════════════════════════════════
+   MAIN NAV (same as index.html)
+   ═══════════════════════════════════ -->
 <header id="main-nav">
   <div class="nav-inner">
-    <nav class="nav-left">
+    <nav class="nav-left" aria-label="Nav gauche">
       <div class="ni"><a href="boutique.html" class="act" id="n-spec">Specialty Coffee</a></div>
       <div class="ni"><a href="boutique.html#abonnement" id="n-club">Club Don Alberto</a></div>
     </nav>
-    <div class="nav-center"><div class="nav-logo-compact" id="compact-logo"><a href="index.html"><img src="logo-icon-no-br.png" alt="Don Alberto Café" style="height:36px;width:auto;object-fit:contain;"></a></div></div>
-    <nav class="nav-right">
+
+    <div class="nav-center">
+      <div class="nav-logo-compact" id="compact-logo">
+        <a href="index.html">
+          <img src="logo-icon-no-br.png" alt="Don Alberto Café" style="height:36px;width:auto;object-fit:contain;">
+        </a>
+      </div>
+    </div>
+
+    <nav class="nav-right" aria-label="Nav droite">
       <div class="ni"><a href="b2b.html" id="n-pro">Espace Pro</a></div>
-      <div class="ni"><a href="origine.html" id="n-orig">Boutique d'Origine</a></div>
-      <a href="javascript:void(0)" onclick="openPayment('Don Alberto Café', '')" class="nav-cmd" id="n-cmd">Commander</a>
+      <div class="ni"><a href="origine-boutique.html" id="n-orig">Boutique d'Origine</a></div>
+      <a href="javascript:void(0)" onclick="openCheckout()" class="nav-cmd" id="n-cmd">Commander</a>
     </nav>
-    <button class="mob-tog" onclick="toggleMob()"><span></span><span></span><span></span></button>
+
+    <button class="mob-tog" id="mob-tog" onclick="toggleMob()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
+<!-- ═══════════════════════════════════
+   MOBILE MENU (same as index.html)
+   ═══════════════════════════════════ -->
 <div class="mob-menu" id="mob-menu">
-  <div class="mm-hdr"><img src="logo-icon-no-br.png" alt="Don Alberto" style="height:32px;"><button class="mm-close" onclick="toggleMob()">✕</button></div>
+  <div class="mm-hdr">
+    <div class="mm-logo-row">
+      <img src="Logo_letra.png" alt="Don Alberto Café" style="height:32px;width:auto;object-fit:contain;filter:brightness(0) invert(0);">
+    </div>
+    <button class="mm-close" onclick="toggleMob()">✕</button>
+  </div>
   <div class="mm-body">
     <div class="mm-sec" id="mm-sec-marque">La Marque</div>
     <a href="maison.html" class="mm-sub" id="mm-maison">La Maison</a>
@@ -161,9 +203,16 @@
     <a href="vlog.html" class="mm-sub" id="mm-vlog">Le Vlog</a>
     <div class="mm-sec" id="mm-sec-cmd">Commander</div>
     <a href="boutique.html" class="mm-lnk" id="mm-spec">Specialty Coffee</a>
+    <a href="boutique.html#abonnement" class="mm-lnk" id="mm-club">Club Don Alberto</a>
+    <a href="origine-boutique.html" class="mm-lnk" id="mm-orig">Boutique d'Origine</a>
     <div class="mm-sec" id="mm-sec-pro">Pro</div>
     <a href="b2b.html" class="mm-lnk" id="mm-pro">Espace Pro</a>
-    <a href="javascript:void(0)" onclick="openPayment('Don Alberto Café','');toggleMob();" class="mm-cta" id="mm-cmd">Commander</a>
+    <a href="javascript:void(0)" onclick="openCheckout();toggleMob();" class="mm-cta" id="mm-cmd">Commander</a>
+  </div>
+  <div class="mm-lang">
+    <button class="active" data-lang="fr" onclick="setLang('fr');toggleMob()">FR</button>
+    <button data-lang="en" onclick="setLang('en');toggleMob()">EN</button>
+    <button data-lang="es" onclick="setLang('es');toggleMob()">ES</button>
   </div>
 </div>
 
@@ -317,31 +366,100 @@
     <p id="nl-p">Nouvelles récoltes · Actualités ferme · FR · EN · ES</p>
   </div>
   <form class="nl-form" action="https://tally.so/r/LZ04RG" method="GET" target="_blank">
-    <input type="email" name="email" class="nl-input" id="nl-input" placeholder="Votre adresse email" required>
+    <input type="email" name="email" class="nl-input" id="nl-input" placeholder="Votre adresse email" required autocomplete="email">
     <button type="submit" class="nl-submit" id="nl-btn">S'inscrire</button>
   </form>
 </section>
 
+<!-- ═══════════════════════════════════
+   FOOTER — same structure as index.html
+   ═══════════════════════════════════ -->
 <footer>
   <div class="footer-inner">
+
+    <!-- Brand column -->
     <div class="footer-brand">
-      <div class="footer-logo-icon"><img src="logo-icon-no-br.png" alt="Don Alberto Café logo"></div>
+      <div class="footer-logo-icon">
+        <img src="logo-icon-no-br.png" alt="Don Alberto Café logo">
+      </div>
       <div class="footer-brand-name">DON ALBERTO</div>
       <div class="footer-brand-cafe">CAFÉ</div>
       <p class="footer-slogan" id="footer-slogan">ARTISANAT CAFÉIER ANCESTRAL</p>
+      <div class="footer-socials">
+        <a href="https://instagram.com/donalberto.cafe" target="_blank" rel="noopener" class="footer-soc" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="#" target="_blank" rel="noopener" class="footer-soc" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.27 8.27 0 004.84 1.55V6.78a4.85 4.85 0 01-1.07-.09z"/></svg>
+        </a>
+        <a href="https://facebook.com" target="_blank" rel="noopener" class="footer-soc" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="#" target="_blank" rel="noopener" class="footer-soc" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
+        </a>
+        <a href="https://wa.me/33761528450" target="_blank" rel="noopener" class="footer-soc" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.09.543 4.05 1.496 5.754L0 24l6.394-1.467A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.88 9.88 0 01-5.031-1.378l-.36-.214-3.742.858.899-3.628-.235-.374A9.861 9.861 0 012.118 12C2.118 6.533 6.533 2.118 12 2.118S21.882 6.533 21.882 12 17.467 21.882 12 21.882z"/></svg>
+        </a>
+      </div>
     </div>
+
+    <!-- 3 Columns -->
     <div class="footer-cols">
-      <div class="footer-col"><h4 id="fc-h1">La Marque</h4><ul><li><a href="maison.html" id="fl-maison">La Maison</a></li><li><a href="atelier.html" id="fl-atelier">Atelier</a></li><li><a href="vlog.html" id="fl-vlog">Le Vlog</a></li></ul></div>
-      <div class="footer-col"><h4 id="fc-h2">Commander</h4><ul><li><a href="boutique.html" id="fl-boutique">Boutique</a></li><li><a href="javascript:void(0)" onclick="openPayment('Don Alberto Café','')" id="fl-cmd">Commander</a></li></ul></div>
-      <div class="footer-col"><h4 id="fc-h3">Partenaires &amp; B2B</h4><ul><li><a href="b2b.html" id="fl-b2b">Espace Pro</a></li><li><a href="b2b.html#contact" id="fl-contact">Contacter</a></li></ul></div>
+      <div class="footer-col">
+        <h4 id="fc-h1">La Marque</h4>
+        <ul>
+          <li><a href="maison.html" id="fl-maison">La Maison</a></li>
+          <li><a href="atelier.html" id="fl-atelier">Le Atelier</a></li>
+          <li><a href="vlog.html" id="fl-vlog">Le Vlog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 id="fc-h2">Commander</h4>
+        <ul>
+          <li><a href="boutique.html" id="fl-boutique">Boutique</a></li>
+          <li><a href="boutique.html#abonnement" id="fl-club">Club Don Alberto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 id="fc-h3">Partenaires &amp; B2B</h4>
+        <ul>
+          <li><a href="b2b.html" id="fl-b2b">Espace Pro</a></li>
+          <li><a href="b2b.html#contact" id="fl-contact">Contacter</a></li>
+        </ul>
+      </div>
     </div>
+
   </div>
-  <div class="footer-vlog-row"><a href="vlog.html" id="fv-lnk"><div class="fvlog-ico"><svg viewBox="0 0 24 24" fill="currentColor" width="10" height="10"><path d="M8 5v14l11-7z"/></svg></div><span id="fv-txt">Notre Vlog — Dans les coulisses de la ferme</span></a></div>
+
+  <!-- Vlog bar -->
+  <div class="footer-vlog-row">
+    <a href="vlog.html" id="fv-lnk">
+      <div class="fvlog-ico"><svg viewBox="0 0 24 24" fill="currentColor" width="10" height="10"><path d="M8 5v14l11-7z"/></svg></div>
+      <span id="fv-txt">Notre Vlog — Dans les coulisses de la ferme</span>
+    </a>
+  </div>
+
   <div class="footer-bottom">
     <span class="footer-copy">© 2025 Don Alberto Café · Rondón, Boyacá, Colombia</span>
-    <div class="footer-bottom-links"><a href="b2b.html">Espace Pro</a></div>
+    <div class="footer-bottom-links">
+      <a href="#">Mentions légales</a>
+      <a href="#">Confidentialité</a>
+      <a href="b2b.html">Espace Pro</a>
+    </div>
   </div>
 </footer>
+
+<!-- ═══════════════════════════════════
+   CHECKOUT MODAL (same as index.html — nav “Commander”)
+   ═══════════════════════════════════ -->
+<div id="coModal" class="co-modal">
+  <div class="co-bd" onclick="closeCheckout()"></div>
+  <div class="co-box">
+    <button class="co-close" onclick="closeCheckout()">✕</button>
+    <iframe src="https://tally.so/r/LZ04RG" width="100%" height="600" frameborder="0" title="Commander" style="display:block;border:none;"></iframe>
+  </div>
+</div>
 
 <div id="payModal" class="pay-modal">
   <div class="co-bd" onclick="closePayment()"></div>
@@ -398,9 +516,17 @@
   </div>
 </div>
 
+<!-- ═══════════════════════════════════
+   WHATSAPP (same as index.html)
+   ═══════════════════════════════════ -->
 <div class="wa-wrap">
-  <div class="wa-bubble" id="wa-bubble"><span id="wa-txt">Besoin d'aide ?</span><button class="wa-bclose" onclick="this.parentElement.style.display='none'">✕</button></div>
-  <a id="wa-link" href="https://wa.me/33761528450" target="_blank" rel="noopener" class="wa-btn"><svg viewBox="0 0 24 24" fill="white" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51A11.945 11.945 0 0011.43 9c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.09.543 4.05 1.496 5.754L0 24l6.394-1.467A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.88 9.88 0 01-5.031-1.378l-.36-.214-3.742.858.899-3.628-.235-.374A9.861 9.861 0 012.118 12C2.118 6.533 6.533 2.118 12 2.118S21.882 6.533 21.882 12 17.467 21.882 12 21.882z"/></svg></a>
+  <div class="wa-bubble" id="wa-bubble">
+    <span id="wa-txt">Besoin d'aide ?</span>
+    <button class="wa-bclose" onclick="this.parentElement.style.display='none'">✕</button>
+  </div>
+  <a href="https://wa.me/33761528450?text=Bonjour%2C%20j%27ai%20une%20question%20sur%20Don%20Alberto%20Caf%C3%A9." target="_blank" rel="noopener" class="wa-btn">
+    <svg viewBox="0 0 24 24" fill="white" width="25" height="25"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.09.543 4.05 1.496 5.754L0 24l6.394-1.467A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.88 9.88 0 01-5.031-1.378l-.36-.214-3.742.858.899-3.628-.235-.374A9.861 9.861 0 012.118 12C2.118 6.533 6.533 2.118 12 2.118S21.882 6.533 21.882 12 17.467 21.882 12 21.882z"/></svg>
+  </a>
 </div>
 
 <script src="shared.js"></script>
