@@ -8,6 +8,7 @@
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
 <style>
 /* ── RESET & GLOBAL ── */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
@@ -203,31 +204,67 @@ footer{background:#0d1014;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
 </div>
 
 <div id="hdr-full">
-  <div class="hf-icon"><img src="logo-icon-no-br.png" alt="Don Alberto Café"></div>
-  <div class="hf-name">DON ALBERTO</div>
+  <div class="hf-icon">
+    <img src="logo-icon-no-br.png" alt="Don Alberto Café" id="hdr-icon">
+  </div>
+  <div class="hf-name" id="hf-name">DON ALBERTO</div>
   <div class="hf-sub">CAFÉ</div>
-  <div class="hf-slogans"><span class="hf-sl1" id="hf-sl1">Terre de caractère, grain d'excellence</span><div class="hf-sep"></div><span class="hf-sl2" id="hf-sl2">ARTISANAT CAFÉIER ANCESTRAL</span></div>
+  <div class="hf-slogans">
+    <span class="hf-sl1" id="hf-sl1">Terre de caractère, grain d'excellence</span>
+    <div class="hf-sep"></div>
+    <span class="hf-sl2" id="hf-sl2">ARTISANAT CAFÉIER ANCESTRAL</span>
+  </div>
 </div>
 
 <header id="main-nav">
   <div class="nav-inner">
-    <nav class="nav-left"><div class="ni"><a href="boutique.html" id="n-spec">Specialty Coffee</a></div><div class="ni"><a href="boutique.html#abonnement" id="n-club">Club Don Alberto</a></div></nav>
-    <div class="nav-center"><div class="nav-logo-compact" id="compact-logo"><a href="index.html"><img src="logo-icon-no-br.png" alt="Don Alberto Café" style="height:36px;width:auto;object-fit:contain;"></a></div></div>
-    <nav class="nav-right"><div class="ni"><a href="b2b.html" id="n-pro">Espace Pro</a></div><div class="ni"><a href="origine-boutique.html" id="n-orig">Boutique d'Origine</a></div><a href="javascript:void(0)" onclick="openCheckout()" class="nav-cmd" id="n-cmd">Commander</a></nav>
-    <button class="mob-tog" onclick="toggleMob()"><span></span><span></span><span></span></button>
+    <nav class="nav-left" aria-label="Nav gauche">
+      <div class="ni"><a href="boutique.html" id="n-spec">Specialty Coffee</a></div>
+      <div class="ni"><a href="boutique.html#abonnement" id="n-club">Club Don Alberto</a></div>
+    </nav>
+    <div class="nav-center">
+      <div class="nav-logo-compact" id="compact-logo">
+        <a href="index.html">
+          <img src="logo-icon-no-br.png" alt="Don Alberto Café" style="height:36px;width:auto;object-fit:contain;">
+        </a>
+      </div>
+    </div>
+    <nav class="nav-right" aria-label="Nav droite">
+      <div class="ni"><a href="b2b.html" id="n-pro">Espace Pro</a></div>
+      <div class="ni"><a href="origine-boutique.html" id="n-orig">Boutique d'Origine</a></div>
+      <a href="javascript:void(0)" onclick="openCheckout()" class="nav-cmd" id="n-cmd">Commander</a>
+    </nav>
+    <button class="mob-tog" id="mob-tog" onclick="toggleMob()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
 <div class="mob-menu" id="mob-menu">
-  <div class="mm-hdr"><img src="Logo_letra.png" alt="Don Alberto" style="height:32px;"><button class="mm-close" onclick="toggleMob()">✕</button></div>
+  <div class="mm-hdr">
+    <div class="mm-logo-row">
+      <img src="Logo_letra.png" alt="Don Alberto Café" style="height:32px;width:auto;object-fit:contain;filter:brightness(0) invert(0);">
+    </div>
+    <button class="mm-close" onclick="toggleMob()">✕</button>
+  </div>
   <div class="mm-body">
     <div class="mm-sec" id="mm-sec-marque">La Marque</div>
-    <a href="maison.html" class="mm-sub" id="mm-maison">La Maison</a><a href="origine.html" class="mm-sub" id="mm-origine">L'Origine</a><a href="atelier.html" class="mm-sub" id="mm-atelier">Atelier</a><a href="vlog.html" class="mm-sub" id="mm-vlog">Le Vlog</a>
+    <a href="maison.html" class="mm-sub" id="mm-maison">La Maison</a>
+    <a href="origine.html" class="mm-sub" id="mm-origine">L'Origine</a>
+    <a href="atelier.html" class="mm-sub" id="mm-atelier">Atelier</a>
+    <a href="vlog.html" class="mm-sub" id="mm-vlog">Le Vlog</a>
     <div class="mm-sec" id="mm-sec-cmd">Commander</div>
-    <a href="boutique.html" class="mm-lnk" id="mm-spec">Specialty Coffee</a><a href="boutique.html#abonnement" class="mm-lnk" id="mm-club">Club Don Alberto</a>
+    <a href="boutique.html" class="mm-lnk" id="mm-spec">Specialty Coffee</a>
+    <a href="boutique.html#abonnement" class="mm-lnk" id="mm-club">Club Don Alberto</a>
+    <a href="origine-boutique.html" class="mm-lnk" id="mm-orig">Boutique d'Origine</a>
     <div class="mm-sec" id="mm-sec-pro">Pro</div>
     <a href="b2b.html" class="mm-lnk" id="mm-pro">Espace Pro</a>
     <a href="javascript:void(0)" onclick="openCheckout();toggleMob();" class="mm-cta" id="mm-cmd">Commander</a>
+  </div>
+  <div class="mm-lang">
+    <button class="active" data-lang="fr" onclick="setLang('fr');toggleMob()">FR</button>
+    <button data-lang="en" onclick="setLang('en');toggleMob()">EN</button>
+    <button data-lang="es" onclick="setLang('es');toggleMob()">ES</button>
   </div>
 </div>
 
@@ -295,81 +332,114 @@ footer{background:#0d1014;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
     <p id="nl-p">Nouvelles récoltes · Actualités ferme · FR · EN · ES</p>
   </div>
   <form class="nl-form" action="https://tally.so/r/LZ04RG" method="GET" target="_blank">
-    <input type="email" name="email" class="nl-input" id="nl-input" placeholder="Votre adresse email" required>
+    <input type="email" name="email" class="nl-input" id="nl-input" placeholder="Votre adresse email" required autocomplete="email">
     <button type="submit" class="nl-submit" id="nl-btn">S'inscrire</button>
   </form>
 </section>
 
 <footer>
   <div class="footer-inner">
+
     <div class="footer-brand">
-      <div class="footer-logo-icon"><img src="logo-icon-no-br.png" alt="Don Alberto Café logo"></div>
+      <div class="footer-logo-icon">
+        <img src="logo-icon-no-br.png" alt="Don Alberto Café logo">
+      </div>
       <div class="footer-brand-name">DON ALBERTO</div>
       <div class="footer-brand-cafe">CAFÉ</div>
       <p class="footer-slogan" id="footer-slogan">ARTISANAT CAFÉIER ANCESTRAL</p>
+      <div class="footer-socials">
+        <a href="https://instagram.com/donalberto.cafe" target="_blank" rel="noopener" class="footer-soc" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="#" target="_blank" rel="noopener" class="footer-soc" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.27 8.27 0 004.84 1.55V6.78a4.85 4.85 0 01-1.07-.09z"/></svg>
+        </a>
+        <a href="https://facebook.com" target="_blank" rel="noopener" class="footer-soc" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="#" target="_blank" rel="noopener" class="footer-soc" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
+        </a>
+        <a href="https://wa.me/33761528450" target="_blank" rel="noopener" class="footer-soc" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.09.543 4.05 1.496 5.754L0 24l6.394-1.467A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.88 9.88 0 01-5.031-1.378l-.36-.214-3.742.858.899-3.628-.235-.374A9.861 9.861 0 012.118 12C2.118 6.533 6.533 2.118 12 2.118S21.882 6.533 21.882 12 17.467 21.882 12 21.882z"/></svg>
+        </a>
+      </div>
     </div>
+
     <div class="footer-cols">
-      <div class="footer-col"><h4 id="fc-h1">La Marque</h4><ul><li><a href="maison.html" id="fl-maison">La Maison</a></li><li><a href="atelier.html" id="fl-atelier">Le Atelier</a></li><li><a href="vlog.html" id="fl-vlog">Le Vlog</a></li></ul></div>
-      <div class="footer-col"><h4 id="fc-h2">Commander</h4><ul><li><a href="boutique.html" id="fl-boutique">Boutique</a></li><li><a href="boutique.html#abonnement" id="fl-club">Club Don Alberto</a></li></ul></div>
-      <div class="footer-col"><h4 id="fc-h3">Partenaires &amp; B2B</h4><ul><li><a href="b2b.html" id="fl-b2b">Espace Pro</a></li><li><a href="b2b.html#contact" id="fl-contact">Contacter</a></li></ul></div>
+      <div class="footer-col">
+        <h4 id="fc-h1">La Marque</h4>
+        <ul>
+          <li><a href="maison.html" id="fl-maison">La Maison</a></li>
+          <li><a href="atelier.html" id="fl-atelier">Le Atelier</a></li>
+          <li><a href="vlog.html" id="fl-vlog">Le Vlog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 id="fc-h2">Commander</h4>
+        <ul>
+          <li><a href="boutique.html" id="fl-boutique">Boutique</a></li>
+          <li><a href="boutique.html#abonnement" id="fl-club">Club Don Alberto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 id="fc-h3">Partenaires &amp; B2B</h4>
+        <ul>
+          <li><a href="b2b.html" id="fl-b2b">Espace Pro</a></li>
+          <li><a href="b2b.html#contact" id="fl-contact">Contacter</a></li>
+        </ul>
+      </div>
     </div>
+
   </div>
-  <div class="footer-vlog-row"><a href="vlog.html" id="fv-lnk"><div class="fvlog-ico"><svg viewBox="0 0 24 24" fill="currentColor" width="10" height="10"><path d="M8 5v14l11-7z"/></svg></div><span id="fv-txt">Notre Vlog — Dans les coulisses de la ferme</span></a></div>
+
+  <div class="footer-vlog-row">
+    <a href="vlog.html" id="fv-lnk">
+      <div class="fvlog-ico"><svg viewBox="0 0 24 24" fill="currentColor" width="10" height="10"><path d="M8 5v14l11-7z"/></svg></div>
+      <span id="fv-txt">Notre Vlog — Dans les coulisses de la ferme</span>
+    </a>
+  </div>
+
   <div class="footer-bottom">
     <span class="footer-copy">© 2025 Don Alberto Café · Rondón, Boyacá, Colombia</span>
-    <div class="footer-bottom-links"><a href="b2b.html">Espace Pro</a></div>
+    <div class="footer-bottom-links">
+      <a href="#">Mentions légales</a>
+      <a href="#">Confidentialité</a>
+      <a href="b2b.html">Espace Pro</a>
+    </div>
   </div>
 </footer>
 
+<div id="coModal" class="co-modal">
+  <div class="co-bd" onclick="closeCheckout()"></div>
+  <div class="co-box">
+    <button class="co-close" onclick="closeCheckout()">✕</button>
+    <iframe src="https://tally.so/r/LZ04RG" width="100%" height="600" frameborder="0" title="Commander" style="display:block;border:none;"></iframe>
+  </div>
+</div>
+
+<div class="wa-wrap">
+  <div class="wa-bubble" id="wa-bubble">
+    <span id="wa-txt">Besoin d'aide ?</span>
+    <button class="wa-bclose" onclick="this.parentElement.style.display='none'">✕</button>
+  </div>
+  <a href="https://wa.me/33761528450?text=Bonjour%2C%20j%27ai%20une%20question%20sur%20Don%20Alberto%20Caf%C3%A9." target="_blank" rel="noopener" class="wa-btn">
+    <svg viewBox="0 0 24 24" fill="white" width="25" height="25"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.09.543 4.05 1.496 5.754L0 24l6.394-1.467A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.88 9.88 0 01-5.031-1.378l-.36-.214-3.742.858.899-3.628-.235-.374A9.861 9.861 0 012.118 12C2.118 6.533 6.533 2.118 12 2.118S21.882 6.533 21.882 12 17.467 21.882 12 21.882z"/></svg>
+  </a>
+</div>
+
+<script src="shared.js"></script>
 <script>
-let lastY = 0, ticking = false;
-window.addEventListener('scroll', () => {
-  if (!ticking) {
-    requestAnimationFrame(() => {
-      const y = window.scrollY, utilBar = document.getElementById('util-bar'), mainNav = document.getElementById('main-nav'), compactLogo = document.getElementById('compact-logo'), hdrFull = document.getElementById('hdr-full');
-      const utilH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--util-h')) || 38;
-      if (y <= 4) utilBar.classList.remove('hide');
-      else if (y > lastY && y > utilH) utilBar.classList.add('hide');
-      else if (y < lastY) utilBar.classList.remove('hide');
-      if (y > hdrFull.offsetHeight + utilH - 10) { compactLogo.classList.add('visible'); mainNav.classList.add('shadowed'); }
-      else { compactLogo.classList.remove('visible'); if (y < 10) mainNav.classList.remove('shadowed'); }
-      lastY = y <= 0 ? 0 : y; ticking = false;
-    });
-    ticking = true;
-  }
-}, { passive: true });
-
-function toggleMob() { document.getElementById('mob-menu').classList.toggle('open'); }
-function toggleLang() { document.getElementById('lang-wrap').classList.toggle('open'); }
-document.addEventListener('click', e => { if (!e.target.closest('#lang-wrap')) { const wrap = document.getElementById('lang-wrap'); if(wrap) wrap.classList.remove('open'); } });
-
-const L = {
-  fr: { sl1:'Terre de caractère, grain d\'excellence', sl2:'ARTISANAT CAFÉIER ANCESTRAL', fslogan:'ARTISANAT CAFÉIER ANCESTRAL', nlph:'Votre adresse email', nlh:'Rejoignez la communauté <em>Don Alberto</em>', nlp:'Nouvelles récoltes · Actualités ferme · FR · EN · ES', nlb:"S'inscrire", ubm:'La Maison', ubv:'Le Vlog', ubp:'Espace professionnel', nspec:'Specialty Coffee', nclub:'Club Don Alberto', npro:'Espace Pro', norig:"Boutique d'Origine", ncmd:'Commander', fh1:'La Marque', fh2:'Commander', fh3:'Partenaires & B2B', fm:'La Maison', fa:'Le Atelier', fv:'Le Vlog', fb:'Boutique', fc:'Club Don Alberto', fb2:'Espace Pro', fco:'Contacter', fvt:'Notre Vlog — Dans les coulisses de la ferme', mmsecmarque:'La Marque', mmseccmd:'Commander', mmsecpro:'Pro', mmorig2:'L\'Origine', mmatelier:'Atelier' },
-  en: { sl1:'Soul in the Soil, Being in the Bean', sl2:'ANCESTRAL COFFEE CRAFTING', fslogan:'ANCESTRAL COFFEE CRAFTING', nlph:'Your email address', nlh:'Join the <em>Don Alberto</em> community', nlp:'New harvests · Farm news · FR · EN · ES', nlb:'Subscribe', ubm:'The House', ubv:'The Vlog', ubp:'Professional space', nspec:'Specialty Coffee', nclub:'Club Don Alberto', npro:'Pro Space', norig:'Origin Boutique', ncmd:'Order Now', fh1:'The Brand', fh2:'Order', fh3:'Partners & B2B', fm:'The House', fa:'The Atelier', fv:'The Vlog', fb:'Shop', fc:'Club Don Alberto', fb2:'Pro Space', fco:'Contact', fvt:'Our Vlog — Behind the scenes at the farm', mmsecmarque:'The Brand', mmseccmd:'Order', mmsecpro:'Pro', mmorig2:'Origin', mmatelier:'Atelier' },
-  es: { sl1:'Esencia del Suelo, Vida en el Fruto', sl2:'ARTE CAFETALERO ANCESTRAL', fslogan:'ARTE CAFETALERO ANCESTRAL', nlph:'Tu dirección de correo', nlh:'Únete a la comunidad <em>Don Alberto</em>', nlp:'Cosechas · Noticias de la finca · FR · EN · ES', nlb:'Suscribirse', ubm:'La Casa', ubv:'El Vlog', ubp:'Espacio profesional', nspec:'Specialty Coffee', nclub:'Club Don Alberto', npro:'Espacio Pro', norig:'Boutique de Origen', ncmd:'Ordenar', fh1:'La Marca', fh2:'Ordenar', fh3:'Socios & B2B', fm:'La Casa', fa:'El Atelier', fv:'El Vlog', fb:'Tienda', fc:'Club Don Alberto', fb2:'Espacio Pro', fco:'Contactar', fvt:'Nuestro Vlog — Detrás de escena en la finca', mmsecmarque:'La Marca', mmseccmd:'Ordenar', mmsecpro:'Pro', mmorig2:'El Origen', mmatelier:'Atelier' }
-};
-
-function setLang(lang) {
-  const t = L[lang];
-  document.documentElement.lang = lang;
-  if(document.getElementById('lang-cur')) document.getElementById('lang-cur').textContent = lang.toUpperCase();
-  document.querySelectorAll('.lang-drop button, .mm-lang button').forEach(b => b.classList.toggle('active', b.getAttribute('data-lang') === lang));
-  if(document.getElementById('lang-wrap')) document.getElementById('lang-wrap').classList.remove('open');
-  ['hf-sl1', 'hf-sl2', 'nl-h', 'nl-p', 'nl-btn', 'ub-maison', 'ub-vlog', 'ub-pro', 'n-spec', 'n-club', 'n-pro', 'n-orig', 'n-cmd', 'fc-h1', 'fc-h2', 'fc-h3', 'fl-maison', 'fl-atelier', 'fl-vlog', 'fl-boutique', 'fl-club', 'fl-b2b', 'fl-contact', 'fv-txt', 'mm-sec-marque', 'mm-sec-cmd', 'mm-sec-pro', 'mm-origine', 'mm-atelier', 'mm-spec', 'mm-club', 'mm-pro', 'mm-orig', 'mm-cmd', 'mm-vlog', 'mm-maison'].forEach(id => {
-      const el = document.getElementById(id);
-      const key = id.replace(/-/g, '');
-      if(el && t[key]) el.innerHTML = t[key];
-  });
-  if(document.getElementById('footer-slogan')) document.getElementById('footer-slogan').innerHTML = t.fslogan;
-  if(document.getElementById('nl-input')) document.getElementById('nl-input').placeholder = t.nlph;
-}
-
 document.addEventListener('DOMContentLoaded', () => {
-    setLang('fr');
-    const obs = new IntersectionObserver(entries => {
-        entries.forEach(e => { if (e.isIntersecting) { e.target.style.width = e.target.dataset.pct + '%'; obs.unobserve(e.target); } });
-    }, { threshold: 0.3 });
-    document.querySelectorAll('.flavor-fill[data-pct]').forEach(b => obs.observe(b));
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.width = e.target.dataset.pct + '%';
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.flavor-fill[data-pct]').forEach(b => obs.observe(b));
 });
 </script>
 </body>
