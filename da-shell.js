@@ -51,7 +51,7 @@ const SHELL_HEADER = `
 <div id="hdr-full">
   <a href="index.html" class="hf-brand-link">
     <div class="hf-icon">
-      <img src="logo-icon-no-br.png" alt="Don Alberto Café" id="hdr-icon">
+      <img src="logos/logo-icon-no-br.png" alt="Don Alberto Café" id="hdr-icon">
     </div>
     <div class="hf-name" id="hf-name">DON ALBERTO</div>
     <div class="hf-sub">CAFÉ</div>
@@ -73,7 +73,7 @@ const SHELL_HEADER = `
     <div class="nav-center">
       <div class="nav-logo-compact" id="compact-logo">
         <a href="index.html">
-          <img src="logo-icon-no-br.png" alt="Don Alberto Café" style="height:36px;width:auto;object-fit:contain;">
+          <img src="logos/logo-icon-no-br.png" alt="Don Alberto Café" style="height:36px;width:auto;object-fit:contain;">
         </a>
       </div>
     </div>
@@ -92,7 +92,7 @@ const SHELL_HEADER = `
 <div class="mob-menu" id="mob-menu">
   <div class="mm-hdr">
     <div class="mm-logo-row">
-      <a href="index.html"><img src="Logo_letra.png" alt="Don Alberto Café" style="height:32px;width:auto;object-fit:contain;"></a>
+      <a href="index.html"><img src="logos/Logo_letra.png" alt="Don Alberto Café" style="height:32px;width:auto;object-fit:contain;"></a>
     </div>
     <button class="mm-close" onclick="toggleMob()">✕</button>
   </div>
@@ -125,7 +125,7 @@ const SHELL_FOOTER = `
     <div class="footer-brand">
       <a href="index.html" class="footer-logo-link">
         <div class="footer-logo-icon">
-          <img src="logo-icon-no-br.png" alt="Don Alberto Café logo">
+          <img src="logos/logo-icon-no-br.png" alt="Don Alberto Café logo">
         </div>
         <div class="footer-brand-name">DON ALBERTO</div>
         <div class="footer-brand-cafe">CAFÉ</div>
