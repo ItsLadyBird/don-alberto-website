@@ -92,7 +92,7 @@ const SHELL_HEADER = `
 <div class="mob-menu" id="mob-menu">
   <div class="mm-hdr">
     <div class="mm-logo-row">
-      <a href="index.html"><img src="logos/Logo_letra.png" alt="Don Alberto Café" style="height:32px;width:auto;object-fit:contain;"></a>
+      <a href="index.html"><img src="logos/logo-icon-no-br.png" alt="Don Alberto Café" style="height:32px;width:auto;object-fit:contain;"></a>
     </div>
     <button class="mm-close" onclick="toggleMob()">✕</button>
   </div>
