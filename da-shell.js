@@ -343,7 +343,10 @@ const L = {
     oh2:'Rondón, Boyacá —<br><em>là où tout commence</em>',
     op1:'Tandis que les régions traditionnelles offrent de la constance, Boyacá offre de la complexité. À 1 670 m, les étages thermiques dramatiques de Rondón concentrent dans la cerise Castillo des esters rares — à l\'origine du profil Don Alberto.',
     of1:'Département unique', of2:'Arabica sélectionné', of3:'Microclimats Colombie', of4:'Seule GCF · Boyacá',
-    octa:"Découvrir l'origine →"
+    octa:"Découvrir l'origine →",
+    hh1tag:'Origine Exclusive', hh1title:'Seule Green Coffee Farm<br>de Boyacá', hh1desc:"L'unique ferme certifiée d'un département de 1,3 million d'habitants.",
+    hh2tag:'Top 5–10% Mondial', hh2title:'Café de Spécialité<br>Certifié SCA · 84.5', hh2desc:'Seuls 5 à 10 % des cafés au monde atteignent le grade « specialty ».',
+    hh3tag:'Traçabilité Totale', hh3title:'Ferme → Tasse<br>Zéro Intermédiaire', hh3desc:'Circuit court maîtrisé : qualité maximale, prix juste, impact direct sur la ferme.'
   },
   en:{
     sl:'Soul in the Soil, Being in the Bean', craft:'ANCESTRAL COFFEE CRAFTING',
@@ -381,7 +384,10 @@ const L = {
     oh2:'Rondón, Boyacá —<br><em>where it all begins</em>',
     op1:'While traditional regions offer consistency, Boyacá offers complexity. At 1,670m, the dramatic thermal layers of Rondón concentrate rare esters in the Castillo cherry — the origin of the Don Alberto profile.',
     of1:'Unique department', of2:'Selected Arabica', of3:'Colombia microclimates', of4:'Only GCF · Boyacá',
-    octa:'Discover the origin →'
+    octa:'Discover the origin →',
+    hh1tag:'Exclusive Origin', hh1title:'The Only Green Coffee Farm<br>in Boyacá', hh1desc:'The sole certified farm in a department of 1.3 million people.',
+    hh2tag:'Top 5–10% Worldwide', hh2title:'SCA Certified<br>Specialty Coffee · 84.5', hh2desc:'Only 5–10% of coffees worldwide reach the specialty grade standard.',
+    hh3tag:'Full Traceability', hh3title:'Farm → Cup<br>Zero Middle-Men', hh3desc:'Direct supply chain: maximum quality, fair pricing, full impact on the farm.'
   },
   es:{
     sl:'Esencia del Suelo, Vida en el Fruto', craft:'ARTE CAFETALERO ANCESTRAL',
@@ -419,7 +425,10 @@ const L = {
     oh2:'Rondón, Boyacá —<br><em>donde todo comienza</em>',
     op1:'Mientras las regiones tradicionales ofrecen constancia, Boyacá ofrece complejidad. A 1.670 m, los dramáticos pisos térmicos de Rondón concentran en la cereza Castillo ésteres raros — el origen del perfil Don Alberto.',
     of1:'Departamento único', of2:'Arabica seleccionado', of3:'Microclimas Colombia', of4:'Única GCF · Boyacá',
-    octa:'Descubrir el origen →'
+    octa:'Descubrir el origen →',
+    hh1tag:'Origen Exclusivo', hh1title:'Única Green Coffee Farm<br>en Boyacá', hh1desc:'La única finca certificada en un departamento de 1,3 millones de habitantes.',
+    hh2tag:'Top 5–10% Mundial', hh2title:'Café de Especialidad<br>Certificado SCA · 84.5', hh2desc:'Solo el 5–10% de los cafés del mundo alcanzan el grado specialty.',
+    hh3tag:'Trazabilidad Total', hh3title:'Finca → Taza<br>Cero Intermediarios', hh3desc:'Cadena directa: máxima calidad, precio justo, impacto real en la finca.'
   }
 };
 
@@ -496,6 +505,17 @@ function setLang(lang) {
   if (t.of3)   set('o-f3', t.of3);
   if (t.of4)   set('o-f4', t.of4);
   if (t.octa)  set('o-cta', t.octa);
+
+  // Hero hooks
+  if (t.hh1tag)   set('hh1-tag',   t.hh1tag);
+  if (t.hh1title) setH('hh1-title', t.hh1title);
+  if (t.hh1desc)  set('hh1-desc',  t.hh1desc);
+  if (t.hh2tag)   set('hh2-tag',   t.hh2tag);
+  if (t.hh2title) setH('hh2-title', t.hh2title);
+  if (t.hh2desc)  set('hh2-desc',  t.hh2desc);
+  if (t.hh3tag)   set('hh3-tag',   t.hh3tag);
+  if (t.hh3title) setH('hh3-title', t.hh3title);
+  if (t.hh3desc)  set('hh3-desc',  t.hh3desc);
 
   // Notify other scripts (subpages can listen for custom lang data)
   document.dispatchEvent(new CustomEvent('da-lang', { detail: { lang, t } }));
