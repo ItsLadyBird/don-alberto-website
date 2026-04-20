@@ -67,7 +67,31 @@ const SHELL_HEADER = `
 <header id="main-nav">
   <div class="nav-inner">
     <nav class="nav-left" aria-label="Nav gauche">
-      <div class="ni"><a href="boutique.html" id="n-spec">Specialty Coffee</a></div>
+      <div class="ni has-dropdown">
+        <a href="boutique.html" id="n-spec">Specialty Coffee</a>
+        <div class="nav-dropdown">
+          <a href="boutique.html#catalogue">
+            Nos Cafés
+            <span class="nd-sub">Grains · Moulu · Formats</span>
+          </a>
+          <a href="boutique.html#sca">
+            Score SCA 84.5
+            <span class="nd-sub">Certification · Évaluation · Seuils</span>
+          </a>
+          <a href="boutique.html#process">
+            Procédé Lavé
+            <span class="nd-sub">Washed · Fermentation · Séchage</span>
+          </a>
+          <a href="boutique.html#grain">
+            Grain Entier & Fraîcheur
+            <span class="nd-sub">Huiles aromatiques · Mouture</span>
+          </a>
+          <a href="boutique.html#famille">
+            L'Atelier Familial
+            <span class="nd-sub">Boyacá · Rondón · La ferme</span>
+          </a>
+        </div>
+      </div>
       <div class="ni"><a href="boutique.html#abonnement" id="n-club">Club Don Alberto</a></div>
     </nav>
     <div class="nav-center">
@@ -104,6 +128,10 @@ const SHELL_HEADER = `
     <a href="vlog.html" class="mm-sub" id="mm-vlog">Le Vlog</a>
     <div class="mm-sec" id="mm-sec-cmd">Commander</div>
     <a href="boutique.html" class="mm-lnk" id="mm-spec">Specialty Coffee</a>
+    <a href="boutique.html#catalogue" class="mm-sub" style="font-size:9px;padding-left:28px;color:rgba(255,255,255,.38);">→ Nos Cafés</a>
+    <a href="boutique.html#sca" class="mm-sub" style="font-size:9px;padding-left:28px;color:rgba(255,255,255,.38);">→ Score SCA 84.5</a>
+    <a href="boutique.html#process" class="mm-sub" style="font-size:9px;padding-left:28px;color:rgba(255,255,255,.38);">→ Procédé Lavé</a>
+    <a href="boutique.html#grain" class="mm-sub" style="font-size:9px;padding-left:28px;color:rgba(255,255,255,.38);">→ Grain Entier & Fraîcheur</a>
     <a href="boutique.html#abonnement" class="mm-lnk" id="mm-club">Club Don Alberto</a>
     <a href="origine-boutique.html" class="mm-lnk" id="mm-orig">Boutique d'Origine</a>
     <div class="mm-sec" id="mm-sec-pro">Pro</div>
@@ -377,6 +405,8 @@ const L = {
     qh2:'A refined density,<br>born from the terroir of <em>Boyacá</em>',
     qp1:'At 1,670m altitude, the dramatic thermal fluctuations of Rondón push the Castillo cherries into a state of "positive stress" — a slower ripening that concentrates complex esters and organic acids into every bean.',
     qp2:'The result is the Don Alberto profile: <strong>deep cacao and viscous honey</strong>, achieved not through intervention but through the intelligence of the land.',
+    qquote:'"He loved the land as few men know how to. We cultivate his memory with every harvest."',
+    qcite:'The founding family · Don Alberto Café',
     qcta:'View the full SCA score →',
     olabel:'Specialty Coffee Boyacá Colombia',
     oh2:'Rondón, Boyacá —<br><em>where it all begins</em>',
@@ -416,6 +446,8 @@ const L = {
     qh2:'Una densidad refinada,<br>nacida del terroir de <em>Boyacá</em>',
     qp1:'A 1.670 m de altitud, las dramáticas fluctuaciones térmicas de Rondón empujan las cerezas Castillo a un estado de "estrés positivo" — una maduración más lenta que concentra ésteres complejos y ácidos orgánicos en cada grano.',
     qp2:'El resultado es el perfil Don Alberto: <strong>cacao profundo y miel viscosa</strong>, logrados no por intervención sino por la inteligencia de la tierra.',
+    qquote:'"Amaba la tierra como pocos hombres saben amarla. Cultivamos su memoria en cada cosecha."',
+    qcite:'La familia fundadora · Don Alberto Café',
     qcta:'Ver el puntaje SCA completo →',
     olabel:'Specialty Coffee Boyacá Colombia',
     oh2:'Rondón, Boyacá —<br><em>donde todo comienza</em>',
@@ -489,6 +521,8 @@ function setLang(lang) {
   if (t.qh2)   setH('q-h2', t.qh2);
   if (t.qp1)   setH('q-p1', t.qp1);
   if (t.qp2)   setH('q-p2', t.qp2);
+  if (t.qquote) set('q-quote', t.qquote);
+  if (t.qcite)  set('q-cite', t.qcite);
   if (t.qcta)   set('q-cta', t.qcta);
   // Origin teaser
   if (t.olabel) set('o-label', t.olabel);
