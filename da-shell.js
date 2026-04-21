@@ -132,7 +132,7 @@ const SHELL_HEADER = `
           <a href="boutique.html#famille" id="nd-fam">La Famille</a>
         </div>
       </div>
-      <div class="ni"><a href="b2b.html#club" id="n-club">Club Don Alberto</a></div>
+      <div class="ni"><a href="club.html#club" id="n-club">Club Don Alberto</a></div>
     </nav>
     <div class="nav-center">
       <div class="nav-logo-compact" id="compact-logo">
@@ -163,7 +163,7 @@ const SHELL_HEADER = `
   <div class="mm-body">
     <a href="index.html" class="mm-lnk" id="mm-home">Accueil</a>
     <a href="boutique.html" class="mm-lnk" id="mm-spec">Specialty Coffee</a>
-    <a href="b2b.html#club" class="mm-lnk" id="mm-club">Club Don Alberto</a>
+    <a href="club.html#club" class="mm-lnk" id="mm-club">Club Don Alberto</a>
     <a href="origine-boutique.html" class="mm-lnk" id="mm-orig">Boutique d'Origine</a>
     <a href="b2b.html" class="mm-lnk" id="mm-pro">Espace Pro</a>
     <a href="boutique.html#formats" onclick="toggleMob();" class="mm-cta" id="mm-cmd">Commander</a>
@@ -222,7 +222,7 @@ const SHELL_FOOTER = `
         <h4 id="fc-h2">Commander</h4>
         <ul>
           <li><a href="boutique.html" id="fl-boutique">Boutique</a></li>
-          <li><a href="b2b.html#club" id="fl-club">Club Don Alberto</a></li>
+          <li><a href="club.html#club" id="fl-club">Club Don Alberto</a></li>
         </ul>
       </div>
       <div class="footer-col">
