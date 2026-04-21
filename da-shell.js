@@ -23,6 +23,41 @@
    1. SHELL HTML TEMPLATES
    ══════════════════════════════════════════ */
 const SHELL_HEADER = `
+<style>
+/* ── NAV DROPDOWN — injected globally by da-shell.js ── */
+.ni.has-dropdown{position:relative;}
+.ni.has-dropdown>a::after{content:'';display:inline-block;width:0;height:0;border-left:3px solid transparent;border-right:3px solid transparent;border-top:4px solid currentColor;margin-left:6px;vertical-align:middle;opacity:.5;transition:transform .2s;}
+.ni.has-dropdown:hover>a::after{transform:rotate(180deg);}
+.nav-dropdown{
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  background:#faf8f4;
+  border:1px solid rgba(9,102,133,.14);
+  border-top:2px solid var(--teal,#096685);
+  min-width:230px;
+  z-index:9999;
+  box-shadow:0 8px 32px rgba(6,78,101,.13);
+}
+.ni.has-dropdown:hover .nav-dropdown{display:block;}
+.nav-dropdown a{
+  display:block;
+  padding:12px 18px;
+  font-family:'Lato',sans-serif;
+  font-size:8.5px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--teal-deep,#064e65);
+  text-decoration:none;
+  border-bottom:1px solid rgba(9,102,133,.08);
+  transition:color .15s,background .15s;
+  line-height:1.2;
+}
+.nav-dropdown a:last-child{border-bottom:none;}
+.nav-dropdown a:hover{color:var(--teal,#096685);background:rgba(9,102,133,.05);}
+.nav-dropdown a .nd-sub{display:block;font-size:8px;color:rgba(6,78,101,.45);letter-spacing:1px;margin-top:3px;text-transform:none;font-weight:300;}
+</style>
 <!-- UTILITY BAR -->
 <div id="util-bar">
   <div class="ub-left">
@@ -374,7 +409,15 @@ const L = {
     octa:"Découvrir l'origine →",
     hh1tag:'Origine Exclusive', hh1title:'Seule Green Coffee Farm<br>de Boyacá', hh1desc:"L'unique ferme certifiée d'un département de 1,3 million d'habitants.",
     hh2tag:'Top 5–10% Mondial', hh2title:'Café de Spécialité<br>Certifié SCA · 84.5', hh2desc:'Seuls 5 à 10 % des cafés au monde atteignent le grade « specialty ».',
-    hh3tag:'Traçabilité Totale', hh3title:'Ferme → Tasse<br>Zéro Intermédiaire', hh3desc:'Circuit court maîtrisé : qualité maximale, prix juste, impact direct sur la ferme.'
+    hh3tag:'Traçabilité Totale', hh3title:'Ferme → Tasse<br>Zéro Intermédiaire', hh3desc:'Circuit court maîtrisé : qualité maximale, prix juste, impact direct sur la ferme.',
+    btab_all:'Tout', btab_grains:'Grains', btab_moulu:'Moulu', btab_sub:'Abonnement',
+    bfilter_lbl:'Filtrer par', bfilter_ori:'Origine', bfilter_var:'Variété', bfilter_proc:'Procédé',
+    bfilter_roast:'Torréfaction', bfilter_sca:'Score SCA', bfilter_reset:'Réinitialiser',
+    bformats_lbl:'Nos Formats', bformats_h:'Pour chaque usage, <em>une taille</em>',
+    bformats_p:'Choisissez votre format et payez directement. Pour Revolut et Wise, entrez le montant affiché et ajoutez votre adresse en note.',
+    bcmd_btn:'Commander →', bjoin_btn:'Rejoindre →',
+    bno_results:'Aucun produit ne correspond à vos critères.',
+    bno_reset:'Réinitialiser les filtres'
   },
   en:{
     sl:'Soul in the Soil, Being in the Bean', craft:'ANCESTRAL COFFEE CRAFTING',
@@ -415,7 +458,15 @@ const L = {
     octa:'Discover the origin →',
     hh1tag:'Exclusive Origin', hh1title:'The Only Green Coffee Farm<br>in Boyacá', hh1desc:'The sole certified farm in a department of 1.3 million people.',
     hh2tag:'Top 5–10% Worldwide', hh2title:'SCA Certified<br>Specialty Coffee · 84.5', hh2desc:'Only 5–10% of coffees worldwide reach the specialty grade standard.',
-    hh3tag:'Full Traceability', hh3title:'Farm → Cup<br>Zero Middle-Men', hh3desc:'Direct supply chain: maximum quality, fair pricing, full impact on the farm.'
+    hh3tag:'Full Traceability', hh3title:'Farm → Cup<br>Zero Middle-Men', hh3desc:'Direct supply chain: maximum quality, fair pricing, full impact on the farm.',
+    btab_all:'All', btab_grains:'Whole Bean', btab_moulu:'Ground', btab_sub:'Subscription',
+    bfilter_lbl:'Filter by', bfilter_ori:'Origin', bfilter_var:'Variety', bfilter_proc:'Process',
+    bfilter_roast:'Roast', bfilter_sca:'SCA Score', bfilter_reset:'Reset',
+    bformats_lbl:'Our Formats', bformats_h:'For every use, <em>one size</em>',
+    bformats_p:'Choose your format and pay directly. For Revolut and Wise, enter the displayed amount and add your address in the note.',
+    bcmd_btn:'Order →', bjoin_btn:'Join →',
+    bno_results:'No products match your criteria.',
+    bno_reset:'Reset filters'
   },
   es:{
     sl:'Esencia del Suelo, Vida en el Fruto', craft:'ARTE CAFETALERO ANCESTRAL',
@@ -456,7 +507,15 @@ const L = {
     octa:'Descubrir el origen →',
     hh1tag:'Origen Exclusivo', hh1title:'Única Green Coffee Farm<br>en Boyacá', hh1desc:'La única finca certificada en un departamento de 1,3 millones de habitantes.',
     hh2tag:'Top 5–10% Mundial', hh2title:'Café de Especialidad<br>Certificado SCA · 84.5', hh2desc:'Solo el 5–10% de los cafés del mundo alcanzan el grado specialty.',
-    hh3tag:'Trazabilidad Total', hh3title:'Finca → Taza<br>Cero Intermediarios', hh3desc:'Cadena directa: máxima calidad, precio justo, impacto real en la finca.'
+    hh3tag:'Trazabilidad Total', hh3title:'Finca → Taza<br>Cero Intermediarios', hh3desc:'Cadena directa: máxima calidad, precio justo, impacto real en la finca.',
+    btab_all:'Todo', btab_grains:'Grano', btab_moulu:'Molido', btab_sub:'Suscripción',
+    bfilter_lbl:'Filtrar por', bfilter_ori:'Origen', bfilter_var:'Variedad', bfilter_proc:'Proceso',
+    bfilter_roast:'Tostión', bfilter_sca:'Puntaje SCA', bfilter_reset:'Reiniciar',
+    bformats_lbl:'Nuestros Formatos', bformats_h:'Para cada uso, <em>un tamaño</em>',
+    bformats_p:'Elige tu formato y paga directamente. Para Revolut y Wise, ingresa el monto indicado y añade tu dirección en la nota.',
+    bcmd_btn:'Ordenar →', bjoin_btn:'Unirse →',
+    bno_results:'Ningún producto coincide con tus criterios.',
+    bno_reset:'Reiniciar filtros'
   }
 };
 
@@ -547,6 +606,24 @@ function setLang(lang) {
 
   // Notify other scripts (subpages can listen for custom lang data)
   document.dispatchEvent(new CustomEvent('da-lang', { detail: { lang, t } }));
+
+  // Boutique page elements
+  const bs = (id,v) => { const el=_$(id); if(el&&v!==undefined){ if(v.includes('<')) el.innerHTML=v; else el.textContent=v; } };
+  bs('btab-all', t.btab_all); bs('btab-grains', t.btab_grains); bs('btab-moulu', t.btab_moulu); bs('btab-sub', t.btab_sub);
+  bs('bfilter-lbl', t.bfilter_lbl); bs('bfilter-reset', t.bfilter_reset);
+  if(t.bformats_lbl) bs('bformats-lbl', t.bformats_lbl);
+  if(t.bformats_h) { const e=_$('bformats-h'); if(e) e.innerHTML=t.bformats_h; }
+  if(t.bformats_p) bs('bformats-p', t.bformats_p);
+  document.querySelectorAll('.bcmd-btn').forEach(b=>{ if(t.bcmd_btn) b.textContent=t.bcmd_btn; });
+  document.querySelectorAll('.bjoin-btn').forEach(b=>{ if(t.bjoin_btn) b.textContent=t.bjoin_btn; });
+  const nr=_$('no-results'); if(nr&&t.bno_results){ nr.querySelector('.no-results-txt') && (nr.querySelector('.no-results-txt').textContent=t.bno_results); }
+  const nrBtn=_$('no-results-btn'); if(nrBtn&&t.bno_reset) nrBtn.textContent=t.bno_reset;
+  // Update filter select placeholder options
+  const selMap={
+    'f-origin': t.bfilter_ori, 'f-varietal': t.bfilter_var,
+    'f-process': t.bfilter_proc, 'f-roast': t.bfilter_roast, 'f-sca': t.bfilter_sca
+  };
+  Object.entries(selMap).forEach(([id,label])=>{ const s=_$(id); if(s&&label){ const opt=s.querySelector('option[value=""]'); if(opt) opt.textContent=label; } });
 }
 
 /* ══════════════════════════════════════════

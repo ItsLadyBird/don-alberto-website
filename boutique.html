@@ -17,10 +17,10 @@
 
 /* ── BOUTIQUE HERO ── */
 .boutique-hero {
-  background: #0d0d0d;
+  background: var(--teal-deep, #064e65);
   padding: 80px 60px 60px;
   text-align: center;
-  border-bottom: 1px solid rgba(196,160,80,.14);
+  border-bottom: 1px solid rgba(196,160,80,.22);
   position: relative;
   overflow: hidden;
 }
@@ -29,7 +29,8 @@
   position: absolute;
   inset: 0;
   background: url('images/farm_cherries1.jpeg') center/cover;
-  opacity: .05;
+  opacity: .12;
+  mix-blend-mode: luminosity;
 }
 .boutique-hero .inner { position: relative; z-index: 1; }
 .boutique-hero .b-eyebrow {
@@ -37,14 +38,14 @@
   font-size: 9px;
   letter-spacing: 5px;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold, #c4a050);
   margin-bottom: 18px;
 }
 .boutique-hero h1 {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(44px, 6vw, 80px);
   font-weight: 300;
-  color: #fff;
+  color: #faf8f4;
   line-height: 1;
   letter-spacing: 2px;
   margin-bottom: 18px;
@@ -54,15 +55,15 @@
   font-size: 9px;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: rgba(255,255,255,.38);
+  color: rgba(250,248,244,.5);
 }
 
 /* ── FILTER TABS ── */
 .boutique-tabs-wrap {
-  background: #0d0d0d;
-  border-bottom: 1px solid rgba(196,160,80,.22);
+  background: #faf8f4;
+  border-bottom: 1px solid rgba(9,102,133,.14); box-shadow: 0 2px 12px rgba(6,78,101,.06);
   position: sticky;
-  top: 60px;
+  top: 0;
   z-index: 80;
 }
 .boutique-tabs {
@@ -77,7 +78,7 @@
   font-size: 9px;
   letter-spacing: 3.5px;
   text-transform: uppercase;
-  color: rgba(196,160,80,.45);
+  color: rgba(6,78,101,.42);
   background: none;
   border: none;
   border-bottom: 2px solid transparent;
@@ -87,16 +88,16 @@
   position: relative;
   bottom: -1px;
 }
-.btab:hover { color: rgba(196,160,80,.8); }
+.btab:hover { color: var(--teal, #096685); }
 .btab.active {
-  color: var(--gold);
-  border-bottom-color: var(--gold);
+  color: var(--teal, #096685);
+  border-bottom-color: var(--teal, #096685);
 }
 
 /* ── FILTER BAR ── */
 .filter-bar {
-  background: #111;
-  border-bottom: 1px solid rgba(196,160,80,.1);
+  background: rgba(9,102,133,.04);
+  border-bottom: 1px solid rgba(9,102,133,.10);
 }
 .filter-bar-inner {
   max-width: 1200px;
@@ -112,13 +113,13 @@
   font-size: 8px;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: rgba(255,255,255,.28);
+  color: rgba(6,78,101,.45);
   margin-right: 6px;
 }
 .filter-select {
-  background: rgba(255,255,255,.05);
-  border: 1px solid rgba(196,160,80,.2);
-  color: rgba(255,255,255,.65);
+  background: #fff;
+  border: 1px solid rgba(9,102,133,.2);
+  color: rgba(6,78,101,.75);
   font-family: 'Lato', sans-serif;
   font-size: 9px;
   letter-spacing: 1.5px;
@@ -128,19 +129,19 @@
   outline: none;
   -webkit-appearance: none;
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none' stroke='%23c4a050' stroke-width='1.5'%3E%3Cpath d='M1 1l4 4 4-4'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='none' stroke='%23096685' stroke-width='1.5'%3E%3Cpath d='M1 1l4 4 4-4'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 10px center;
   transition: border-color .2s;
 }
-.filter-select:hover { border-color: rgba(196,160,80,.5); }
-.filter-sep { width: 1px; height: 18px; background: rgba(255,255,255,.1); }
+.filter-select:hover { border-color: rgba(9,102,133,.45); }
+.filter-sep { width: 1px; height: 18px; background: rgba(9,102,133,.15); }
 .filter-reset {
   font-family: 'Lato', sans-serif;
   font-size: 8px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: rgba(196,160,80,.45);
+  color: rgba(6,78,101,.42);
   background: none;
   border: none;
   cursor: pointer;
@@ -153,7 +154,7 @@
   font-family: 'Lato', sans-serif;
   font-size: 8px;
   letter-spacing: 2px;
-  color: rgba(255,255,255,.22);
+  color: rgba(6,78,101,.35);
   text-transform: uppercase;
 }
 
@@ -200,7 +201,7 @@
   top: 16px;
   right: 0;
   background: var(--gold);
-  color: #fff;
+  color: #faf8f4;
   font-family: 'Lato', sans-serif;
   font-size: 7px;
   letter-spacing: 2px;
@@ -332,7 +333,7 @@
   width: 100%;
   margin-top: 16px;
   background: #141414;
-  color: #fff;
+  color: #faf8f4;
   font-family: 'Lato', sans-serif;
   font-size: 8.5px;
   letter-spacing: 2.5px;
@@ -344,7 +345,7 @@
   transition: background .2s;
   text-decoration: none;
 }
-.pcard-btn:hover { background: var(--gold, #c4a050); color: #fff; }
+.pcard-btn:hover { background: var(--gold, #c4a050); color: #faf8f4; }
 .pcard.featured .pcard-btn { background: var(--gold, #c4a050); }
 .pcard.featured .pcard-btn:hover { background: #a8873a; }
 
@@ -407,7 +408,7 @@
   left: 50%;
   transform: translateX(-50%);
   background: var(--gold, #c4a050);
-  color: #fff;
+  color: #faf8f4;
   font-family: 'Lato', sans-serif;
   font-size: 7.5px;
   letter-spacing: 2px;
@@ -446,7 +447,7 @@
   transition: border-color .2s, background .2s;
 }
 .pg-pay-btn:hover { background: rgba(9,102,133,.03); border-color: rgba(9,102,133,.3); }
-.pg-pay-logo { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; color: #fff; flex-shrink: 0; font-family: 'Lato', sans-serif; }
+.pg-pay-logo { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; color: #faf8f4; flex-shrink: 0; font-family: 'Lato', sans-serif; }
 .pg-pay-btn.pp .pg-pay-logo { background: #0070ba; }
 .pg-pay-btn.rv .pg-pay-logo { background: #191C8E; }
 .pg-pay-btn.ws .pg-pay-logo { background: #37517e; }
@@ -506,7 +507,7 @@
 .tier:not(.active) { background: #f0f0ee; border: 1px solid #e0e0de; opacity: .6; }
 .tier-range { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 300; color: var(--teal-deep, #064e65); }
 .tier-lbl { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: rgba(0,0,0,.4); margin-top: 3px; font-family: 'Lato', sans-serif; }
-.tier-badge { display: inline-block; background: var(--teal, #096685); color: #fff; font-size: 7px; letter-spacing: 1px; text-transform: uppercase; padding: 3px 7px; margin-bottom: 4px; font-family: 'Lato', sans-serif; }
+.tier-badge { display: inline-block; background: var(--teal, #096685); color: #faf8f4; font-size: 7px; letter-spacing: 1px; text-transform: uppercase; padding: 3px 7px; margin-bottom: 4px; font-family: 'Lato', sans-serif; }
 
 .sca-steps-list { display: flex; flex-direction: column; gap: 28px; }
 .sca-step-item { display: flex; gap: 20px; align-items: flex-start; }
@@ -537,12 +538,12 @@
 .bprocess-step { display: grid; grid-template-columns: 44px 1fr; gap: 18px; padding: 24px 0; border-bottom: 1px solid rgba(255,255,255,.05); align-items: start; }
 .bstep-icon { width: 38px; height: 38px; border: 1px solid rgba(196,160,80,.28); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .bstep-icon svg { width: 18px; height: 18px; color: var(--gold, #c4a050); }
-.bprocess-step h4 { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: #fff; margin-bottom: 5px; }
+.bprocess-step h4 { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: #faf8f4; margin-bottom: 5px; }
 .bprocess-step p { font-size: 11.5px; line-height: 1.9; color: rgba(255,255,255,.45); font-family: 'Lato', sans-serif; font-weight: 300; }
 
 .bproc-benefits { display: flex; flex-direction: column; gap: 16px; }
 .bproc-benefit { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07); padding: 24px; border-top: 2px solid var(--teal-mid, #1a7e9c); }
-.bproc-benefit h4 { font-family: 'Cormorant Garamond', serif; font-size: 19px; color: #fff; margin-bottom: 6px; }
+.bproc-benefit h4 { font-family: 'Cormorant Garamond', serif; font-size: 19px; color: #faf8f4; margin-bottom: 6px; }
 .bproc-benefit p { font-size: 12px; line-height: 1.9; color: rgba(255,255,255,.45); font-family: 'Lato', sans-serif; font-weight: 300; }
 
 /* ══════════════════════════════════════
@@ -557,7 +558,7 @@
   display: flex; align-items: center; justify-content: center;
 }
 .bgrain-hero-text { text-align: center; }
-.bgrain-hero-text h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px,4vw,50px); font-weight: 300; color: #fff; }
+.bgrain-hero-text h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px,4vw,50px); font-weight: 300; color: #faf8f4; }
 .bgrain-hero-text h2 em { color: var(--gold, #c4a050); }
 .bgrain-header { max-width: 600px; margin: 0 auto 50px; text-align: center; }
 .bgrain-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
@@ -587,60 +588,6 @@
 .bfamily-photo:first-child img { height: 260px; }
 .bfamily-photo img:hover { transform: scale(1.04); }
 
-/* ══════════════════════════════════════
-   NAV DROPDOWN — Specialty Coffee
-   ══════════════════════════════════════ */
-.ni.has-dropdown { position: relative; }
-.ni.has-dropdown > a::after {
-  content: '';
-  display: inline-block;
-  width: 0;
-  height: 0;
-  border-left: 3px solid transparent;
-  border-right: 3px solid transparent;
-  border-top: 4px solid currentColor;
-  margin-left: 6px;
-  vertical-align: middle;
-  opacity: .5;
-  transition: transform .2s;
-}
-.ni.has-dropdown:hover > a::after { transform: rotate(180deg); }
-.nav-dropdown {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: #0d0d0d;
-  border: 1px solid rgba(196,160,80,.18);
-  border-top: 2px solid var(--gold, #c4a050);
-  min-width: 220px;
-  z-index: 200;
-  box-shadow: 0 12px 40px rgba(0,0,0,.4);
-}
-.ni.has-dropdown:hover .nav-dropdown { display: block; }
-.nav-dropdown a {
-  display: block;
-  padding: 11px 20px;
-  font-family: 'Lato', sans-serif;
-  font-size: 8.5px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.5);
-  text-decoration: none;
-  border-bottom: 1px solid rgba(255,255,255,.05);
-  transition: color .15s, background .15s;
-}
-.nav-dropdown a:last-child { border-bottom: none; }
-.nav-dropdown a:hover { color: var(--gold, #c4a050); background: rgba(196,160,80,.05); }
-.nav-dropdown a .nd-sub {
-  display: block;
-  font-size: 8px;
-  color: rgba(255,255,255,.25);
-  letter-spacing: 1px;
-  margin-top: 2px;
-  text-transform: none;
-}
-
 /* ── Utilities ── */
 .section-label-b {
   display: flex;
@@ -661,7 +608,7 @@
 
 .h2-b { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px,3.6vw,46px); font-weight: 300; line-height: 1.15; color: #141414; }
 .h2-b em { font-style: italic; color: var(--teal, #096685); }
-.h2-b.light { color: #fff; }
+.h2-b.light { color: #faf8f4; }
 .h2-b.light em { color: var(--gold, #c4a050); }
 .body-text-b { font-size: 13.5px; line-height: 2; color: rgba(0,0,0,.5); font-weight: 300; margin-bottom: 16px; font-family: 'Lato', sans-serif; }
 .body-text-b.light { color: rgba(255,255,255,.6); }
@@ -670,7 +617,7 @@
   align-items: center;
   gap: 10px;
   background: var(--gold, #c4a050);
-  color: #fff;
+  color: #faf8f4;
   font-family: 'Lato', sans-serif;
   font-size: 9px;
   letter-spacing: 3px;
@@ -723,9 +670,7 @@
    ═══════════════════════════════════ -->
 <section class="boutique-hero">
   <div class="inner">
-    <p class="b-eyebrow">Specialty Coffee · Boyacá · Colombia · Single Origin</p>
     <h1>La Boutique</h1>
-    <p class="b-sub">Arabica Castillo · Score SCA 84.5 · Procédé Lavé · 1 670m ASNM</p>
   </div>
 </section>
 
@@ -734,10 +679,10 @@
    ═══════════════════════════════════ -->
 <div class="boutique-tabs-wrap" id="boutique-tabs">
   <div class="boutique-tabs">
-    <button class="btab active" data-filter="all">Tout</button>
-    <button class="btab" data-filter="grains">Grains</button>
-    <button class="btab" data-filter="moulu">Moulu</button>
-    <button class="btab" data-filter="abonnement">Abonnement</button>
+    <button class="btab active" id="btab-all" data-filter="all">Tout</button>
+    <button class="btab" id="btab-grains" data-filter="grains">Grains</button>
+    <button class="btab" id="btab-moulu" data-filter="moulu">Moulu</button>
+    <button class="btab" id="btab-sub" data-filter="abonnement">Abonnement</button>
   </div>
 </div>
 
@@ -746,7 +691,7 @@
    ═══════════════════════════════════ -->
 <div class="filter-bar" id="filter-bar">
   <div class="filter-bar-inner">
-    <span class="filter-label">Filtrer par</span>
+    <span class="filter-label" id="b-filter-label">Filtrer par</span>
 
     <select class="filter-select" id="f-origin" onchange="applyFilters()">
       <option value="">Origine</option>
@@ -788,7 +733,7 @@
     </select>
 
     <div class="filter-sep"></div>
-    <button class="filter-reset" onclick="resetFilters()">Réinitialiser</button>
+    <button class="filter-reset" id="bfilter-reset" onclick="resetFilters()">Réinitialiser</button>
     <span class="filter-count" id="f-count">8 produits</span>
   </div>
 </div>
@@ -823,7 +768,7 @@
               <div class="pcard-ship">+ livraison €7</div>
             </div>
           </div>
-          <button class="pcard-btn" onclick="openPayment('Don Alberto 250g Grain entier','€18','Prod_250_gr.png')">Commander →</button>
+          <a href="https://www.paypal.com/instantcommerce/checkout/VBX4WKN8C7TW8" target="_blank" class="pcard-btn bcmd-btn">Commander →</a>
         </div>
       </div>
 
@@ -850,7 +795,7 @@
               <div class="pcard-ship">+ livraison €7</div>
             </div>
           </div>
-          <button class="pcard-btn" onclick="openPayment('Don Alberto 500g Grain entier','€32','Prod_250_gr.png')">Commander →</button>
+          <a href="https://wa.me/33761528450?text=Bonjour%2C%20je%20souhaite%20commander%20Don%20Alberto%20500g%20Grain%20entier%20(€32).%20Merci%20de%20m'indiquer%20les%20détails." target="_blank" class="pcard-btn bcmd-btn">Commander →</a>
         </div>
       </div>
 
@@ -877,7 +822,7 @@
               <div class="pcard-ship">+ livraison €7</div>
             </div>
           </div>
-          <button class="pcard-btn" onclick="openPayment('Don Alberto Moulu 250g','€19','Prod_250_gr.png')">Commander →</button>
+          <a href="https://www.paypal.com/instantcommerce/checkout/VBX4WKN8C7TW8" target="_blank" class="pcard-btn bcmd-btn">Commander →</a>
         </div>
       </div>
 
@@ -905,7 +850,7 @@
               <div class="pcard-ship free">Livraison offerte</div>
             </div>
           </div>
-          <button class="pcard-btn" onclick="openPayment('Don Alberto 3×250g Pack Découverte','€49','Prod_3_pack.png')">Commander →</button>
+          <a href="https://www.paypal.com/instantcommerce/checkout/W8EVKKHSM3QXQ" target="_blank" class="pcard-btn bcmd-btn">Commander →</a>
         </div>
       </div>
 
@@ -932,7 +877,7 @@
               <div class="pcard-ship free">Livraison offerte</div>
             </div>
           </div>
-          <button class="pcard-btn" onclick="openPayment('Don Alberto 2.5kg Wholesale','€137','Prod_Both_Formats.png')">Commander →</button>
+          <a href="https://www.paypal.com/instantcommerce/checkout/PDMBCCHX4WJUW" target="_blank" class="pcard-btn bcmd-btn">Commander →</a>
         </div>
       </div>
 
@@ -959,7 +904,7 @@
               <div class="pcard-ship">Paiement unique</div>
             </div>
           </div>
-          <a href="https://py.pl/qsapU" target="_blank" class="pcard-btn">Rejoindre →</a>
+          <a href="https://www.paypal.com/instantcommerce/checkout/D9DHULTYC9MC2" target="_blank" class="pcard-btn bjoin-btn">Rejoindre →</a>
         </div>
       </div>
 
@@ -987,7 +932,7 @@
               <div class="pcard-ship">Paiement unique</div>
             </div>
           </div>
-          <a href="https://py.pl/2DYngW" target="_blank" class="pcard-btn">Rejoindre →</a>
+          <a href="https://www.paypal.com/instantcommerce/checkout/T6489XUXWD6T6" target="_blank" class="pcard-btn bjoin-btn">Rejoindre →</a>
         </div>
       </div>
 
@@ -1014,14 +959,14 @@
               <div class="pcard-ship">Paiement unique</div>
             </div>
           </div>
-          <a href="https://py.pl/1hyyHs" target="_blank" class="pcard-btn">Rejoindre →</a>
+          <a href="https://www.paypal.com/instantcommerce/checkout/JEGQLSHMBUHRN" target="_blank" class="pcard-btn bjoin-btn">Rejoindre →</a>
         </div>
       </div>
 
       <!-- No results fallback -->
       <div class="no-results" id="no-results" style="display:none;">
-        Aucun produit ne correspond à vos critères.<br>
-        <button onclick="resetFilters()" style="margin-top:14px;background:none;border:1px solid rgba(0,0,0,.2);padding:8px 20px;cursor:pointer;font-family:'Lato',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;">Réinitialiser les filtres</button>
+        <span class="no-results-txt">Aucun produit ne correspond à vos critères.</span><br>
+        <button id="no-results-btn" onclick="resetFilters()" style="margin-top:14px;background:none;border:1px solid rgba(0,0,0,.2);padding:8px 20px;cursor:pointer;font-family:'Lato',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;">Réinitialiser les filtres</button>
       </div>
 
     </div><!-- /prod-grid -->
@@ -1034,9 +979,9 @@
    ═══════════════════════════════════ -->
 <section class="prod-gallery" id="formats">
   <div class="reveal" style="text-align:center;">
-    <div class="section-label-b center">Nos Formats</div>
-    <h2 class="h2-b" style="margin-top:12px;text-align:center;">Pour chaque usage, <em>une taille</em></h2>
-    <p class="body-text-b" style="max-width:520px;margin:14px auto 0;text-align:center;">Choisissez votre format et payez directement. Pour Revolut et Wise, entrez le montant affiché et ajoutez votre adresse en note.</p>
+    <div class="section-label-b center" id="bformats-lbl">Nos Formats</div>
+    <h2 class="h2-b" id="bformats-h" style="margin-top:12px;text-align:center;">Pour chaque usage, <em>une taille</em></h2>
+    <p class="body-text-b" id="bformats-p" style="max-width:520px;margin:14px auto 0;text-align:center;">Choisissez votre format et payez directement. Pour Revolut et Wise, entrez le montant affiché et ajoutez votre adresse en note.</p>
   </div>
   <div class="prod-cards-grid reveal">
 
@@ -1053,7 +998,7 @@
         </div>
         <div class="pg-divider"></div>
         <div class="pg-pay-label">Choisissez votre paiement</div>
-        <a href="https://py.pl/I1hdx" class="pg-pay-btn pp" target="_blank">
+        <a href="https://www.paypal.com/instantcommerce/checkout/VBX4WKN8C7TW8" class="pg-pay-btn pp" target="_blank">
           <span class="pg-pay-logo">P</span>
           <div class="pg-pay-info"><span class="pg-pay-name">PayPal</span><span class="pg-pay-note">Recommandé · Montant pré-rempli</span></div>
           <span class="pg-pay-amount">€18</span>
@@ -1086,7 +1031,7 @@
         </div>
         <div class="pg-divider"></div>
         <div class="pg-pay-label">Choisissez votre paiement</div>
-        <a href="https://py.pl/1usgwo" class="pg-pay-btn pp" target="_blank">
+        <a href="https://www.paypal.com/instantcommerce/checkout/W8EVKKHSM3QXQ" class="pg-pay-btn pp" target="_blank">
           <span class="pg-pay-logo">P</span>
           <div class="pg-pay-info"><span class="pg-pay-name">PayPal</span><span class="pg-pay-note">Recommandé · Montant pré-rempli</span></div>
           <span class="pg-pay-amount">€49</span>
@@ -1118,7 +1063,7 @@
         </div>
         <div class="pg-divider"></div>
         <div class="pg-pay-label">Choisissez votre paiement</div>
-        <a href="https://py.pl/WVmGt" class="pg-pay-btn pp" target="_blank">
+        <a href="https://www.paypal.com/instantcommerce/checkout/PDMBCCHX4WJUW" class="pg-pay-btn pp" target="_blank">
           <span class="pg-pay-logo">P</span>
           <div class="pg-pay-info"><span class="pg-pay-name">PayPal</span><span class="pg-pay-note">Recommandé · Montant pré-rempli</span></div>
           <span class="pg-pay-amount">€137</span>
@@ -1551,17 +1496,22 @@
     applyFilters();
   };
 
-  // Sticky tab on scroll — tighten top offset
+  // Sticky tab on scroll — always follow main-nav height
   function updateTabTop() {
     const nav = document.getElementById('main-nav');
     const tabWrap = document.getElementById('boutique-tabs');
     if (nav && tabWrap) {
+      const navRect = nav.getBoundingClientRect();
+      // Use offsetHeight so it works even before first scroll
       tabWrap.style.top = nav.offsetHeight + 'px';
     }
   }
   window.addEventListener('resize', updateTabTop);
+  // Re-measure on every scroll (util-bar collapses, changing layout)
+  window.addEventListener('scroll', updateTabTop, { passive: true });
   document.addEventListener('DOMContentLoaded', updateTabTop);
-  setTimeout(updateTabTop, 400);
+  setTimeout(updateTabTop, 100);
+  setTimeout(updateTabTop, 600);
 })();
 
 /* Scroll anchor smoothing for boutique page */
