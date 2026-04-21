@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Club Don Alberto — Abonnement Café de Spécialité · Don Alberto Café</title>
+<meta name="description" content="Club Don Alberto — Abonnement café de spécialité. Recevez 2 sacs de 250g de café SCA 84.5 chaque mois, directement de notre ferme de Boyacá.">
+<link rel="icon" type="image/png" href="logos/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="da-styles.css">
+
+<style>
+/* ── PAGE-SPECIFIC STYLES ─────────────────────────── */
+
+/* Hero banner */
+.club-hero {
+  position: relative;
+  height: 420px;
+  overflow: hidden;
+  margin-top: calc(var(--util-h, 38px) + var(--nav-h, 52px) + 90px);
+}
+.club-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.club-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(4,40,52,.52) 0%, rgba(4,40,52,.78) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 40px;
+}
+.club-hero-eyebrow {
+  font-size: 9px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 14px;
+  font-family: 'Lato', sans-serif;
+}
+.club-hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 68px);
+  font-weight: 300;
+  color: white;
+  line-height: 1.05;
+  margin-bottom: 18px;
+}
+.club-hero-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(15px, 1.8vw, 21px);
+  color: rgba(255,255,255,.82);
+  max-width: 580px;
+  line-height: 1.55;
+}
+
+/* Intro section */
+.club-intro {
+  background: var(--cream);
+  padding: clamp(60px, 6vw, 100px) clamp(20px, 6vw, 100px) 0;
+}
+.club-intro-inner {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 70px;
+}
+.club-intro-inner .h2 {
+  margin-top: 14px;
+}
+
+/* Benefits grid */
+.club-benefits {
+  background: var(--cream);
+  padding: 0 clamp(20px, 6vw, 100px) 60px;
+}
+.club-benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2px;
+  margin-bottom: 60px;
+}
+.club-benefit-card {
+  background: var(--teal-pale);
+  padding: 36px 32px;
+  border-top: 2px solid var(--teal);
+}
+.club-benefit-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 18px;
+  color: var(--teal);
+}
+
+/* Steps */
+.club-steps-wrap {
+  background: var(--cream);
+  padding: 0 clamp(20px, 6vw, 100px) 60px;
+}
+.club-steps {
+  background: var(--warm);
+  padding: 48px 60px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+.club-step {
+  text-align: center;
+}
+.club-step-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 40px;
+  color: var(--gold);
+  font-weight: 300;
+  line-height: 1;
+}
+
+/* Tiers heading */
+.club-tiers-heading {
+  background: var(--cream);
+  padding: 0 clamp(20px, 6vw, 100px) 40px;
+  text-align: center;
+}
+.club-tiers-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.club-tiers-line::before,
+.club-tiers-line::after {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+  display: block;
+}
+
+/* Tiers grid */
+.club-tiers {
+  background: var(--cream);
+  padding: 0 clamp(20px, 6vw, 100px) 40px;
+}
+.club-tiers-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+/* Tier card */
+.tier-card {
+  background: white;
+  border: 1px solid rgba(9,102,133,.15);
+  position: relative;
+  overflow: hidden;
+}
+.tier-card.featured {
+  background: var(--teal-deep);
+  border: 2px solid var(--gold);
+}
+.tier-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: contain;
+  display: block;
+  background: #f5f0e8;
+  padding: 12px;
+}
+.tier-body {
+  padding: 28px 28px 32px;
+}
+.tier-badge {
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: var(--teal-deep);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 5px 16px;
+  white-space: nowrap;
+  z-index: 2;
+}
+.tier-period {
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.tier-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 300;
+  margin-bottom: 4px;
+}
+.tier-desc {
+  font-size: 12px;
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+.tier-price-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 300;
+  line-height: 1;
+}
+.tier-price-detail {
+  font-size: 10px;
+  letter-spacing: 1px;
+  margin-top: 3px;
+}
+.tier-price-save {
+  font-size: 10px;
+  font-weight: 600;
+  margin-top: 4px;
+}
+.tier-features {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-bottom: 28px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(9,102,133,.1);
+}
+.tier-card.featured .tier-features {
+  border-top-color: rgba(255,255,255,.1);
+}
+.tier-feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+}
+.tier-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: block;
+}
+.tier-cta {
+  display: block;
+  text-align: center;
+  padding: 13px 20px;
+  font-family: 'Lato', sans-serif;
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background .2s;
+}
+.tier-cta.teal {
+  background: var(--teal);
+  color: white;
+}
+.tier-cta.teal:hover { background: var(--teal-deep); }
+.tier-cta.gold {
+  background: var(--gold);
+  color: var(--teal-deep);
+}
+.tier-cta.gold:hover { background: var(--gold-light); }
+
+/* Payment note */
+.club-footnote {
+  background: var(--cream);
+  padding: 0 clamp(20px, 6vw, 100px) 80px;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .club-benefits-grid,
+  .club-tiers-grid {
+    grid-template-columns: 1fr;
+  }
+  .club-steps {
+    grid-template-columns: 1fr 1fr;
+    padding: 36px 28px;
+  }
+}
+@media (max-width: 600px) {
+  .club-hero { height: 320px; }
+  .club-steps { grid-template-columns: 1fr; }
+  .club-benefits { padding: 0 18px 40px; }
+  .club-intro { padding: clamp(40px,4vw,80px) 18px 0; }
+  .club-tiers { padding: 0 18px 40px; }
+  .club-tiers-heading { padding: 0 18px 36px; }
+  .club-steps-wrap { padding: 0 18px 40px; }
+  .club-footnote { padding: 0 18px 60px; }
+  .tier-badge { font-size: 7px; padding: 4px 10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════
+   SHELL: header injected by da-shell.js
+   ═══════════════════════════════════ -->
+<div id="site-header"></div>
+
+<!-- ═══════════════════════════════════
+   HERO BANNER
+   ═══════════════════════════════════ -->
+<div class="club-hero">
+  <img src="images/coffee_kitchen_bg.png" alt="Club Don Alberto — Abonnement café spécialité" onerror="this.style.background='linear-gradient(135deg,#064e65,#096685)';this.style.display='block';this.removeAttribute('src');">
+  <div class="club-hero-overlay">
+    <div class="club-hero-eyebrow">Don Alberto</div>
+    <h1 class="club-hero-title" id="ch-title">Club Don Alberto</h1>
+    <p class="club-hero-sub" id="ch-sub">Le café de spécialité, chaque mois,<br>directement de la ferme à votre tasse.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+   INTRO
+   ═══════════════════════════════════ -->
+<section class="club-intro">
+  <div class="club-intro-inner reveal">
+    <div class="section-label center" id="ci-label">Club Don Alberto</div>
+    <h2 class="h2" id="ci-h2">Le café Don Alberto,<br><em>chaque mois chez vous</em></h2>
+    <p class="body-text" style="margin-top:18px;" id="ci-p">Recevez deux sacs de 250g par mois, directement depuis notre ferme de Boyacá. Un engagement simple, un prix réduit, et la garantie que votre café est toujours frais.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+   BENEFITS
+   ═══════════════════════════════════ -->
+<section class="club-benefits">
+  <div class="club-benefits-grid reveal">
+
+    <!-- Card 1 -->
+    <div class="club-benefit-card">
+      <div class="club-benefit-icon">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path d="M20 4 C12 10 8 16 8 22a12 12 0 0024 0C32 14 24 4 20 4z"/>
+          <path d="M20 14v8"/><path d="M16 18h8"/>
+        </svg>
+      </div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;margin-bottom:10px;color:var(--dark);" id="cb1-title">Pour vous</h3>
+      <p style="font-size:12.5px;line-height:1.9;color:var(--mid);" id="cb1-desc">Prix exclusif abonné — jusqu'à <strong>30% de réduction</strong> vs l'achat unitaire. Livraison incluse, sans surprise. Résiliez quand vous le souhaitez à la fin de votre période.</p>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="club-benefit-card">
+      <div class="club-benefit-icon">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path d="M8 32 Q8 20 20 18 Q32 20 32 32"/>
+          <path d="M14 18 Q14 10 20 7 Q26 10 26 18"/>
+          <ellipse cx="20" cy="7" rx="3" ry="2"/>
+        </svg>
+      </div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;margin-bottom:10px;color:var(--dark);" id="cb2-title">Pour la ferme</h3>
+      <p style="font-size:12.5px;line-height:1.9;color:var(--mid);" id="cb2-desc">Votre engagement nous permet de planifier chaque récolte avec sérénité. Les volumes garantis assurent la stabilité économique de la famille et le soin apporté à chaque plant.</p>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="club-benefit-card">
+      <div class="club-benefit-icon">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path d="M8 20 L16 28 L32 12"/>
+          <circle cx="20" cy="20" r="16"/>
+        </svg>
+      </div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;margin-bottom:10px;color:var(--dark);" id="cb3-title">Fraîcheur garantie</h3>
+      <p style="font-size:12.5px;line-height:1.9;color:var(--mid);" id="cb3-desc">Chaque envoi est torréfié dans les 10 jours précédant la livraison. Vous recevez votre café au sommet de son expression aromatique, jamais un stock dormant.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+   HOW IT WORKS
+   ═══════════════════════════════════ -->
+<section class="club-steps-wrap">
+  <div class="club-steps reveal">
+
+    <div class="club-step">
+      <div class="club-step-num">01</div>
+      <h4 style="font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--dark);margin:10px 0 8px;" id="cs1-title">Choisissez votre formule</h4>
+      <p style="font-size:11.5px;color:var(--mid);line-height:1.8;" id="cs1-desc">3, 6 ou 12 mois selon votre engagement souhaité.</p>
+    </div>
+
+    <div class="club-step">
+      <div class="club-step-num">02</div>
+      <h4 style="font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--dark);margin:10px 0 8px;" id="cs2-title">Payez en une fois</h4>
+      <p style="font-size:11.5px;color:var(--mid);line-height:1.8;" id="cs2-desc">Paiement unique via PayPal, Revolut ou Wise. Pas de prélèvement automatique.</p>
+    </div>
+
+    <div class="club-step">
+      <div class="club-step-num">03</div>
+      <h4 style="font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--dark);margin:10px 0 8px;" id="cs3-title">Recevez chaque mois</h4>
+      <p style="font-size:11.5px;color:var(--mid);line-height:1.8;" id="cs3-desc">2 sacs de 250g torréfiés frais, expédiés le premier de chaque mois.</p>
+    </div>
+
+    <div class="club-step">
+      <div class="club-step-num">04</div>
+      <h4 style="font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--dark);margin:10px 0 8px;" id="cs4-title">Savourez &amp; partagez</h4>
+      <p style="font-size:11.5px;color:var(--mid);line-height:1.8;" id="cs4-desc">Don Alberto directement dans votre tasse, avec l'histoire derrière chaque sac.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+   SUBSCRIPTION TIERS HEADING
+   ═══════════════════════════════════ -->
+<section class="club-tiers-heading reveal">
+  <div class="club-tiers-line">
+    <span style="font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--teal);font-family:'Lato',sans-serif;" id="ct-label">Choisissez votre formule</span>
+  </div>
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.5vw,42px);font-weight:300;color:var(--dark);" id="ct-h2">Trois formules, <em style="color:var(--teal);">un seul café d'exception</em></h2>
+  <p style="font-size:13px;color:var(--mid);margin-top:10px;max-width:500px;margin-left:auto;margin-right:auto;" id="ct-sub">2 sacs de 250g par mois · Torréfié frais · Livraison incluse</p>
+</section>
+
+<!-- ═══════════════════════════════════
+   SUBSCRIPTION TIERS GRID
+   ═══════════════════════════════════ -->
+<section class="club-tiers">
+  <div class="club-tiers-grid">
+
+    <!-- ESENCIA — 3 months -->
+    <div class="tier-card reveal">
+      <img src="images/Club_Esencia.png" alt="Club Esencia" onerror="this.style.background='var(--teal-pale)';this.style.height='180px';this.removeAttribute('src');">
+      <div class="tier-body">
+        <div class="tier-period" style="color:var(--teal);" id="te-period">3 mois</div>
+        <div class="tier-name" style="color:var(--dark);">Esencia</div>
+        <div class="tier-desc" style="color:var(--light);" id="te-desc">La découverte — Pour ceux qui veulent goûter l'engagement Don Alberto sans se lier sur le long terme.</div>
+        <div style="margin-bottom:20px;">
+          <div class="tier-price-num" style="color:var(--teal-deep);">€95</div>
+          <div class="tier-price-detail" style="color:var(--light);" id="te-detail">6 sacs · €15.83/sac · Livraison incluse</div>
+          <div class="tier-price-save" style="color:var(--gold);" id="te-save">Économisez €13 vs l'achat unitaire</div>
+        </div>
+        <div class="tier-features">
+          <div class="tier-feature" style="color:var(--mid);"><span class="tier-dot" style="background:var(--teal);"></span><span id="te-f1">2 sacs 250g / mois pendant 3 mois</span></div>
+          <div class="tier-feature" style="color:var(--mid);"><span class="tier-dot" style="background:var(--teal);"></span><span>Rondon Castillo · SCA 84.5</span></div>
+          <div class="tier-feature" style="color:var(--mid);"><span class="tier-dot" style="background:var(--teal);"></span><span id="te-f3">Torréfié frais à chaque envoi</span></div>
+          <div class="tier-feature" style="color:var(--mid);"><span class="tier-dot" style="background:var(--teal);"></span><span id="te-f4">Livraison France incluse</span></div>
+          <div class="tier-feature" style="color:var(--mid);"><span class="tier-dot" style="background:var(--teal);"></span><span id="te-f5">Note &amp; story de la récolte incluse</span></div>
+        </div>
+        <a href="https://py.pl/qsapU" target="_blank" class="tier-cta teal" id="te-btn">Rejoindre Club Esencia →</a>
+      </div>
+    </div>
+
+    <!-- RAÍCES — 6 months (featured) -->
+    <div class="tier-card featured reveal">
+      <div class="tier-badge" id="tr-badge">Le plus choisi</div>
+      <img src="images/Club_Raices.png" alt="Club Raíces" onerror="this.style.background='var(--teal-pale)';this.style.height='180px';this.removeAttribute('src');">
+      <div class="tier-body">
+        <div class="tier-period" style="color:var(--gold-light);" id="tr-period">6 mois</div>
+        <div class="tier-name" style="color:white;">Raíces</div>
+        <div class="tier-desc" style="color:rgba(255,255,255,.55);" id="tr-desc">L'engagement — Le juste équilibre entre prix, engagement et découverte de notre production saisonnière.</div>
+        <div style="margin-bottom:20px;">
+          <div class="tier-price-num" style="color:var(--gold-light);">€156</div>
+          <div class="tier-price-detail" style="color:rgba(255,255,255,.38);" id="tr-detail">12 sacs · €13/sac · Livraison incluse</div>
+          <div class="tier-price-save" style="color:var(--gold-light);" id="tr-save">Économisez €60 vs l'achat unitaire</div>
+        </div>
+        <div class="tier-features">
+          <div class="tier-feature" style="color:rgba(255,255,255,.7);"><span class="tier-dot" style="background:var(--gold);"></span><span id="tr-f1">2 sacs 250g / mois pendant 6 mois</span></div>
+          <div class="tier-feature" style="color:rgba(255,255,255,.7);"><span class="tier-dot" style="background:var(--gold);"></span><span>Rondon Castillo · SCA 84.5</span></div>
+          <div class="tier-feature" style="color:rgba(255,255,255,.7);"><span class="tier-dot" style="background:var(--gold);"></span><span id="tr-f3">Torréfié frais à chaque envoi</span></div>
+          <div class="tier-feature" style="color:rgba(255,255,255,.7);"><span class="tier-dot" style="background:var(--gold);"></span><span id="tr-f4">Livraison France incluse</span></div>
+          <div class="tier-feature" style="color:rgba(255,255,255,.7);"><span class="tier-dot" style="background:var(--gold);"></span><span id="tr-f5">Note &amp; story de la récolte incluse</span></div>
+          <div class="tier-feature" style="color:rgba(255,255,255,.7);"><span class="tier-dot" style="background:var(--gold);"></span><span id="tr-f6">Accès prioritaire nouvelles récoltes</span></div>
+        </div>
+        <a href="https://py.pl/2DYngW" target="_blank" class="tier-cta gold" id="tr-btn">Rejoindre Club Raíces →</a>
+      </div>
+    </div>
+
+    <!-- HERENCIA — 12 months -->
+    <div class="tier-card reveal">
+      <img src="images/Club_Herencia.png" alt="Club Herencia" onerror="this.style.background='var(--teal-pale)';this.style.height='180px';this.removeAttribute('src');">
+      <div class="tier-body">
+        <div class="tier-period" style="color:var(--teal);" id="th-period">12 mois</div>
+        <div class="tier-name" style="color:var(--dark);">Herencia</div>
+        <div class="tier-desc" style="color:var(--light);" id="th-desc">L'héritage — Pour ceux qui font partie de la famille Don Alberto, récolte après récolte, année après année.</div>
+        <div style="margin-bottom:20px;">
+          <div class="tier-price-num" style="color:var(--teal-deep);">€300</div>
+          <div class="tier-price-detail" style="color:var(--light);" id="th-detail">24 sacs · €12.50/sac · Livraison incluse</div>
+          <div class="tier-price-save" style="color:var(--gold);" id="th-save">Économisez €132 vs l'achat unitaire</div>
+        </div>
+        <div class="tier-features">
+          <div class="tier-feature" style="color:var(--mid);"><span class="tier-dot" style="background:var(--teal);"></span><span id="th-f1">2 sacs 250g / mois pendant 12 mois</span></div>
+          <div class="tier-feature" style="color:var(--mid);"><span class="tier-dot" style="background:var(--teal);"></span><span>Rondon Castillo · SCA 84.5</span></div>
+          <div class="tier-feature" style="color:var(--mid);"><span class="tier-dot" style="background:var(--teal);"></span><span id="th-f3">Torréfié frais à chaque envoi</span></div>
+          <div class="tier-feature" style="color:var(--mid);"><span class="tier-dot" style="background:var(--teal);"></span><span id="th-f4">Livraison France incluse</span></div>
+          <div class="tier-feature" style="color:var(--mid);"><span class="tier-dot" style="background:var(--teal);"></span><span id="th-f5">Accès prioritaire nouvelles récoltes</span></div>
+          <div class="tier-feature" style="color:var(--mid);"><span class="tier-dot" style="background:var(--teal);"></span><span id="th-f6">Invitation visite virtuelle de la ferme</span></div>
+          <div class="tier-feature" style="color:var(--mid);"><span class="tier-dot" style="background:var(--teal);"></span><span id="th-f7">Message personnel de la famille</span></div>
+        </div>
+        <a href="https://py.pl/1hyyHs" target="_blank" class="tier-cta teal" id="th-btn">Rejoindre Club Herencia →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+   PAYMENT FOOTNOTE
+   ═══════════════════════════════════ -->
+<div class="club-footnote">
+  <p class="reveal" style="font-size:12px;color:var(--light);line-height:1.8;" id="cf-note">
+    Paiement unique à la souscription · Pas de renouvellement automatique · Questions : donalberto.coffee&#64;gmail.com
+  </p>
+</div>
+
+<!-- ═══════════════════════════════════
+   NEWSLETTER
+   ═══════════════════════════════════ -->
+<section class="nl-section">
+  <div class="nl-text">
+    <h2 id="nl-h">Rejoignez la communauté <em>Don Alberto</em></h2>
+    <p id="nl-p">Nouvelles récoltes · Actualités ferme · FR · EN · ES</p>
+  </div>
+  <form class="nl-form" action="https://tally.so/r/kdRxKZ" method="GET" target="_blank">
+    <input type="email" name="email" class="nl-input" id="nl-input" placeholder="Votre adresse email" required autocomplete="email">
+    <button type="submit" class="nl-submit" id="nl-btn">S'inscrire</button>
+  </form>
+</section>
+
+<!-- ═══════════════════════════════════
+   SHELL: footer injected by da-shell.js
+   ═══════════════════════════════════ -->
+<div id="site-footer"></div>
+
+<script src="da-shell.js"></script>
+
+<!-- ═══════════════════════════════════
+   PAGE-LEVEL i18n (Club Don Alberto)
+   Listens for the shell's 'da-lang' event
+   ═══════════════════════════════════ -->
+<script>
+(function() {
+
+  /* ── Page-specific translations ── */
+  const CL = {
+    fr: {
+      /* hero */
+      chTitle: 'Club Don Alberto',
+      chSub:   'Le café de spécialité, chaque mois,<br>directement de la ferme à votre tasse.',
+      /* intro */
+      ciLabel: 'Club Don Alberto',
+      ciH2:    'Le café Don Alberto,<br><em>chaque mois chez vous</em>',
+      ciP:     'Recevez deux sacs de 250g par mois, directement depuis notre ferme de Boyacá. Un engagement simple, un prix réduit, et la garantie que votre café est toujours frais.',
+      /* benefits */
+      cb1Title: 'Pour vous',
+      cb1Desc:  'Prix exclusif abonné — jusqu\'à <strong>30% de réduction</strong> vs l\'achat unitaire. Livraison incluse, sans surprise. Résiliez quand vous le souhaitez à la fin de votre période.',
+      cb2Title: 'Pour la ferme',
+      cb2Desc:  'Votre engagement nous permet de planifier chaque récolte avec sérénité. Les volumes garantis assurent la stabilité économique de la famille et le soin apporté à chaque plant.',
+      cb3Title: 'Fraîcheur garantie',
+      cb3Desc:  'Chaque envoi est torréfié dans les 10 jours précédant la livraison. Vous recevez votre café au sommet de son expression aromatique, jamais un stock dormant.',
+      /* steps */
+      cs1Title: 'Choisissez votre formule',  cs1Desc: '3, 6 ou 12 mois selon votre engagement souhaité.',
+      cs2Title: 'Payez en une fois',         cs2Desc: 'Paiement unique via PayPal, Revolut ou Wise. Pas de prélèvement automatique.',
+      cs3Title: 'Recevez chaque mois',       cs3Desc: '2 sacs de 250g torréfiés frais, expédiés le premier de chaque mois.',
+      cs4Title: 'Savourez & partagez',       cs4Desc: 'Don Alberto directement dans votre tasse, avec l\'histoire derrière chaque sac.',
+      /* tiers heading */
+      ctLabel: 'Choisissez votre formule',
+      ctH2:    'Trois formules, <em style="color:var(--teal);">un seul café d\'exception</em>',
+      ctSub:   '2 sacs de 250g par mois · Torréfié frais · Livraison incluse',
+      /* Esencia */
+      tePeriod: '3 mois',
+      teDesc:   'La découverte — Pour ceux qui veulent goûter l\'engagement Don Alberto sans se lier sur le long terme.',
+      teDetail: '6 sacs · €15.83/sac · Livraison incluse',
+      teSave:   'Économisez €13 vs l\'achat unitaire',
+      teF1:     '2 sacs 250g / mois pendant 3 mois',
+      teF3:     'Torréfié frais à chaque envoi',
+      teF4:     'Livraison France incluse',
+      teF5:     'Note & story de la récolte incluse',
+      teBtn:    'Rejoindre Club Esencia →',
+      /* Raíces */
+      trBadge:  'Le plus choisi',
+      trPeriod: '6 mois',
+      trDesc:   'L\'engagement — Le juste équilibre entre prix, engagement et découverte de notre production saisonnière.',
+      trDetail: '12 sacs · €13/sac · Livraison incluse',
+      trSave:   'Économisez €60 vs l\'achat unitaire',
+      trF1:     '2 sacs 250g / mois pendant 6 mois',
+      trF3:     'Torréfié frais à chaque envoi',
+      trF4:     'Livraison France incluse',
+      trF5:     'Note & story de la récolte incluse',
+      trF6:     'Accès prioritaire nouvelles récoltes',
+      trBtn:    'Rejoindre Club Raíces →',
+      /* Herencia */
+      thPeriod: '12 mois',
+      thDesc:   'L\'héritage — Pour ceux qui font partie de la famille Don Alberto, récolte après récolte, année après année.',
+      thDetail: '24 sacs · €12.50/sac · Livraison incluse',
+      thSave:   'Économisez €132 vs l\'achat unitaire',
+      thF1:     '2 sacs 250g / mois pendant 12 mois',
+      thF3:     'Torréfié frais à chaque envoi',
+      thF4:     'Livraison France incluse',
+      thF5:     'Accès prioritaire nouvelles récoltes',
+      thF6:     'Invitation visite virtuelle de la ferme',
+      thF7:     'Message personnel de la famille',
+      thBtn:    'Rejoindre Club Herencia →',
+      /* footnote */
+      cfNote:   'Paiement unique à la souscription · Pas de renouvellement automatique · Questions : donalberto.coffee@gmail.com',
+    },
+
+    en: {
+      /* hero */
+      chTitle: 'Club Don Alberto',
+      chSub:   'Specialty coffee, every month,<br>directly from the farm to your cup.',
+      /* intro */
+      ciLabel: 'Club Don Alberto',
+      ciH2:    'Don Alberto coffee,<br><em>every month at your door</em>',
+      ciP:     'Receive two 250g bags per month, directly from our farm in Boyacá. A simple commitment, a reduced price, and the guarantee that your coffee is always fresh.',
+      /* benefits */
+      cb1Title: 'For you',
+      cb1Desc:  'Exclusive subscriber pricing — up to <strong>30% off</strong> vs single purchases. Shipping included, no surprises. Cancel anytime at the end of your period.',
+      cb2Title: 'For the farm',
+      cb2Desc:  'Your commitment allows us to plan every harvest with peace of mind. Guaranteed volumes ensure the family\'s economic stability and the care given to every plant.',
+      cb3Title: 'Freshness guaranteed',
+      cb3Desc:  'Every shipment is roasted within 10 days before delivery. You receive your coffee at the peak of its aromatic expression — never a dormant stock.',
+      /* steps */
+      cs1Title: 'Choose your plan',    cs1Desc: '3, 6 or 12 months depending on your commitment.',
+      cs2Title: 'Pay once',            cs2Desc: 'Single payment via PayPal, Revolut or Wise. No automatic renewal.',
+      cs3Title: 'Receive every month', cs3Desc: '2 freshly roasted 250g bags, shipped on the first of each month.',
+      cs4Title: 'Savour & share',      cs4Desc: 'Don Alberto straight to your cup, with the story behind every bag.',
+      /* tiers heading */
+      ctLabel: 'Choose your plan',
+      ctH2:    'Three plans, <em style="color:var(--teal);">one exceptional coffee</em>',
+      ctSub:   '2 × 250g bags per month · Freshly roasted · Shipping included',
+      /* Esencia */
+      tePeriod: '3 months',
+      teDesc:   'Discovery — For those who want to taste the Don Alberto experience without a long-term commitment.',
+      teDetail: '6 bags · €15.83/bag · Shipping included',
+      teSave:   'Save €13 vs single purchase',
+      teF1:     '2 × 250g bags / month for 3 months',
+      teF3:     'Freshly roasted with every shipment',
+      teF4:     'France shipping included',
+      teF5:     'Harvest note & story included',
+      teBtn:    'Join Club Esencia →',
+      /* Raíces */
+      trBadge:  'Most popular',
+      trPeriod: '6 months',
+      trDesc:   'Commitment — The right balance between price, commitment and discovering our seasonal production.',
+      trDetail: '12 bags · €13/bag · Shipping included',
+      trSave:   'Save €60 vs single purchase',
+      trF1:     '2 × 250g bags / month for 6 months',
+      trF3:     'Freshly roasted with every shipment',
+      trF4:     'France shipping included',
+      trF5:     'Harvest note & story included',
+      trF6:     'Priority access to new harvests',
+      trBtn:    'Join Club Raíces →',
+      /* Herencia */
+      thPeriod: '12 months',
+      thDesc:   'Heritage — For those who are part of the Don Alberto family, harvest after harvest, year after year.',
+      thDetail: '24 bags · €12.50/bag · Shipping included',
+      thSave:   'Save €132 vs single purchase',
+      thF1:     '2 × 250g bags / month for 12 months',
+      thF3:     'Freshly roasted with every shipment',
+      thF4:     'France shipping included',
+      thF5:     'Priority access to new harvests',
+      thF6:     'Virtual farm visit invitation',
+      thF7:     'Personal message from the family',
+      thBtn:    'Join Club Herencia →',
+      /* footnote */
+      cfNote:   'Single payment at subscription · No automatic renewal · Questions: donalberto.coffee@gmail.com',
+    },
+
+    es: {
+      /* hero */
+      chTitle: 'Club Don Alberto',
+      chSub:   'Café de especialidad, cada mes,<br>directamente de la finca a tu taza.',
+      /* intro */
+      ciLabel: 'Club Don Alberto',
+      ciH2:    'El café Don Alberto,<br><em>cada mes en tu puerta</em>',
+      ciP:     'Recibe dos bolsas de 250g por mes, directamente desde nuestra finca en Boyacá. Un compromiso sencillo, un precio reducido, y la garantía de que tu café siempre es fresco.',
+      /* benefits */
+      cb1Title: 'Para ti',
+      cb1Desc:  'Precio exclusivo para suscriptores — hasta <strong>30% de descuento</strong> vs compra individual. Envío incluido, sin sorpresas. Cancela cuando quieras al final de tu período.',
+      cb2Title: 'Para la finca',
+      cb2Desc:  'Tu compromiso nos permite planificar cada cosecha con tranquilidad. Los volúmenes garantizados aseguran la estabilidad económica de la familia y el cuidado de cada planta.',
+      cb3Title: 'Frescura garantizada',
+      cb3Desc:  'Cada envío es tostado en los 10 días previos a la entrega. Recibes tu café en el punto máximo de su expresión aromática, nunca un stock dormido.',
+      /* steps */
+      cs1Title: 'Elige tu plan',          cs1Desc: '3, 6 o 12 meses según tu nivel de compromiso.',
+      cs2Title: 'Paga una sola vez',       cs2Desc: 'Pago único vía PayPal, Revolut o Wise. Sin renovación automática.',
+      cs3Title: 'Recibe cada mes',         cs3Desc: '2 bolsas de 250g tostadas frescas, enviadas el primero de cada mes.',
+      cs4Title: 'Disfruta & comparte',     cs4Desc: 'Don Alberto directamente en tu taza, con la historia detrás de cada bolsa.',
+      /* tiers heading */
+      ctLabel: 'Elige tu plan',
+      ctH2:    'Tres planes, <em style="color:var(--teal);">un solo café de excepción</em>',
+      ctSub:   '2 bolsas de 250g por mes · Tostado fresco · Envío incluido',
+      /* Esencia */
+      tePeriod: '3 meses',
+      teDesc:   'Descubrimiento — Para quienes quieren probar el compromiso Don Alberto sin atarse a largo plazo.',
+      teDetail: '6 bolsas · €15.83/bolsa · Envío incluido',
+      teSave:   'Ahorra €13 vs compra individual',
+      teF1:     '2 bolsas 250g / mes durante 3 meses',
+      teF3:     'Tostado fresco en cada envío',
+      teF4:     'Envío Francia incluido',
+      teF5:     'Nota & historia de la cosecha incluida',
+      teBtn:    'Unirse al Club Esencia →',
+      /* Raíces */
+      trBadge:  'El más popular',
+      trPeriod: '6 meses',
+      trDesc:   'Compromiso — El equilibrio justo entre precio, compromiso y descubrimiento de nuestra producción estacional.',
+      trDetail: '12 bolsas · €13/bolsa · Envío incluido',
+      trSave:   'Ahorra €60 vs compra individual',
+      trF1:     '2 bolsas 250g / mes durante 6 meses',
+      trF3:     'Tostado fresco en cada envío',
+      trF4:     'Envío Francia incluido',
+      trF5:     'Nota & historia de la cosecha incluida',
+      trF6:     'Acceso prioritario a nuevas cosechas',
+      trBtn:    'Unirse al Club Raíces →',
+      /* Herencia */
+      thPeriod: '12 meses',
+      thDesc:   'Herencia — Para quienes forman parte de la familia Don Alberto, cosecha tras cosecha, año tras año.',
+      thDetail: '24 bolsas · €12.50/bolsa · Envío incluido',
+      thSave:   'Ahorra €132 vs compra individual',
+      thF1:     '2 bolsas 250g / mes durante 12 meses',
+      thF3:     'Tostado fresco en cada envío',
+      thF4:     'Envío Francia incluido',
+      thF5:     'Acceso prioritario a nuevas cosechas',
+      thF6:     'Invitación a visita virtual de la finca',
+      thF7:     'Mensaje personal de la familia',
+      thBtn:    'Unirse al Club Herencia →',
+      /* footnote */
+      cfNote:   'Pago único a la suscripción · Sin renovación automática · Preguntas: donalberto.coffee@gmail.com',
+    }
+  };
+
+  /* ── Helper ── */
+  function s(id, val) {
+    const el = document.getElementById(id);
+    if (!el || val === undefined) return;
+    if (val.includes('<')) el.innerHTML = val;
+    else el.textContent = val;
+  }
+
+  /* ── Apply Club translations ── */
+  function applyClub(lang) {
+    const t = CL[lang] || CL.fr;
+
+    s('ch-title',   t.chTitle);
+    s('ch-sub',     t.chSub);
+
+    s('ci-label',   t.ciLabel);
+    s('ci-h2',      t.ciH2);
+    s('ci-p',       t.ciP);
+
+    s('cb1-title',  t.cb1Title);  s('cb1-desc', t.cb1Desc);
+    s('cb2-title',  t.cb2Title);  s('cb2-desc', t.cb2Desc);
+    s('cb3-title',  t.cb3Title);  s('cb3-desc', t.cb3Desc);
+
+    s('cs1-title',  t.cs1Title);  s('cs1-desc', t.cs1Desc);
+    s('cs2-title',  t.cs2Title);  s('cs2-desc', t.cs2Desc);
+    s('cs3-title',  t.cs3Title);  s('cs3-desc', t.cs3Desc);
+    s('cs4-title',  t.cs4Title);  s('cs4-desc', t.cs4Desc);
+
+    s('ct-label',   t.ctLabel);
+    s('ct-h2',      t.ctH2);
+    s('ct-sub',     t.ctSub);
+
+    s('te-period',  t.tePeriod);
+    s('te-desc',    t.teDesc);
+    s('te-detail',  t.teDetail);
+    s('te-save',    t.teSave);
+    s('te-f1',      t.teF1);
+    s('te-f3',      t.teF3);
+    s('te-f4',      t.teF4);
+    s('te-f5',      t.teF5);
+    s('te-btn',     t.teBtn);
+
+    s('tr-badge',   t.trBadge);
+    s('tr-period',  t.trPeriod);
+    s('tr-desc',    t.trDesc);
+    s('tr-detail',  t.trDetail);
+    s('tr-save',    t.trSave);
+    s('tr-f1',      t.trF1);
+    s('tr-f3',      t.trF3);
+    s('tr-f4',      t.trF4);
+    s('tr-f5',      t.trF5);
+    s('tr-f6',      t.trF6);
+    s('tr-btn',     t.trBtn);
+
+    s('th-period',  t.thPeriod);
+    s('th-desc',    t.thDesc);
+    s('th-detail',  t.thDetail);
+    s('th-save',    t.thSave);
+    s('th-f1',      t.thF1);
+    s('th-f3',      t.thF3);
+    s('th-f4',      t.thF4);
+    s('th-f5',      t.thF5);
+    s('th-f6',      t.thF6);
+    s('th-f7',      t.thF7);
+    s('th-btn',     t.thBtn);
+
+    s('cf-note',    t.cfNote);
+  }
+
+  /* ── Listen to shell language events ── */
+  document.addEventListener('da-lang', function(e) {
+    applyClub(e.detail.lang);
+  });
+
+  /* ── Apply initial language after shell init ── */
+  document.addEventListener('DOMContentLoaded', function() {
+    let lang = 'fr';
+    try { lang = localStorage.getItem('da_lang') || 'fr'; } catch(err) {}
+    /* Small delay to let setLang() fire first from da-shell.js */
+    setTimeout(function() { applyClub(lang); }, 0);
+  });
+
+})();
+</script>
+
+</body>
+</html>
