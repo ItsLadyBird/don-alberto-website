@@ -161,22 +161,14 @@ const SHELL_HEADER = `
     <button class="mm-close" onclick="toggleMob()">✕</button>
   </div>
   <div class="mm-body">
-    <div class="mm-sec" id="mm-sec-marque">La Marque</div>
-    <a href="maison.html" class="mm-sub" id="mm-maison">La Maison</a>
-    <a href="origine.html" class="mm-sub" id="mm-origine">L'Origine</a>
-    <a href="atelier.html" class="mm-sub" id="mm-atelier">Atelier</a>
-    <a href="vlog.html" class="mm-sub" id="mm-vlog">Le Vlog</a>
-    <div class="mm-sec" id="mm-sec-cmd">Commander</div>
+    <a href="index.html" class="mm-lnk" id="mm-home">Accueil</a>
     <a href="boutique.html" class="mm-lnk" id="mm-spec">Specialty Coffee</a>
-    <a href="boutique.html#catalogue" class="mm-sub" style="font-size:9px;padding-left:28px;color:rgba(255,255,255,.38);">→ Nos Cafés</a>
-    <a href="boutique.html#sca" class="mm-sub" style="font-size:9px;padding-left:28px;color:rgba(255,255,255,.38);">→ Score SCA 84.5</a>
-    <a href="boutique.html#process" class="mm-sub" style="font-size:9px;padding-left:28px;color:rgba(255,255,255,.38);">→ Procédé Lavé</a>
-    <a href="boutique.html#grain" class="mm-sub" style="font-size:9px;padding-left:28px;color:rgba(255,255,255,.38);">→ Grain Entier & Fraîcheur</a>
     <a href="b2b.html#club" class="mm-lnk" id="mm-club">Club Don Alberto</a>
     <a href="origine-boutique.html" class="mm-lnk" id="mm-orig">Boutique d'Origine</a>
-    <div class="mm-sec" id="mm-sec-pro">Pro</div>
     <a href="b2b.html" class="mm-lnk" id="mm-pro">Espace Pro</a>
     <a href="javascript:void(0)" onclick="openCheckout();toggleMob();" class="mm-cta" id="mm-cmd">Commander</a>
+    <a href="maison.html" class="mm-lnk mm-secondary" id="mm-maison">La Maison</a>
+    <a href="vlog.html" class="mm-lnk mm-secondary" id="mm-vlog">Le Vlog</a>
   </div>
   <div class="mm-lang">
     <button class="active" data-lang="fr" onclick="setLang('fr');toggleMob()">FR</button>
@@ -385,6 +377,7 @@ const L = {
     t1h:'Commande directe', t1d:'PayPal · Revolut · Wise', t2h:'Livraison internationale', t2d:'France, Europe & Monde',
     t3h:'Café de spécialité SCA', t3d:'Score 84.5 · Procédé Lavé', t4h:'Traçabilité totale', t4d:'Ferme → tasse',
     ubm:'La Maison', ubv:'Le Vlog', ubp:'Espace professionnel',
+    home:'Accueil',
     nspec:'Specialty Coffee', nclub:'Club Don Alberto', npro:'Espace Pro', norig:"Boutique d'Origine", ncmd:'Commander', ncmd_b2b:'Contact Pro',
     fh1:'La Marque', fh2:'Commander', fh3:'Partenaires & B2B',
     fm:'La Maison', fa:'Le Atelier', fv:'Le Vlog', fb:'Boutique', fc:'Club Don Alberto', fb2:'Espace Pro', fco:'Contacter',
@@ -458,7 +451,8 @@ const L = {
     t1h:'Direct order', t1d:'PayPal · Revolut · Wise', t2h:'International shipping', t2d:'France, Europe & Worldwide',
     t3h:'SCA Specialty Coffee', t3d:'Score 84.5 · Washed Process', t4h:'Full traceability', t4d:'Farm → cup',
     ubm:'The House', ubv:'The Vlog', ubp:'Professional space',
-    nspec:'Specialty Coffee', nclub:'Club Don Alberto', npro:'Pro Space', norig:'Origin Boutique', ncmd:'Order Now', ncmd_b2b:'Contact Pro',
+    home:'Home',
+    nspec:'Specialty Coffee', nclub:'Club Don Alberto', npro:'Pro Space', norig:'Origin Boutique', ncmd:'Get Coffee', ncmd_b2b:'Contact Pro',
     fh1:'The Brand', fh2:'Order', fh3:'Partners & B2B',
     fm:'The House', fa:'The Atelier', fv:'The Vlog', fb:'Shop', fc:'Club Don Alberto', fb2:'Pro Space', fco:'Contact',
     fvt:'Our Vlog — Behind the scenes at the farm', wa:'Need help?',
@@ -531,6 +525,7 @@ const L = {
     t1h:'Pedido directo', t1d:'PayPal · Revolut · Wise', t2h:'Envío internacional', t2d:'Francia, Europa y El Mundo',
     t3h:'Café de especialidad SCA', t3d:'Puntaje 84.5 · Proceso Lavado', t4h:'Trazabilidad total', t4d:'Finca → taza',
     ubm:'La Casa', ubv:'El Vlog', ubp:'Espacio profesional',
+    home:'Inicio',
     nspec:'Specialty Coffee', nclub:'Club Don Alberto', npro:'Espacio Pro', norig:'Boutique de Origen', ncmd:'Ordenar', ncmd_b2b:'Contacto Pro',
     fh1:'La Marca', fh2:'Ordenar', fh3:'Socios & B2B',
     fm:'La Casa', fa:'El Atelier', fv:'El Vlog', fb:'Tienda', fc:'Club Don Alberto', fb2:'Espacio Pro', fco:'Contactar',
@@ -635,10 +630,10 @@ function setLang(lang) {
   const cmdTxt = b2bPage && t.ncmd_b2b ? t.ncmd_b2b : t.ncmd;
   set('n-cmd', cmdTxt);
   // Mobile menu
+  set('mm-home', t.home);
   set('mm-spec', t.nspec); set('mm-club', t.nclub); set('mm-orig', t.norig);
-  set('mm-pro', t.npro); set('mm-cmd', cmdTxt); set('mm-vlog', t.ubv);
-  set('mm-maison', t.fm); set('mm-origine', t.mmorig2); set('mm-atelier', t.mmatelier);
-  set('mm-sec-marque', t.mmsecmarque); set('mm-sec-cmd', t.mmseccmd); set('mm-sec-pro', t.mmsecpro);
+  set('mm-pro', t.npro); set('mm-cmd', cmdTxt);
+  set('mm-maison', t.fm); set('mm-vlog', t.ubv);
   // Footer
   set('fc-h1', t.fh1); set('fc-h2', t.fh2); set('fc-h3', t.fh3);
   set('fl-maison', t.fm); set('fl-atelier', t.fa); set('fl-vlog', t.fv);

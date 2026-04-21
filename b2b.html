@@ -18,7 +18,7 @@
   position: relative;
   height: 420px;
   overflow: hidden;
-  margin-top: calc(var(--util-h, 38px) + var(--nav-h, 52px) + 90px);
+  margin-top: 0;
 }
 .club-hero img {
   width: 100%;
@@ -278,10 +278,219 @@
   text-align: center;
 }
 
+/* ── PCARD — exact same design as boutique.html ── */
+.prod-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+.pcard {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.07);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: box-shadow .25s, transform .25s;
+  position: relative;
+  overflow: hidden;
+}
+.pcard:hover {
+  box-shadow: 0 16px 48px rgba(0,0,0,.12);
+  transform: translateY(-3px);
+  z-index: 2;
+}
+.pcard.featured { border-color: var(--gold); }
+.pcard-badge {
+  position: absolute;
+  top: 16px;
+  right: 0;
+  background: var(--gold);
+  color: #faf8f4;
+  font-family: 'Lato', sans-serif;
+  font-size: 7px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 5px 12px;
+  z-index: 3;
+}
+.pcard-img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: #f5f0e8;
+  position: relative;
+  flex-shrink: 0;
+}
+.pcard-img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: opacity .5s ease, transform .55s ease;
+}
+.pcard-img .img-product {
+  object-fit: cover;
+  object-position: center top;
+  opacity: 1;
+  transform: scale(1);
+  z-index: 1;
+}
+.pcard-img .img-wheel {
+  object-fit: contain;
+  object-position: center center;
+  background: #fff;
+  padding: 16px;
+  opacity: 0;
+  transform: scale(1.04);
+  z-index: 2;
+}
+.pcard:hover .pcard-img .img-product { opacity: 0; transform: scale(1.06); }
+.pcard:hover .pcard-img .img-wheel   { opacity: 1; transform: scale(1); }
+.pcard-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(6,78,101,0) 30%, rgba(6,78,101,.92) 100%);
+  opacity: 0;
+  transition: opacity .35s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px 18px;
+  z-index: 2;
+}
+.pcard:hover .pcard-overlay { opacity: 1; }
+.pcard-overlay .pcard-attrs { border: none; padding: 0; margin: 0 0 10px; gap: 4px; }
+.pcard-overlay .pcard-attr  { font-size: 9px; }
+.pcard-overlay .pcard-attr-key { color: rgba(250,248,244,.5); letter-spacing: 1px; }
+.pcard-overlay .pcard-attr-val { color: rgba(250,248,244,.9); }
+.pcard-body {
+  padding: 16px 18px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.pcard-tag {
+  font-family: 'Lato', sans-serif;
+  font-size: 8px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(0,0,0,.38);
+  margin-bottom: 6px;
+}
+.pcard-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 300;
+  color: #141414;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+.pcard-notes {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--teal-deep, #064e65);
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+.pcard-attrs {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0;
+  border: none;
+  margin: 0;
+}
+.pcard-attr {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: 'Lato', sans-serif;
+  font-size: 9px;
+}
+.pcard-attr-key { color: rgba(0,0,0,.32); letter-spacing: 1px; text-transform: uppercase; }
+.pcard-attr-val { color: rgba(0,0,0,.65); }
+.pcard-footer {
+  margin-top: auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+}
+.pcard-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 300;
+  color: #141414;
+  line-height: 1;
+}
+.pcard-price sup {
+  font-size: .5em;
+  vertical-align: super;
+  letter-spacing: 0;
+  color: rgba(0,0,0,.55);
+}
+.pcard-price span.freq {
+  font-size: .38em;
+  color: rgba(0,0,0,.4);
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 1px;
+}
+.pcard-ship {
+  font-family: 'Lato', sans-serif;
+  font-size: 9px;
+  color: rgba(0,0,0,.35);
+  line-height: 1.5;
+}
+.pcard-ship.free { color: var(--teal-deep, #064e65); font-weight: 600; letter-spacing: .5px; }
+.pcard-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 16px;
+  background: #141414;
+  color: #faf8f4;
+  font-family: 'Lato', sans-serif;
+  font-size: 8.5px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 13px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background .2s;
+  text-decoration: none;
+}
+.pcard-btn:hover { background: var(--gold, #c4a050); color: #faf8f4; }
+.pcard.featured .pcard-btn { background: var(--gold, #c4a050); }
+.pcard.featured .pcard-btn:hover { background: #a8873a; }
+.pcard-sca {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Lato', sans-serif;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold, #c4a050);
+  margin-bottom: 8px;
+}
+.pcard-sca::before {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold, #c4a050);
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .club-benefits-grid,
-  .club-tiers-grid {
+  .prod-cards-grid {
     grid-template-columns: 1fr;
   }
   .club-steps {
@@ -426,78 +635,105 @@
    SUBSCRIPTION TIERS GRID
    ═══════════════════════════════════ -->
 <section class="club-tiers">
-  <div class="club-tiers-grid">
+  <div class="prod-cards-grid">
 
     <!-- ESENCIA — 3 months -->
-    <div class="tier-card reveal">
-      <img src="images/Club_Esencia.png" alt="Club Esencia" onerror="this.style.background='var(--teal-pale)';this.style.height='180px';this.removeAttribute('src');">
-      <div class="tier-body">
-        <div class="tier-period" style="color:var(--teal);" id="te-period">3 mois</div>
-        <div class="tier-name" style="color:var(--dark);">Esencia</div>
-        <div class="tier-desc" style="color:var(--light);" id="te-desc">La découverte — Pour ceux qui veulent goûter l'engagement Don Alberto sans se lier sur le long terme.</div>
-        <div style="margin-bottom:20px;">
-          <div class="tier-price-num" style="color:var(--teal-deep);">€95</div>
-          <div class="tier-price-detail" style="color:var(--light);" id="te-detail">6 sacs · €15.83/sac · Livraison incluse</div>
-          <div class="tier-price-save" style="color:var(--gold);" id="te-save">Économisez €13 vs l'achat unitaire</div>
+    <div class="pcard reveal">
+      <div class="pcard-img">
+        <img class="img-product" src="images/Club_Esencia.png" alt="Club Esencia" onerror="this.style.background='var(--teal-pale)';this.removeAttribute('src');">
+        <img class="img-wheel" src="images/coffee-wheel.png" alt="Roue des arômes">
+        <div class="pcard-overlay">
+          <div class="pcard-attrs">
+            <div class="pcard-attr"><span class="pcard-attr-key">Durée</span><span class="pcard-attr-val" id="te-f1">2 sacs 250g / mois pendant 3 mois</span></div>
+            <div class="pcard-attr"><span class="pcard-attr-key">Café</span><span class="pcard-attr-val">Rondon Castillo · SCA 84.5</span></div>
+            <div class="pcard-attr"><span class="pcard-attr-key">Torréfaction</span><span class="pcard-attr-val" id="te-f3">Torréfié frais à chaque envoi</span></div>
+            <div class="pcard-attr"><span class="pcard-attr-key">Livraison</span><span class="pcard-attr-val" id="te-f4">Livraison France incluse</span></div>
+            <div class="pcard-attr"><span class="pcard-attr-key">Inclus</span><span class="pcard-attr-val" id="te-f5">Note &amp; story de la récolte</span></div>
+          </div>
         </div>
-        <div class="tier-features">
-          <div class="tier-feature" style="color:var(--mid);"><span class="tier-dot" style="background:var(--teal);"></span><span id="te-f1">2 sacs 250g / mois pendant 3 mois</span></div>
-          <div class="tier-feature" style="color:var(--mid);"><span class="tier-dot" style="background:var(--teal);"></span><span>Rondon Castillo · SCA 84.5</span></div>
-          <div class="tier-feature" style="color:var(--mid);"><span class="tier-dot" style="background:var(--teal);"></span><span id="te-f3">Torréfié frais à chaque envoi</span></div>
-          <div class="tier-feature" style="color:var(--mid);"><span class="tier-dot" style="background:var(--teal);"></span><span id="te-f4">Livraison France incluse</span></div>
-          <div class="tier-feature" style="color:var(--mid);"><span class="tier-dot" style="background:var(--teal);"></span><span id="te-f5">Note &amp; story de la récolte incluse</span></div>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-sca">SCA 84.5</div>
+        <div class="pcard-tag" id="te-period">3 mois</div>
+        <div class="pcard-name">Club<br>Esencia</div>
+        <div class="pcard-notes" id="te-desc">La découverte — Pour ceux qui veulent goûter l'engagement Don Alberto sans se lier sur le long terme.</div>
+        <div class="pcard-footer">
+          <div>
+            <div class="pcard-price"><sup>€</sup>80<span class="freq">/3 mois</span></div>
+            <div class="pcard-ship free">Livraison offerte</div>
+            <div style="font-size:9px;color:var(--mid);margin-top:3px;font-family:'Lato',sans-serif;" id="te-detail">6 sacs · €13.33/sac</div>
+            <div style="font-size:9px;color:var(--gold);font-weight:600;margin-top:2px;font-family:'Lato',sans-serif;" id="te-save">Économisez €16 vs l'achat unitaire</div>
+          </div>
         </div>
-        <a href="https://py.pl/qsapU" target="_blank" class="tier-cta teal" id="te-btn">Rejoindre Club Esencia →</a>
+        <a href="https://py.pl/qsapU" target="_blank" class="pcard-btn bjoin-btn" id="te-btn">Rejoindre Club Esencia →</a>
       </div>
     </div>
 
     <!-- RAÍCES — 6 months (featured) -->
-    <div class="tier-card featured reveal">
-      <div class="tier-badge" id="tr-badge">Le plus choisi</div>
-      <img src="images/Club_Raices.png" alt="Club Raíces" onerror="this.style.background='var(--teal-pale)';this.style.height='180px';this.removeAttribute('src');">
-      <div class="tier-body">
-        <div class="tier-period" style="color:var(--gold-light);" id="tr-period">6 mois</div>
-        <div class="tier-name" style="color:white;">Raíces</div>
-        <div class="tier-desc" style="color:rgba(255,255,255,.55);" id="tr-desc">L'engagement — Le juste équilibre entre prix, engagement et découverte de notre production saisonnière.</div>
-        <div style="margin-bottom:20px;">
-          <div class="tier-price-num" style="color:var(--gold-light);">€156</div>
-          <div class="tier-price-detail" style="color:rgba(255,255,255,.38);" id="tr-detail">12 sacs · €13/sac · Livraison incluse</div>
-          <div class="tier-price-save" style="color:var(--gold-light);" id="tr-save">Économisez €60 vs l'achat unitaire</div>
+    <div class="pcard featured reveal">
+      <div class="pcard-badge" id="tr-badge">Le plus choisi</div>
+      <div class="pcard-img">
+        <img class="img-product" src="images/Club_Raices.png" alt="Club Raíces" onerror="this.style.background='var(--teal-pale)';this.removeAttribute('src');">
+        <img class="img-wheel" src="images/coffee-wheel.png" alt="Roue des arômes">
+        <div class="pcard-overlay">
+          <div class="pcard-attrs">
+            <div class="pcard-attr"><span class="pcard-attr-key">Durée</span><span class="pcard-attr-val" id="tr-f1">2 sacs 250g / mois pendant 6 mois</span></div>
+            <div class="pcard-attr"><span class="pcard-attr-key">Café</span><span class="pcard-attr-val">Rondon Castillo · SCA 84.5</span></div>
+            <div class="pcard-attr"><span class="pcard-attr-key">Torréfaction</span><span class="pcard-attr-val" id="tr-f3">Torréfié frais à chaque envoi</span></div>
+            <div class="pcard-attr"><span class="pcard-attr-key">Livraison</span><span class="pcard-attr-val" id="tr-f4">Livraison France incluse</span></div>
+            <div class="pcard-attr"><span class="pcard-attr-key">Inclus</span><span class="pcard-attr-val" id="tr-f5">Note &amp; story de la récolte</span></div>
+            <div class="pcard-attr"><span class="pcard-attr-key">Accès</span><span class="pcard-attr-val" id="tr-f6">Accès prioritaire nouvelles récoltes</span></div>
+          </div>
         </div>
-        <div class="tier-features">
-          <div class="tier-feature" style="color:rgba(255,255,255,.7);"><span class="tier-dot" style="background:var(--gold);"></span><span id="tr-f1">2 sacs 250g / mois pendant 6 mois</span></div>
-          <div class="tier-feature" style="color:rgba(255,255,255,.7);"><span class="tier-dot" style="background:var(--gold);"></span><span>Rondon Castillo · SCA 84.5</span></div>
-          <div class="tier-feature" style="color:rgba(255,255,255,.7);"><span class="tier-dot" style="background:var(--gold);"></span><span id="tr-f3">Torréfié frais à chaque envoi</span></div>
-          <div class="tier-feature" style="color:rgba(255,255,255,.7);"><span class="tier-dot" style="background:var(--gold);"></span><span id="tr-f4">Livraison France incluse</span></div>
-          <div class="tier-feature" style="color:rgba(255,255,255,.7);"><span class="tier-dot" style="background:var(--gold);"></span><span id="tr-f5">Note &amp; story de la récolte incluse</span></div>
-          <div class="tier-feature" style="color:rgba(255,255,255,.7);"><span class="tier-dot" style="background:var(--gold);"></span><span id="tr-f6">Accès prioritaire nouvelles récoltes</span></div>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-sca">SCA 84.5</div>
+        <div class="pcard-tag" id="tr-period">6 mois</div>
+        <div class="pcard-name">Club<br>Raíces</div>
+        <div class="pcard-notes" id="tr-desc">L'engagement — Le juste équilibre entre prix, engagement et découverte de notre production saisonnière.</div>
+        <div class="pcard-footer">
+          <div>
+            <div class="pcard-price"><sup>€</sup>132<span class="freq">/6 mois</span></div>
+            <div class="pcard-ship free">Livraison offerte</div>
+            <div style="font-size:9px;color:var(--mid);margin-top:3px;font-family:'Lato',sans-serif;" id="tr-detail">12 sacs · €11/sac</div>
+            <div style="font-size:9px;color:var(--gold);font-weight:600;margin-top:2px;font-family:'Lato',sans-serif;" id="tr-save">Économisez €60 vs l'achat unitaire</div>
+          </div>
         </div>
-        <a href="https://py.pl/2DYngW" target="_blank" class="tier-cta gold" id="tr-btn">Rejoindre Club Raíces →</a>
+        <a href="https://py.pl/2DYngW" target="_blank" class="pcard-btn bjoin-btn" id="tr-btn">Rejoindre Club Raíces →</a>
       </div>
     </div>
 
     <!-- HERENCIA — 12 months -->
-    <div class="tier-card reveal">
-      <img src="images/Club_Herencia.png" alt="Club Herencia" onerror="this.style.background='var(--teal-pale)';this.style.height='180px';this.removeAttribute('src');">
-      <div class="tier-body">
-        <div class="tier-period" style="color:var(--teal);" id="th-period">12 mois</div>
-        <div class="tier-name" style="color:var(--dark);">Herencia</div>
-        <div class="tier-desc" style="color:var(--light);" id="th-desc">L'héritage — Pour ceux qui font partie de la famille Don Alberto, récolte après récolte, année après année.</div>
-        <div style="margin-bottom:20px;">
-          <div class="tier-price-num" style="color:var(--teal-deep);">€300</div>
-          <div class="tier-price-detail" style="color:var(--light);" id="th-detail">24 sacs · €12.50/sac · Livraison incluse</div>
-          <div class="tier-price-save" style="color:var(--gold);" id="th-save">Économisez €132 vs l'achat unitaire</div>
+    <div class="pcard reveal">
+      <div class="pcard-img">
+        <img class="img-product" src="images/Club_Herencia.png" alt="Club Herencia" onerror="this.style.background='var(--teal-pale)';this.removeAttribute('src');">
+        <img class="img-wheel" src="images/coffee-wheel.png" alt="Roue des arômes">
+        <div class="pcard-overlay">
+          <div class="pcard-attrs">
+            <div class="pcard-attr"><span class="pcard-attr-key">Durée</span><span class="pcard-attr-val" id="th-f1">2 sacs 250g / mois pendant 12 mois</span></div>
+            <div class="pcard-attr"><span class="pcard-attr-key">Café</span><span class="pcard-attr-val">Rondon Castillo · SCA 84.5</span></div>
+            <div class="pcard-attr"><span class="pcard-attr-key">Torréfaction</span><span class="pcard-attr-val" id="th-f3">Torréfié frais à chaque envoi</span></div>
+            <div class="pcard-attr"><span class="pcard-attr-key">Livraison</span><span class="pcard-attr-val" id="th-f4">Livraison France incluse</span></div>
+            <div class="pcard-attr"><span class="pcard-attr-key">Accès</span><span class="pcard-attr-val" id="th-f5">Accès prioritaire nouvelles récoltes</span></div>
+            <div class="pcard-attr"><span class="pcard-attr-key">Visite</span><span class="pcard-attr-val" id="th-f6">Invitation visite virtuelle de la ferme</span></div>
+            <div class="pcard-attr"><span class="pcard-attr-key">Message</span><span class="pcard-attr-val" id="th-f7">Message personnel de la famille</span></div>
+          </div>
         </div>
-        <div class="tier-features">
-          <div class="tier-feature" style="color:var(--mid);"><span class="tier-dot" style="background:var(--teal);"></span><span id="th-f1">2 sacs 250g / mois pendant 12 mois</span></div>
-          <div class="tier-feature" style="color:var(--mid);"><span class="tier-dot" style="background:var(--teal);"></span><span>Rondon Castillo · SCA 84.5</span></div>
-          <div class="tier-feature" style="color:var(--mid);"><span class="tier-dot" style="background:var(--teal);"></span><span id="th-f3">Torréfié frais à chaque envoi</span></div>
-          <div class="tier-feature" style="color:var(--mid);"><span class="tier-dot" style="background:var(--teal);"></span><span id="th-f4">Livraison France incluse</span></div>
-          <div class="tier-feature" style="color:var(--mid);"><span class="tier-dot" style="background:var(--teal);"></span><span id="th-f5">Accès prioritaire nouvelles récoltes</span></div>
-          <div class="tier-feature" style="color:var(--mid);"><span class="tier-dot" style="background:var(--teal);"></span><span id="th-f6">Invitation visite virtuelle de la ferme</span></div>
-          <div class="tier-feature" style="color:var(--mid);"><span class="tier-dot" style="background:var(--teal);"></span><span id="th-f7">Message personnel de la famille</span></div>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-sca">SCA 84.5</div>
+        <div class="pcard-tag" id="th-period">12 mois</div>
+        <div class="pcard-name">Club<br>Herencia</div>
+        <div class="pcard-notes" id="th-desc">L'héritage — Pour ceux qui font partie de la famille Don Alberto, récolte après récolte, année après année.</div>
+        <div class="pcard-footer">
+          <div>
+            <div class="pcard-price"><sup>€</sup>260<span class="freq">/an</span></div>
+            <div class="pcard-ship free">Livraison offerte</div>
+            <div style="font-size:9px;color:var(--mid);margin-top:3px;font-family:'Lato',sans-serif;" id="th-detail">24 sacs · €10.83/sac</div>
+            <div style="font-size:9px;color:var(--gold);font-weight:600;margin-top:2px;font-family:'Lato',sans-serif;" id="th-save">Économisez €124 vs l'achat unitaire</div>
+          </div>
         </div>
-        <a href="https://py.pl/1hyyHs" target="_blank" class="tier-cta teal" id="th-btn">Rejoindre Club Herencia →</a>
+        <a href="https://py.pl/1hyyHs" target="_blank" class="pcard-btn bjoin-btn" id="th-btn">Rejoindre Club Herencia →</a>
       </div>
     </div>
 
@@ -570,8 +806,8 @@
       /* Esencia */
       tePeriod: '3 mois',
       teDesc:   'La découverte — Pour ceux qui veulent goûter l\'engagement Don Alberto sans se lier sur le long terme.',
-      teDetail: '6 sacs · €15.83/sac · Livraison incluse',
-      teSave:   'Économisez €13 vs l\'achat unitaire',
+      teDetail: '6 sacs · €13.33/sac · Livraison incluse',
+      teSave:   'Économisez €16 vs l\'achat unitaire',
       teF1:     '2 sacs 250g / mois pendant 3 mois',
       teF3:     'Torréfié frais à chaque envoi',
       teF4:     'Livraison France incluse',
@@ -581,7 +817,7 @@
       trBadge:  'Le plus choisi',
       trPeriod: '6 mois',
       trDesc:   'L\'engagement — Le juste équilibre entre prix, engagement et découverte de notre production saisonnière.',
-      trDetail: '12 sacs · €13/sac · Livraison incluse',
+      trDetail: '12 sacs · €11/sac · Livraison incluse',
       trSave:   'Économisez €60 vs l\'achat unitaire',
       trF1:     '2 sacs 250g / mois pendant 6 mois',
       trF3:     'Torréfié frais à chaque envoi',
@@ -592,8 +828,8 @@
       /* Herencia */
       thPeriod: '12 mois',
       thDesc:   'L\'héritage — Pour ceux qui font partie de la famille Don Alberto, récolte après récolte, année après année.',
-      thDetail: '24 sacs · €12.50/sac · Livraison incluse',
-      thSave:   'Économisez €132 vs l\'achat unitaire',
+      thDetail: '24 sacs · €10.83/sac · Livraison incluse',
+      thSave:   'Économisez €124 vs l\'achat unitaire',
       thF1:     '2 sacs 250g / mois pendant 12 mois',
       thF3:     'Torréfié frais à chaque envoi',
       thF4:     'Livraison France incluse',
@@ -632,8 +868,8 @@
       /* Esencia */
       tePeriod: '3 months',
       teDesc:   'Discovery — For those who want to taste the Don Alberto experience without a long-term commitment.',
-      teDetail: '6 bags · €15.83/bag · Shipping included',
-      teSave:   'Save €13 vs single purchase',
+      teDetail: '6 bags · €13.33/bag · Shipping included',
+      teSave:   'Save €16 vs single purchase',
       teF1:     '2 × 250g bags / month for 3 months',
       teF3:     'Freshly roasted with every shipment',
       teF4:     'France shipping included',
@@ -643,7 +879,7 @@
       trBadge:  'Most popular',
       trPeriod: '6 months',
       trDesc:   'Commitment — The right balance between price, commitment and discovering our seasonal production.',
-      trDetail: '12 bags · €13/bag · Shipping included',
+      trDetail: '12 bags · €11/bag · Shipping included',
       trSave:   'Save €60 vs single purchase',
       trF1:     '2 × 250g bags / month for 6 months',
       trF3:     'Freshly roasted with every shipment',
@@ -654,8 +890,8 @@
       /* Herencia */
       thPeriod: '12 months',
       thDesc:   'Heritage — For those who are part of the Don Alberto family, harvest after harvest, year after year.',
-      thDetail: '24 bags · €12.50/bag · Shipping included',
-      thSave:   'Save €132 vs single purchase',
+      thDetail: '24 bags · €10.83/bag · Shipping included',
+      thSave:   'Save €124 vs single purchase',
       thF1:     '2 × 250g bags / month for 12 months',
       thF3:     'Freshly roasted with every shipment',
       thF4:     'France shipping included',
@@ -694,8 +930,8 @@
       /* Esencia */
       tePeriod: '3 meses',
       teDesc:   'Descubrimiento — Para quienes quieren probar el compromiso Don Alberto sin atarse a largo plazo.',
-      teDetail: '6 bolsas · €15.83/bolsa · Envío incluido',
-      teSave:   'Ahorra €13 vs compra individual',
+      teDetail: '6 bolsas · €13.33/bolsa · Envío incluido',
+      teSave:   'Ahorra €16 vs compra individual',
       teF1:     '2 bolsas 250g / mes durante 3 meses',
       teF3:     'Tostado fresco en cada envío',
       teF4:     'Envío Francia incluido',
@@ -705,7 +941,7 @@
       trBadge:  'El más popular',
       trPeriod: '6 meses',
       trDesc:   'Compromiso — El equilibrio justo entre precio, compromiso y descubrimiento de nuestra producción estacional.',
-      trDetail: '12 bolsas · €13/bolsa · Envío incluido',
+      trDetail: '12 bolsas · €11/bolsa · Envío incluido',
       trSave:   'Ahorra €60 vs compra individual',
       trF1:     '2 bolsas 250g / mes durante 6 meses',
       trF3:     'Tostado fresco en cada envío',
@@ -716,8 +952,8 @@
       /* Herencia */
       thPeriod: '12 meses',
       thDesc:   'Herencia — Para quienes forman parte de la familia Don Alberto, cosecha tras cosecha, año tras año.',
-      thDetail: '24 bolsas · €12.50/bolsa · Envío incluido',
-      thSave:   'Ahorra €132 vs compra individual',
+      thDetail: '24 bolsas · €10.83/bolsa · Envío incluido',
+      thSave:   'Ahorra €124 vs compra individual',
       thF1:     '2 bolsas 250g / mes durante 12 meses',
       thF3:     'Tostado fresco en cada envío',
       thF4:     'Envío Francia incluido',
