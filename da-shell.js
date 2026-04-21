@@ -57,6 +57,9 @@ const SHELL_HEADER = `
 .nav-dropdown a:last-child{border-bottom:none;}
 .nav-dropdown a:hover{color:var(--teal,#096685);background:rgba(9,102,133,.05);}
 .nav-dropdown a .nd-sub{display:block;font-size:8px;color:rgba(6,78,101,.45);letter-spacing:1px;margin-top:3px;text-transform:none;font-weight:300;}
+/* ── ALWAYS-STICKY BOTH BARS ── */
+#util-bar{position:sticky;top:0;z-index:1002;}
+#main-nav{position:sticky;top:var(--util-h,38px);z-index:1001;}
 </style>
 <!-- UTILITY BAR -->
 <div id="util-bar">
@@ -105,26 +108,11 @@ const SHELL_HEADER = `
       <div class="ni has-dropdown">
         <a href="boutique.html" id="n-spec">Specialty Coffee</a>
         <div class="nav-dropdown">
-          <a href="boutique.html#catalogue">
-            Nos Cafés
-            <span class="nd-sub">Grains · Moulu · Formats</span>
-          </a>
-          <a href="boutique.html#sca">
-            Score SCA 84.5
-            <span class="nd-sub">Certification · Évaluation · Seuils</span>
-          </a>
-          <a href="boutique.html#process">
-            Procédé Lavé
-            <span class="nd-sub">Washed · Fermentation · Séchage</span>
-          </a>
-          <a href="boutique.html#grain">
-            Grain Entier & Fraîcheur
-            <span class="nd-sub">Huiles aromatiques · Mouture</span>
-          </a>
-          <a href="boutique.html#famille">
-            L'Atelier Familial
-            <span class="nd-sub">Boyacá · Rondón · La ferme</span>
-          </a>
+          <a href="boutique.html#catalogue" id="nd-cafe">Notre Café</a>
+          <a href="boutique.html#score" id="nd-sca1">Notre SCA — Certification</a>
+          <a href="boutique.html#sca" id="nd-sca2">Notre SCA — Évaluation</a>
+          <a href="boutique.html#process" id="nd-proc">Notre Procédé</a>
+          <a href="boutique.html#famille" id="nd-fam">La Famille</a>
         </div>
       </div>
       <div class="ni"><a href="boutique.html#abonnement" id="n-club">Club Don Alberto</a></div>
@@ -320,9 +308,7 @@ window.addEventListener('scroll', () => {
     const hdrFull    = document.getElementById('hdr-full');
 
     if (utilBar) {
-      if (y <= 4) utilBar.classList.remove('hide');
-      else if (y > _lastY) utilBar.classList.add('hide');
-      else utilBar.classList.remove('hide');
+      utilBar.classList.remove('hide'); // Both bars always visible
     }
 
     if (hdrFull && compactLogo && mainNav) {
@@ -410,6 +396,7 @@ const L = {
     hh1tag:'Origine Exclusive', hh1title:'Seule Green Coffee Farm<br>de Boyacá', hh1desc:"L'unique ferme certifiée d'un département de 1,3 million d'habitants.",
     hh2tag:'Top 5–10% Mondial', hh2title:'Café de Spécialité<br>Certifié SCA · 84.5', hh2desc:'Seuls 5 à 10 % des cafés au monde atteignent le grade « specialty ».',
     hh3tag:'Traçabilité Totale', hh3title:'Ferme → Tasse<br>Zéro Intermédiaire', hh3desc:'Circuit court maîtrisé : qualité maximale, prix juste, impact direct sur la ferme.',
+    ndc:'Notre Café', nds1:'Notre SCA — Certification', nds2:'Notre SCA — Évaluation', ndp:'Notre Procédé', ndf:'La Famille',
     btab_all:'Tout', btab_grains:'Grains', btab_moulu:'Moulu', btab_sub:'Abonnement',
     bfilter_lbl:'Filtrer par', bfilter_ori:'Origine', bfilter_var:'Variété', bfilter_proc:'Procédé',
     bfilter_roast:'Torréfaction', bfilter_sca:'Score SCA', bfilter_reset:'Réinitialiser',
@@ -459,6 +446,7 @@ const L = {
     hh1tag:'Exclusive Origin', hh1title:'The Only Green Coffee Farm<br>in Boyacá', hh1desc:'The sole certified farm in a department of 1.3 million people.',
     hh2tag:'Top 5–10% Worldwide', hh2title:'SCA Certified<br>Specialty Coffee · 84.5', hh2desc:'Only 5–10% of coffees worldwide reach the specialty grade standard.',
     hh3tag:'Full Traceability', hh3title:'Farm → Cup<br>Zero Middle-Men', hh3desc:'Direct supply chain: maximum quality, fair pricing, full impact on the farm.',
+    ndc:'Our Coffee', nds1:'Our SCA — Certification', nds2:'Our SCA — Evaluation', ndp:'Our Process', ndf:'The Family',
     btab_all:'All', btab_grains:'Whole Bean', btab_moulu:'Ground', btab_sub:'Subscription',
     bfilter_lbl:'Filter by', bfilter_ori:'Origin', bfilter_var:'Variety', bfilter_proc:'Process',
     bfilter_roast:'Roast', bfilter_sca:'SCA Score', bfilter_reset:'Reset',
@@ -508,6 +496,7 @@ const L = {
     hh1tag:'Origen Exclusivo', hh1title:'Única Green Coffee Farm<br>en Boyacá', hh1desc:'La única finca certificada en un departamento de 1,3 millones de habitantes.',
     hh2tag:'Top 5–10% Mundial', hh2title:'Café de Especialidad<br>Certificado SCA · 84.5', hh2desc:'Solo el 5–10% de los cafés del mundo alcanzan el grado specialty.',
     hh3tag:'Trazabilidad Total', hh3title:'Finca → Taza<br>Cero Intermediarios', hh3desc:'Cadena directa: máxima calidad, precio justo, impacto real en la finca.',
+    ndc:'Nuestro Café', nds1:'Nuestro SCA — Certificación', nds2:'Nuestro SCA — Evaluación', ndp:'Nuestro Proceso', ndf:'La Familia',
     btab_all:'Todo', btab_grains:'Grano', btab_moulu:'Molido', btab_sub:'Suscripción',
     bfilter_lbl:'Filtrar por', bfilter_ori:'Origen', bfilter_var:'Variedad', bfilter_proc:'Proceso',
     bfilter_roast:'Tostión', bfilter_sca:'Puntaje SCA', bfilter_reset:'Reiniciar',
@@ -619,6 +608,11 @@ function setLang(lang) {
   const nr=_$('no-results'); if(nr&&t.bno_results){ nr.querySelector('.no-results-txt') && (nr.querySelector('.no-results-txt').textContent=t.bno_results); }
   const nrBtn=_$('no-results-btn'); if(nrBtn&&t.bno_reset) nrBtn.textContent=t.bno_reset;
   // Update filter select placeholder options
+  // Nav dropdown item labels
+  const dset = (id,v) => { const e=_$(id); if(e&&v) e.textContent=v; };
+  dset('nd-cafe', t.ndc); dset('nd-sca1', t.nds1); dset('nd-sca2', t.nds2);
+  dset('nd-proc', t.ndp); dset('nd-fam', t.ndf);
+
   const selMap={
     'f-origin': t.bfilter_ori, 'f-varietal': t.bfilter_var,
     'f-process': t.bfilter_proc, 'f-roast': t.bfilter_roast, 'f-sca': t.bfilter_sca
