@@ -60,6 +60,23 @@ const SHELL_HEADER = `
 /* ── ALWAYS-STICKY BOTH BARS ── */
 #util-bar{position:sticky;top:0;z-index:1002;}
 #main-nav{position:sticky;top:var(--util-h,38px);z-index:1001;}
+/* ── MOBILE: compact logo centred, scroll-controlled ── */
+@media(max-width:980px){
+  #main-nav{top:var(--util-h,38px)!important;}
+  .nav-logo-compact{
+    position:absolute!important;
+    left:50%!important;
+    top:50%!important;
+    transform:translate(-50%,-50%)!important;
+    opacity:0!important;
+    transition:opacity .3s ease!important;
+    pointer-events:none!important;
+  }
+  .nav-logo-compact.visible{
+    opacity:1!important;
+    pointer-events:auto!important;
+  }
+}
 </style>
 <!-- UTILITY BAR -->
 <div id="util-bar">
