@@ -115,7 +115,7 @@ const SHELL_HEADER = `
           <a href="boutique.html#famille" id="nd-fam">La Famille</a>
         </div>
       </div>
-      <div class="ni"><a href="boutique.html#abonnement" id="n-club">Club Don Alberto</a></div>
+      <div class="ni"><a href="b2b.html#club" id="n-club">Club Don Alberto</a></div>
     </nav>
     <div class="nav-center">
       <div class="nav-logo-compact" id="compact-logo">
@@ -127,7 +127,7 @@ const SHELL_HEADER = `
     <nav class="nav-right" aria-label="Nav droite">
       <div class="ni"><a href="b2b.html" id="n-pro">Espace Pro</a></div>
       <div class="ni"><a href="origine-boutique.html" id="n-orig">Boutique d'Origine</a></div>
-      <a href="boutique.html#formats" class="nav-cmd" id="n-cmd">Commander</a>
+      <a href="javascript:void(0)" onclick="openCheckout()" class="nav-cmd" id="n-cmd">Commander</a>
     </nav>
     <button class="mob-tog" id="mob-tog" onclick="toggleMob()" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -155,11 +155,11 @@ const SHELL_HEADER = `
     <a href="boutique.html#sca" class="mm-sub" style="font-size:9px;padding-left:28px;color:rgba(255,255,255,.38);">→ Score SCA 84.5</a>
     <a href="boutique.html#process" class="mm-sub" style="font-size:9px;padding-left:28px;color:rgba(255,255,255,.38);">→ Procédé Lavé</a>
     <a href="boutique.html#grain" class="mm-sub" style="font-size:9px;padding-left:28px;color:rgba(255,255,255,.38);">→ Grain Entier & Fraîcheur</a>
-    <a href="boutique.html#abonnement" class="mm-lnk" id="mm-club">Club Don Alberto</a>
+    <a href="b2b.html#club" class="mm-lnk" id="mm-club">Club Don Alberto</a>
     <a href="origine-boutique.html" class="mm-lnk" id="mm-orig">Boutique d'Origine</a>
     <div class="mm-sec" id="mm-sec-pro">Pro</div>
     <a href="b2b.html" class="mm-lnk" id="mm-pro">Espace Pro</a>
-    <a href="boutique.html#formats" class="mm-cta" id="mm-cmd">Commander</a>
+    <a href="javascript:void(0)" onclick="openCheckout();toggleMob();" class="mm-cta" id="mm-cmd">Commander</a>
   </div>
   <div class="mm-lang">
     <button class="active" data-lang="fr" onclick="setLang('fr');toggleMob()">FR</button>
@@ -198,9 +198,6 @@ const SHELL_FOOTER = `
         <a href="https://wa.me/33761528450" target="_blank" rel="noopener" class="footer-soc" aria-label="WhatsApp">
           <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.09.543 4.05 1.496 5.754L0 24l6.394-1.467A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.88 9.88 0 01-5.031-1.378l-.36-.214-3.742.858.899-3.628-.235-.374A9.861 9.861 0 012.118 12C2.118 6.533 6.533 2.118 12 2.118S21.882 6.533 21.882 12 17.467 21.882 12 21.882z"/></svg>
         </a>
-        <a href="mailto:donalberto.coffee@gmail.com" class="footer-soc" aria-label="Email">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="13" height="13"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
-        </a>
       </div>
     </div>
     <div class="footer-cols">
@@ -216,14 +213,14 @@ const SHELL_FOOTER = `
         <h4 id="fc-h2">Commander</h4>
         <ul>
           <li><a href="boutique.html" id="fl-boutique">Boutique</a></li>
-          <li><a href="boutique.html#abonnement" id="fl-club">Club Don Alberto</a></li>
+          <li><a href="b2b.html#club" id="fl-club">Club Don Alberto</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4 id="fc-h3">Partenaires &amp; B2B</h4>
         <ul>
           <li><a href="b2b.html" id="fl-b2b">Espace Pro</a></li>
-          <li><a href="mailto:donalberto.coffee@gmail.com" id="fl-contact">Contacter</a></li>
+          <li><a href="b2b.html#contact" id="fl-contact">Contacter</a></li>
         </ul>
       </div>
     </div>
@@ -261,9 +258,6 @@ const SHELL_FOOTER = `
   </div>
   <a href="https://wa.me/33761528450?text=Bonjour%2C%20j%27ai%20une%20question%20sur%20Don%20Alberto%20Caf%C3%A9." target="_blank" rel="noopener" class="wa-btn" id="wa-link">
     <svg viewBox="0 0 24 24" fill="white" width="25" height="25"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.09.543 4.05 1.496 5.754L0 24l6.394-1.467A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.88 9.88 0 01-5.031-1.378l-.36-.214-3.742.858.899-3.628-.235-.374A9.861 9.861 0 012.118 12C2.118 6.533 6.533 2.118 12 2.118S21.882 6.533 21.882 12 17.467 21.882 12 21.882z"/></svg>
-  </a>
-  <a href="mailto:donalberto.coffee@gmail.com" class="wa-btn" id="email-link" style="background:var(--teal-deep,#064e65);" aria-label="Email">
-    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" width="22" height="22"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
   </a>
 </div>
 `;
@@ -421,10 +415,10 @@ const L = {
     /* badge */
     badgePop:'Le plus populaire',
     famLabel:'La Famille', famTitle:'Des visages derrière <em>chaque grain</em>',
-    famP1:'Don Alberto Café est bien plus qu\'une marque, c\'est une signature familiale. Nous sommes un collectif de famille et d\'amis d\'enfance revenant à nos racines, mettant en œuvre cet amour de la terre qui nous a été transmis. Élevés à Boyacá, nous cultivons ces terres en préservant le savoir-faire artisanal de nos ancêtres. Gloria et Fredy ont grandi parmi ces caféiers et connaissent chaque grain par cœur. Ensemble, avec leur amie d\'enfance Luz Marina, ils ont uni leurs forces pour donner vie à ce projet.',
-    famP2:'Chaque sac est une signature familiale, une preuve d\'artisanat et de dévotion portée à chaque détail. Nous offrons une transparence totale et une traçabilité absolue, de notre ferme à votre tasse.',
+    famP1:'Don Alberto Café n\'est pas une marque — c\'est une famille. Une femme cultive la terre de Boyacá avec l\'amour d\'une vie entière. Sa fille porte le flambeau de son père. Son mari a grandi dans les caféières et connaît chaque grain de cette région par cœur.',
+    famP2:'Chaque sac est une signature familiale, une promesse de transparence totale, de la ferme à votre tasse.',
     famQuote:'"Quand j\'étais enfant, je récoltais le café avec mon grand-père dans ces mêmes champs. Aujourd\'hui, c\'est nous qui vous l\'offrons."',
-    famCite:'Fredy Arias · Famille Fondatrice',
+    famCite:'Le père fondateur · Enfant de Boyacá',
     ndc:'Notre Café', nds1:'Notre SCA — Certification', nds2:'Notre SCA — Évaluation', ndp:'Notre Procédé', ndf:'La Famille',
     btab_all:'Tout', btab_grains:'Grains', btab_moulu:'Moulu', btab_sub:'Abonnement',
     bfilter_lbl:'Filtrer par', bfilter_ori:'Origine', bfilter_var:'Variété', bfilter_proc:'Procédé',
@@ -494,10 +488,10 @@ const L = {
     /* badge */
     badgePop:'Most popular',
     famLabel:'The Family', famTitle:'Faces behind <em>every bean</em>',
-    famP1:'Don Alberto Café is more than a brand, it is a family signature. We are a collective of family and lifelong friends returning to our roots and exercising that learned love towards the fields. Raised in Boyacá, we cultivate this land preserving craftsmanship of our ancestors. Gloria and Fredy grew up in these groves and know every bean by heart. Together with their childhood best friend Luz Marina, they have joined forces to bring this project to life.',
-    famP2:'Every bag is a family signature, an evidence of craftsmanship and devotion to every detail. We offer full transparency and total traceability from our farm to your cup.',
+    famP1:'Don Alberto Café is not a brand — it is a family. A woman tends the land of Boyacá with a lifetime of love. Her daughter carries her father\'s torch. Her husband grew up in the coffee fields and knows every bean of this region by heart.',
+    famP2:'Every bag is a family signature, a promise of full transparency from farm to your cup.',
     famQuote:'"As a child, I harvested coffee with my grandfather in these very fields. Today, it is us who offer it to you."',
-    famCite:'Fredy Arias · Founding Family',
+    famCite:'The founding father · Child of Boyacá',
     ndc:'Our Coffee', nds1:'Our SCA — Certification', nds2:'Our SCA — Evaluation', ndp:'Our Process', ndf:'The Family',
     btab_all:'All', btab_grains:'Whole Bean', btab_moulu:'Ground', btab_sub:'Subscription',
     bfilter_lbl:'Filter by', bfilter_ori:'Origin', bfilter_var:'Variety', bfilter_proc:'Process',
@@ -567,10 +561,10 @@ const L = {
     /* badge */
     badgePop:'El más popular',
     famLabel:'La Familia', famTitle:'Rostros detrás de <em>cada grano</em>',
-    famP1:'Don Alberto Café es más que una marca, es una firma familiar. Somos un colectivo de familia y amigos de toda la vida regresando a nuestras raíces y ejerciendo ese amor aprendido por el campo. Criados en Boyacá, cultivamos esta tierra preservando el legado artesanal de nuestros antepasados. Gloria y Fredy crecieron en estos cafetales y conocen cada grano de memoria. Junto a su amiga de la infancia Luz Marina, han unido fuerzas para dar vida a este proyecto.',
-    famP2:'Cada bolsa es una firma familiar, una evidencia de artesanía y devoción en cada detalle. Ofrecemos transparencia plena y trazabilidad total, desde nuestra finca hasta su taza.',
+    famP1:'Don Alberto Café no es una marca — es una familia. Una mujer cultiva la tierra de Boyacá con el amor de toda una vida. Su hija lleva la antorcha de su padre. Su esposo creció en los cafetales y conoce cada grano de esta región de memoria.',
+    famP2:'Cada bolsa es una firma familiar, una promesa de transparencia total, de la finca a tu taza.',
     famQuote:'"Cuando era niño, cosechaba café con mi abuelo en estos mismos campos. Hoy somos nosotros quienes te lo ofrecemos."',
-    famCite:'Fredy Arias · Familia Fundadora',
+    famCite:'El padre fundador · Hijo de Boyacá',
     ndc:'Nuestro Café', nds1:'Nuestro SCA — Certificación', nds2:'Nuestro SCA — Evaluación', ndp:'Nuestro Proceso', ndf:'La Familia',
     btab_all:'Todo', btab_grains:'Grano', btab_moulu:'Molido', btab_sub:'Suscripción',
     bfilter_lbl:'Filtrar por', bfilter_ori:'Origen', bfilter_var:'Variedad', bfilter_proc:'Proceso',

@@ -174,14 +174,65 @@
   max-width: 1260px;
   margin: 0 auto;
 }
-.prod-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2px;
+/* ── PRODUCT CAROUSEL ── */
+.carousel-wrap {
+  position: relative;
+  overflow: hidden;
+  padding: 0 0 20px;
 }
-@media (max-width: 1100px) { .prod-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 800px)  { .prod-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 520px)  { .prod-grid { grid-template-columns: 1fr; } }
+.prod-grid {
+  display: flex;
+  gap: 2px;
+  transition: transform .45s cubic-bezier(.25,.46,.45,.94);
+  will-change: transform;
+  cursor: grab;
+}
+.prod-grid.dragging { cursor: grabbing; transition: none; }
+.pcard {
+  flex: 0 0 calc(25% - 2px);
+  min-width: 0;
+}
+@media (max-width: 1100px) { .pcard { flex: 0 0 calc(33.33% - 2px) !important; } }
+@media (max-width: 800px)  { .pcard { flex: 0 0 calc(50% - 2px) !important; } }
+@media (max-width: 520px)  { .pcard { flex: 0 0 85vw !important; } }
+
+/* Carousel nav arrows */
+.carousel-btn {
+  position: absolute;
+  top: 38%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: #fff;
+  border: 1px solid rgba(9,102,133,.18);
+  color: var(--teal-deep, #064e65);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(6,78,101,.14);
+  transition: background .2s, box-shadow .2s;
+  font-size: 18px;
+}
+.carousel-btn:hover { background: var(--teal, #096685); color: #fff; }
+.carousel-btn.prev { left: 12px; }
+.carousel-btn.next { right: 12px; }
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  padding: 14px 0 0;
+}
+.carousel-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: rgba(9,102,133,.2);
+  cursor: pointer;
+  transition: background .2s, transform .2s;
+}
+.carousel-dot.active { background: var(--teal, #096685); transform: scale(1.3); }
 
 /* ── PRODUCT CARD ── */
 .pcard {
@@ -824,7 +875,10 @@
    ═══════════════════════════════════ -->
 <section class="product-catalog" id="catalogue">
   <div class="catalog-inner">
-    <div class="prod-grid" id="prod-grid">
+    <div class="carousel-wrap" id="carousel-wrap">
+      <button class="carousel-btn prev" id="carousel-prev" onclick="carouselPrev()" aria-label="Précédent">&#8249;</button>
+      <button class="carousel-btn next" id="carousel-next" onclick="carouselNext()" aria-label="Suivant">&#8250;</button>
+      <div class="prod-grid" id="prod-grid">
 
       <!-- ─── 250g Grain entier ─── -->
       <div class="pcard" data-cat="grains" data-varietal="castillo" data-process="washed" data-roast="medium-light" data-sca="80-85" data-origin="boyaca">
@@ -849,7 +903,7 @@
           <div class="pcard-footer">
             <div>
               <div class="pcard-price"><sup>€</sup>16</div>
-              <div class="pcard-ship free" data-i18n="shipFree">Livraison offerte</div>
+              <div class="pcard-ship" data-i18n="shipCost">+ livraison €7</div>
             </div>
           </div>
           <a href="https://www.paypal.com/instantcommerce/checkout/VBX4WKN8C7TW8" target="_blank" class="pcard-btn bcmd-btn">Commander →</a>
@@ -878,8 +932,8 @@
           <div class="pcard-notes" data-i18n="notesBase">Cacao &amp; Miel · Agrumes · Texture soyeuse</div>
           <div class="pcard-footer">
             <div>
-              <div class="pcard-price"><sup>€</sup>30</div>
-              <div class="pcard-ship free" data-i18n="shipFree">Livraison offerte</div>
+              <div class="pcard-price"><sup>€</sup>32</div>
+              <div class="pcard-ship" data-i18n="shipCost">+ livraison €7</div>
             </div>
           </div>
           <a href="https://wa.me/33761528450?text=Bonjour%2C%20je%20souhaite%20commander%20Don%20Alberto%20500g%20Grain%20entier%20(%E2%82%AC32)." target="_blank" class="pcard-btn bcmd-btn">Commander →</a>
@@ -909,7 +963,7 @@
           <div class="pcard-footer">
             <div>
               <div class="pcard-price"><sup>€</sup>16</div>
-              <div class="pcard-ship free" data-i18n="shipFree">Livraison offerte</div>
+              <div class="pcard-ship" data-i18n="shipCost">+ livraison €7</div>
             </div>
           </div>
           <a href="https://www.paypal.com/instantcommerce/checkout/VBX4WKN8C7TW8" target="_blank" class="pcard-btn bcmd-btn">Commander →</a>
@@ -1067,6 +1121,8 @@
         </div>
       </div>
 
+      </div><!-- /prod-grid -->
+      <div class="carousel-dots" id="carousel-dots"></div>
       <!-- No results fallback -->
       <div class="no-results" id="no-results" style="display:none;">
         <span class="no-results-txt">Aucun produit ne correspond à vos critères.</span><br>
@@ -1097,25 +1153,25 @@
         <div class="pg-name">250g — Grain entier</div>
         <div class="pg-desc">Rondon Castillo · Procédé Lavé · SCA 84.5</div>
         <div class="pg-price-row">
-          <span class="pg-price">€16</span>
-          <span class="pg-shipping pg-free">Livraison offerte</span>
+          <span class="pg-price">€18</span>
+          <span class="pg-shipping">+ livraison €7</span>
         </div>
         <div class="pg-divider"></div>
         <div class="pg-pay-label">Choisissez votre paiement</div>
         <a href="https://www.paypal.com/instantcommerce/checkout/VBX4WKN8C7TW8" class="pg-pay-btn pp" target="_blank">
           <span class="pg-pay-logo">P</span>
           <div class="pg-pay-info"><span class="pg-pay-name">PayPal</span><span class="pg-pay-note">Recommandé · Montant pré-rempli</span></div>
-          <span class="pg-pay-amount">€16</span>
+          <span class="pg-pay-amount">€18</span>
         </a>
         <a href="https://revolut.me/luola" class="pg-pay-btn rv" target="_blank">
           <span class="pg-pay-logo">R</span>
-          <div class="pg-pay-info"><span class="pg-pay-name">Revolut</span><span class="pg-pay-note">Entrez €16 · Réf: DA-250g</span></div>
-          <span class="pg-pay-amount">€16</span>
+          <div class="pg-pay-info"><span class="pg-pay-name">Revolut</span><span class="pg-pay-note">Entrez €18 · Réf: DA-250g</span></div>
+          <span class="pg-pay-amount">€18</span>
         </a>
         <a href="https://wise.com/pay/me/lauraa1618" class="pg-pay-btn ws" target="_blank">
           <span class="pg-pay-logo">W</span>
-          <div class="pg-pay-info"><span class="pg-pay-name">Wise</span><span class="pg-pay-note">Entrez €16 · Réf: DA-250g</span></div>
-          <span class="pg-pay-amount">€16</span>
+          <div class="pg-pay-info"><span class="pg-pay-name">Wise</span><span class="pg-pay-note">Entrez €18 · Réf: DA-250g</span></div>
+          <span class="pg-pay-amount">€18</span>
         </a>
         <div class="pg-note">Indiquez votre adresse de livraison dans la note de paiement.</div>
       </div>
@@ -1128,9 +1184,9 @@
       <div class="pg-body">
         <div class="pg-tag">Pack Découverte</div>
         <div class="pg-name">3 × 250g</div>
-        <div class="pg-desc">Cadeau idéal · Économisez €4 · Livraison offerte</div>
+        <div class="pg-desc">Cadeau idéal · Économisez €5 · Livraison offerte</div>
         <div class="pg-price-row">
-          <span class="pg-price">€44</span>
+          <span class="pg-price">€49</span>
           <span class="pg-shipping pg-free">Livraison offerte</span>
         </div>
         <div class="pg-divider"></div>
@@ -1138,17 +1194,17 @@
         <a href="https://www.paypal.com/instantcommerce/checkout/W8EVKKHSM3QXQ" class="pg-pay-btn pp" target="_blank">
           <span class="pg-pay-logo">P</span>
           <div class="pg-pay-info"><span class="pg-pay-name">PayPal</span><span class="pg-pay-note">Recommandé · Montant pré-rempli</span></div>
-          <span class="pg-pay-amount">€44</span>
+          <span class="pg-pay-amount">€49</span>
         </a>
         <a href="https://revolut.me/luola" class="pg-pay-btn rv" target="_blank">
           <span class="pg-pay-logo">R</span>
-          <div class="pg-pay-info"><span class="pg-pay-name">Revolut</span><span class="pg-pay-note">Entrez €44 · Réf: DA-3pack</span></div>
-          <span class="pg-pay-amount">€44</span>
+          <div class="pg-pay-info"><span class="pg-pay-name">Revolut</span><span class="pg-pay-note">Entrez €49 · Réf: DA-3pack</span></div>
+          <span class="pg-pay-amount">€49</span>
         </a>
         <a href="https://wise.com/pay/me/lauraa1618" class="pg-pay-btn ws" target="_blank">
           <span class="pg-pay-logo">W</span>
-          <div class="pg-pay-info"><span class="pg-pay-name">Wise</span><span class="pg-pay-note">Entrez €44 · Réf: DA-3pack</span></div>
-          <span class="pg-pay-amount">€44</span>
+          <div class="pg-pay-info"><span class="pg-pay-name">Wise</span><span class="pg-pay-note">Entrez €49 · Réf: DA-3pack</span></div>
+          <span class="pg-pay-amount">€49</span>
         </a>
         <div class="pg-note">Indiquez votre adresse de livraison dans la note de paiement.</div>
       </div>
@@ -1162,7 +1218,7 @@
         <div class="pg-name">2,5 kg — Wholesale</div>
         <div class="pg-desc">Cafés · Restaurants · Épiceries fines</div>
         <div class="pg-price-row">
-          <span class="pg-price">€128</span>
+          <span class="pg-price">€137</span>
           <span class="pg-shipping pg-free">Livraison offerte</span>
         </div>
         <div class="pg-divider"></div>
@@ -1170,17 +1226,17 @@
         <a href="https://www.paypal.com/instantcommerce/checkout/PDMBCCHX4WJUW" class="pg-pay-btn pp" target="_blank">
           <span class="pg-pay-logo">P</span>
           <div class="pg-pay-info"><span class="pg-pay-name">PayPal</span><span class="pg-pay-note">Recommandé · Montant pré-rempli</span></div>
-          <span class="pg-pay-amount">€128</span>
+          <span class="pg-pay-amount">€137</span>
         </a>
         <a href="https://revolut.me/luola" class="pg-pay-btn rv" target="_blank">
           <span class="pg-pay-logo">R</span>
-          <div class="pg-pay-info"><span class="pg-pay-name">Revolut</span><span class="pg-pay-note">Entrez €128 · Réf: DA-2.5kg</span></div>
-          <span class="pg-pay-amount">€128</span>
+          <div class="pg-pay-info"><span class="pg-pay-name">Revolut</span><span class="pg-pay-note">Entrez €137 · Réf: DA-2.5kg</span></div>
+          <span class="pg-pay-amount">€137</span>
         </a>
         <a href="https://wise.com/pay/me/lauraa1618" class="pg-pay-btn ws" target="_blank">
           <span class="pg-pay-logo">W</span>
-          <div class="pg-pay-info"><span class="pg-pay-name">Wise</span><span class="pg-pay-note">Entrez €128 · Réf: DA-2.5kg</span></div>
-          <span class="pg-pay-amount">€128</span>
+          <div class="pg-pay-info"><span class="pg-pay-name">Wise</span><span class="pg-pay-note">Entrez €137 · Réf: DA-2.5kg</span></div>
+          <span class="pg-pay-amount">€137</span>
         </a>
         <a href="mailto:donalberto.coffee@gmail.com?subject=Commande%20Don%20Alberto&body=Bonjour%2C%0A%0AJe%20souhaite%20commander%20le%20format%202.5kg." class="pg-pay-btn em" target="_blank">
           <span class="pg-pay-logo">✉</span>
@@ -1224,20 +1280,20 @@
       <div style="font-size:8px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:18px;font-family:'Lato',sans-serif;">Récapitulatif des prix</div>
       <div style="display:flex;flex-direction:column;gap:0;">
         <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06);">
-          <div><div style="font-size:12px;color:white;font-family:'Lato',sans-serif;">250g — Grain entier</div><div style="font-size:10px;color:rgba(255,255,255,.32);margin-top:2px;font-family:'Lato',sans-serif;">Livraison offerte</div></div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--gold);">€16</div>
+          <div><div style="font-size:12px;color:white;font-family:'Lato',sans-serif;">250g — Grain entier</div><div style="font-size:10px;color:rgba(255,255,255,.32);margin-top:2px;font-family:'Lato',sans-serif;">+ livraison €7</div></div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--gold);">€18</div>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06);">
-          <div><div style="font-size:12px;color:white;font-family:'Lato',sans-serif;">250g — Café Moulu</div><div style="font-size:10px;color:rgba(255,255,255,.32);margin-top:2px;font-family:'Lato',sans-serif;">Livraison offerte</div></div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--gold);">€16</div>
+          <div><div style="font-size:12px;color:white;font-family:'Lato',sans-serif;">250g — Café Moulu</div><div style="font-size:10px;color:rgba(255,255,255,.32);margin-top:2px;font-family:'Lato',sans-serif;">+ livraison €7</div></div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--gold);">€19</div>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06);">
           <div><div style="font-size:12px;color:white;font-family:'Lato',sans-serif;">3 × 250g — Pack Découverte</div><div style="font-size:10px;color:rgba(255,255,255,.32);margin-top:2px;font-family:'Lato',sans-serif;">Livraison offerte</div></div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--gold);">€44</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--gold);">€49</div>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;">
           <div><div style="font-size:12px;color:white;font-family:'Lato',sans-serif;">2,5 kg — Wholesale</div><div style="font-size:10px;color:rgba(255,255,255,.32);margin-top:2px;font-family:'Lato',sans-serif;">Livraison offerte</div></div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--gold);">€128</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--gold);">€137</div>
         </div>
       </div>
       <div style="margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.06);">
@@ -1822,6 +1878,75 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
   });
 });
+</script>
+
+<script>
+// ── PRODUCT CAROUSEL ──
+(function(){
+  const grid   = document.getElementById('prod-grid');
+  const dotsEl = document.getElementById('carousel-dots');
+  let idx = 0;
+  let startX = 0, isDragging = false, dragOffset = 0;
+
+  function visibleCards(){
+    const w = window.innerWidth;
+    if(w <= 520) return 1.1;
+    if(w <= 800) return 2;
+    if(w <= 1100) return 3;
+    return 4;
+  }
+
+  function getCards(){ return Array.from(grid.querySelectorAll('.pcard:not(.hidden)')); }
+
+  function buildDots(){
+    if(!dotsEl) return;
+    const cards = getCards();
+    const vis = Math.floor(visibleCards());
+    const total = Math.max(0, cards.length - vis + 1);
+    dotsEl.innerHTML = '';
+    for(let i=0;i<total;i++){
+      const d = document.createElement('div');
+      d.className = 'carousel-dot' + (i===idx?' active':'');
+      d.onclick = ()=>{ idx=i; update(); };
+      dotsEl.appendChild(d);
+    }
+  }
+
+  function update(){
+    const cards = getCards();
+    if(!cards.length) return;
+    const vis = visibleCards();
+    const max = Math.max(0, cards.length - Math.floor(vis));
+    idx = Math.max(0, Math.min(idx, max));
+    const cardW = cards[0].offsetWidth + 2; // gap
+    grid.style.transform = `translateX(${-idx * cardW}px)`;
+    dotsEl && dotsEl.querySelectorAll('.carousel-dot').forEach((d,i)=>d.classList.toggle('active', i===idx));
+  }
+
+  window.carouselPrev = ()=>{ idx = Math.max(0, idx-1); update(); };
+  window.carouselNext = ()=>{ const cards = getCards(); const vis = Math.floor(visibleCards()); idx = Math.min(cards.length - vis, idx+1); update(); };
+
+  // Drag / swipe
+  grid.addEventListener('mousedown', e=>{ startX=e.clientX; isDragging=true; grid.classList.add('dragging'); });
+  window.addEventListener('mousemove', e=>{ if(!isDragging) return; dragOffset=e.clientX-startX; });
+  window.addEventListener('mouseup', e=>{
+    if(!isDragging) return; isDragging=false; grid.classList.remove('dragging');
+    if(Math.abs(dragOffset)>50){ dragOffset<0 ? carouselNext() : carouselPrev(); }
+    dragOffset=0;
+  });
+  grid.addEventListener('touchstart', e=>{ startX=e.touches[0].clientX; }, {passive:true});
+  grid.addEventListener('touchend', e=>{
+    const diff = e.changedTouches[0].clientX - startX;
+    if(Math.abs(diff)>50){ diff<0 ? carouselNext() : carouselPrev(); }
+  });
+
+  // Init + resize
+  setTimeout(()=>{ buildDots(); update(); }, 200);
+  window.addEventListener('resize', ()=>{ buildDots(); update(); });
+
+  // Re-init after filter changes
+  document.addEventListener('filterChanged', ()=>{ idx=0; buildDots(); update(); });
+})();
 </script>
 </body>
 </html>

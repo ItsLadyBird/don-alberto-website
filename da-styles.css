@@ -43,7 +43,7 @@ html{scroll-behavior:smooth;}
 }
 
 /* ── 3. BASE ── */
-body{font-family:'Lato',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden;}
+body{font-family:'Lato',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden;max-width:100vw;width:100%;}
 img,video{max-width:100%;height:auto;}
 a{text-decoration:none;color:inherit;}
 ul{list-style:none;}
@@ -54,8 +54,9 @@ ul{list-style:none;}
 #util-bar{
   position:fixed;top:0;left:0;right:0;z-index:1000;
   height:var(--util-h);background:var(--teal-deep);
-  display:flex;align-items:center;padding:0 28px;
+  display:flex;align-items:center;padding:0 14px;
   transition:transform .32s ease;
+  box-sizing:border-box;overflow:hidden;
 }
 #util-bar.hide{transform:translateY(-100%);}
 .ub-left{display:flex;align-items:center;}
@@ -107,12 +108,13 @@ ul{list-style:none;}
    5. FULL HEADER BRAND
    ══════════════════════════════════════════ */
 #hdr-full{
-  background:var(--cream);padding:14px 20px 12px;text-align:center;
+  background:var(--cream);padding:32px 20px 24px;text-align:center;
   border-bottom:1px solid rgba(9,102,133,.08);
+  margin-top:var(--util-h);
 }
 .hf-brand-link{display:block;text-decoration:none;color:inherit;}
-.hf-icon{width:68px;height:68px;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;}
-.hf-icon img{width:68px;height:68px;object-fit:contain;display:block;}
+.hf-icon{width:90px;height:90px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;}
+.hf-icon img{width:90px;height:90px;object-fit:contain;display:block;}
 .hf-name{
   font-family:'Lato',sans-serif;font-size:clamp(24px,4vw,36px);
   font-weight:700;letter-spacing:5px;text-transform:uppercase;
@@ -172,6 +174,8 @@ ul{list-style:none;}
 .nav-logo-compact.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
 .nav-logo-compact img{height:34px;width:auto;object-fit:contain;display:block;}
 .nav-logo-compact a{display:flex;align-items:center;}
+@media(max-width:980px){.nav-logo-compact{position:absolute;left:50%;transform:translateX(-50%)!important;opacity:0;}
+.nav-logo-compact.visible{opacity:1!important;}}
 
 /* Commander CTA */
 .nav-cmd{
@@ -188,10 +192,11 @@ ul{list-style:none;}
    ══════════════════════════════════════════ */
 .mob-tog{
   display:none;flex-direction:column;justify-content:space-between;
-  width:24px;height:17px;background:none;border:none;cursor:pointer;
-  position:absolute;right:20px;top:50%;transform:translateY(-50%);
+  width:28px;height:20px;background:none;border:none;cursor:pointer;
+  position:absolute;right:16px;top:50%;transform:translateY(-50%);
+  z-index:901;padding:4px;
 }
-.mob-tog span{display:block;height:1.5px;background:var(--teal);transition:all .28s;}
+.mob-tog span{display:block;height:2px;background:var(--teal);border-radius:1px;transition:all .28s;}
 .mob-menu{display:none;position:fixed;inset:0;background:var(--cream);z-index:1100;overflow-y:auto;flex-direction:column;}
 .mob-menu.open{display:flex;}
 .mm-hdr{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-bottom:1px solid rgba(9,102,133,.08);background:var(--cream);}
@@ -479,6 +484,12 @@ footer{background:#0d1014;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
   .nav-left,.nav-right,.nav-cmd{display:none!important;}
   .mob-tog{display:flex!important;}
   .nav-logo-compact{opacity:1!important;transform:none!important;pointer-events:auto!important;}
+  /* Util-bar: hide secondary links, keep lang + pro CTA */
+  .ub-link:not(#ub-house):not(#ub-vlog){display:none;}
+  #util-bar{padding:0 10px;}
+  .ub-pro{padding:5px 10px;font-size:8px;letter-spacing:1.5px;}
+  /* Prevent any horizontal overflow */
+  body,html{max-width:100vw;overflow-x:hidden;}
   .home-panels{grid-template-columns:1fr;height:auto;}
   .hp{height:300px;}
   .quality-section,.origin-teaser{grid-template-columns:1fr;gap:40px;}
@@ -505,8 +516,8 @@ footer{background:#0d1014;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
   .quality-badge{right:0;bottom:0;}
   .nl-form{flex-direction:column;}
   .nl-input{border-right:1px solid rgba(255,255,255,.15);}
-  .hf-icon{width:54px;height:54px;}
-  .hf-icon img{width:54px;height:54px;}
+  .hf-icon{width:70px;height:70px;}
+  .hf-icon img{width:70px;height:70px;}
   .hf-name{font-size:22px;}
 }
 
