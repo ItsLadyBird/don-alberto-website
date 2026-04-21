@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Don Alberto Café — Espace Professionnel & Partenaires B2B</title>
+<meta name="description" content="Don Alberto Café — Offres professionnelles, wholesale et partenariats B2B. Café de spécialité Single Origin SCA 84.5, Boyacá Colombie.">
+<link rel="icon" type="image/png" href="logos/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="da-styles.css">
+
+<style>
+/* ══════════════════════════════════════════
+   B2B PAGE — LOCAL STYLES
+   ══════════════════════════════════════════ */
+
+/* ── HERO IMAGE ── */
+.b2b-hero {
+  position: relative;
+  height: 72vh;
+  min-height: 480px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.b2b-hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+.b2b-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(4,40,52,.82) 0%, rgba(4,40,52,.55) 55%, rgba(9,78,101,.45) 100%);
+  z-index: 1;
+}
+.b2b-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  padding: 0 40px;
+  max-width: 860px;
+  animation: fu .9s .2s both;
+}
+.b2b-hero-eyebrow {
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 22px;
+  animation: fu .9s .3s both;
+}
+.b2b-hero-title {
+  font-family: 'Lato', sans-serif;
+  font-size: clamp(38px, 7vw, 78px);
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: white;
+  line-height: 1;
+  animation: fu .9s .5s both;
+}
+.b2b-hero-title span {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(18px, 2.5vw, 28px);
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,.75);
+  text-transform: none;
+  margin-top: 14px;
+}
+.b2b-hero-divider {
+  width: 48px;
+  height: 1px;
+  background: var(--gold);
+  margin: 26px auto;
+  animation: fu .9s .7s both;
+}
+.b2b-hero-stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  animation: fu .9s .9s both;
+}
+.b2b-hstat { text-align: center; }
+.b2b-hstat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 34px;
+  font-weight: 300;
+  color: var(--gold-light);
+  line-height: 1;
+}
+.b2b-hstat-lbl {
+  font-size: 8px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.38);
+  margin-top: 5px;
+}
+.b2b-hero-hdiv {
+  width: 1px;
+  height: 44px;
+  background: rgba(255,255,255,.13);
+}
+.b2b-hero-scroll {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.b2b-hero-scroll span {
+  font-size: 8px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.35);
+}
+
+/* ── PARTENAIRES MAIN SECTION ── */
+.b2b-section {
+  background: var(--dark);
+  padding: 100px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.b2b-bg-texture {
+  position: absolute;
+  inset: 0;
+  background: url('images/farm_cherries1.jpeg') center/cover no-repeat;
+  opacity: .05;
+  pointer-events: none;
+}
+.b2b-inner { position: relative; z-index: 1; }
+
+/* Header */
+.b2b-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 72px;
+}
+.b2b-header-desc {
+  font-size: 13.5px;
+  line-height: 1.9;
+  color: rgba(255,255,255,.55);
+  margin-top: 18px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Who grid */
+.b2b-who-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2px;
+  margin-bottom: 72px;
+}
+.b2b-who-card {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.07);
+  border-top: 2px solid var(--teal-mid);
+  padding: 34px 22px;
+  text-align: center;
+  transition: background .22s;
+}
+.b2b-who-card:hover { background: rgba(255,255,255,.07); }
+.b2b-who-icon {
+  font-size: 30px;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+.b2b-who-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  color: white;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+.b2b-who-desc {
+  font-size: 11px;
+  color: rgba(255,255,255,.42);
+  line-height: 1.75;
+}
+
+/* Two-col: Why + Offer */
+.b2b-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 52px;
+  align-items: start;
+  margin-bottom: 72px;
+}
+.b2b-col-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(24px, 2.8vw, 38px);
+  font-weight: 300;
+  color: white;
+  line-height: 1.2;
+  margin-top: 12px;
+  margin-bottom: 26px;
+}
+.b2b-col-title em { color: var(--gold-light); }
+
+/* Why checklist */
+.b2b-check-list { display: flex; flex-direction: column; gap: 0; }
+.b2b-check-item {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 16px;
+  padding: 17px 0;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  align-items: start;
+}
+.b2b-check-item:last-child { border-bottom: none; }
+.b2b-check-box {
+  width: 24px;
+  height: 24px;
+  border: 1px solid rgba(196,150,58,.42);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.b2b-check-h {
+  font-size: 12.5px;
+  color: white;
+  font-weight: 500;
+  margin-bottom: 4px;
+  font-family: 'Lato', sans-serif;
+}
+.b2b-check-p {
+  font-size: 11.5px;
+  color: rgba(255,255,255,.42);
+  line-height: 1.72;
+}
+
+/* Pricing table */
+.b2b-price-table {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.09);
+  padding: 28px;
+}
+.b2b-price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+.b2b-price-row:last-child { border-bottom: none; }
+.b2b-price-label { font-size: 12px; color: white; }
+.b2b-price-sub {
+  font-size: 10px;
+  color: rgba(255,255,255,.32);
+  margin-top: 2px;
+}
+.b2b-price-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--gold-light);
+}
+.b2b-price-devis {
+  font-size: 11px;
+  color: var(--gold-light);
+  letter-spacing: 1px;
+  font-weight: 600;
+  font-family: 'Lato', sans-serif;
+}
+.b2b-price-note {
+  margin-top: 16px;
+  padding: 14px 16px;
+  background: rgba(212,161,36,.08);
+  border-left: 2px solid var(--gold);
+  font-size: 11.5px;
+  color: rgba(255,255,255,.52);
+  line-height: 1.7;
+}
+
+/* CTA Banner */
+.b2b-cta-banner {
+  text-align: center;
+  padding: 52px 40px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.09);
+  margin-bottom: 72px;
+}
+.b2b-cta-tag {
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--teal-mid);
+  margin-bottom: 16px;
+}
+.b2b-cta-h {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 3.5vw, 46px);
+  font-weight: 300;
+  color: white;
+  margin-bottom: 18px;
+  line-height: 1.2;
+}
+.b2b-cta-h em { color: var(--gold-light); }
+.b2b-cta-p {
+  font-size: 13px;
+  color: rgba(255,255,255,.5);
+  max-width: 520px;
+  margin: 0 auto 34px;
+  line-height: 1.85;
+}
+.b2b-btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--gold);
+  color: var(--teal-deep);
+  padding: 16px 42px;
+  font-family: 'Lato', sans-serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background .2s;
+}
+.b2b-btn-gold:hover { background: var(--gold-light); }
+.b2b-cta-contacts {
+  font-size: 12.5px;
+  color: rgba(255,255,255,.65);
+  margin-top: 18px;
+  letter-spacing: .3px;
+}
+.b2b-cta-contacts a { color: var(--teal-mid); text-decoration: none; }
+.b2b-cta-contacts a:hover { color: var(--gold-light); }
+
+/* Contact Form Block */
+.b2b-form-block {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.1);
+  padding: 56px 60px;
+}
+.b2b-form-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* Left info */
+.b2b-form-info-tag {
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--teal-mid);
+  margin-bottom: 14px;
+}
+.b2b-form-info-h {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 38px;
+  font-weight: 300;
+  color: white;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+.b2b-form-info-h em { color: var(--gold-light); }
+.b2b-form-info-p {
+  font-size: 12.5px;
+  color: rgba(255,255,255,.5);
+  line-height: 1.85;
+  margin-bottom: 32px;
+}
+.b2b-contact-items { display: flex; flex-direction: column; gap: 20px; }
+.b2b-contact-item { display: flex; align-items: center; gap: 16px; }
+.b2b-contact-icon {
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(212,161,36,.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.b2b-contact-sublabel {
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.3);
+  margin-bottom: 3px;
+}
+.b2b-contact-val {
+  font-size: 13px;
+  color: white;
+  font-weight: 500;
+  font-family: 'Lato', sans-serif;
+}
+.b2b-contact-val a { color: var(--teal-mid); text-decoration: none; }
+.b2b-contact-val a:hover { color: var(--gold-light); }
+
+/* Tally embed wrapper */
+.b2b-tally-wrap {
+  min-height: 600px;
+}
+.b2b-tally-wrap iframe {
+  border: none;
+  width: 100%;
+  min-height: 580px;
+  display: block;
+}
+
+/* ── JOURNEY STRIP (shared from existing pages) ── */
+.b2b-journey {
+  background: var(--cream);
+  padding: 72px 80px;
+  border-top: 1px solid rgba(196,160,80,.12);
+  border-bottom: 1px solid rgba(196,160,80,.12);
+}
+.b2b-journey-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+}
+.b2b-j-step {
+  flex: 1;
+  text-align: center;
+  padding: 0 24px;
+  max-width: 200px;
+}
+.b2b-j-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 18px;
+  color: var(--teal);
+}
+.b2b-j-icon svg { width: 100%; height: 100%; }
+.b2b-j-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--dark);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.b2b-j-desc {
+  font-size: 11px;
+  color: var(--light);
+  line-height: 1.75;
+}
+.b2b-j-arrow {
+  flex-shrink: 0;
+  padding-top: 18px;
+  color: rgba(196,160,80,.45);
+}
+.b2b-j-arrow svg { width: 24px; height: 24px; }
+
+/* ── NEWSLETTER (replicated from index) ── */
+.nl-section {
+  background: var(--teal-deep);
+  padding: 64px 80px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 40px;
+}
+.nl-text h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(22px, 2.8vw, 34px);
+  font-weight: 300;
+  color: white;
+  line-height: 1.25;
+}
+.nl-text h2 em { color: var(--gold-light); }
+.nl-text p {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.38);
+  margin-top: 8px;
+}
+.nl-form {
+  display: flex;
+  align-items: stretch;
+  min-width: 380px;
+}
+.nl-input {
+  flex: 1;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.2);
+  border-right: none;
+  padding: 14px 20px;
+  color: white;
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+  outline: none;
+}
+.nl-input::placeholder { color: rgba(255,255,255,.35); }
+.nl-submit {
+  background: var(--gold);
+  color: var(--teal-deep);
+  border: none;
+  padding: 14px 28px;
+  font-family: 'Lato', sans-serif;
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .2s;
+  white-space: nowrap;
+}
+.nl-submit:hover { background: var(--gold-light); }
+
+/* ── CLUB SECTION ── */
+.b2b-club {
+  background: var(--cream);
+  padding: 100px 80px;
+}
+.b2b-club-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.b2b-club-img-wrap {
+  position: relative;
+  overflow: hidden;
+}
+.b2b-club-img-wrap img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  display: block;
+  transition: transform .6s;
+}
+.b2b-club-img-wrap:hover img { transform: scale(1.03); }
+.b2b-club-badge {
+  position: absolute;
+  bottom: 28px;
+  right: 28px;
+  background: var(--teal-deep);
+  border: 1px solid var(--gold);
+  padding: 14px 20px;
+  text-align: center;
+}
+.b2b-club-badge-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--gold-light);
+  line-height: 1;
+}
+.b2b-club-badge-lbl {
+  font-size: 8px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  margin-top: 4px;
+}
+.b2b-club-perks {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-top: 32px;
+}
+.b2b-club-perk {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 18px;
+  align-items: start;
+}
+.b2b-club-perk-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  margin-top: 5px;
+}
+.b2b-club-perk-title {
+  font-size: 13px;
+  color: var(--dark);
+  font-weight: 600;
+  margin-bottom: 3px;
+  font-family: 'Lato', sans-serif;
+}
+.b2b-club-perk-desc {
+  font-size: 12px;
+  color: var(--mid);
+  line-height: 1.7;
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE — B2B
+   ══════════════════════════════════════════ */
+@media(max-width:1100px){
+  .b2b-who-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media(max-width:980px){
+  .b2b-section { padding: 64px 28px; }
+  .b2b-two-col { grid-template-columns: 1fr; gap: 48px; }
+  .b2b-form-block { padding: 40px 28px; }
+  .b2b-form-inner { grid-template-columns: 1fr; gap: 40px; }
+  .b2b-journey { padding: 52px 20px; }
+  .b2b-journey-inner { flex-direction: column; align-items: center; gap: 32px; }
+  .b2b-j-arrow { transform: rotate(90deg); padding-top: 0; }
+  .b2b-j-step { max-width: 280px; }
+  .nl-section { padding: 48px 28px; grid-template-columns: 1fr; gap: 28px; }
+  .nl-form { min-width: auto; }
+  .b2b-club { padding: 60px 28px; }
+  .b2b-club-inner { grid-template-columns: 1fr; gap: 40px; }
+  .b2b-hero-stats { gap: 22px; }
+  .b2b-cta-banner { padding: 40px 20px; }
+}
+@media(max-width:780px){
+  .b2b-who-grid { grid-template-columns: 1fr 1fr; }
+  .b2b-hero { height: 60vh; min-height: 420px; }
+  .b2b-hero-content { padding: 0 20px; }
+  .b2b-hero-stats { flex-wrap: wrap; gap: 14px; justify-content: center; }
+  .b2b-hero-hdiv { display: none; }
+}
+@media(max-width:520px){
+  .b2b-who-grid { grid-template-columns: 1fr; }
+  .b2b-section { padding: 52px 18px; }
+  .b2b-form-block { padding: 32px 18px; }
+  .nl-form { flex-direction: column; }
+  .nl-input { border-right: 1px solid rgba(255,255,255,.2); border-bottom: none; }
+  .b2b-hero-title { font-size: 32px; }
+}
+
+/* ── Reuse reveal animation from site ── */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .65s cubic-bezier(.22,1,.36,1), transform .65s cubic-bezier(.22,1,.36,1); }
+.reveal.visible { opacity: 1; transform: none; }
+@keyframes fu { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:none; } }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════
+   SHELL: header injected by da-shell.js
+   ═══════════════════════════════════ -->
+<div id="site-header"></div>
+
+<!-- ═══════════════════════════════════
+   HERO — Partners image
+   ═══════════════════════════════════ -->
+<section class="b2b-hero" aria-label="Don Alberto Café — Espace Professionnel & Partenaires">
+  <img
+    class="b2b-hero-img"
+    src="images/partners.png"
+    alt="Don Alberto Café — Partenaires Professionnels"
+  >
+  <div class="b2b-hero-overlay"></div>
+  <div class="b2b-hero-content">
+    <p class="b2b-hero-eyebrow">Espace Professionnel · Wholesale · B2B · Partenariats</p>
+    <h1 class="b2b-hero-title">
+      PARTENAIRES
+      <span>Café de spécialité pour les professionnels</span>
+    </h1>
+    <div class="b2b-hero-divider"></div>
+    <div class="b2b-hero-stats">
+      <div class="b2b-hstat">
+        <div class="b2b-hstat-num">SCA 84.5</div>
+        <div class="b2b-hstat-lbl">Specialty Grade</div>
+      </div>
+      <div class="b2b-hero-hdiv"></div>
+      <div class="b2b-hstat">
+        <div class="b2b-hstat-num">Single Origin</div>
+        <div class="b2b-hstat-lbl">Boyacá · Colombie</div>
+      </div>
+      <div class="b2b-hero-hdiv"></div>
+      <div class="b2b-hstat">
+        <div class="b2b-hstat-num">48h</div>
+        <div class="b2b-hstat-lbl">Réponse garantie</div>
+      </div>
+    </div>
+  </div>
+  <div class="b2b-hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Découvrir</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+   MAIN PARTENAIRES / B2B SECTION
+   ═══════════════════════════════════ -->
+<section class="b2b-section">
+  <div class="b2b-bg-texture"></div>
+  <div class="b2b-inner">
+
+    <!-- Header -->
+    <div class="b2b-header reveal">
+      <div class="section-label center light">Pour les Professionnels</div>
+      <h2 class="h2 light" style="margin-top:14px;">Don Alberto Café<br>&amp; les <em>professionnels</em></h2>
+      <p class="b2b-header-desc">Vous êtes restaurateur, barista, hôtelier, épicier fin ou caviste ? Don Alberto Café propose un café de spécialité single origin SCA 84.5 issu de la seule ferme de café vert de Boyacá — un produit unique, une histoire forte, une proposition de valeur différenciante pour votre carte.</p>
+    </div>
+
+    <!-- Who is it for — 5 cards -->
+    <div class="b2b-who-grid reveal">
+      <div class="b2b-who-card">
+        <div class="b2b-who-icon">☕</div>
+        <h4 class="b2b-who-title">Cafés &amp;<br>Restaurants</h4>
+        <p class="b2b-who-desc">Une origine exclusive pour votre carte, avec une histoire à raconter à vos clients.</p>
+      </div>
+      <div class="b2b-who-card">
+        <div class="b2b-who-icon">🏨</div>
+        <h4 class="b2b-who-title">Hôtels &amp;<br>Maisons d'hôtes</h4>
+        <p class="b2b-who-desc">Offrez à vos clients une expérience café mémorable — une signature premium à l'image de votre établissement.</p>
+      </div>
+      <div class="b2b-who-card">
+        <div class="b2b-who-icon">🏪</div>
+        <h4 class="b2b-who-title">Épiceries fines<br>&amp; Cavistes</h4>
+        <p class="b2b-who-desc">Un produit rare, tracé et porteur d'une identité forte — idéal pour les rayons épicerie fine et cadeaux.</p>
+      </div>
+      <div class="b2b-who-card">
+        <div class="b2b-who-icon">🎁</div>
+        <h4 class="b2b-who-title">Cadeaux<br>d'entreprise</h4>
+        <p class="b2b-who-desc">Offrez un café d'exception à vos équipes ou clients. Coffrets personnalisables sur demande.</p>
+      </div>
+      <div class="b2b-who-card">
+        <div class="b2b-who-icon">🌿</div>
+        <h4 class="b2b-who-title">Boutiques<br>bio &amp; éthiques</h4>
+        <p class="b2b-who-desc">Une supply chain verte, une ferme familiale indépendante, un impact direct sur le producteur.</p>
+      </div>
+    </div>
+
+    <!-- Two columns: Why + Pricing -->
+    <div class="b2b-two-col reveal">
+
+      <!-- Left: Why Don Alberto -->
+      <div>
+        <div class="section-label light">Pourquoi Don Alberto ?</div>
+        <h3 class="b2b-col-title">Un café <em>rare</em> avec<br>une histoire vraie</h3>
+        <div class="b2b-check-list">
+          <div class="b2b-check-item">
+            <div class="b2b-check-box">
+              <svg viewBox="0 0 16 16" fill="none" width="12" height="12"><path d="M3 8l3 3 7-7" stroke="#d4a124" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <div class="b2b-check-h">Exclusivité géographique</div>
+              <p class="b2b-check-p">Seule ferme de café vert de spécialité du département de Boyacá. Vos clients ne retrouveront pas ce café ailleurs.</p>
+            </div>
+          </div>
+          <div class="b2b-check-item">
+            <div class="b2b-check-box">
+              <svg viewBox="0 0 16 16" fill="none" width="12" height="12"><path d="M3 8l3 3 7-7" stroke="#d4a124" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <div class="b2b-check-h">SCA 84.5 — certifié specialty</div>
+              <p class="b2b-check-p">Score certifié par Impulso Coffee Lab. Miel, chocolat, texture soyeuse — un profil aromatique premium, identifiable.</p>
+            </div>
+          </div>
+          <div class="b2b-check-item">
+            <div class="b2b-check-box">
+              <svg viewBox="0 0 16 16" fill="none" width="12" height="12"><path d="M3 8l3 3 7-7" stroke="#d4a124" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <div class="b2b-check-h">Histoire &amp; impact réels</div>
+              <p class="b2b-check-p">Fondé en hommage au grand-père Alberto. Une narrative familiale authentique — puissante pour vos communications et menus.</p>
+            </div>
+          </div>
+          <div class="b2b-check-item">
+            <div class="b2b-check-box">
+              <svg viewBox="0 0 16 16" fill="none" width="12" height="12"><path d="M3 8l3 3 7-7" stroke="#d4a124" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <div class="b2b-check-h">Traçabilité &amp; supply chain verte</div>
+              <p class="b2b-check-p">De la ferme à votre établissement, traçabilité totale. Partenaire de votre démarche RSE et éthique.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Pricing -->
+      <div>
+        <div class="section-label light">Notre offre B2B</div>
+        <h3 class="b2b-col-title">Tarifs &amp; formats<br><em>professionnels</em></h3>
+        <div class="b2b-price-table">
+          <div class="b2b-price-row">
+            <div>
+              <div class="b2b-price-label">Sac 2,5 kg — Grain entier</div>
+              <div class="b2b-price-sub">Usage café / restaurant / revente</div>
+            </div>
+            <div class="b2b-price-val">€137</div>
+          </div>
+          <div class="b2b-price-row">
+            <div>
+              <div class="b2b-price-label">Commandes &gt; 5 sacs 2,5 kg</div>
+              <div class="b2b-price-sub">Tarif volume sur devis</div>
+            </div>
+            <div class="b2b-price-devis">Sur devis</div>
+          </div>
+          <div class="b2b-price-row">
+            <div>
+              <div class="b2b-price-label">Coffrets cadeaux entreprise</div>
+              <div class="b2b-price-sub">Personnalisation possible · MOQ 10 unités</div>
+            </div>
+            <div class="b2b-price-devis">Sur devis</div>
+          </div>
+          <div class="b2b-price-row" style="border-bottom:none;">
+            <div>
+              <div class="b2b-price-label">Abonnement B2B mensuel</div>
+              <div class="b2b-price-sub">Volumes réguliers · priorité de production</div>
+            </div>
+            <div class="b2b-price-devis">À négocier</div>
+          </div>
+        </div>
+        <div class="b2b-price-note">
+          Nous travaillons directement avec vous sans intermédiaire. Chaque partenariat est construit sur mesure selon vos besoins et volumes.
+        </div>
+      </div>
+
+    </div><!-- end two-col -->
+
+    <!-- CTA Banner -->
+    <div class="b2b-cta-banner reveal">
+      <div class="b2b-cta-tag">Travaillons ensemble</div>
+      <h3 class="b2b-cta-h">Vous souhaitez référencer<br><em>Don Alberto Café</em> ?</h3>
+      <p class="b2b-cta-p">Écrivez-nous pour recevoir notre dossier partenaire, nos tarifs professionnels et discuter de votre projet. Nous répondons sous 48h.</p>
+      <a href="https://wa.me/33761528450?text=Bonjour%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20vos%20offres%20professionnelles." target="_blank" class="b2b-btn-gold">Contacter l'équipe via WhatsApp →</a>
+      <p class="b2b-cta-contacts" style="margin-top:18px;">
+        donalberto.coffee@gmail.com
+        &nbsp;·&nbsp;
+        <a href="https://wa.me/33761528450" target="_blank">WhatsApp +33 7 61 52 84 50</a>
+      </p>
+    </div>
+
+    <!-- Contact Form Block with Tally -->
+    <div class="b2b-form-block reveal" id="contact">
+      <div class="b2b-form-inner">
+
+        <!-- Left: info -->
+        <div>
+          <div class="b2b-form-info-tag">Nous contacter</div>
+          <h3 class="b2b-form-info-h">Demander<br><em>un devis</em></h3>
+          <p class="b2b-form-info-p">N'hésitez pas à nous contacter pour toute demande professionnelle. Nous répondons sous 48h avec une proposition personnalisée selon vos besoins et volumes.</p>
+          <div class="b2b-contact-items">
+            <div class="b2b-contact-item">
+              <div class="b2b-contact-icon">
+                <svg viewBox="0 0 20 20" fill="none" stroke="var(--gold)" stroke-width="1.4" width="16" height="16">
+                  <path d="M3 5h14v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"/>
+                  <path d="M3 5l7 6 7-6"/>
+                </svg>
+              </div>
+              <div>
+                <div class="b2b-contact-sublabel">Email</div>
+                <div class="b2b-contact-val">donalberto.coffee@gmail.com</div>
+              </div>
+            </div>
+            <div class="b2b-contact-item">
+              <div class="b2b-contact-icon">
+                <svg viewBox="0 0 20 20" fill="none" stroke="var(--gold)" stroke-width="1.4" width="16" height="16">
+                  <path d="M4 4c0 9 8 14 12 14l1-3-3-1-1 2c-2-1-5-4-6-6l2-1-1-3-4-2z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="b2b-contact-sublabel">WhatsApp</div>
+                <div class="b2b-contact-val"><a href="https://wa.me/33761528450" target="_blank">+33 7 61 52 84 50</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Tally form embed -->
+        <div class="b2b-tally-wrap">
+          <iframe
+            data-tally-src="https://tally.so/embed/LZ04RG?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+            loading="lazy"
+            width="100%"
+            height="600"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+            title="Formulaire contact professionnel Don Alberto Café"
+            style="background:transparent;"
+          ></iframe>
+          <script>
+            var d=document,
+                w="https://tally.so/widgets/embed.js",
+                v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e){e.src=e.dataset.tallySrc})};
+            if("undefined"!=typeof Tally)v();
+            else if(d.querySelector('script[src="'+w+'"]')==null){
+              var s=d.createElement("script");s.src=w;s.onload=v;s.onerror=v;d.body.appendChild(s);
+            }
+          </script>
+        </div>
+
+      </div>
+    </div><!-- end form block -->
+
+  </div><!-- end b2b-inner -->
+</section>
+
+<!-- ═══════════════════════════════════
+   CLUB DON ALBERTO (anchor: #club)
+   ═══════════════════════════════════ -->
+<section class="b2b-club" id="club">
+  <div class="b2b-club-inner">
+
+    <div class="b2b-club-img-wrap reveal">
+      <img src="images/senor-cafetero.jpg" alt="Club Don Alberto — Café de spécialité">
+      <div class="b2b-club-badge">
+        <div class="b2b-club-badge-val">84.5</div>
+        <div class="b2b-club-badge-lbl">Score SCA</div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="section-label">Club Don Alberto</div>
+      <h2 class="h2" style="margin-top:14px;">Rejoignez le cercle<br>des <em>amateurs d'exception</em></h2>
+      <p class="body-text" style="margin-top:20px;">Le Club Don Alberto rassemble les professionnels et passionnés qui choisissent la transparence, la traçabilité et l'excellence. Une communauté bâtie autour d'un café rare, d'une ferme familiale et d'une conviction : le meilleur café est celui dont on connaît l'histoire.</p>
+
+      <div class="b2b-club-perks">
+        <div class="b2b-club-perk">
+          <div style="display:flex;justify-content:center;padding-top:4px;"><div class="b2b-club-perk-dot"></div></div>
+          <div>
+            <div class="b2b-club-perk-title">Accès prioritaire aux récoltes</div>
+            <p class="b2b-club-perk-desc">Les membres club sont informés en avant-première des nouvelles récoltes et bénéficient d'un accès réservé aux lots limités.</p>
+          </div>
+        </div>
+        <div class="b2b-club-perk">
+          <div style="display:flex;justify-content:center;padding-top:4px;"><div class="b2b-club-perk-dot"></div></div>
+          <div>
+            <div class="b2b-club-perk-title">Tarifs partenaires préférentiels</div>
+            <p class="b2b-club-perk-desc">Des conditions commerciales dédiées construites avec vous, selon vos volumes et la durée de votre engagement.</p>
+          </div>
+        </div>
+        <div class="b2b-club-perk">
+          <div style="display:flex;justify-content:center;padding-top:4px;"><div class="b2b-club-perk-dot"></div></div>
+          <div>
+            <div class="b2b-club-perk-title">Matériaux de communication exclusifs</div>
+            <p class="b2b-club-perk-desc">Fiches produit, photos ferme, rapports SCA, storytelling à intégrer directement à votre carte ou vos communications.</p>
+          </div>
+        </div>
+        <div class="b2b-club-perk">
+          <div style="display:flex;justify-content:center;padding-top:4px;"><div class="b2b-club-perk-dot"></div></div>
+          <div>
+            <div class="b2b-club-perk-title">Lien direct avec la ferme</div>
+            <p class="b2b-club-perk-desc">Échanges réguliers avec l'équipe en Colombie. Transparence totale sur les pratiques agricoles, la récolte et le traitement.</p>
+          </div>
+        </div>
+      </div>
+
+      <a href="#contact" class="btn-primary" style="margin-top:28px;display:inline-flex;">Rejoindre le Club →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+   JOURNEY / PROCESS STRIP
+   ═══════════════════════════════════ -->
+<div class="b2b-journey">
+  <div class="b2b-journey-inner">
+
+    <div class="b2b-j-step reveal">
+      <div class="b2b-j-icon">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M24 4C15 4 8 11 8 20c0 12 16 24 16 24s16-12 16-24c0-9-7-16-16-16z"/>
+          <circle cx="24" cy="20" r="5"/>
+        </svg>
+      </div>
+      <div class="b2b-j-title">Terroir unique<br>de Boyacá</div>
+      <p class="b2b-j-desc">Seule ferme certifiée Green Coffee Farm du département. Altitude 1 670 m ASNM.</p>
+    </div>
+
+    <div class="b2b-j-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+
+    <div class="b2b-j-step reveal">
+      <div class="b2b-j-icon">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 36c0-8 4-16 12-20 8 4 12 12 12 20"/>
+          <path d="M18 28 Q24 20 30 28"/>
+          <circle cx="24" cy="16" r="3"/>
+        </svg>
+      </div>
+      <div class="b2b-j-title">Récolte à la<br>main sélective</div>
+      <p class="b2b-j-desc">Cueillette grain par grain des seules cerises mûres à point, pour une qualité irréprochable.</p>
+    </div>
+
+    <div class="b2b-j-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+
+    <div class="b2b-j-step reveal">
+      <div class="b2b-j-icon">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 34c0-10 6-18 14-22 8 4 14 12 14 22"/>
+          <path d="M24 12v20M16 28h16"/>
+        </svg>
+      </div>
+      <div class="b2b-j-title">Procédé Lavé<br>Washed</div>
+      <p class="b2b-j-desc">Fermentation et lavage contrôlés pour une tasse propre et une acidité brillante — score 10/10.</p>
+    </div>
+
+    <div class="b2b-j-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+
+    <div class="b2b-j-step reveal">
+      <div class="b2b-j-icon">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="10" y="6" width="28" height="36" rx="3"/>
+          <path d="M17 18h14M17 24h14M17 30h8"/>
+          <path d="M31 32l3 3 5-5" stroke-width="1.8"/>
+        </svg>
+      </div>
+      <div class="b2b-j-title">Certification<br>SCA 84.5</div>
+      <p class="b2b-j-desc">Évaluation indépendante par Impulso Coffee Lab. Top 5–10 % des cafés au monde.</p>
+    </div>
+
+    <div class="b2b-j-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+
+    <div class="b2b-j-step reveal">
+      <div class="b2b-j-icon">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="24" cy="10" r="4.5"/>
+          <path d="M18 42V28l-4-8h20l-4 8v14"/>
+          <path d="M14 42h20"/>
+          <path d="M24 20v8"/>
+        </svg>
+      </div>
+      <div class="b2b-j-title">Ferme → Tasse<br>Zéro intermédiaire</div>
+      <p class="b2b-j-desc">Circuit direct, livraison internationale. Qualité maximale et impact direct sur le producteur.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+   NEWSLETTER
+   ═══════════════════════════════════ -->
+<section class="nl-section">
+  <div class="nl-text">
+    <h2>Rejoignez la communauté <em>Don Alberto</em></h2>
+    <p>Nouvelles récoltes · Actualités ferme · FR · EN · ES</p>
+  </div>
+  <form class="nl-form" action="https://tally.so/r/kdRxKZ" method="GET" target="_blank">
+    <input type="email" name="email" class="nl-input" placeholder="Votre adresse email" required autocomplete="email">
+    <button type="submit" class="nl-submit">S'inscrire</button>
+  </form>
+</section>
+
+<!-- ═══════════════════════════════════
+   SHELL: footer injected by da-shell.js
+   ═══════════════════════════════════ -->
+<div id="site-footer"></div>
+
+<script src="da-shell.js"></script>
+</body>
+</html>
