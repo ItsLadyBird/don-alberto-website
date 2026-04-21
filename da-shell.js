@@ -127,7 +127,7 @@ const SHELL_HEADER = `
     <nav class="nav-right" aria-label="Nav droite">
       <div class="ni"><a href="b2b.html" id="n-pro">Espace Pro</a></div>
       <div class="ni"><a href="origine-boutique.html" id="n-orig">Boutique d'Origine</a></div>
-      <a href="javascript:void(0)" onclick="openCheckout()" class="nav-cmd" id="n-cmd">Commander</a>
+      <a href="boutique.html#formats" class="nav-cmd" id="n-cmd">Commander</a>
     </nav>
     <button class="mob-tog" id="mob-tog" onclick="toggleMob()" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -159,7 +159,7 @@ const SHELL_HEADER = `
     <a href="origine-boutique.html" class="mm-lnk" id="mm-orig">Boutique d'Origine</a>
     <div class="mm-sec" id="mm-sec-pro">Pro</div>
     <a href="b2b.html" class="mm-lnk" id="mm-pro">Espace Pro</a>
-    <a href="javascript:void(0)" onclick="openCheckout();toggleMob();" class="mm-cta" id="mm-cmd">Commander</a>
+    <a href="boutique.html#formats" class="mm-cta" id="mm-cmd">Commander</a>
   </div>
   <div class="mm-lang">
     <button class="active" data-lang="fr" onclick="setLang('fr');toggleMob()">FR</button>
@@ -198,6 +198,9 @@ const SHELL_FOOTER = `
         <a href="https://wa.me/33761528450" target="_blank" rel="noopener" class="footer-soc" aria-label="WhatsApp">
           <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.09.543 4.05 1.496 5.754L0 24l6.394-1.467A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.88 9.88 0 01-5.031-1.378l-.36-.214-3.742.858.899-3.628-.235-.374A9.861 9.861 0 012.118 12C2.118 6.533 6.533 2.118 12 2.118S21.882 6.533 21.882 12 17.467 21.882 12 21.882z"/></svg>
         </a>
+        <a href="mailto:donalberto.coffee@gmail.com" class="footer-soc" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="13" height="13"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+        </a>
       </div>
     </div>
     <div class="footer-cols">
@@ -220,7 +223,7 @@ const SHELL_FOOTER = `
         <h4 id="fc-h3">Partenaires &amp; B2B</h4>
         <ul>
           <li><a href="b2b.html" id="fl-b2b">Espace Pro</a></li>
-          <li><a href="b2b.html#contact" id="fl-contact">Contacter</a></li>
+          <li><a href="mailto:donalberto.coffee@gmail.com" id="fl-contact">Contacter</a></li>
         </ul>
       </div>
     </div>
@@ -258,6 +261,9 @@ const SHELL_FOOTER = `
   </div>
   <a href="https://wa.me/33761528450?text=Bonjour%2C%20j%27ai%20une%20question%20sur%20Don%20Alberto%20Caf%C3%A9." target="_blank" rel="noopener" class="wa-btn" id="wa-link">
     <svg viewBox="0 0 24 24" fill="white" width="25" height="25"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.09.543 4.05 1.496 5.754L0 24l6.394-1.467A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.88 9.88 0 01-5.031-1.378l-.36-.214-3.742.858.899-3.628-.235-.374A9.861 9.861 0 012.118 12C2.118 6.533 6.533 2.118 12 2.118S21.882 6.533 21.882 12 17.467 21.882 12 21.882z"/></svg>
+  </a>
+  <a href="mailto:donalberto.coffee@gmail.com" class="wa-btn" id="email-link" style="background:var(--teal-deep,#064e65);" aria-label="Email">
+    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" width="22" height="22"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
   </a>
 </div>
 `;
