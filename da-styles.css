@@ -109,7 +109,6 @@ ul{list-style:none;}
 #hdr-full{
   background:var(--cream);padding:14px 20px 12px;text-align:center;
   border-bottom:1px solid rgba(9,102,133,.08);
-  margin-top:var(--util-h);
 }
 .hf-brand-link{display:block;text-decoration:none;color:inherit;}
 .hf-icon{width:68px;height:68px;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;}
