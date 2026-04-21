@@ -396,6 +396,29 @@ const L = {
     hh1tag:'Origine Exclusive', hh1title:'Seule Green Coffee Farm<br>de Boyacá', hh1desc:"L'unique ferme certifiée d'un département de 1,3 million d'habitants.",
     hh2tag:'Top 5–10% Mondial', hh2title:'Café de Spécialité<br>Certifié SCA · 84.5', hh2desc:'Seuls 5 à 10 % des cafés au monde atteignent le grade « specialty ».',
     hh3tag:'Traçabilité Totale', hh3title:'Ferme → Tasse<br>Zéro Intermédiaire', hh3desc:'Circuit court maîtrisé : qualité maximale, prix juste, impact direct sur la ferme.',
+    /* card attribute labels */
+    kOrigine:'Origine', kVariete:'Variété', kProcede:'Procédé', kAltitude:'Altitude',
+    kTorref:'Torréfaction', kContenu:'Contenu', kEconomie:'Économie', kLivraison:'Livraison',
+    kUsage:'Usage', kPrixKg:'Prix/kg', kMouture:'Mouture', kDuree:'Durée', kPrixSac:'Prix/sac',
+    /* card tags */
+    tagGrains:'Grains Entiers', tagMoulu:'Café Moulu', tagPack:'Pack Découverte', tagPro:'Format Professionnel',
+    tagSub3:'Abonnement Mensuel · 3 Mois', tagSub6:'Abonnement Mensuel · 6 Mois', tagSubAnn:'Abonnement · 12 Mois',
+    /* card values */
+    vWashed:'Washed · Lavé', vFiltreEsp:'Filtre ou Espresso', vOfferte:'Offerte', vIncluse:'Incluse',
+    /* ship text */
+    shipFree:'Livraison offerte', shipCost:'+ livraison €7',
+    /* product notes */
+    notesBase:'Cacao & Miel · Agrumes · Texture soyeuse', notesMoulu:'Mouture précisée à la commande · Filtre ou Espresso',
+    notesPack:'Idéal pour offrir · Cadeau d\'exception', notesWholesale:'Cafés · Restaurants · Épiceries fines',
+    notesEsencia:'La découverte — torréfié frais à chaque envoi', notesRaices:'La fidélité — café frais en continu',
+    notesHerencia:'L\'engagement — la meilleure valeur du programme',
+    /* badge */
+    badgePop:'Le plus populaire',
+    famLabel:'La Famille', famTitle:'Des visages derrière <em>chaque grain</em>',
+    famP1:'Don Alberto Café n\'est pas une marque — c\'est une famille. Une femme cultive la terre de Boyacá avec l\'amour d\'une vie entière. Sa fille porte le flambeau de son père. Son mari a grandi dans les caféières et connaît chaque grain de cette région par cœur.',
+    famP2:'Chaque sac est une signature familiale, une promesse de transparence totale, de la ferme à votre tasse.',
+    famQuote:'"Quand j\'étais enfant, je récoltais le café avec mon grand-père dans ces mêmes champs. Aujourd\'hui, c\'est nous qui vous l\'offrons."',
+    famCite:'Le père fondateur · Enfant de Boyacá',
     ndc:'Notre Café', nds1:'Notre SCA — Certification', nds2:'Notre SCA — Évaluation', ndp:'Notre Procédé', ndf:'La Famille',
     btab_all:'Tout', btab_grains:'Grains', btab_moulu:'Moulu', btab_sub:'Abonnement',
     bfilter_lbl:'Filtrer par', bfilter_ori:'Origine', bfilter_var:'Variété', bfilter_proc:'Procédé',
@@ -446,6 +469,29 @@ const L = {
     hh1tag:'Exclusive Origin', hh1title:'The Only Green Coffee Farm<br>in Boyacá', hh1desc:'The sole certified farm in a department of 1.3 million people.',
     hh2tag:'Top 5–10% Worldwide', hh2title:'SCA Certified<br>Specialty Coffee · 84.5', hh2desc:'Only 5–10% of coffees worldwide reach the specialty grade standard.',
     hh3tag:'Full Traceability', hh3title:'Farm → Cup<br>Zero Middle-Men', hh3desc:'Direct supply chain: maximum quality, fair pricing, full impact on the farm.',
+    /* card attribute labels */
+    kOrigine:'Origin', kVariete:'Variety', kProcede:'Process', kAltitude:'Altitude',
+    kTorref:'Roast', kContenu:'Contents', kEconomie:'Saving', kLivraison:'Shipping',
+    kUsage:'Use', kPrixKg:'Price/kg', kMouture:'Grind', kDuree:'Duration', kPrixSac:'Price/bag',
+    /* card tags */
+    tagGrains:'Whole Bean', tagMoulu:'Ground Coffee', tagPack:'Discovery Pack', tagPro:'Pro Format',
+    tagSub3:'Monthly Sub · 3 Months', tagSub6:'Monthly Sub · 6 Months', tagSubAnn:'Annual Sub',
+    /* card values */
+    vWashed:'Washed', vFiltreEsp:'Filter or Espresso', vOfferte:'Free', vIncluse:'Included',
+    /* ship text */
+    shipFree:'Free shipping', shipCost:'+ shipping €7',
+    /* product notes */
+    notesBase:'Cocoa & Honey · Citrus · Silky Texture', notesMoulu:'Grind specified at checkout · Filter or Espresso',
+    notesPack:'Perfect gift · Exceptional experience', notesWholesale:'Cafés · Restaurants · Fine Grocery',
+    notesEsencia:'Discovery — freshly roasted with each delivery', notesRaices:'Loyalty — fresh coffee non-stop',
+    notesHerencia:'Commitment — best value in the program',
+    /* badge */
+    badgePop:'Most popular',
+    famLabel:'The Family', famTitle:'Faces behind <em>every bean</em>',
+    famP1:'Don Alberto Café is not a brand — it is a family. A woman tends the land of Boyacá with a lifetime of love. Her daughter carries her father\'s torch. Her husband grew up in the coffee fields and knows every bean of this region by heart.',
+    famP2:'Every bag is a family signature, a promise of full transparency from farm to your cup.',
+    famQuote:'"As a child, I harvested coffee with my grandfather in these very fields. Today, it is us who offer it to you."',
+    famCite:'The founding father · Child of Boyacá',
     ndc:'Our Coffee', nds1:'Our SCA — Certification', nds2:'Our SCA — Evaluation', ndp:'Our Process', ndf:'The Family',
     btab_all:'All', btab_grains:'Whole Bean', btab_moulu:'Ground', btab_sub:'Subscription',
     bfilter_lbl:'Filter by', bfilter_ori:'Origin', bfilter_var:'Variety', bfilter_proc:'Process',
@@ -496,6 +542,29 @@ const L = {
     hh1tag:'Origen Exclusivo', hh1title:'Única Green Coffee Farm<br>en Boyacá', hh1desc:'La única finca certificada en un departamento de 1,3 millones de habitantes.',
     hh2tag:'Top 5–10% Mundial', hh2title:'Café de Especialidad<br>Certificado SCA · 84.5', hh2desc:'Solo el 5–10% de los cafés del mundo alcanzan el grado specialty.',
     hh3tag:'Trazabilidad Total', hh3title:'Finca → Taza<br>Cero Intermediarios', hh3desc:'Cadena directa: máxima calidad, precio justo, impacto real en la finca.',
+    /* card attribute labels */
+    kOrigine:'Origen', kVariete:'Variedad', kProcede:'Proceso', kAltitude:'Altitud',
+    kTorref:'Tostión', kContenu:'Contenido', kEconomie:'Ahorro', kLivraison:'Envío',
+    kUsage:'Uso', kPrixKg:'Precio/kg', kMouture:'Molienda', kDuree:'Duración', kPrixSac:'Precio/bolsa',
+    /* card tags */
+    tagGrains:'Grano Entero', tagMoulu:'Café Molido', tagPack:'Pack Descubrimiento', tagPro:'Formato Profesional',
+    tagSub3:'Suscripción Mensual · 3 Meses', tagSub6:'Suscripción Mensual · 6 Meses', tagSubAnn:'Suscripción · 12 Meses',
+    /* card values */
+    vWashed:'Lavado', vFiltreEsp:'Filtro o Espresso', vOfferte:'Gratis', vIncluse:'Incluido',
+    /* ship text */
+    shipFree:'Envío gratis', shipCost:'+ envío €7',
+    /* product notes */
+    notesBase:'Cacao & Miel · Cítricos · Textura Sedosa', notesMoulu:'Molienda especificada al pedir · Filtro o Espresso',
+    notesPack:'Ideal para regalar · Experiencia excepcional', notesWholesale:'Cafés · Restaurantes · Tiendas Gourmet',
+    notesEsencia:'Descubrimiento — tostado fresco en cada envío', notesRaices:'Fidelidad — café fresco sin parar',
+    notesHerencia:'Compromiso — mejor valor del programa',
+    /* badge */
+    badgePop:'El más popular',
+    famLabel:'La Familia', famTitle:'Rostros detrás de <em>cada grano</em>',
+    famP1:'Don Alberto Café no es una marca — es una familia. Una mujer cultiva la tierra de Boyacá con el amor de toda una vida. Su hija lleva la antorcha de su padre. Su esposo creció en los cafetales y conoce cada grano de esta región de memoria.',
+    famP2:'Cada bolsa es una firma familiar, una promesa de transparencia total, de la finca a tu taza.',
+    famQuote:'"Cuando era niño, cosechaba café con mi abuelo en estos mismos campos. Hoy somos nosotros quienes te lo ofrecemos."',
+    famCite:'El padre fundador · Hijo de Boyacá',
     ndc:'Nuestro Café', nds1:'Nuestro SCA — Certificación', nds2:'Nuestro SCA — Evaluación', ndp:'Nuestro Proceso', ndf:'La Familia',
     btab_all:'Todo', btab_grains:'Grano', btab_moulu:'Molido', btab_sub:'Suscripción',
     bfilter_lbl:'Filtrar por', bfilter_ori:'Origen', bfilter_var:'Variedad', bfilter_proc:'Proceso',
@@ -608,6 +677,52 @@ function setLang(lang) {
   const nr=_$('no-results'); if(nr&&t.bno_results){ nr.querySelector('.no-results-txt') && (nr.querySelector('.no-results-txt').textContent=t.bno_results); }
   const nrBtn=_$('no-results-btn'); if(nrBtn&&t.bno_reset) nrBtn.textContent=t.bno_reset;
   // Update filter select placeholder options
+
+  // Product card i18n — attribute keys, tags, notes, badges
+  const qAll = (sel, prop, val) => { if(!val) return; document.querySelectorAll(sel).forEach(el => { if(prop==='text') el.textContent=val; else el.innerHTML=val; }); };
+  qAll('[data-i18n="kOrigine"]','text', t.kOrigine);
+  qAll('[data-i18n="kVariete"]','text', t.kVariete);
+  qAll('[data-i18n="kProcede"]','text', t.kProcede);
+  qAll('[data-i18n="kAltitude"]','text', t.kAltitude);
+  qAll('[data-i18n="kTorref"]','text', t.kTorref);
+  qAll('[data-i18n="kContenu"]','text', t.kContenu);
+  qAll('[data-i18n="kEconomie"]','text', t.kEconomie);
+  qAll('[data-i18n="kLivraison"]','text', t.kLivraison);
+  qAll('[data-i18n="kUsage"]','text', t.kUsage);
+  qAll('[data-i18n="kPrixKg"]','text', t.kPrixKg);
+  qAll('[data-i18n="kMouture"]','text', t.kMouture);
+  qAll('[data-i18n="kDuree"]','text', t.kDuree);
+  qAll('[data-i18n="kPrixSac"]','text', t.kPrixSac);
+  qAll('[data-i18n="tagGrains"]','text', t.tagGrains);
+  qAll('[data-i18n="tagMoulu"]','text', t.tagMoulu);
+  qAll('[data-i18n="tagPack"]','text', t.tagPack);
+  qAll('[data-i18n="tagPro"]','text', t.tagPro);
+  qAll('[data-i18n="tagSub3"]','text', t.tagSub3);
+  qAll('[data-i18n="tagSub6"]','text', t.tagSub6);
+  qAll('[data-i18n="tagSubAnn"]','text', t.tagSubAnn);
+  qAll('[data-i18n="vWashed"]','text', t.vWashed);
+  qAll('[data-i18n="vFiltreEsp"]','text', t.vFiltreEsp);
+  qAll('[data-i18n="vOfferte"]','text', t.vOfferte);
+  qAll('[data-i18n="vIncluse"]','text', t.vIncluse);
+  qAll('[data-i18n="shipFree"]','text', t.shipFree);
+  qAll('[data-i18n="shipCost"]','text', t.shipCost);
+  qAll('[data-i18n="notesBase"]','text', t.notesBase);
+  qAll('[data-i18n="notesMoulu"]','text', t.notesMoulu);
+  qAll('[data-i18n="notesPack"]','text', t.notesPack);
+  qAll('[data-i18n="notesWholesale"]','text', t.notesWholesale);
+  qAll('[data-i18n="notesEsencia"]','text', t.notesEsencia);
+  qAll('[data-i18n="notesRaices"]','text', t.notesRaices);
+  qAll('[data-i18n="notesHerencia"]','text', t.notesHerencia);
+  qAll('[data-i18n="badgePop"]','text', t.badgePop);
+  // Family section i18n
+  const fset = (id,v) => { const e=_$(id); if(e&&v!==undefined){ if(v.includes('<em>')) e.innerHTML=v; else e.textContent=v; } };
+  fset('fam-label', t.famLabel);
+  fset('fam-title', t.famTitle);
+  fset('fam-p1', t.famP1);
+  fset('fam-p2', t.famP2);
+  fset('fam-quote', t.famQuote);
+  fset('fam-cite', t.famCite);
+
   // Nav dropdown item labels
   const dset = (id,v) => { const e=_$(id); if(e&&v) e.textContent=v; };
   dset('nd-cafe', t.ndc); dset('nd-sca1', t.nds1); dset('nd-sca2', t.nds2);

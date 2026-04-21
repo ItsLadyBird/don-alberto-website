@@ -28,8 +28,8 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: url('images/farm_cherries1.jpeg') center/cover;
-  opacity: .12;
+  background: url('images/coffee-farm-col.jpg') center/cover;
+  opacity: .22;
   mix-blend-mode: luminosity;
 }
 .boutique-hero .inner { position: relative; z-index: 1; }
@@ -61,10 +61,12 @@
 /* ── FILTER TABS ── */
 .boutique-tabs-wrap {
   background: #faf8f4;
-  border-bottom: 1px solid rgba(9,102,133,.14); box-shadow: 0 2px 12px rgba(6,78,101,.06);
+  border-bottom: 2px solid rgba(9,102,133,.14);
+  box-shadow: 0 3px 18px rgba(6,78,101,.10);
   position: sticky;
   top: 0;
-  z-index: 80;
+  z-index: 200;
+  /* ensure it never clips between the two nav bars */
 }
 .boutique-tabs {
   max-width: 1200px;
@@ -75,18 +77,19 @@
 }
 .btab {
   font-family: 'Lato', sans-serif;
-  font-size: 9px;
-  letter-spacing: 3.5px;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: rgba(6,78,101,.42);
+  color: rgba(6,78,101,.5);
   background: none;
   border: none;
-  border-bottom: 2px solid transparent;
-  padding: 22px 36px;
+  border-bottom: 3px solid transparent;
+  padding: 20px 40px;
   cursor: pointer;
   transition: color .2s, border-color .2s;
   position: relative;
-  bottom: -1px;
+  bottom: -2px;
 }
 .btab:hover { color: var(--teal, #096685); }
 .btab.active {
@@ -110,10 +113,11 @@
 }
 .filter-label {
   font-family: 'Lato', sans-serif;
-  font-size: 8px;
-  letter-spacing: 3px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  color: rgba(6,78,101,.45);
+  color: rgba(6,78,101,.65);
   margin-right: 6px;
 }
 .filter-select {
@@ -121,10 +125,11 @@
   border: 1px solid rgba(9,102,133,.2);
   color: rgba(6,78,101,.75);
   font-family: 'Lato', sans-serif;
-  font-size: 9px;
+  font-size: 10px;
+  font-weight: 400;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  padding: 8px 30px 8px 13px;
+  padding: 10px 32px 10px 14px;
   cursor: pointer;
   outline: none;
   -webkit-appearance: none;
@@ -138,7 +143,8 @@
 .filter-sep { width: 1px; height: 18px; background: rgba(9,102,133,.15); }
 .filter-reset {
   font-family: 'Lato', sans-serif;
-  font-size: 8px;
+  font-size: 10px;
+  font-weight: 400;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: rgba(6,78,101,.42);
@@ -152,9 +158,10 @@
 .filter-count {
   margin-left: auto;
   font-family: 'Lato', sans-serif;
-  font-size: 8px;
+  font-size: 10px;
+  font-weight: 400;
   letter-spacing: 2px;
-  color: rgba(6,78,101,.35);
+  color: rgba(6,78,101,.45);
   text-transform: uppercase;
 }
 
@@ -211,65 +218,88 @@
   z-index: 3;
 }
 
-/* Image area */
+/* ── IMAGE AREA — full bleed, no padding ── */
 .pcard-img {
   width: 100%;
-  aspect-ratio: 1 / 1.1;
+  aspect-ratio: 3 / 4;
   overflow: hidden;
   background: #f5f0e8;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
 }
 .pcard-img img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  padding: 24px;
-  transition: transform .45s;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform .55s ease;
 }
-.pcard:hover .pcard-img img { transform: scale(1.04); }
+.pcard:hover .pcard-img img { transform: scale(1.06); }
 
-/* Card body */
+/* Hover overlay — specs appear on hover */
+.pcard-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(6,78,101,.0) 30%, rgba(6,78,101,.92) 100%);
+  opacity: 0;
+  transition: opacity .35s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px 18px;
+  z-index: 2;
+}
+.pcard:hover .pcard-overlay { opacity: 1; }
+.pcard-overlay .pcard-attrs {
+  border: none;
+  padding: 0;
+  margin: 0 0 10px;
+  gap: 4px;
+}
+.pcard-overlay .pcard-attr { font-size: 9px; }
+.pcard-overlay .pcard-attr-key { color: rgba(250,248,244,.5); letter-spacing: 1px; }
+.pcard-overlay .pcard-attr-val { color: rgba(250,248,244,.9); }
+
+/* ── CARD BODY — only always-visible info ── */
 .pcard-body {
-  padding: 24px 22px 28px;
+  padding: 16px 18px 20px;
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 .pcard-tag {
   font-family: 'Lato', sans-serif;
-  font-size: 7.5px;
+  font-size: 8px;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: rgba(0,0,0,.38);
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 .pcard-name {
   font-family: 'Cormorant Garamond', serif;
   font-size: 26px;
   font-weight: 300;
   color: #141414;
-  line-height: 1.15;
-  margin-bottom: 10px;
+  line-height: 1.1;
+  margin-bottom: 8px;
 }
 .pcard-desc {
   font-family: 'Lato', sans-serif;
   font-size: 11px;
   color: rgba(0,0,0,.45);
   line-height: 1.7;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
-/* Attributes row */
+/* Attributes row — hidden on card, shown in overlay */
 .pcard-attrs {
   display: flex;
   flex-direction: column;
   gap: 5px;
-  padding: 14px 0;
-  border-top: 1px solid rgba(0,0,0,.07);
-  border-bottom: 1px solid rgba(0,0,0,.07);
-  margin-bottom: 16px;
+  padding: 0;
+  border: none;
+  margin: 0;
 }
 .pcard-attr {
   display: flex;
@@ -281,13 +311,13 @@
 .pcard-attr-key { color: rgba(0,0,0,.32); letter-spacing: 1px; text-transform: uppercase; }
 .pcard-attr-val { color: rgba(0,0,0,.65); font-weight: 400; }
 
-/* Notes */
+/* Notes — always visible */
 .pcard-notes {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
   font-size: 13px;
   color: var(--teal-deep, #064e65);
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   line-height: 1.5;
 }
 
@@ -570,23 +600,52 @@
 .bgrain-card p { font-size: 12.5px; line-height: 1.9; color: rgba(0,0,0,.45); font-weight: 300; font-family: 'Lato', sans-serif; }
 
 /* ══════════════════════════════════════
-   FAMILY SECTION
+   FAMILY SECTION — image-first
    ══════════════════════════════════════ */
 .bfamily-section {
   background: #faf8f4;
-  padding: 100px 80px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
+  padding: 100px 0 0;
 }
-@media (max-width: 900px) { .bfamily-section { grid-template-columns: 1fr; padding: 60px 32px; } }
-.bfamily-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-.bfamily-photo { overflow: hidden; }
-.bfamily-photo img { width: 100%; height: 220px; object-fit: cover; display: block; transition: transform .5s; }
-.bfamily-photo:first-child { grid-column: span 2; }
-.bfamily-photo:first-child img { height: 260px; }
-.bfamily-photo img:hover { transform: scale(1.04); }
+.bfamily-header {
+  text-align: center;
+  padding: 0 60px 60px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+.bfamily-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 4px;
+  width: 100%;
+}
+.bfamily-photo {
+  overflow: hidden;
+  position: relative;
+}
+.bfamily-photo img {
+  width: 100%;
+  height: 580px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform .7s ease;
+}
+.bfamily-photo.harvest img {
+  object-position: center center;
+}
+.bfamily-photo:hover img { transform: scale(1.04); }
+.bfamily-text {
+  padding: 70px 80px 90px;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+@media (max-width: 900px) {
+  .bfamily-gallery { grid-template-columns: 1fr; }
+  .bfamily-photo img { height: 320px; }
+  .bfamily-text { padding: 50px 32px 70px; }
+  .bfamily-header { padding: 0 32px 40px; }
+}
 
 /* ── Utilities ── */
 .section-label-b {
@@ -654,7 +713,6 @@
   .bprocess-section { padding: 60px 24px; }
   .bgrain-section { padding: 60px 24px; }
   .bgrain-hero { margin: -60px -24px 40px; }
-  .bfamily-section { padding: 60px 24px; }
 }
 </style>
 </head>
@@ -748,24 +806,26 @@
       <!-- ─── 250g Grain entier ─── -->
       <div class="pcard" data-cat="grains" data-varietal="castillo" data-process="washed" data-roast="medium-light" data-sca="80-85" data-origin="boyaca">
         <div class="pcard-img">
-          <img src="images/Prod_250_gr.png" alt="Don Alberto 250g Grain entier">
+          <img src="Prod_250_gr.png" alt="Don Alberto 250g Grain entier">
+          <div class="pcard-overlay">
+            <div class="pcard-attrs">
+            <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kOrigine">Origine</span><span class="pcard-attr-val">Rondón, Boyacá</span></div>
+          </div>
         </div>
         <div class="pcard-body">
           <div class="pcard-sca">SCA 84.5</div>
-          <div class="pcard-tag">Grains Entiers</div>
+          <div class="pcard-tag" data-i18n="tagGrains">Grains Entiers</div>
           <div class="pcard-name">Don Alberto<br>250g</div>
-          <div class="pcard-attrs">
-            <div class="pcard-attr"><span class="pcard-attr-key">Origine</span><span class="pcard-attr-val">Rondón, Boyacá</span></div>
-            <div class="pcard-attr"><span class="pcard-attr-key">Variété</span><span class="pcard-attr-val">Castillo Arabica</span></div>
-            <div class="pcard-attr"><span class="pcard-attr-key">Procédé</span><span class="pcard-attr-val">Washed · Lavé</span></div>
-            <div class="pcard-attr"><span class="pcard-attr-key">Altitude</span><span class="pcard-attr-val">1 670m ASNM</span></div>
-            <div class="pcard-attr"><span class="pcard-attr-key">Torréfaction</span><span class="pcard-attr-val">Medium-Light</span></div>
+          <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kVariete">Variété</span><span class="pcard-attr-val">Castillo Arabica</span></div>
+            <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kProcede">Procédé</span><span class="pcard-attr-val" data-i18n="vWashed">Washed · Lavé</span></div>
+            <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kAltitude">Altitude</span><span class="pcard-attr-val">1 670m ASNM</span></div>
+            <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kTorref">Torréfaction</span><span class="pcard-attr-val">Medium-Light</span></div>
           </div>
-          <div class="pcard-notes">Cacao & Miel · Agrumes · Texture soyeuse</div>
+          <div class="pcard-notes" data-i18n="notesBase">Cacao & Miel · Agrumes · Texture soyeuse</div>
           <div class="pcard-footer">
             <div>
-              <div class="pcard-price"><sup>€</sup>16</div>
-              <div class="pcard-ship"> livraison gratuit</div>
+              <div class="pcard-price"><sup>€</sup>18</div>
+              <div class="pcard-ship" data-i18n="shipCost">+ livraison €7</div>
             </div>
           </div>
           <a href="https://www.paypal.com/instantcommerce/checkout/VBX4WKN8C7TW8" target="_blank" class="pcard-btn bcmd-btn">Commander →</a>
@@ -775,24 +835,26 @@
       <!-- ─── 500g Grain entier ─── -->
       <div class="pcard" data-cat="grains" data-varietal="castillo" data-process="washed" data-roast="medium-light" data-sca="80-85" data-origin="boyaca">
         <div class="pcard-img">
-          <img src="images/Prod_250_gr.png" alt="Don Alberto 500g Grain entier">
+          <img src="Prod_250_gr.png" alt="Don Alberto 250g Grain entier">
+          <div class="pcard-overlay">
+            <div class="pcard-attrs">
+            <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kOrigine">Origine</span><span class="pcard-attr-val">Rondón, Boyacá</span></div>
+          </div>
         </div>
         <div class="pcard-body">
           <div class="pcard-sca">SCA 84.5</div>
-          <div class="pcard-tag">Grains Entiers</div>
+          <div class="pcard-tag" data-i18n="tagGrains">Grains Entiers</div>
           <div class="pcard-name">Don Alberto<br>500g</div>
-          <div class="pcard-attrs">
-            <div class="pcard-attr"><span class="pcard-attr-key">Origine</span><span class="pcard-attr-val">Rondón, Boyacá</span></div>
-            <div class="pcard-attr"><span class="pcard-attr-key">Variété</span><span class="pcard-attr-val">Castillo Arabica</span></div>
-            <div class="pcard-attr"><span class="pcard-attr-key">Procédé</span><span class="pcard-attr-val">Washed · Lavé</span></div>
-            <div class="pcard-attr"><span class="pcard-attr-key">Altitude</span><span class="pcard-attr-val">1 670m ASNM</span></div>
-            <div class="pcard-attr"><span class="pcard-attr-key">Torréfaction</span><span class="pcard-attr-val">Medium-Light</span></div>
+          <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kVariete">Variété</span><span class="pcard-attr-val">Castillo Arabica</span></div>
+            <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kProcede">Procédé</span><span class="pcard-attr-val" data-i18n="vWashed">Washed · Lavé</span></div>
+            <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kAltitude">Altitude</span><span class="pcard-attr-val">1 670m ASNM</span></div>
+            <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kTorref">Torréfaction</span><span class="pcard-attr-val">Medium-Light</span></div>
           </div>
-          <div class="pcard-notes">Cacao & Miel · Agrumes · Texture soyeuse</div>
+          <div class="pcard-notes" data-i18n="notesBase">Cacao & Miel · Agrumes · Texture soyeuse</div>
           <div class="pcard-footer">
             <div>
-              <div class="pcard-price"><sup>€</sup>28</div>
-              <div class="pcard-ship">+ livraison gratuit</div>
+              <div class="pcard-price"><sup>€</sup>32</div>
+              <div class="pcard-ship" data-i18n="shipCost">+ livraison €7</div>
             </div>
           </div>
           <a href="https://wa.me/33761528450?text=Bonjour%2C%20je%20souhaite%20commander%20Don%20Alberto%20500g%20Grain%20entier%20(€32).%20Merci%20de%20m'indiquer%20les%20détails." target="_blank" class="pcard-btn bcmd-btn">Commander →</a>
@@ -802,24 +864,26 @@
       <!-- ─── 250g Moulu ─── -->
       <div class="pcard" data-cat="moulu" data-varietal="castillo" data-process="washed" data-roast="medium-light" data-sca="80-85" data-origin="boyaca">
         <div class="pcard-img">
-          <img src="images/Prod_250_gr.png" alt="Don Alberto 250g Moulu">
+          <img src="Prod_250_gr.png" alt="Don Alberto 250g Grain entier">
+          <div class="pcard-overlay">
+            <div class="pcard-attrs">
+            <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kOrigine">Origine</span><span class="pcard-attr-val">Rondón, Boyacá</span></div>
+          </div>
         </div>
         <div class="pcard-body">
           <div class="pcard-sca">SCA 84.5</div>
-          <div class="pcard-tag">Café Moulu</div>
+          <div class="pcard-tag" data-i18n="tagMoulu">Café Moulu</div>
           <div class="pcard-name">Don Alberto<br>Moulu 250g</div>
-          <div class="pcard-attrs">
-            <div class="pcard-attr"><span class="pcard-attr-key">Origine</span><span class="pcard-attr-val">Rondón, Boyacá</span></div>
-            <div class="pcard-attr"><span class="pcard-attr-key">Variété</span><span class="pcard-attr-val">Castillo Arabica</span></div>
-            <div class="pcard-attr"><span class="pcard-attr-key">Procédé</span><span class="pcard-attr-val">Washed · Lavé</span></div>
-            <div class="pcard-attr"><span class="pcard-attr-key">Mouture</span><span class="pcard-attr-val">Filtre ou Espresso</span></div>
-            <div class="pcard-attr"><span class="pcard-attr-key">Torréfaction</span><span class="pcard-attr-val">Medium-Light</span></div>
+          <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kVariete">Variété</span><span class="pcard-attr-val">Castillo Arabica</span></div>
+            <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kProcede">Procédé</span><span class="pcard-attr-val" data-i18n="vWashed">Washed · Lavé</span></div>
+            <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kMouture">Mouture</span><span class="pcard-attr-val" data-i18n="vFiltreEsp">Filtre ou Espresso</span></div>
+            <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kTorref">Torréfaction</span><span class="pcard-attr-val">Medium-Light</span></div>
           </div>
-          <div class="pcard-notes">Mouture précisée à la commande · Filtre ou Espresso</div>
+          <div class="pcard-notes" data-i18n="notesMoulu">Mouture précisée à la commande · Filtre ou Espresso</div>
           <div class="pcard-footer">
             <div>
-              <div class="pcard-price"><sup>€</sup>16</div>
-              <div class="pcard-ship">+ livraison gratuit</div>
+              <div class="pcard-price"><sup>€</sup>19</div>
+              <div class="pcard-ship" data-i18n="shipCost">+ livraison €7</div>
             </div>
           </div>
           <a href="https://www.paypal.com/instantcommerce/checkout/VBX4WKN8C7TW8" target="_blank" class="pcard-btn bcmd-btn">Commander →</a>
@@ -828,26 +892,28 @@
 
       <!-- ─── 3×250g Pack Découverte ─── -->
       <div class="pcard featured" data-cat="grains" data-varietal="castillo" data-process="washed" data-roast="medium-light" data-sca="80-85" data-origin="boyaca">
-        <div class="pcard-badge">Le plus populaire</div>
+        <div class="pcard-badge" data-i18n="badgePop">Le plus populaire</div>
         <div class="pcard-img">
-          <img src="images/Prod_3_pack.png" alt="Don Alberto 3×250g Pack Découverte">
+          <img src="Prod_250_gr.png" alt="Don Alberto 250g Grain entier">
+          <div class="pcard-overlay">
+            <div class="pcard-attrs">
+            <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kOrigine">Origine</span><span class="pcard-attr-val">Rondón, Boyacá</span></div>
+          </div>
         </div>
         <div class="pcard-body">
           <div class="pcard-sca">SCA 84.5</div>
-          <div class="pcard-tag">Pack Découverte</div>
+          <div class="pcard-tag" data-i18n="tagPack">Pack Découverte</div>
           <div class="pcard-name">3 × 250g<br>Grain entier</div>
-          <div class="pcard-attrs">
-            <div class="pcard-attr"><span class="pcard-attr-key">Contenu</span><span class="pcard-attr-val">3 sacs × 250g</span></div>
-            <div class="pcard-attr"><span class="pcard-attr-key">Variété</span><span class="pcard-attr-val">Castillo Arabica</span></div>
-            <div class="pcard-attr"><span class="pcard-attr-key">Procédé</span><span class="pcard-attr-val">Washed · Lavé</span></div>
-            <div class="pcard-attr"><span class="pcard-attr-key">Économie</span><span class="pcard-attr-val">−€5 vs unité</span></div>
-            <div class="pcard-attr"><span class="pcard-attr-key">Livraison</span><span class="pcard-attr-val">Offerte</span></div>
+          <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kVariete">Variété</span><span class="pcard-attr-val">Castillo Arabica</span></div>
+            <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kProcede">Procédé</span><span class="pcard-attr-val" data-i18n="vWashed">Washed · Lavé</span></div>
+            <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kEconomie">Économie</span><span class="pcard-attr-val">−€5 vs unité</span></div>
+            <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kLivraison">Livraison</span><span class="pcard-attr-val" data-i18n="vOfferte">Offerte</span></div>
           </div>
-          <div class="pcard-notes">Idéal pour offrir · Cadeau d'exception</div>
+          <div class="pcard-notes" data-i18n="notesPack">Idéal pour offrir · Cadeau d'exception</div>
           <div class="pcard-footer">
             <div>
-              <div class="pcard-price"><sup>€</sup>39</div>
-              <div class="pcard-ship free">Livraison offerte</div>
+              <div class="pcard-price"><sup>€</sup>49</div>
+              <div class="pcard-ship free" data-i18n="shipFree">Livraison offerte</div>
             </div>
           </div>
           <a href="https://www.paypal.com/instantcommerce/checkout/W8EVKKHSM3QXQ" target="_blank" class="pcard-btn bcmd-btn">Commander →</a>
@@ -857,24 +923,26 @@
       <!-- ─── 2.5kg Wholesale ─── -->
       <div class="pcard" data-cat="grains" data-varietal="castillo" data-process="washed" data-roast="medium-light" data-sca="80-85" data-origin="boyaca">
         <div class="pcard-img">
-          <img src="images/Prod_Both_Formats.png" alt="Don Alberto 2.5kg Wholesale">
+          <img src="Prod_250_gr.png" alt="Don Alberto 250g Grain entier">
+          <div class="pcard-overlay">
+            <div class="pcard-attrs">
+            <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kOrigine">Origine</span><span class="pcard-attr-val">Rondón, Boyacá</span></div>
+          </div>
         </div>
         <div class="pcard-body">
           <div class="pcard-sca">SCA 84.5</div>
-          <div class="pcard-tag">Format Professionnel</div>
+          <div class="pcard-tag" data-i18n="tagPro">Format Professionnel</div>
           <div class="pcard-name">Don Alberto<br>2,5 kg</div>
-          <div class="pcard-attrs">
-            <div class="pcard-attr"><span class="pcard-attr-key">Usage</span><span class="pcard-attr-val">Café · Restaurant</span></div>
-            <div class="pcard-attr"><span class="pcard-attr-key">Variété</span><span class="pcard-attr-val">Castillo Arabica</span></div>
-            <div class="pcard-attr"><span class="pcard-attr-key">Procédé</span><span class="pcard-attr-val">Washed · Lavé</span></div>
-            <div class="pcard-attr"><span class="pcard-attr-key">Prix/kg</span><span class="pcard-attr-val">€54,80/kg</span></div>
-            <div class="pcard-attr"><span class="pcard-attr-key">Livraison</span><span class="pcard-attr-val">Offerte</span></div>
+          <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kVariete">Variété</span><span class="pcard-attr-val">Castillo Arabica</span></div>
+            <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kProcede">Procédé</span><span class="pcard-attr-val" data-i18n="vWashed">Washed · Lavé</span></div>
+            <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kPrixKg">Prix/kg</span><span class="pcard-attr-val">€54,80/kg</span></div>
+            <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kLivraison">Livraison</span><span class="pcard-attr-val" data-i18n="vOfferte">Offerte</span></div>
           </div>
-          <div class="pcard-notes">Cafés · Restaurants · Épiceries fines · Volume sur devis</div>
+          <div class="pcard-notes" data-i18n="notesWholesale">Cafés · Restaurants · Épiceries fines · Volume sur devis</div>
           <div class="pcard-footer">
             <div>
-              <div class="pcard-price"><sup>€</sup>128</div>
-              <div class="pcard-ship free">Livraison offerte</div>
+              <div class="pcard-price"><sup>€</sup>137</div>
+              <div class="pcard-ship free" data-i18n="shipFree">Livraison offerte</div>
             </div>
           </div>
           <a href="https://www.paypal.com/instantcommerce/checkout/PDMBCCHX4WJUW" target="_blank" class="pcard-btn bcmd-btn">Commander →</a>
@@ -884,23 +952,25 @@
       <!-- ─── Club Esencia (3 mois) ─── -->
       <div class="pcard" data-cat="abonnement" data-varietal="castillo" data-process="washed" data-roast="medium-light" data-sca="80-85" data-origin="boyaca">
         <div class="pcard-img">
-          <img src="images/Club_Esencia.png" alt="Club Esencia 3 mois">
+          <img src="Prod_250_gr.png" alt="Don Alberto 250g Grain entier">
+          <div class="pcard-overlay">
+            <div class="pcard-attrs">
+            <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kOrigine">Origine</span><span class="pcard-attr-val">Rondón, Boyacá</span></div>
+          </div>
         </div>
         <div class="pcard-body">
           <div class="pcard-sca">SCA 84.5</div>
-          <div class="pcard-tag">Abonnement Mensuel · 3 Mois</div>
+          <div class="pcard-tag" data-i18n="tagSub3">Abonnement Mensuel · 3 Mois</div>
           <div class="pcard-name">Club<br>Esencia</div>
-          <div class="pcard-attrs">
-            <div class="pcard-attr"><span class="pcard-attr-key">Livraison</span><span class="pcard-attr-val">2 × 250g / mois</span></div>
-            <div class="pcard-attr"><span class="pcard-attr-key">Durée</span><span class="pcard-attr-val">3 mois · 6 sacs</span></div>
-            <div class="pcard-attr"><span class="pcard-attr-key">Prix/sac</span><span class="pcard-attr-val">€15.83</span></div>
-            <div class="pcard-attr"><span class="pcard-attr-key">Économie</span><span class="pcard-attr-val">−€13 vs unité</span></div>
-            <div class="pcard-attr"><span class="pcard-attr-key">Livraison</span><span class="pcard-attr-val">Incluse</span></div>
+          <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kDuree">Durée</span><span class="pcard-attr-val">3 mois · 6 sacs</span></div>
+            <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kPrixSac">Prix/sac</span><span class="pcard-attr-val">€15.83</span></div>
+            <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kEconomie">Économie</span><span class="pcard-attr-val">−€13 vs unité</span></div>
+            <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kLivraison">Livraison</span><span class="pcard-attr-val" data-i18n="vIncluse">Incluse</span></div>
           </div>
-          <div class="pcard-notes">La découverte — torréfié frais à chaque envoi</div>
+          <div class="pcard-notes" data-i18n="notesEsencia">La découverte — torréfié frais à chaque envoi</div>
           <div class="pcard-footer">
             <div>
-              <div class="pcard-price"><sup>€</sup>80</div>
+              <div class="pcard-price"><sup>€</sup>95</div>
               <div class="pcard-ship">Paiement unique</div>
             </div>
           </div>
@@ -912,23 +982,25 @@
       <div class="pcard featured" data-cat="abonnement" data-varietal="castillo" data-process="washed" data-roast="medium-light" data-sca="80-85" data-origin="boyaca">
         <div class="pcard-badge">Le plus choisi</div>
         <div class="pcard-img">
-          <img src="images/Club_Raices.png" alt="Club Raíces 6 mois">
+          <img src="Prod_250_gr.png" alt="Don Alberto 250g Grain entier">
+          <div class="pcard-overlay">
+            <div class="pcard-attrs">
+            <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kOrigine">Origine</span><span class="pcard-attr-val">Rondón, Boyacá</span></div>
+          </div>
         </div>
         <div class="pcard-body">
           <div class="pcard-sca">SCA 84.5</div>
-          <div class="pcard-tag">Abonnement Mensuel · 6 Mois</div>
+          <div class="pcard-tag" data-i18n="tagSub6">Abonnement Mensuel · 6 Mois</div>
           <div class="pcard-name">Club<br>Raíces</div>
-          <div class="pcard-attrs">
-            <div class="pcard-attr"><span class="pcard-attr-key">Livraison</span><span class="pcard-attr-val">2 × 250g / mois</span></div>
-            <div class="pcard-attr"><span class="pcard-attr-key">Durée</span><span class="pcard-attr-val">6 mois · 12 sacs</span></div>
-            <div class="pcard-attr"><span class="pcard-attr-key">Prix/sac</span><span class="pcard-attr-val">€13 — le meilleur tarif</span></div>
-            <div class="pcard-attr"><span class="pcard-attr-key">Économie</span><span class="pcard-attr-val">−€60 vs unité</span></div>
-            <div class="pcard-attr"><span class="pcard-attr-key">Livraison</span><span class="pcard-attr-val">Incluse</span></div>
+          <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kDuree">Durée</span><span class="pcard-attr-val">6 mois · 12 sacs</span></div>
+            <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kPrixSac">Prix/sac</span><span class="pcard-attr-val">€13 — le meilleur tarif</span></div>
+            <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kEconomie">Économie</span><span class="pcard-attr-val">−€60 vs unité</span></div>
+            <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kLivraison">Livraison</span><span class="pcard-attr-val" data-i18n="vIncluse">Incluse</span></div>
           </div>
           <div class="pcard-notes">L'engagement — accès prioritaire nouvelles récoltes</div>
           <div class="pcard-footer">
             <div>
-              <div class="pcard-price"><sup>€</sup>132</div>
+              <div class="pcard-price"><sup>€</sup>156</div>
               <div class="pcard-ship">Paiement unique</div>
             </div>
           </div>
@@ -939,23 +1011,25 @@
       <!-- ─── Club Herencia (12 mois) ─── -->
       <div class="pcard" data-cat="abonnement" data-varietal="castillo" data-process="washed" data-roast="medium-light" data-sca="80-85" data-origin="boyaca">
         <div class="pcard-img">
-          <img src="images/Club_Herencia.png" alt="Club Herencia 12 mois">
+          <img src="Prod_250_gr.png" alt="Don Alberto 250g Grain entier">
+          <div class="pcard-overlay">
+            <div class="pcard-attrs">
+            <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kOrigine">Origine</span><span class="pcard-attr-val">Rondón, Boyacá</span></div>
+          </div>
         </div>
         <div class="pcard-body">
           <div class="pcard-sca">SCA 84.5</div>
           <div class="pcard-tag">Abonnement Annuel · 12 Mois</div>
           <div class="pcard-name">Club<br>Herencia</div>
-          <div class="pcard-attrs">
-            <div class="pcard-attr"><span class="pcard-attr-key">Livraison</span><span class="pcard-attr-val">2 × 250g / mois</span></div>
-            <div class="pcard-attr"><span class="pcard-attr-key">Durée</span><span class="pcard-attr-val">12 mois · 24 sacs</span></div>
-            <div class="pcard-attr"><span class="pcard-attr-key">Prix/sac</span><span class="pcard-attr-val">€12.50</span></div>
-            <div class="pcard-attr"><span class="pcard-attr-key">Économie</span><span class="pcard-attr-val">−€132 vs unité</span></div>
+          <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kDuree">Durée</span><span class="pcard-attr-val">12 mois · 24 sacs</span></div>
+            <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kPrixSac">Prix/sac</span><span class="pcard-attr-val">€12.50</span></div>
+            <div class="pcard-attr"><span class="pcard-attr-key" data-i18n="kEconomie">Économie</span><span class="pcard-attr-val">−€132 vs unité</span></div>
             <div class="pcard-attr"><span class="pcard-attr-key">Extras</span><span class="pcard-attr-val">Visite ferme + Message</span></div>
           </div>
           <div class="pcard-notes">L'héritage — visite virtuelle & message de la famille</div>
           <div class="pcard-footer">
             <div>
-              <div class="pcard-price"><sup>€</sup>260</div>
+              <div class="pcard-price"><sup>€</sup>300</div>
               <div class="pcard-ship">Paiement unique</div>
             </div>
           </div>
@@ -987,30 +1061,30 @@
 
     <!-- 250g -->
     <div class="pg-card">
-      <div class="pg-img-wrap"><img src="images/Prod_250_gr.png" alt="Don Alberto 250g"></div>
+      <div class="pg-img-wrap"><img src="Prod_250_gr.png" alt="Don Alberto 250g"></div>
       <div class="pg-body">
         <div class="pg-tag">Format Boutique</div>
         <div class="pg-name">250g — Grain entier</div>
         <div class="pg-desc">Rondon Castillo · Procédé Lavé · SCA 84.5</div>
         <div class="pg-price-row">
-          <span class="pg-price">€16</span>
-          <span class="pg-shipping">+ livraison offerte</span>
+          <span class="pg-price">€18</span>
+          <span class="pg-shipping">+ livraison €7</span>
         </div>
         <div class="pg-divider"></div>
         <div class="pg-pay-label">Choisissez votre paiement</div>
         <a href="https://www.paypal.com/instantcommerce/checkout/VBX4WKN8C7TW8" class="pg-pay-btn pp" target="_blank">
           <span class="pg-pay-logo">P</span>
           <div class="pg-pay-info"><span class="pg-pay-name">PayPal</span><span class="pg-pay-note">Recommandé · Montant pré-rempli</span></div>
-          <span class="pg-pay-amount">€16</span>
+          <span class="pg-pay-amount">€18</span>
         </a>
         <a href="https://revolut.me/luola" class="pg-pay-btn rv" target="_blank">
           <span class="pg-pay-logo">R</span>
-          <div class="pg-pay-info"><span class="pg-pay-name">Revolut</span><span class="pg-pay-note">Entrez €16 · Réf: DA-250g</span></div>
-          <span class="pg-pay-amount">€16</span>
+          <div class="pg-pay-info"><span class="pg-pay-name">Revolut</span><span class="pg-pay-note">Entrez €18 · Réf: DA-250g</span></div>
+          <span class="pg-pay-amount">€18</span>
         </a>
         <a href="https://wise.com/pay/me/lauraa1618" class="pg-pay-btn ws" target="_blank">
           <span class="pg-pay-logo">W</span>
-          <div class="pg-pay-info"><span class="pg-pay-name">Wise</span><span class="pg-pay-note">Entrez €16 · Réf: DA-250g</span></div>
+          <div class="pg-pay-info"><span class="pg-pay-name">Wise</span><span class="pg-pay-note">Entrez €18 · Réf: DA-250g</span></div>
           <span class="pg-pay-amount">€18</span>
         </a>
         <div class="pg-note">Indiquez votre adresse de livraison dans la note de paiement.</div>
@@ -1020,13 +1094,13 @@
     <!-- 3-pack -->
     <div class="pg-card pg-featured">
       <div class="pg-featured-badge">Le plus populaire</div>
-      <div class="pg-img-wrap"><img src="images/Prod_3_pack.png" alt="Don Alberto 3-pack"></div>
+      <div class="pg-img-wrap"><img src="Prod_3_pack.png" alt="Don Alberto 3-pack"></div>
       <div class="pg-body">
         <div class="pg-tag">Pack Découverte</div>
         <div class="pg-name">3 × 250g</div>
-        <div class="pg-desc">Cadeau idéal · Économisez €9 · Livraison offerte</div>
+        <div class="pg-desc">Cadeau idéal · Économisez €5 · Livraison offerte</div>
         <div class="pg-price-row">
-          <span class="pg-price">€39</span>
+          <span class="pg-price">€49</span>
           <span class="pg-shipping pg-free">Livraison offerte</span>
         </div>
         <div class="pg-divider"></div>
@@ -1034,17 +1108,17 @@
         <a href="https://www.paypal.com/instantcommerce/checkout/W8EVKKHSM3QXQ" class="pg-pay-btn pp" target="_blank">
           <span class="pg-pay-logo">P</span>
           <div class="pg-pay-info"><span class="pg-pay-name">PayPal</span><span class="pg-pay-note">Recommandé · Montant pré-rempli</span></div>
-          <span class="pg-pay-amount">€39</span>
+          <span class="pg-pay-amount">€49</span>
         </a>
         <a href="https://revolut.me/luola" class="pg-pay-btn rv" target="_blank">
           <span class="pg-pay-logo">R</span>
-          <div class="pg-pay-info"><span class="pg-pay-name">Revolut</span><span class="pg-pay-note">Entrez €39 · Réf: DA-3pack</span></div>
-          <span class="pg-pay-amount">€39</span>
+          <div class="pg-pay-info"><span class="pg-pay-name">Revolut</span><span class="pg-pay-note">Entrez €49 · Réf: DA-3pack</span></div>
+          <span class="pg-pay-amount">€49</span>
         </a>
         <a href="https://wise.com/pay/me/lauraa1618" class="pg-pay-btn ws" target="_blank">
           <span class="pg-pay-logo">W</span>
-          <div class="pg-pay-info"><span class="pg-pay-name">Wise</span><span class="pg-pay-note">Entrez €39 · Réf: DA-3pack</span></div>
-          <span class="pg-pay-amount">€39</span>
+          <div class="pg-pay-info"><span class="pg-pay-name">Wise</span><span class="pg-pay-note">Entrez €49 · Réf: DA-3pack</span></div>
+          <span class="pg-pay-amount">€49</span>
         </a>
         <div class="pg-note">Indiquez votre adresse de livraison dans la note de paiement.</div>
       </div>
@@ -1052,13 +1126,13 @@
 
     <!-- 2.5kg -->
     <div class="pg-card">
-      <div class="pg-img-wrap"><img src="images/Prod_Both_Formats.png" alt="Don Alberto 2.5kg"></div>
+      <div class="pg-img-wrap"><img src="Prod_Both_Formats.png" alt="Don Alberto 2.5kg"></div>
       <div class="pg-body">
         <div class="pg-tag">Format Professionnel</div>
         <div class="pg-name">2,5 kg — Wholesale</div>
         <div class="pg-desc">Cafés · Restaurants · Épiceries fines</div>
         <div class="pg-price-row">
-          <span class="pg-price">€128</span>
+          <span class="pg-price">€137</span>
           <span class="pg-shipping pg-free">Livraison offerte</span>
         </div>
         <div class="pg-divider"></div>
@@ -1066,17 +1140,17 @@
         <a href="https://www.paypal.com/instantcommerce/checkout/PDMBCCHX4WJUW" class="pg-pay-btn pp" target="_blank">
           <span class="pg-pay-logo">P</span>
           <div class="pg-pay-info"><span class="pg-pay-name">PayPal</span><span class="pg-pay-note">Recommandé · Montant pré-rempli</span></div>
-          <span class="pg-pay-amount">€128</span>
+          <span class="pg-pay-amount">€137</span>
         </a>
         <a href="https://revolut.me/luola" class="pg-pay-btn rv" target="_blank">
           <span class="pg-pay-logo">R</span>
-          <div class="pg-pay-info"><span class="pg-pay-name">Revolut</span><span class="pg-pay-note">Entrez €128 · Réf: DA-2.5kg</span></div>
-          <span class="pg-pay-amount">€128</span>
+          <div class="pg-pay-info"><span class="pg-pay-name">Revolut</span><span class="pg-pay-note">Entrez €137 · Réf: DA-2.5kg</span></div>
+          <span class="pg-pay-amount">€137</span>
         </a>
         <a href="https://wise.com/pay/me/lauraa1618" class="pg-pay-btn ws" target="_blank">
           <span class="pg-pay-logo">W</span>
-          <div class="pg-pay-info"><span class="pg-pay-name">Wise</span><span class="pg-pay-note">Entrez €128 · Réf: DA-2.5kg</span></div>
-          <span class="pg-pay-amount">€128</span>
+          <div class="pg-pay-info"><span class="pg-pay-name">Wise</span><span class="pg-pay-note">Entrez €137 · Réf: DA-2.5kg</span></div>
+          <span class="pg-pay-amount">€137</span>
         </a>
         <a href="mailto:donalberto.coffee@gmail.com?subject=Commande%20Don%20Alberto&body=Bonjour%2C%0A%0AJe%20souhaite%20commander%20le%20format%202.5kg." class="pg-pay-btn em" target="_blank">
           <span class="pg-pay-logo">✉</span>
@@ -1120,20 +1194,20 @@
       <div style="font-size:8px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:18px;font-family:'Lato',sans-serif;">Récapitulatif des prix</div>
       <div style="display:flex;flex-direction:column;gap:0;">
         <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06);">
-          <div><div style="font-size:12px;color:white;font-family:'Lato',sans-serif;">250g — Grain entier</div><div style="font-size:10px;color:rgba(255,255,255,.32);margin-top:2px;font-family:'Lato',sans-serif;">+ livraison offerte</div></div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--gold);">€16</div>
+          <div><div style="font-size:12px;color:white;font-family:'Lato',sans-serif;">250g — Grain entier</div><div style="font-size:10px;color:rgba(255,255,255,.32);margin-top:2px;font-family:'Lato',sans-serif;">+ livraison €7</div></div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--gold);">€18</div>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06);">
-          <div><div style="font-size:12px;color:white;font-family:'Lato',sans-serif;">250g — Café Moulu</div><div style="font-size:10px;color:rgba(255,255,255,.32);margin-top:2px;font-family:'Lato',sans-serif;">+ livraison offerte</div></div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--gold);">€16</div>
+          <div><div style="font-size:12px;color:white;font-family:'Lato',sans-serif;">250g — Café Moulu</div><div style="font-size:10px;color:rgba(255,255,255,.32);margin-top:2px;font-family:'Lato',sans-serif;">+ livraison €7</div></div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--gold);">€19</div>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06);">
           <div><div style="font-size:12px;color:white;font-family:'Lato',sans-serif;">3 × 250g — Pack Découverte</div><div style="font-size:10px;color:rgba(255,255,255,.32);margin-top:2px;font-family:'Lato',sans-serif;">Livraison offerte</div></div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--gold);">€39</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--gold);">€49</div>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;">
           <div><div style="font-size:12px;color:white;font-family:'Lato',sans-serif;">2,5 kg — Wholesale</div><div style="font-size:10px;color:rgba(255,255,255,.32);margin-top:2px;font-family:'Lato',sans-serif;">Livraison offerte</div></div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--gold);">€128</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--gold);">€137</div>
         </div>
       </div>
       <div style="margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.06);">
@@ -1186,7 +1260,12 @@
    ═══════════════════════════════════ -->
 <section id="score" style="background:var(--teal-deep,#064e65);padding:80px 80px;position:relative;overflow:hidden;">
   <div style="position:absolute;inset:0;background:url('images/farm_cherries1.jpeg') center/cover;opacity:.06;"></div>
-  <div style="position:relative;z-index:1;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;">
+  <div style="position:relative;z-index:1;max-width:1300px;margin:0 auto;display:grid;grid-template-columns:340px 1fr 1fr;gap:60px;align-items:start;">
+
+    <!-- COL 0 — Product image -->
+    <div class="reveal" style="display:flex;align-items:flex-start;justify-content:center;padding-top:20px;">
+      <img src="Prod_Both_Formats.png" alt="Don Alberto — Formats" style="width:100%;max-width:300px;object-fit:contain;filter:drop-shadow(0 20px 60px rgba(0,0,0,.4));">
+    </div>
 
     <!-- LEFT — Score bars -->
     <div class="reveal">
@@ -1344,7 +1423,7 @@
 
   </div>
   <!-- responsive -->
-  <style>@media(max-width:900px){#score .score-inner{grid-template-columns:1fr!important;}}</style>
+  <style>@media(max-width:1100px){#score>div>div:first-child{display:none!important;}#score>div{grid-template-columns:1fr 1fr!important;}}@media(max-width:700px){#score>div{grid-template-columns:1fr!important;}}</style>
 </section>
 
 
@@ -1534,18 +1613,30 @@
    FAMILY — Des visages derrière chaque grain
    ═══════════════════════════════════ -->
 <section class="bfamily-section" id="famille">
-  <div class="reveal">
-    <div class="section-label-b">La Famille</div>
-    <h2 class="h2-b" style="margin-top:12px;">Des visages derrière<br><em>chaque grain</em></h2>
-    <p class="body-text-b" style="margin-top:26px;">Don Alberto Café n'est pas une marque — c'est une famille. Une femme cultive la terre de Boyacá avec l'amour d'une vie entière. Sa fille porte le flambeau de son père. Son mari a grandi dans les caféières et connaît chaque grain de cette région par cœur.</p>
-    <p class="body-text-b">Chaque sac est une signature familiale, une promesse de transparence totale, de la ferme à votre tasse.</p>
-    <div class="quote-box-b">
+
+  <!-- Title centred -->
+  <div class="bfamily-header reveal">
+    <div class="section-label-b center" id="fam-label">La Famille</div>
+    <h2 class="h2-b" style="margin-top:14px;" id="fam-title">Des visages derrière<br><em>chaque grain</em></h2>
   </div>
-  <div class="bfamily-photos reveal">
+
+  <!-- Full-width three-column image gallery -->
+  <div class="bfamily-gallery">
     <div class="bfamily-photo"><img src="images/family_group.jpeg" alt="La famille Don Alberto"></div>
     <div class="bfamily-photo"><img src="images/family_farm1.jpeg" alt="La ferme de Boyacá"></div>
-    <div class="bfamily-photo"><img src="images/harvest_man2.jpeg" alt="Récolte manuelle"></div>
+    <div class="bfamily-photo harvest"><img src="images/harvest_man2.jpeg" alt="Récolte manuelle"></div>
   </div>
+
+  <!-- Text block centred below images -->
+  <div class="bfamily-text reveal">
+    <p class="body-text-b" id="fam-p1" style="margin-bottom:20px;">Don Alberto Café n'est pas une marque — c'est une famille. Une femme cultive la terre de Boyacá avec l'amour d'une vie entière. Sa fille porte le flambeau de son père. Son mari a grandi dans les caféières et connaît chaque grain de cette région par cœur.</p>
+    <p class="body-text-b" id="fam-p2">Chaque sac est une signature familiale, une promesse de transparence totale, de la ferme à votre tasse.</p>
+    <div class="quote-box-b" style="max-width:600px;margin:36px auto 0;text-align:left;">
+      <p id="fam-quote">"Quand j'étais enfant, je récoltais le café avec mon grand-père dans ces mêmes champs. Aujourd'hui, c'est nous qui vous l'offrons."</p>
+      <cite id="fam-cite">Le père fondateur · Enfant de Boyacá</cite>
+    </div>
+  </div>
+
 </section>
 
 
@@ -1593,6 +1684,21 @@
 .pay-header { display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px;padding-bottom:16px;border-bottom:1px solid rgba(9,102,133,.12); }
 </style>
 
+
+
+<!-- ═══════════════════════════════════
+   NEWSLETTER
+   ═══════════════════════════════════ -->
+<section class="nl-section">
+  <div class="nl-text">
+    <h2 id="nl-h">Rejoignez la communauté <em>Don Alberto</em></h2>
+    <p id="nl-p">Nouvelles récoltes · Actualités ferme · FR · EN · ES</p>
+  </div>
+  <form class="nl-form" action="https://tally.so/r/kdRxKZ" method="GET" target="_blank">
+    <input type="email" name="email" class="nl-input" id="nl-input" placeholder="Votre adresse email" required autocomplete="email">
+    <button type="submit" class="nl-submit" id="nl-btn">S'inscrire</button>
+  </form>
+</section>
 
 <!-- ═══════════════════════════════════
    SHELL: footer injected by da-shell.js
@@ -1660,14 +1766,15 @@
     applyFilters();
   };
 
-  // Sticky tab on scroll — always follow main-nav height
+  // Sticky tab on scroll — always follow main-nav bottom edge
   function updateTabTop() {
-    const nav = document.getElementById('main-nav');
+    const util = document.getElementById('util-bar');
+    const nav  = document.getElementById('main-nav');
     const tabWrap = document.getElementById('boutique-tabs');
     if (nav && tabWrap) {
-      const navRect = nav.getBoundingClientRect();
-      // Use offsetHeight so it works even before first scroll
-      tabWrap.style.top = nav.offsetHeight + 'px';
+      const utilH = (util && util.offsetHeight) || 0;
+      const navH  = nav.offsetHeight || 0;
+      tabWrap.style.top = (utilH + navH) + 'px';
     }
   }
   window.addEventListener('resize', updateTabTop);
