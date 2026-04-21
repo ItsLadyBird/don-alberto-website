@@ -107,13 +107,13 @@ ul{list-style:none;}
    5. FULL HEADER BRAND
    ══════════════════════════════════════════ */
 #hdr-full{
-  background:var(--cream);padding:32px 20px 24px;text-align:center;
+  background:var(--cream);padding:14px 20px 12px;text-align:center;
   border-bottom:1px solid rgba(9,102,133,.08);
   margin-top:var(--util-h);
 }
 .hf-brand-link{display:block;text-decoration:none;color:inherit;}
-.hf-icon{width:90px;height:90px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;}
-.hf-icon img{width:90px;height:90px;object-fit:contain;display:block;}
+.hf-icon{width:68px;height:68px;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;}
+.hf-icon img{width:68px;height:68px;object-fit:contain;display:block;}
 .hf-name{
   font-family:'Lato',sans-serif;font-size:clamp(24px,4vw,36px);
   font-weight:700;letter-spacing:5px;text-transform:uppercase;
@@ -506,8 +506,8 @@ footer{background:#0d1014;padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px) 0;}
   .quality-badge{right:0;bottom:0;}
   .nl-form{flex-direction:column;}
   .nl-input{border-right:1px solid rgba(255,255,255,.15);}
-  .hf-icon{width:70px;height:70px;}
-  .hf-icon img{width:70px;height:70px;}
+  .hf-icon{width:54px;height:54px;}
+  .hf-icon img{width:54px;height:54px;}
   .hf-name{font-size:22px;}
 }
 
