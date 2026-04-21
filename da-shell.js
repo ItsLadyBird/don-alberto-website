@@ -144,7 +144,7 @@ const SHELL_HEADER = `
     <nav class="nav-right" aria-label="Nav droite">
       <div class="ni"><a href="b2b.html" id="n-pro">Espace Pro</a></div>
       <div class="ni"><a href="origine-boutique.html" id="n-orig">Boutique d'Origine</a></div>
-      <a href="javascript:void(0)" onclick="openCheckout()" class="nav-cmd" id="n-cmd">Commander</a>
+      <a href="boutique.html#formats" class="nav-cmd" id="n-cmd">Commander</a>
     </nav>
     <button class="mob-tog" id="mob-tog" onclick="toggleMob()" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -166,7 +166,7 @@ const SHELL_HEADER = `
     <a href="b2b.html#club" class="mm-lnk" id="mm-club">Club Don Alberto</a>
     <a href="origine-boutique.html" class="mm-lnk" id="mm-orig">Boutique d'Origine</a>
     <a href="b2b.html" class="mm-lnk" id="mm-pro">Espace Pro</a>
-    <a href="javascript:void(0)" onclick="openCheckout();toggleMob();" class="mm-cta" id="mm-cmd">Commander</a>
+    <a href="boutique.html#formats" onclick="toggleMob();" class="mm-cta" id="mm-cmd">Commander</a>
     <a href="maison.html" class="mm-lnk mm-secondary" id="mm-maison">La Maison</a>
     <a href="vlog.html" class="mm-lnk mm-secondary" id="mm-vlog">Le Vlog</a>
   </div>
