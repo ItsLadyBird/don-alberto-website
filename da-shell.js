@@ -450,7 +450,7 @@ const L = {
     badgePop:'Le plus populaire',
     famLabel:'La Famille', famTitle:'Des visages derrière <em>chaque grain</em>',
     famP1:'Don Alberto Café est bien plus qu’une marque, c’est une signature familiale. Nous sommes un collectif de famille et d’amis d’enfance revenant à nos racines, mettant en œuvre cet amour de la terre qui nous a été transmis. Élevés à Boyacá, nous cultivons ces terres en préservant le savoir-faire artisanal de nos ancêtres. Gloria et Fredy ont grandi parmi ces caféiers et connaissent chaque grain par cœur. Ensemble, avec leur amie d’enfance Luz Marina, ils ont uni leurs forces pour donner vie à ce projet.',
-    famP2:'Chaque sac est une signature familiale, une preuve d'artisanat et de dévotion portée à chaque détail. Nous offrons une transparence totale et une traçabilité absolue, de notre ferme à votre tasse.',
+    famP2:'Chaque sac est une signature familiale, une preuve d\'artisanat et de dévotion portée à chaque détail. Nous offrons une transparence totale et une traçabilité absolue, de notre ferme à votre tasse.',
     famQuote:'"Quand j\'étais enfant, je récoltais le café avec mon grand-père dans ces mêmes champs. Aujourd\'hui, c\'est nous qui vous l\'offrons."',
     famCite:'Fredy A., Famille Fondatrice',
     ndc:'Notre Café', nds1:'Notre SCA — Certification', nds2:'Notre SCA — Évaluation', ndp:'Notre Procédé', ndf:'La Famille',
