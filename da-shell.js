@@ -132,7 +132,7 @@ const SHELL_HEADER = `
           <a href="boutique.html#famille" id="nd-fam">La Famille</a>
         </div>
       </div>
-      <div class="ni"><a href="club.html#club" id="n-club">Club Don Alberto</a></div>
+      <div class="ni"><a href="b2b.html#club" id="n-club">Club Don Alberto</a></div>
     </nav>
     <div class="nav-center">
       <div class="nav-logo-compact" id="compact-logo">
@@ -163,7 +163,7 @@ const SHELL_HEADER = `
   <div class="mm-body">
     <a href="index.html" class="mm-lnk" id="mm-home">Accueil</a>
     <a href="boutique.html" class="mm-lnk" id="mm-spec">Specialty Coffee</a>
-    <a href="club.html#club" class="mm-lnk" id="mm-club">Club Don Alberto</a>
+    <a href="b2b.html#club" class="mm-lnk" id="mm-club">Club Don Alberto</a>
     <a href="origine-boutique.html" class="mm-lnk" id="mm-orig">Boutique d'Origine</a>
     <a href="b2b.html" class="mm-lnk" id="mm-pro">Espace Pro</a>
     <a href="boutique.html#formats" onclick="toggleMob();" class="mm-cta" id="mm-cmd">Commander</a>
@@ -191,7 +191,37 @@ const SHELL_FOOTER = `
         <div class="footer-brand-cafe">CAFÉ</div>
       </a>
       <p class="footer-slogan" id="footer-slogan">Artisanat Caféier Ancestral</p>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4 id="fc-h1">La Marque</h4>
+        <ul>
+          <li><a href="maison.html" id="fl-maison">La Maison</a></li>
+          <li><a href="atelier.html" id="fl-atelier">Le Atelier</a></li>
+          <li><a href="vlog.html" id="fl-vlog">Le Vlog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 id="fc-h2">Commander</h4>
+        <ul>
+          <li><a href="boutique.html" id="fl-boutique">Boutique</a></li>
+          <li><a href="b2b.html#club" id="fl-club">Club Don Alberto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 id="fc-h3">Partenaires &amp; B2B</h4>
+        <ul>
+          <li><a href="b2b.html" id="fl-b2b">Espace Pro</a></li>
+          <li><a href="b2b.html#contact" id="fl-contact">Contacter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-social-col">
+      <h4 class="footer-social-hd" id="footer-follow-lbl">Follow Us</h4>
       <div class="footer-socials">
+        <a href="mailto:contact@donalberto.cafe" target="_blank" rel="noopener" class="footer-soc" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+        </a>
         <a href="https://instagram.com/donalberto.cafe" target="_blank" rel="noopener" class="footer-soc" aria-label="Instagram">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
         </a>
@@ -207,30 +237,6 @@ const SHELL_FOOTER = `
         <a href="https://wa.me/33761528450" target="_blank" rel="noopener" class="footer-soc" aria-label="WhatsApp">
           <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.09.543 4.05 1.496 5.754L0 24l6.394-1.467A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.882a9.88 9.88 0 01-5.031-1.378l-.36-.214-3.742.858.899-3.628-.235-.374A9.861 9.861 0 012.118 12C2.118 6.533 6.533 2.118 12 2.118S21.882 6.533 21.882 12 17.467 21.882 12 21.882z"/></svg>
         </a>
-      </div>
-    </div>
-    <div class="footer-cols">
-      <div class="footer-col">
-        <h4 id="fc-h1">La Marque</h4>
-        <ul>
-          <li><a href="maison.html" id="fl-maison">La Maison</a></li>
-          <li><a href="atelier.html" id="fl-atelier">Le Atelier</a></li>
-          <li><a href="vlog.html" id="fl-vlog">Le Vlog</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4 id="fc-h2">Commander</h4>
-        <ul>
-          <li><a href="boutique.html" id="fl-boutique">Boutique</a></li>
-          <li><a href="club.html#club" id="fl-club">Club Don Alberto</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4 id="fc-h3">Partenaires &amp; B2B</h4>
-        <ul>
-          <li><a href="b2b.html" id="fl-b2b">Espace Pro</a></li>
-          <li><a href="b2b.html#contact" id="fl-contact">Contacter</a></li>
-        </ul>
       </div>
     </div>
   </div>
@@ -371,7 +377,7 @@ const L = {
     fslogan:'Artisanat Caféier Ancestral',
     nlph:'Votre adresse email',
     ey:'Boyacá · Colombie · Single Origin · Specialty', sc:'Défiler',
-    p1e:'Specialty Coffee · Boutique', p1t:'Rondón Castillo —<br>SCA 84.5 · Grain entier', p1c:'Explorer la boutique →',
+    p1e:'Specialty Coffee · Boutique', p1t:'Specialty Single Origins<br>de Colombie · SCA 84.5+', p1c:'Explorer la boutique →',
     p2e:'Club Don Alberto · Abonnement', p2t:'Café de spécialité frais<br>chaque mois', p2c:'Rejoindre le Club →',
     nlh:'Rejoignez la communauté <em>Don Alberto</em>', nlp:'Nouvelles récoltes · Actualités ferme', nlb:"S'inscrire",
     t1h:'Commande directe', t1d:'PayPal · Revolut · Wise', t2h:'Livraison internationale', t2d:'France, Europe & Monde',
@@ -382,15 +388,15 @@ const L = {
     fh1:'La Marque', fh2:'Commander', fh3:'Partenaires & B2B',
     fm:'La Maison', fa:'Le Atelier', fv:'Le Vlog', fb:'Boutique', fc:'Club Don Alberto', fb2:'Espace Pro', fco:'Contacter',
     fvt:'Notre Vlog — Dans les coulisses de la ferme', wa:"Besoin d'aide ?",
-    ssca:'Score SCA', salt:'Altitude', sara:'Arabica Castillo',
+    ssca:'Score SCA', salt:'Altitude', sara:'Premium Varietales', stat4:'Microclimats',
     hcta:'Découvrir le café →',
     mmsecmarque:'La Marque', mmseccmd:'Commander', mmsecpro:'Pro',
     mmorig2:'L\'Origine', mmatelier:'Atelier',
-    jt1:'Terroir unique<br>de Boyacá', jd1:'Seule ferme de café vert de spécialité du département. Altitude 1 670m ASNM.',
+    jt1:'Terroirs Uniques<br>de Colombie', jd1:'Nous travaillons uniquement avec les seules fermes certifiées Green Coffee de leurs micro-régions — une sélection d\'exception parmi les terroirs colombiens.',
     jt2:'Récolte à la<br>main sélective', jd2:'Cueillette grain par grain des seules cerises mûres à point, pour une qualité irréprochable.',
-    jt3:'Procédé Lavé<br>artisanal', jd3:'Fermentation contrôlée et lavage complet pour une pureté aromatique maximale.',
-    jt4:'Certifié SCA<br>84.5 points', jd4:'Évalué par un Q-Grader certifié. Scores parfaits en uniformité, tasse propre et douceur.',
-    jt5:'Torréfaction<br>artisanale moyenne', jd5:'Profil maîtrisé pour révéler les notes de miel, chocolat fin et la texture soyeuse du Castillo.',
+    jt3:'Procédés Artisanaux<br>de Spécialité', jd3:'Lavé, naturel ou honey — chaque origine est traitée selon la méthode qui révèle au mieux son profil. Contrôle rigoureux à chaque étape.',
+    jt4:'SCA Certifié<br>84.5+', jd4:'Nous sélectionnons des cafés évalués par des Q-Graders certifiés, avec des scores parfaits constants en uniformité, tasse propre et douceur.',
+    jt5:'Torréfaction<br>Artisanale Moyenne', jd5:'Profil maîtrisé pour révéler les notes propres et la texture soyeuse de chaque Variétal.',
     qlabel:"L'Excellence de la Source",
     qh2:'Une densité raffinée,<br>née du terroir de <em>Boyacá</em>',
     qp1:'À 1 670 m d\'altitude, les fluctuations thermiques dramatiques de Rondón forcent les cerises Castillo dans un état de « stress positif » — une maturation plus lente qui concentre des esters complexes et des acides organiques dans chaque grain.',
@@ -398,6 +404,24 @@ const L = {
     qquote:'"Il aimait la terre comme peu d\'hommes savent l\'aimer. Nous cultivons sa mémoire à chaque récolte."',
     qcite:'La famille fondatrice · Don Alberto Café',
     qcta:'Voir le score SCA complet →',
+    ticker:[
+      {text:'Colombie',val:'Puissance Café Mondiale'},
+      {text:'Microclimats',val:'86 en Colombie'},
+      {text:'Premium Varietales',val:'Arabica · Bourbon · Geisha'},
+      {text:'Altitude',val:'+1500 MSNM'},
+      {text:'Single Origin',val:'Microlots Exclusifs'},
+      {text:'Sol Volcanique',val:'Terroir Unique'},
+      {text:'Récolte Manuelle',val:'Sélective'},
+      {text:'Fraîcheur',val:'Toute l\'Année'},
+      {text:'Standard',val:'Green Coffee Farms'},
+      {text:'SCA Score',val:'84.5+ / 100'},
+      {text:'Tasse Propre',val:'Score 10/10'}
+    ],
+    col_label:'Colombie · Premier Producteur Mondial',
+    col_h2:'Le seul pays au monde<br>récolté <em>toute l\'année</em>',
+    col_p1:'La Colombie compte 86 microclimats distincts, deux chaînes de montagnes andines et des sols volcaniques entre 1 200 et 2 000 m d\'altitude. Un terroir d\'une richesse inégalée, reconnu par les experts du monde entier comme l\'une des origines café les plus complexes et les plus désirables.',
+    col_cta:'Découvrir La Maison →',
+    fol_lbl:'Nous Suivre',
     olabel:'Specialty Coffee Boyacá Colombia',
     oh2:'Rondón, Boyacá —<br><em>là où tout commence</em>',
     op1:'Tandis que les régions traditionnelles offrent de la constance, Boyacá offre de la complexité. À 1 670 m, les étages thermiques dramatiques de Rondón concentrent dans la cerise Castillo des esters rares — à l\'origine du profil Don Alberto.',
@@ -445,7 +469,7 @@ const L = {
     fslogan:'Ancestral Coffee Crafting',
     nlph:'Your email address',
     ey:'Boyacá · Colombia · Single Origin · Specialty', sc:'Scroll',
-    p1e:'Specialty Coffee · Shop', p1t:'Rondón Castillo —<br>SCA 84.5 · Whole Bean', p1c:'Explore the shop →',
+    p1e:'Specialty Coffee · Shop', p1t:'Colombia Specialty<br>Single Origins · SCA 84.5+', p1c:'Explore the shop →',
     p2e:'Club Don Alberto · Subscription', p2t:'Fresh specialty coffee<br>every month', p2c:'Join the Club →',
     nlh:'Join the <em>Don Alberto</em> community', nlp:'New harvests · Farm news', nlb:'Subscribe',
     t1h:'Direct order', t1d:'PayPal · Revolut · Wise', t2h:'International shipping', t2d:'France, Europe & Worldwide',
@@ -456,15 +480,15 @@ const L = {
     fh1:'The Brand', fh2:'Order', fh3:'Partners & B2B',
     fm:'The House', fa:'The Atelier', fv:'The Vlog', fb:'Shop', fc:'Club Don Alberto', fb2:'Pro Space', fco:'Contact',
     fvt:'Our Vlog — Behind the scenes at the farm', wa:'Need help?',
-    ssca:'SCA Score', salt:'Altitude', sara:'Arabica Castillo',
+    ssca:'SCA Score', salt:'Altitude', sara:'Premium Varietals', stat4:'Microclimates',
     hcta:'Discover the Coffee →',
     mmsecmarque:'The Brand', mmseccmd:'Order', mmsecpro:'Pro',
     mmorig2:'Origin', mmatelier:'Atelier',
-    jt1:'Unique Boyacá<br>Terroir', jd1:'The only specialty green coffee farm in the department. Altitude 1,670m MASL.',
+    jt1:'Unique<br>Terroirs', jd1:'We work exclusively with the only certified Green Coffee Farms in their micro-regions — a curated selection of Colombia\'s finest terroirs.',
     jt2:'Selective<br>Hand Harvest', jd2:'Berry by berry picking of only ripe cherries, for irreproachable quality.',
-    jt3:'Artisan<br>Washed Process', jd3:'Controlled fermentation and full washing for maximum aromatic purity.',
-    jt4:'SCA Certified<br>84.5 Points', jd4:'Evaluated by a certified Q-Grader. Perfect scores in uniformity, clean cup and sweetness.',
-    jt5:'Medium<br>Artisan Roast', jd5:'Mastered profile to reveal honey, fine chocolate notes and the silky texture of Castillo.',
+    jt3:'Artisan<br>Processes', jd3:'Washed, natural or honey — each origin is processed using the method that best reveals its unique profile. Rigorous control at every step.',
+    jt4:'SCA Certified<br>84.5+', jd4:'We offer coffees evaluated by Q-certified Graders with consistently perfect scores in uniformity, clean cup and sweetness.',
+    jt5:'Medium<br>Artisan Roast', jd5:'Mastered profile to reveal clean notes and the silky texture of each Varietal.',
     qlabel:'The Excellence of the Source',
     qh2:'A refined density,<br>born from the terroir of <em>Boyacá</em>',
     qp1:'At 1,670m altitude, the dramatic thermal fluctuations of Rondón push the Castillo cherries into a state of "positive stress" — a slower ripening that concentrates complex esters and organic acids into every bean.',
@@ -472,6 +496,24 @@ const L = {
     qquote:'"He loved the land as few men know how to. We cultivate his memory with every harvest."',
     qcite:'The founding family · Don Alberto Café',
     qcta:'View the full SCA score →',
+    ticker:[
+      {text:'Colombia',val:"World's Top Coffee Producer"},
+      {text:'Microclimates',val:'86 in Colombia'},
+      {text:'Premium Varietals',val:'Arabica · Bourbon · Geisha'},
+      {text:'Altitude',val:'+1500m MASL'},
+      {text:'Single Origin',val:'Exclusive Microlots'},
+      {text:'Volcanic Soil',val:'Unique Terroir'},
+      {text:'Hand Harvesting',val:'Selective'},
+      {text:'Freshness',val:'Year Round'},
+      {text:'Standard',val:'Green Coffee Farms'},
+      {text:'SCA Score',val:'84.5+ / 100'},
+      {text:'Clean Cup',val:'Score 10/10'}
+    ],
+    col_label:"Colombia · World's Top Coffee Origin",
+    col_h2:'The only country in the world<br>harvested <em>year round</em>',
+    col_p1:'Colombia is home to 86 distinct microclimates, two Andean mountain ranges and fertile volcanic soils between 1,200 and 2,000m altitude. A terroir of unmatched richness, recognized by experts worldwide as one of the most complex and desirable coffee origins on earth.',
+    col_cta:'Discover The House →',
+    fol_lbl:'Follow Us',
     olabel:'Specialty Coffee Boyacá Colombia',
     oh2:'Rondón, Boyacá —<br><em>where it all begins</em>',
     op1:'While traditional regions offer consistency, Boyacá offers complexity. At 1,670m, the dramatic thermal layers of Rondón concentrate rare esters in the Castillo cherry — the origin of the Don Alberto profile.',
@@ -519,7 +561,7 @@ const L = {
     fslogan:'Arte Cafetero Ancestral',
     nlph:'Tu dirección de correo',
     ey:'Boyacá · Colombia · Origen Único · Specialty', sc:'Deslizar',
-    p1e:'Specialty Coffee · Tienda', p1t:'Rondón Castillo —<br>SCA 84.5 · Grano entero', p1c:'Explorar la tienda →',
+    p1e:'Specialty Coffee · Tienda', p1t:'Specialty Single Origins<br>de Colombia · SCA 84.5+', p1c:'Explorar la tienda →',
     p2e:'Club Don Alberto · Suscripción', p2t:'Café especial fresco<br>cada mes', p2c:'Unirse al Club →',
     nlh:'Únete a la comunidad <em>Don Alberto</em>', nlp:'Cosechas · Noticias de la finca', nlb:'Suscribirse',
     t1h:'Pedido directo', t1d:'PayPal · Revolut · Wise', t2h:'Envío internacional', t2d:'Francia, Europa y El Mundo',
@@ -530,15 +572,15 @@ const L = {
     fh1:'La Marca', fh2:'Ordenar', fh3:'Socios & B2B',
     fm:'La Casa', fa:'El Atelier', fv:'El Vlog', fb:'Tienda', fc:'Club Don Alberto', fb2:'Espacio Pro', fco:'Contactar',
     fvt:'Nuestro Vlog — Detrás de escena en la finca', wa:'¿Necesitas ayuda?',
-    ssca:'Puntaje SCA', salt:'Altitud', sara:'Arabica Castillo',
+    ssca:'Puntaje SCA', salt:'Altitud', sara:'Premium Varietales', stat4:'Microclimas',
     hcta:'Descubrir el café →',
     mmsecmarque:'La Marca', mmseccmd:'Ordenar', mmsecpro:'Pro',
     mmorig2:'El Origen', mmatelier:'Atelier',
-    jt1:'Terroir único<br>de Boyacá', jd1:'La única finca de café verde de especialidad del departamento. Altitud 1.670m MSNM.',
+    jt1:'Terroirs Únicos<br>de Colombia', jd1:'Trabajamos exclusivamente con las únicas fincas Green Coffee certificadas en sus micro-regiones — una selección excepcional de los mejores terroirs colombianos.',
     jt2:'Cosecha manual<br>selectiva', jd2:'Recolección grano a grano de las cerezas maduras, para una calidad irreprochable.',
-    jt3:'Proceso Lavado<br>artesanal', jd3:'Fermentación controlada y lavado completo para máxima pureza aromática.',
-    jt4:'Certificado SCA<br>84.5 puntos', jd4:'Evaluado por un Q-Grader certificado. Puntajes perfectos en uniformidad, taza limpia y dulzura.',
-    jt5:'Tostión media<br>artesanal', jd5:'Perfil dominado para revelar notas de miel, chocolate fino y la textura sedosa del Castillo.',
+    jt3:'Procesos Artesanales<br>de Especialidad', jd3:'Lavado, natural o honey — cada origen se procesa con el método que mejor revela su perfil único. Control riguroso en cada etapa.',
+    jt4:'Certificado SCA<br>84.5+', jd4:'Ofrecemos cafés evaluados por Q-Graders certificados con puntajes perfectos constantes en uniformidad, taza limpia y dulzura.',
+    jt5:'Tostión Media<br>Artesanal', jd5:'Perfil dominado para revelar notas limpias y la textura sedosa de cada Varietal.',
     qlabel:'La Excelencia del Origen',
     qh2:'Una densidad refinada,<br>nacida del terroir de <em>Boyacá</em>',
     qp1:'A 1.670 m de altitud, las dramáticas fluctuaciones térmicas de Rondón empujan las cerezas Castillo a un estado de "estrés positivo" — una maduración más lenta que concentra ésteres complejos y ácidos orgánicos en cada grano.',
@@ -546,6 +588,24 @@ const L = {
     qquote:'"Amaba la tierra como pocos hombres saben amarla. Cultivamos su memoria en cada cosecha."',
     qcite:'La familia fundadora · Don Alberto Café',
     qcta:'Ver el puntaje SCA completo →',
+    ticker:[
+      {text:'Colombia',val:'Mayor Productor de Café Premium'},
+      {text:'Microclimas',val:'86 en Colombia'},
+      {text:'Premium Varietales',val:'Arabica · Bourbon · Geisha'},
+      {text:'Altitud',val:'+1500 MSNM'},
+      {text:'Single Origin',val:'Microlotes Exclusivos'},
+      {text:'Suelo Volcánico',val:'Terroir Único'},
+      {text:'Cosecha Manual',val:'Selectiva'},
+      {text:'Frescura',val:'Todo el Año'},
+      {text:'Estándar',val:'Green Coffee Farms'},
+      {text:'Puntaje SCA',val:'84.5+ / 100'},
+      {text:'Taza Limpia',val:'Score 10/10'}
+    ],
+    col_label:'Colombia · Mayor Origen Cafetero',
+    col_h2:'El único país del mundo<br>cosechado <em>todo el año</em>',
+    col_p1:'Colombia cuenta con 86 microclimas distintos, dos cordilleras andinas y suelos volcánicos fértiles entre 1.200 y 2.000 m de altitud. Un terroir de riqueza inigualable, reconocido por expertos mundiales como uno de los orígenes cafeteros más complejos y deseados del planeta.',
+    col_cta:'Descubrir La Casa →',
+    fol_lbl:'Síguenos',
     olabel:'Specialty Coffee Boyacá Colombia',
     oh2:'Rondón, Boyacá —<br><em>donde todo comienza</em>',
     op1:'Mientras las regiones tradicionales ofrecen constancia, Boyacá ofrece complejidad. A 1.670 m, los dramáticos pisos térmicos de Rondón concentran en la cereza Castillo ésteres raros — el origen del perfil Don Alberto.',
@@ -612,7 +672,7 @@ function setLang(lang) {
   set('hf-sl1', t.sl1); set('hf-sl2', t.sl2);
   // Hero
   set('h-sl', t.sl); set('h-craft', t.craft); set('h-ey', t.ey); set('s-scroll', t.sc);
-  set('s-sca', t.ssca); set('s-alt', t.salt); set('s-ara', t.sara);
+  set('s-sca', t.ssca); set('s-alt', t.salt); set('s-ara', t.sara); set('s-stat4', t.stat4);
   const hcta = _$('hero-cta-btn'); if (hcta) hcta.textContent = t.hcta;
   // Home panels
   set('p1-ey', t.p1e); setH('p1-ti', t.p1t); set('p1-ct', t.p1c);
@@ -653,6 +713,21 @@ function setLang(lang) {
   if (t.qquote) set('q-quote', t.qquote);
   if (t.qcite)  set('q-cite', t.qcite);
   if (t.qcta)   set('q-cta', t.qcta);
+  // Colombia section
+  if (t.col_label) set('col-label', t.col_label);
+  if (t.col_h2)    setH('col-h2',   t.col_h2);
+  if (t.col_p1)    set('col-p1',    t.col_p1);
+  if (t.col_cta)   set('col-cta',   t.col_cta);
+  // Footer follow us
+  if (t.fol_lbl)   set('footer-follow-lbl', t.fol_lbl);
+  // Ticker rebuild
+  const track = document.querySelector('.attrs-track');
+  if (track && t.ticker) {
+    const doubled = [...t.ticker, ...t.ticker];
+    track.innerHTML = doubled.map(item =>
+      `<div class="attr-item"><div class="attr-dot"></div><span class="attr-text">${item.text}</span><span class="attr-value">${item.val}</span></div>`
+    ).join('');
+  }
   // Origin teaser
   if (t.olabel) set('o-label', t.olabel);
   if (t.oh2)   setH('o-h2', t.oh2);
