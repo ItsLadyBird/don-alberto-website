@@ -478,7 +478,10 @@ footer{background:#0d1014;padding:clamp(44px,4vw,64px) clamp(20px,5vw,80px) 0;}
 .colombia-img-wrap{max-width:980px;margin:0 auto 52px;position:relative;}
 .colombia-img-wrap img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;object-position:center;}
 .colombia-text{max-width:780px;margin:0 auto;text-align:center;}
-
+.col-stats-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; margin-top: 36px; padding-top: 36px; border-top: 1px solid rgba(255,255,255,.1); }
+.cstat { text-align: center; }
+.cstat-val { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 300; color: var(--gold-light); line-height: 1; margin-bottom: 6px; }
+.cstat-lbl { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,.6); }
 /* ══════════════════════════════════════════
    21. KEYFRAMES
    ══════════════════════════════════════════ */
@@ -577,6 +580,7 @@ footer{background:#0d1014;padding:clamp(44px,4vw,64px) clamp(20px,5vw,80px) 0;}
   .footer-cols{flex-direction:column;gap:24px;}
   .hf-slogans{flex-direction:column;gap:6px;}
   .hf-sep{display:none;}
+  .col-stats-grid{grid-template-columns:repeat(3,1fr);gap:24px 15px;}
 }
 @media(max-width:780px){
   .journey-steps{flex-direction:column;align-items:center;gap:32px;}
@@ -597,6 +601,7 @@ footer{background:#0d1014;padding:clamp(44px,4vw,64px) clamp(20px,5vw,80px) 0;}
   .hf-name{font-size:22px;}
   .colombia-img-wrap{margin-bottom:36px;}
   .colombia-img-wrap img{aspect-ratio:4/3;}
+  .col-stats-grid{grid-template-columns:repeat(2,1fr);} 
 }
 
 /* ══════════════════════════════════════════
