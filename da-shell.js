@@ -738,11 +738,20 @@ function setLang(lang) {
   if (t.qcite)  set('q-cite', t.qcite);
   if (t.qcta)   set('q-cta', t.qcta);
   // Colombia section
-  if (t.col_label) set('col-label', t.col_label);
-  if (t.col_h2)    setH('col-h2',   t.col_h2);
-  if (t.col_p1)    set('col-p1',    t.col_p1);
-  if (t.col_cta)   set('col-cta',   t.col_cta);
-  // Footer follow us
+  if (t.col_label) set('col-label', t.col_label);
+  if (t.col_h2)    setH('col-h2',   t.col_h2);
+  if (t.col_p1)    set('col-p1',    t.col_p1);
+  if (t.col_cta)   set('col-cta',   t.col_cta);
+
+  if (t.cs1_val) {
+    set('cs1-val', t.cs1_val); set('cs1-lbl', t.cs1_lbl);
+    set('cs2-val', t.cs2_val); set('cs2-lbl', t.cs2_lbl);
+    set('cs3-val', t.cs3_val); set('cs3-lbl', t.cs3_lbl);
+    set('cs4-val', t.cs4_val); set('cs4-lbl', t.cs4_lbl);
+    set('cs5-val', t.cs5_val); set('cs5-lbl', t.cs5_lbl);
+  }
+   
+  // Footer follow us
   if (t.fol_lbl)   set('footer-follow-lbl', t.fol_lbl);
   // Ticker rebuild
   const track = document.querySelector('.attrs-track');
