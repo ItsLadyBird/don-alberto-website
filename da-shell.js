@@ -418,21 +418,14 @@ const L = {
       {text:'Tasse Propre',val:'Score 10/10'}
     ],
     col_label: "Le café premium mondial récolté en continu",
-    col_h2: "Colombie - <em>1er Producteur de Café Premium</em>",
-    col_p1: "Avec ses 86 microclimats, ses cordillères andines et ses sols volcaniques perchés entre 1 200 et 2 000 mètres, la Colombie offre une diversité rare et riche. Premier producteur mondial d'Arabica de haute qualité, elle possède un terroir exceptionnel reconnu comme l'une des origines les plus complexes au monde.",
-    cb1_t: "Andisols Volcaniques", cb1_d: "Près de 50 % des régions productrices de café en Colombie sont situées sur des sols formés par des cendres volcaniques, créant un ordre de sol spécifique appelé Andisols.",
-    cb2_t: "Densité de Matière Organique (MO)", cb2_d: "Les sols caféiers colombiens contiennent en moyenne 8 à 15 % de matière organique, bien au-dessus de la moyenne agricole mondiale de 1 à 3 %.",
-    cb3_t: "Carbone Total (CT)", cb3_d: "Dans l'horizon A des Andisols colombiens, le carbone total peut atteindre 15 %, offrant un immense réservoir naturel de nutriments.",
-    cb4_t: "Porosité du Sol", cb4_d: "Ces sols présentent une extrême légèreté, avec une porosité dépassant 65 à 75 %, permettant aux racines de respirer et à l'eau de s'écouler sans étouffer la plante.",
-    cb5_t: "Faible Densité Apparente", cb5_d: "Les sols caféiers typiques en Colombie ont une densité apparente de 0,7 à 0,9 g/cm³, tandis que les sols agricoles standards sont beaucoup plus denses (1,2 à 1,6 g/cm³).",cs1_val: "~50%", cs1_lbl: "Andisols Volcaniques",
-cs2_val: "8–15%", cs2_lbl: "Matière Organique",
-cs3_val: "15%", cs3_lbl: "Carbone Total",
-cs4_val: ">65%", cs4_lbl: "Porosité du Sol",
-cs5_val: "0,7 g/cm³", cs5_lbl: "Faible Densité",    cs1_val: "~50%", cs1_lbl: "Andisols Volcaniques",
-    cs2_val: "8–15%", cs2_lbl: "Matière Organique",
-    cs3_val: "15%", cs3_lbl: "Carbone Total",
-    cs4_val: ">65%", cs4_lbl: "Porosité du Sol",
-    cs5_val: "0,7 g/cm³", cs5_lbl: "Faible Densité",    col_cta:'Découvrir La Maison →',
+col_h2: "Colombie - <em>1er Producteur de Café Premium</em>",
+col_p1: "Avec ses 86 microclimats, ses cordillères andines et ses sols volcaniques perchés entre 1 200 et 2 000 mètres, la Colombie offre une diversité rare et riche. Premier producteur mondial d'Arabica de haute qualité, elle possède un terroir exceptionnel reconnu comme l'une des origines les plus complexes au monde.",
+cs1_val: "~50%", cs1_lbl: "Andisols Volcaniques", cs1_desc: "Près de 50 % des régions productrices de café en Colombie sont situées sur des sols formés par des cendres volcaniques. Ils retiennent parfaitement l'eau et les nutriments, développant la complexité aromatique unique de nos grains.",
+cs2_val: "8–15%", cs2_lbl: "Matière Organique", cs2_desc: "Les sols caféiers colombiens contiennent 8 à 15 % de matière organique, bien au-dessus de la moyenne mondiale (1 à 3 %). Cette richesse nourrit naturellement la plante, garantissant une pureté et une vigueur exceptionnelles.",
+cs3_val: "15%", cs3_lbl: "Carbone Total", cs3_desc: "Dans l'horizon supérieur, le carbone total atteint 15 %. Ce réservoir naturel gorge la plante d'énergie continue pour produire des cerises plus denses et sucrées.",
+cs4_val: ">65%", cs4_lbl: "Porosité du Sol", cs4_desc: "Ces sols présentent une extrême légèreté, avec une porosité dépassant 65 à 75 %. Cela assure un drainage parfait où l'eau s'écoule sans stagner, protégeant les racines de l'asphyxie.",
+cs5_val: "0,7 g/cm³", cs5_lbl: "Faible Densité", cs5_desc: "Ces terres ont une densité de 0,7 à 0,9 g/cm³ contre 1,2 à 1,6 g/cm³ pour un sol agricole standard. Cette structure ultra-légère permet aux racines de s'ancrer profondément et de s'oxygéner, renforçant la vitalité du caféier.",
+col_cta: "Découvrir La Maison →",
     fol_lbl:'Nous Suivre',
     olabel:'Specialty Coffee Boyacá Colombia',
     oh2:'Rondón, Boyacá —<br><em>là où tout commence</em>',
@@ -522,21 +515,14 @@ cs5_val: "0,7 g/cm³", cs5_lbl: "Faible Densité",    cs1_val: "~50%", cs1_lbl: 
       {text:'Clean Cup',val:'Score 10/10'}
     ],
    col_label: "The world's premium coffee harvested continuously",
-    col_h2: "Colombia - <em>#1 Premium Coffee Producer</em>",
-    col_p1: "With its 86 microclimates, Andean mountain ranges, and volcanic soils perched between 1,200 and 2,000 meters, Colombia offers a rare and rich diversity. The world's leading producer of high-quality Arabica, it boasts an exceptional terroir recognized as one of the most complex origins in the world.",
-    cb1_t: "Volcanic Andisols", cb1_d: "Nearly 50% of Colombia’s coffee-growing regions are situated on soils directly formed from or altered by volcanic ash. This creates a specific soil order known as Andisols.",
-    cb2_t: "Organic Matter (OM) Density", cb2_d: "Colombian coffee soils average 8% to 15% organic matter, significantly higher than the global agricultural average of 1% to 3%.",
-    cb3_t: "Total Carbon (TC)", cb3_d: "In the A horizon (topsoil) of Colombian Andisols, total carbon can reach up to 15%, providing a massive natural reservoir of nutrients.",
-    cb4_t: "Soil Porosity", cb4_d: "These soils exhibit extreme \"fluffiness,\" with porosity levels exceeding 65% to 75%, allowing roots to breathe and water to drain without suffocating the plant.",
-    cb5_t: "Low Bulk Density", cb5_d: "Typical coffee soils in Colombia have a bulk density of 0.7 to 0.9 g/cm³, whereas standard agricultural soils are much denser (1.2 to 1.6 g/cm³).",cs1_val: "~50%", cs1_lbl: "Volcanic Andisols",
-cs2_val: "8–15%", cs2_lbl: "Organic Matter",
-cs3_val: "15%", cs3_lbl: "Total Carbon",
-cs4_val: ">65%", cs4_lbl: "Soil Porosity",
-cs5_val: "0.7 g/cm³", cs5_lbl: "Low Bulk Density",    cs1_val: "~50%", cs1_lbl: "Volcanic Andisols",
-    cs2_val: "8–15%", cs2_lbl: "Organic Matter",
-    cs3_val: "15%", cs3_lbl: "Total Carbon",
-    cs4_val: ">65%", cs4_lbl: "Soil Porosity",
-    cs5_val: "0.7 g/cm³", cs5_lbl: "Low Bulk Density",    col_cta:'Discover The House →',
+col_h2: "Colombia - <em>#1 Premium Coffee Producer</em>",
+col_p1: "With its 86 microclimates, Andean mountain ranges, and volcanic soils perched between 1,200 and 2,000 meters, Colombia offers a rare and rich diversity. The world's leading producer of high-quality Arabica, it boasts an exceptional terroir recognized as one of the most complex origins in the world.",
+cs1_val: "~50%", cs1_lbl: "Volcanic Andisols", cs1_desc: "Nearly 50% of Colombia’s coffee-growing regions are situated on soils formed by volcanic ash. They perfectly retain water and nutrients, developing the unique aromatic complexity of our beans.",
+cs2_val: "8–15%", cs2_lbl: "Organic Matter", cs2_desc: "Colombian coffee soils average 8% to 15% organic matter, significantly higher than the global average of 1% to 3%. This richness naturally nourishes the plant, guaranteeing exceptional purity and vigor.",
+cs3_val: "15%", cs3_lbl: "Total Carbon", cs3_desc: "In the upper horizon, total carbon reaches 15%. This natural reservoir continuously fuels the plant to produce denser, sweeter cherries.",
+cs4_val: ">65%", cs4_lbl: "Soil Porosity", cs4_desc: "These soils exhibit extreme fluffiness, with porosity exceeding 65% to 75%. This ensures perfect drainage where water flows without stagnating, protecting roots from asphyxiation.",
+cs5_val: "0.7 g/cm³", cs5_lbl: "Low Density", cs5_desc: "These soils have a density of 0.7 to 0.9 g/cm³ compared to 1.2 to 1.6 g/cm³ for standard agricultural soil. This ultra-light structure allows roots to anchor deeply and absorb oxygen, strengthening the tree's vitality.",
+col_cta: "Discover The House →",
     fol_lbl:'Follow Us',
     olabel:'Specialty Coffee Boyacá Colombia',
     oh2:'Rondón, Boyacá —<br><em>where it all begins</em>',
@@ -626,21 +612,14 @@ cs5_val: "0.7 g/cm³", cs5_lbl: "Low Bulk Density",    cs1_val: "~50%", cs1_lbl:
       {text:'Taza Limpia',val:'Score 10/10'}
     ],
    col_label: "El café premium del mundo cosechado continuamente",
-    col_h2: "Colombia - <em>Productor #1 de Café Premium</em>",
-    col_p1: "Con sus 86 microclimas, cordilleras andinas y suelos volcánicos entre 1.200 y 2.000 metros, Colombia ofrece una diversidad rara y rica. Siendo el principal productor mundial de Arábica de alta calidad, cuenta con un terruño excepcional reconocido como uno de los orígenes más complejos del mundo.",
-    cb1_t: "Andisoles Volcánicos", cb1_d: "Casi el 50% de las regiones cafetaleras de Colombia se encuentran en suelos formados por ceniza volcánica, creando un orden de suelo específico conocido como Andisoles.",
-    cb2_t: "Densidad de Materia Orgánica (MO)", cb2_d: "Los suelos cafetaleros colombianos promedian entre 8% y 15% de materia orgánica, muy superior al promedio agrícola mundial del 1% al 3%.",
-    cb3_t: "Carbono Total (CT)", cb3_d: "En el horizonte A de los Andisoles colombianos, el carbono total puede alcanzar el 15%, proporcionando un enorme reservorio natural de nutrientes.",
-    cb4_t: "Porosidad del Suelo", cb4_d: "Estos suelos exhiben una extrema ligereza, con niveles de porosidad que superan el 65% al 75%, permitiendo que las raíces respiren y el agua drene sin asfixiar la planta.",
-    cb5_t: "Baja Densidad Aparente", cb5_d: "Los suelos cafetaleros típicos en Colombia tienen una densidad aparente de 0.7 a 0.9 g/cm³, mientras que los suelos agrícolas estándar son mucho más densos (1.2 a 1.6 g/cm³).",cs1_val: "~50%", cs1_lbl: "Andisoles Volcánicos",
-cs2_val: "8–15%", cs2_lbl: "Materia Orgánica",
-cs3_val: "15%", cs3_lbl: "Carbono Total",
-cs4_val: ">65%", cs4_lbl: "Porosidad del Suelo",
-cs5_val: "0.7 g/cm³", cs5_lbl: "Baja Densidad",    cs1_val: "~50%", cs1_lbl: "Andisoles Volcánicos",
-    cs2_val: "8–15%", cs2_lbl: "Materia Orgánica",
-    cs3_val: "15%", cs3_lbl: "Carbono Total",
-    cs4_val: ">65%", cs4_lbl: "Porosidad del Suelo",
-    cs5_val: "0.7 g/cm³", cs5_lbl: "Baja Densidad",    col_cta:'Descubrir La Casa →',
+col_h2: "Colombia - <em>Productor #1 de Café Premium</em>",
+col_p1: "Con sus 86 microclimas, cordilleras andinas y suelos volcánicos entre 1.200 y 2.000 metros, Colombia ofrece una diversidad rara y rica. Siendo el principal productor mundial de Arábica de alta calidad, cuenta con un terruño excepcional reconocido como uno de los orígenes más complejos del mundo.",
+cs1_val: "~50%", cs1_lbl: "Andisoles Volcánicos", cs1_desc: "Casi el 50% de las regiones cafetaleras de Colombia están en suelos formados por ceniza volcánica. Retienen perfectamente el agua y los nutrientes, desarrollando la complejidad aromática única de nuestros granos.",
+cs2_val: "8–15%", cs2_lbl: "Materia Orgánica", cs2_desc: "Los suelos cafetaleros colombianos promedian entre 8% y 15% de materia orgánica, muy superior al promedio mundial de 1% a 3%. Esta riqueza nutre naturalmente la planta, garantizando una pureza y vigor excepcionales.",
+cs3_val: "15%", cs3_lbl: "Carbono Total", cs3_desc: "En el horizonte superior, el carbono total alcanza el 15%. Este reservorio natural alimenta continuamente a la planta para producir cerezas más densas y dulces.",
+cs4_val: ">65%", cs4_lbl: "Porosidad del Suelo", cs4_desc: "Estos suelos exhiben una extrema ligereza, con una porosidad que supera el 65% al 75%. Esto asegura un drenaje perfecto donde el agua fluye sin estancarse, protegiendo las raíces de la asfixia.",
+cs5_val: "0.7 g/cm³", cs5_lbl: "Baja Densidad", cs5_desc: "Estas tierras tienen una densidad de 0.7 a 0.9 g/cm³ en comparación con 1.2 a 1.6 g/cm³ para un suelo agrícola estándar. Esta estructura ultraligera permite que las raíces se anclen profundamente y se oxigenen, fortaleciendo la vitalidad del cafeto.",
+col_cta: "Descubrir La Casa →",
     fol_lbl:'Síguenos',
     olabel:'Specialty Coffee Boyacá Colombia',
     oh2:'Rondón, Boyacá —<br><em>donde todo comienza</em>',
@@ -751,17 +730,23 @@ function setLang(lang) {
   if (t.qcta)   set('q-cta', t.qcta);
   // Colombia section
   if (t.col_label) set('col-label', t.col_label);
-  if (t.col_h2)    setH('col-h2',   t.col_h2);
-  if (t.col_p1)    set('col-p1',    t.col_p1);
-  if (t.col_cta)   set('col-cta',   t.col_cta);
+  if (t.col_h2)    setH('col-h2',   t.col_h2);
+  if (t.col_p1)    set('col-p1',    t.col_p1);
+  if (t.col_cta)   set('col-cta',   t.col_cta);
 
-  if (t.cs1_val) {
-    set('cs1-val', t.cs1_val); set('cs1-lbl', t.cs1_lbl);
-    set('cs2-val', t.cs2_val); set('cs2-lbl', t.cs2_lbl);
-    set('cs3-val', t.cs3_val); set('cs3-lbl', t.cs3_lbl);
-    set('cs4-val', t.cs4_val); set('cs4-lbl', t.cs4_lbl);
-    set('cs5-val', t.cs5_val); set('cs5-lbl', t.cs5_lbl);
-  }
+  if (t.cs1_val) {
+    set('cs1-val', t.cs1_val); set('cs1-lbl', t.cs1_lbl); set('cs1-desc', t.cs1_desc);
+    set('cs2-val', t.cs2_val); set('cs2-lbl', t.cs2_lbl); set('cs2-desc', t.cs2_desc);
+    set('cs3-val', t.cs3_val); set('cs3-lbl', t.cs3_lbl); set('cs3-desc', t.cs3_desc);
+    set('cs4-val', t.cs4_val); set('cs4-lbl', t.cs4_lbl); set('cs4-desc', t.cs4_desc);
+    set('cs5-val', t.cs5_val); set('cs5-lbl', t.cs5_lbl); set('cs5-desc', t.cs5_desc);
+
+    set('cb1-t', t.cs1_lbl); set('cb1-d', t.cs1_desc);
+    set('cb2-t', t.cs2_lbl); set('cb2-d', t.cs2_desc);
+    set('cb3-t', t.cs3_lbl); set('cb3-d', t.cs3_desc);
+    set('cb4-t', t.cs4_lbl); set('cb4-d', t.cs4_desc);
+    set('cb5-t', t.cs5_lbl); set('cb5-d', t.cs5_desc);
+  }
    
   // Footer follow us
   if (t.fol_lbl)   set('footer-follow-lbl', t.fol_lbl);
