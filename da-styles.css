@@ -487,7 +487,10 @@ footer{background:#0d1014;padding:clamp(44px,4vw,64px) clamp(20px,5vw,80px) 0;}
 .ccard-val { font-family: 'Cormorant Garamond', serif; font-size: 34px; color: var(--gold-light); line-height: 1; margin-bottom: 8px; }
 .ccard-tit { font-family: 'Lato', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #fff; font-weight: 700; margin-bottom: 12px; }
 .ccard-desc { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.65; }
-
+/* Colombia Slider Base (Desktop) */
+.col-cards-wrapper { position: relative; }
+.col-cards-viewport { width: 100%; overflow: visible; }
+.col-arr { display: none; }
 /* ══════════════════════════════════════════
    21. KEYFRAMES
    ══════════════════════════════════════════ */
@@ -593,30 +596,77 @@ footer{background:#0d1014;padding:clamp(44px,4vw,64px) clamp(20px,5vw,80px) 0;}
 }
    
 @media(max-width:780px){
-  /* Existing Journey code */
   .journey-steps{flex-direction:column;align-items:center;gap:32px;}
   .journey-arrow{padding-top:0;transform:rotate(90deg);}
   .journey-step{padding:0;}
   .journey-desc{max-width:240px;}
 
-  /* Updated: Horizontal slider for Colombia Cards (2 per view) */
-  .col-cards { 
-    display: grid !important; 
-    grid-auto-flow: column; 
-    grid-auto-columns: calc(50% - 10px); 
-    gap: 20px; 
-    overflow-x: auto; 
-    scroll-snap-type: x mandatory; 
-    padding-bottom: 20px; 
-    scrollbar-width: none; 
+  /* 1. Images: Convert Grid to Auto-Fading Carousel */
+  .col-images {
+    display: block !important; 
+    position: relative;
+    height: 380px; 
+    width: 100%;
+    border-radius: 3px;
+    overflow: hidden;
   }
-  .col-cards::-webkit-scrollbar { display: none; }
-  .ccard { scroll-snap-align: start; }
-  .ccard[style] { grid-column: auto !important; }
-} 
+  .col-images img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+  }
+  .col-images img.active {
+    opacity: 1;
+    z-index: 2;
+  }
+
+  /* 2. Text Cards: Convert Grid to Sliding Carousel */
+  .col-cards-wrapper {
+    padding: 0 44px; 
+    margin-top: 40px;
+  }
+  .col-cards-viewport {
+    overflow: hidden;
+    width: 100%;
+  }
+  .col-cards {
+    display: flex !important; 
+    flex-wrap: nowrap;
+    gap: 0;
+    margin-top: 0;
+    transition: transform 0.4s ease; 
+  }
+  .ccard {
+    min-width: 50%; 
+    border-left: 1px solid rgba(255,255,255,0.05); 
+    border-radius: 0;
+  }
+  
+  /* 3. The Navigation Arrows */
+  .col-arr {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px; height: 36px;
+    background: white;
+    color: var(--teal-deep);
+    border: none;
+    border-radius: 50%;
+    align-items: center; justify-content: center;
+    font-size: 14px;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+  .col-arr.prev { left: 0; }
+  .col-arr.next { right: 0; }
+}
 
 @media(max-width:600px){
-  /* Existing UI code */
   :root{--util-h:36px;--nav-h:50px;}
   .hero-stats{gap:14px;flex-wrap:wrap;justify-content:center;}
   .hstat-num{font-size:26px;}
@@ -629,6 +679,35 @@ footer{background:#0d1014;padding:clamp(44px,4vw,64px) clamp(20px,5vw,80px) 0;}
   .colombia-img-wrap{margin-bottom:36px;}
   .colombia-img-wrap img{aspect-ratio:4/3;}
   .col-stats-grid{grid-template-columns:repeat(2,1fr);} 
+
+  .trust-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 24px 12px; }
+  .trust-item { flex-direction: column; align-items: center; text-align: center; gap: 8px; }
+  .trust-h { font-size: 9px; line-height: 1.3; }
+
+  /* Optimize Colombia sizes for smaller phones */
+  .col-images { height: 300px; }
+  .col-cards-wrapper { padding: 0 34px; }
+  .ccard { padding: 20px 14px; min-width: 50%; } 
+  .ccard-val { font-size: 24px; }
+  .ccard-tit { font-size: 9px; letter-spacing: 1px; }
+  .ccard-desc { font-size: 11px; line-height: 1.5; }
+
+  .footer-cols{grid-template-columns:1fr; gap: 0;}
+  .footer-col { border-bottom: 1px solid rgba(255,255,255,.08); padding: 16px 0; }
+  .footer-col h4 { margin-bottom: 0; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-size: 13px; }
+  .f-arr { display: block; width: 16px; height: 16px; transition: transform 0.3s; }
+  .footer-col ul { display: none; padding-top: 16px; }
+  .footer-col.open ul { display: flex; }
+  .footer-col.open .f-arr { transform: rotate(180deg); }
+  
+  .footer-social-col { padding-top: 48px; border-top: none; text-align: center; }
+  .footer-social-hd { font-size: 16px !important; color: white !important; letter-spacing: 4px; margin-bottom: 24px; text-align: center; }
+  .footer-socials { justify-content: center; gap: 14px; }
+  .footer-soc { width: 44px; height: 44px; border-radius: 4px; }
+  .footer-soc svg { width: 18px; height: 18px; }
+}
+
+@media(min-width:601px) { .f-arr { display: none; } }
   
   /* Updated: Trust Bar set to 2 columns */
   .trust-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 24px 12px; }
