@@ -697,7 +697,7 @@ footer{background:#0d1014;padding:clamp(44px,4vw,64px) clamp(20px,5vw,80px) 0;}
   .footer-col h4 { margin-bottom: 0; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-size: 13px; }
   .f-arr { display: block; width: 16px; height: 16px; transition: transform 0.3s; }
   .footer-col ul { display: none; padding-top: 16px; }
-  .footer-col.open ul { display: flex; }
+  .footer-col.open ul { display: flex; flex-direction: column; gap: 13px; }
   .footer-col.open .f-arr { transform: rotate(180deg); }
   
   .footer-social-col { padding-top: 48px; border-top: none; text-align: center; }
