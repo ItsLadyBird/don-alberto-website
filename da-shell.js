@@ -192,9 +192,9 @@ const SHELL_FOOTER = `
       </a>
       <p class="footer-slogan" id="footer-slogan">Artisanat Caféier Ancestral</p>
     </div>
-    <div class="footer-cols">
+   <div class="footer-cols">
       <div class="footer-col">
-        <h4 id="fc-h1">La Marque</h4>
+        <h4 onclick="this.parentElement.classList.toggle('open')"><span id="fc-h1">La Marque</span> <svg class="f-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg></h4>
         <ul>
           <li><a href="maison.html" id="fl-maison">La Maison</a></li>
           <li><a href="atelier.html" id="fl-atelier">Le Atelier</a></li>
@@ -202,14 +202,14 @@ const SHELL_FOOTER = `
         </ul>
       </div>
       <div class="footer-col">
-        <h4 id="fc-h2">Commander</h4>
+        <h4 onclick="this.parentElement.classList.toggle('open')"><span id="fc-h2">Commander</span> <svg class="f-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg></h4>
         <ul>
           <li><a href="boutique.html" id="fl-boutique">Boutique</a></li>
           <li><a href="club.html" id="fl-club">Club Don Alberto</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4 id="fc-h3">Partenaires &amp; B2B</h4>
+        <h4 onclick="this.parentElement.classList.toggle('open')"><span id="fc-h3">Partenaires &amp; B2B</span> <svg class="f-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg></h4>
         <ul>
           <li><a href="b2b.html" id="fl-b2b">Espace Pro</a></li>
           <li><a href="b2b.html#contact" id="fl-contact">Contacter</a></li>
