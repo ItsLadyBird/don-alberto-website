@@ -551,7 +551,7 @@ col_cta: "Discover The House →",
     /* badge */
     badgePop:'Most popular',
     famLabel:'The Family', famTitle:'Faces behind <em>every bean</em>',
-    famP1:'Don Alberto Café is more than just a brand; it's a family legacy. We are a collective of families and childhood friends returning to our roots to cultivate the love of the land that has been passed down to us. Having grown up in Boyacá surrounded by coffee trees, we know every bean by heart and cultivate these lands while preserving the traditional knowledge of our ancestors.',
+    famP1:'Don Alberto Café is more than just a brand; it\'s a family legacy. We are a collective of families and childhood friends returning to our roots to cultivate the love of the land that has been passed down to us. Having grown up in Boyacá surrounded by coffee trees, we know every bean by heart and cultivate these lands while preserving the traditional knowledge of our ancestors.',
     famP2:'Every bag is a family signature, an evidence of craftsmanship and devotion to every detail. We offer full transparency and total traceability from our farm to your cup.',
     famQuote:'"As a child, I harvested coffee with my grandfather in these very fields. Today, it is us who offer it to you."',
     famCite:'Fredy A., Founding Family',
