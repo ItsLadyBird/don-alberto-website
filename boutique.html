@@ -66,7 +66,6 @@
   position: sticky;
   top: 0;
   z-index: 200;
-  /* ensure it never clips between the two nav bars */
 }
 .boutique-tabs {
   max-width: 1200px;
@@ -196,7 +195,6 @@
 @media (max-width: 800px)  { .pcard { flex: 0 0 calc(50% - 2px) !important; } }
 @media (max-width: 520px)  { .pcard { flex: 0 0 85vw !important; } }
 
-/* Carousel nav arrows */
 .carousel-btn {
   position: absolute;
   top: 38%;
@@ -252,7 +250,6 @@
 }
 .pcard.hidden { display: none; }
 
-/* Featured card */
 .pcard.featured { border-color: var(--gold); }
 .pcard-badge {
   position: absolute;
@@ -269,7 +266,6 @@
   z-index: 3;
 }
 
-/* ── IMAGE AREA — full bleed, stacked product + wheel ── */
 .pcard-img {
   width: 100%;
   aspect-ratio: 3 / 4;
@@ -311,7 +307,6 @@
   transform: scale(1);
 }
 
-/* Hover overlay — specs appear on hover */
 .pcard-overlay {
   position: absolute;
   inset: 0;
@@ -335,7 +330,6 @@
 .pcard-overlay .pcard-attr-key { color: rgba(250,248,244,.5); letter-spacing: 1px; }
 .pcard-overlay .pcard-attr-val { color: rgba(250,248,244,.9); }
 
-/* ── CARD BODY — only always-visible info ── */
 .pcard-body {
   padding: 16px 18px 20px;
   flex: 1;
@@ -366,7 +360,6 @@
   margin-bottom: 12px;
 }
 
-/* Attributes row — hidden on card, shown in overlay */
 .pcard-attrs {
   display: flex;
   flex-direction: column;
@@ -385,7 +378,6 @@
 .pcard-attr-key { color: rgba(0,0,0,.32); letter-spacing: 1px; text-transform: uppercase; }
 .pcard-attr-val { color: rgba(0,0,0,.65); font-weight: 400; }
 
-/* Notes — always visible */
 .pcard-notes {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
@@ -395,7 +387,6 @@
   line-height: 1.5;
 }
 
-/* Price row */
 .pcard-footer {
   margin-top: auto;
   display: flex;
@@ -453,7 +444,6 @@
 .pcard.featured .pcard-btn { background: var(--gold, #c4a050); }
 .pcard.featured .pcard-btn:hover { background: #a8873a; }
 
-/* SCA badge on card */
 .pcard-sca {
   display: inline-flex;
   align-items: center;
@@ -474,7 +464,6 @@
   background: var(--gold, #c4a050);
 }
 
-/* ── NO RESULTS ── */
 .no-results {
   grid-column: 1 / -1;
   text-align: center;
@@ -485,9 +474,6 @@
   color: rgba(0,0,0,.35);
 }
 
-/* ══════════════════════════════════════
-   FORMATS / PAYMENT SECTION (from OG)
-   ══════════════════════════════════════ */
 .prod-gallery {
   background: #f5f0e8;
   padding: 100px 80px;
@@ -562,9 +548,6 @@
 .pg-pay-amount { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: #141414; }
 .pg-note { font-size: 10px; color: rgba(0,0,0,.3); margin-top: 10px; line-height: 1.6; font-family: 'Lato', sans-serif; font-style: italic; }
 
-/* ══════════════════════════════════════
-   ORDER CTA SECTION
-   ══════════════════════════════════════ */
 .order-cta {
   background: var(--teal-deep, #064e65);
   display: grid;
@@ -575,9 +558,6 @@
 }
 @media (max-width: 900px) { .order-cta { grid-template-columns: 1fr; padding: 60px 32px; } }
 
-/* ══════════════════════════════════════
-   TRUST BAR
-   ══════════════════════════════════════ */
 .btrust-bar { background: #faf8f4; border-top: 1px solid rgba(9,102,133,.12); border-bottom: 1px solid rgba(9,102,133,.12); }
 .btrust-inner {
   max-width: 1200px;
@@ -598,9 +578,6 @@
 .btrust-h { font-family: 'Lato', sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #141414; margin-bottom: 5px; }
 .btrust-d { font-family: 'Lato', sans-serif; font-size: 10.5px; color: rgba(0,0,0,.45); line-height: 1.6; }
 
-/* ══════════════════════════════════════
-   SCA EDUCATION (adapted from OG)
-   ══════════════════════════════════════ */
 .bsca-edu { background: #faf8f4; padding: 100px 80px; }
 .bsca-edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-top: 60px; align-items: start; }
 @media (max-width: 900px) { .bsca-edu-grid { grid-template-columns: 1fr; } }
@@ -619,9 +596,6 @@
 .sca-step-body h4 { font-family: 'Cormorant Garamond', serif; font-size: 19px; color: #141414; margin-bottom: 6px; }
 .sca-step-body p { font-size: 12.5px; line-height: 1.9; color: rgba(0,0,0,.5); font-family: 'Lato', sans-serif; font-weight: 300; }
 
-/* ══════════════════════════════════════
-   PROCESS SECTION
-   ══════════════════════════════════════ */
 .bprocess-section {
   background: #141414;
   padding: 100px 80px;
@@ -650,9 +624,6 @@
 .bproc-benefit h4 { font-family: 'Cormorant Garamond', serif; font-size: 19px; color: #faf8f4; margin-bottom: 6px; }
 .bproc-benefit p { font-size: 12px; line-height: 1.9; color: rgba(255,255,255,.45); font-family: 'Lato', sans-serif; font-weight: 300; }
 
-/* ══════════════════════════════════════
-   GRAIN SECTION
-   ══════════════════════════════════════ */
 .bgrain-section { background: rgba(224,240,246,.35); padding: 100px 80px; }
 .bgrain-hero { position: relative; height: 260px; overflow: hidden; margin: -100px -80px 60px; }
 .bgrain-hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -673,9 +644,6 @@
 .bgrain-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 21px; margin-bottom: 12px; color: #141414; }
 .bgrain-card p { font-size: 12.5px; line-height: 1.9; color: rgba(0,0,0,.45); font-weight: 300; font-family: 'Lato', sans-serif; }
 
-/* ══════════════════════════════════════
-   FAMILY SECTION — image-first
-   ══════════════════════════════════════ */
 .bfamily-section {
   background: #faf8f4;
   padding: 100px 0 0;
@@ -721,7 +689,6 @@
   .bfamily-header { padding: 0 32px 40px; }
 }
 
-/* ── Utilities ── */
 .section-label-b {
   display: flex;
   align-items: center;
@@ -772,11 +739,9 @@
 .quote-box-b p { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-style: italic; font-weight: 300; color: var(--teal-deep, #064e65); line-height: 1.6; margin-bottom: 8px; }
 .quote-box-b cite { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: rgba(0,0,0,.3); font-style: normal; font-family: 'Lato', sans-serif; }
 
-/* ── Reveal ── */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity .65s ease, transform .65s ease; }
 .reveal.visible { opacity: 1; transform: none; }
 
-/* ── Responsive ── */
 @media (max-width: 900px) {
   .boutique-tabs { padding: 0 20px; }
   .boutique-tabs .btab { padding: 18px 18px; font-size: 8px; letter-spacing: 2.5px; }
@@ -792,23 +757,14 @@
 </head>
 <body>
 
-<!-- ═══════════════════════════════════
-   SHELL: header injected by da-shell.js
-   ═══════════════════════════════════ -->
 <div id="site-header"></div>
 
-<!-- ═══════════════════════════════════
-   BOUTIQUE HERO
-   ═══════════════════════════════════ -->
 <section class="boutique-hero">
   <div class="inner">
-    <h1>La Boutique</h1>
+    <h1 data-i18n="boutiqueHero">La Boutique</h1>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════
-   FILTER TABS
-   ═══════════════════════════════════ -->
 <div class="boutique-tabs-wrap" id="boutique-tabs">
   <div class="boutique-tabs">
     <button class="btab active" id="btab-all" data-filter="all">Tout</button>
@@ -818,61 +774,55 @@
   </div>
 </div>
 
-<!-- ═══════════════════════════════════
-   FILTER BAR
-   ═══════════════════════════════════ -->
 <div class="filter-bar" id="filter-bar">
   <div class="filter-bar-inner">
-    <span class="filter-label" id="b-filter-label">Filtrer par</span>
+    <span class="filter-label" id="b-filter-label" data-i18n="bfilter_lbl">Filtrer par</span>
 
     <select class="filter-select" id="f-origin" onchange="applyFilters()">
-      <option value="">Origine</option>
-      <option value="boyaca">Boyacá, Colombie</option>
-      <option value="rondon">Rondón, Boyacá</option>
+      <option value="" data-i18n="bfilter_ori">Origine</option>
+      <option value="boyaca" data-i18n="optBoyaca">Boyacá, Colombie</option>
+      <option value="rondon" data-i18n="optRondon">Rondón, Boyacá</option>
     </select>
 
     <select class="filter-select" id="f-varietal" onchange="applyFilters()">
-      <option value="">Variété</option>
-      <option value="castillo">Castillo</option>
-      <option value="caturra">Caturra</option>
-      <option value="colombia">Colombia</option>
-      <option value="typica">Typica</option>
-      <option value="bourbon">Bourbon</option>
+      <option value="" data-i18n="bfilter_var">Variété</option>
+      <option value="castillo" data-i18n="optCastillo">Castillo</option>
+      <option value="caturra" data-i18n="optCaturra">Caturra</option>
+      <option value="colombia" data-i18n="optColombia">Colombia</option>
+      <option value="typica" data-i18n="optTypica">Typica</option>
+      <option value="bourbon" data-i18n="optBourbon">Bourbon</option>
     </select>
 
     <select class="filter-select" id="f-process" onchange="applyFilters()">
-      <option value="">Procédé</option>
-      <option value="washed">Lavé (Washed)</option>
-      <option value="natural">Nature (Natural)</option>
-      <option value="honey">Honey</option>
-      <option value="anaerobic">Anaérobique</option>
+      <option value="" data-i18n="bfilter_proc">Procédé</option>
+      <option value="washed" data-i18n="optWashed">Lavé (Washed)</option>
+      <option value="natural" data-i18n="optNatural">Nature (Natural)</option>
+      <option value="honey" data-i18n="optHoney">Honey</option>
+      <option value="anaerobic" data-i18n="optAnaerobic">Anaérobique</option>
     </select>
 
     <select class="filter-select" id="f-roast" onchange="applyFilters()">
-      <option value="">Torréfaction</option>
-      <option value="light">Claire (Light Roast)</option>
-      <option value="medium-light">Médium Claire (Medium-Light)</option>
-      <option value="medium">Médium (Medium Roast)</option>
-      <option value="dark">Foncée (Dark Roast)</option>
+      <option value="" data-i18n="bfilter_roast">Torréfaction</option>
+      <option value="light" data-i18n="optLight">Claire (Light Roast)</option>
+      <option value="medium-light" data-i18n="optMedLight">Médium Claire (Medium-Light)</option>
+      <option value="medium" data-i18n="optMedium">Médium (Medium Roast)</option>
+      <option value="dark" data-i18n="optDark">Foncée (Dark Roast)</option>
     </select>
 
     <select class="filter-select" id="f-sca" onchange="applyFilters()">
-      <option value="">Score SCA</option>
-      <option value="90plus">90+ Grand Cru</option>
-      <option value="85-89">85–89 Excellence</option>
-      <option value="80-85">80–85 Specialty Premium</option>
-      <option value="commercial">60–79 Commercial</option>
+      <option value="" data-i18n="bfilter_sca">Score SCA</option>
+      <option value="90plus" data-i18n="opt90plus">90+ Grand Cru</option>
+      <option value="85-89" data-i18n="opt85_89">85–89 Excellence</option>
+      <option value="80-85" data-i18n="opt80_85">80–85 Specialty Premium</option>
+      <option value="commercial" data-i18n="optCommercial">60–79 Commercial</option>
     </select>
 
     <div class="filter-sep"></div>
-    <button class="filter-reset" id="bfilter-reset" onclick="resetFilters()">Réinitialiser</button>
+    <button class="filter-reset" id="bfilter-reset" data-i18n="bfilter_reset" onclick="resetFilters()">Réinitialiser</button>
     <span class="filter-count" id="f-count">8 produits</span>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════
-   PRODUCT CATALOG
-   ═══════════════════════════════════ -->
 <section class="product-catalog" id="catalogue">
   <div class="catalog-inner">
     <div class="carousel-wrap" id="carousel-wrap">
@@ -880,7 +830,6 @@
       <button class="carousel-btn next" id="carousel-next" onclick="carouselNext()" aria-label="Suivant">&#8250;</button>
       <div class="prod-grid" id="prod-grid">
 
-      <!-- ─── 250g Grain entier ─── -->
       <div class="pcard" data-cat="grains" data-varietal="castillo" data-process="washed" data-roast="medium-light" data-sca="80-85" data-origin="boyaca">
         <div class="pcard-img">
           <img class="img-product" src="images/Prod_250_gr.png" alt="Don Alberto 250g Grain entier">
@@ -910,7 +859,6 @@
         </div>
       </div>
 
-      <!-- ─── 500g Grain entier ─── -->
       <div class="pcard" data-cat="grains" data-varietal="castillo" data-process="washed" data-roast="medium-light" data-sca="80-85" data-origin="boyaca">
         <div class="pcard-img">
           <img class="img-product" src="images/Prod_250_gr.png" alt="Don Alberto 500g Grain entier">
@@ -940,7 +888,6 @@
         </div>
       </div>
 
-      <!-- ─── 250g Moulu ─── -->
       <div class="pcard" data-cat="moulu" data-varietal="castillo" data-process="washed" data-roast="medium-light" data-sca="80-85" data-origin="boyaca">
         <div class="pcard-img">
           <img class="img-product" src="images/Prod_250_gr.png" alt="Don Alberto 250g Moulu">
@@ -970,7 +917,6 @@
         </div>
       </div>
 
-      <!-- ─── 3×250g Pack Découverte ─── -->
       <div class="pcard featured" data-cat="grains" data-varietal="castillo" data-process="washed" data-roast="medium-light" data-sca="80-85" data-origin="boyaca">
         <div class="pcard-badge" data-i18n="badgePop">Le plus populaire</div>
         <div class="pcard-img">
@@ -1001,7 +947,6 @@
         </div>
       </div>
 
-      <!-- ─── 2.5kg Wholesale ─── -->
       <div class="pcard" data-cat="grains" data-varietal="castillo" data-process="washed" data-roast="medium-light" data-sca="80-85" data-origin="boyaca">
         <div class="pcard-img">
           <img class="img-product" src="images/Prod_Both_Formats.png" alt="Don Alberto 2.5kg">
@@ -1031,7 +976,6 @@
         </div>
       </div>
 
-      <!-- ─── Club Esencia ─── -->
       <div class="pcard" data-cat="abonnement" data-varietal="castillo" data-process="washed" data-roast="medium-light" data-sca="80-85" data-origin="boyaca">
         <div class="pcard-img">
           <img class="img-product" src="images/Club_Esencia.png" alt="Club Esencia">
@@ -1061,7 +1005,6 @@
         </div>
       </div>
 
-      <!-- ─── Club Raíces ─── -->
       <div class="pcard" data-cat="abonnement" data-varietal="castillo" data-process="washed" data-roast="medium-light" data-sca="80-85" data-origin="boyaca">
         <div class="pcard-img">
           <img class="img-product" src="images/Club_Raices.png" alt="Club Raíces">
@@ -1091,7 +1034,6 @@
         </div>
       </div>
 
-      <!-- ─── Club Herencia ─── -->
       <div class="pcard featured" data-cat="abonnement" data-varietal="castillo" data-process="washed" data-roast="medium-light" data-sca="80-85" data-origin="boyaca">
         <div class="pcard-img">
           <img class="img-product" src="images/Club_Herencia.png" alt="Club Herencia">
@@ -1121,31 +1063,25 @@
         </div>
       </div>
 
-      </div><!-- /prod-grid -->
+      </div>
       <div class="carousel-dots" id="carousel-dots"></div>
-      <!-- No results fallback -->
       <div class="no-results" id="no-results" style="display:none;">
         <span class="no-results-txt">Aucun produit ne correspond à vos critères.</span><br>
         <button id="no-results-btn" onclick="resetFilters()" style="margin-top:14px;background:none;border:1px solid rgba(0,0,0,.2);padding:8px 20px;cursor:pointer;font-family:'Lato',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;">Réinitialiser les filtres</button>
       </div>
 
-    </div><!-- /prod-grid -->
-  </div><!-- /catalog-inner -->
+    </div>
+  </div>
 </section>
 
-
-<!-- ═══════════════════════════════════
-   PRODUCT SELECTION — Formats & Paiement (from OG)
-   ═══════════════════════════════════ -->
 <section class="prod-gallery" id="formats">
   <div class="reveal" style="text-align:center;">
-    <div class="section-label-b center" id="bformats-lbl">Nos Formats</div>
-    <h2 class="h2-b" id="bformats-h" style="margin-top:12px;text-align:center;">Pour chaque usage, <em>une taille</em></h2>
-    <p class="body-text-b" id="bformats-p" style="max-width:520px;margin:14px auto 0;text-align:center;">Choisissez votre format et payez directement. Pour Revolut et Wise, entrez le montant affiché et ajoutez votre adresse en note.</p>
+    <div class="section-label-b center" id="bformats-lbl" data-i18n="bformats_lbl">Nos Formats</div>
+    <h2 class="h2-b" id="bformats-h" data-i18n="bformats_h" style="margin-top:12px;text-align:center;">Pour chaque usage, <em>une taille</em></h2>
+    <p class="body-text-b" id="bformats-p" data-i18n="bformats_p" style="max-width:520px;margin:14px auto 0;text-align:center;">Choisissez votre format et payez directement. Pour Revolut et Wise, entrez le montant affiché et ajoutez votre adresse en note.</p>
   </div>
   <div class="prod-cards-grid reveal">
 
-    <!-- 250g -->
     <div class="pg-card">
       <div class="pg-img-wrap"><img src="images/Prod_250_gr.png" alt="Don Alberto 250g"></div>
       <div class="pg-body">
@@ -1177,7 +1113,6 @@
       </div>
     </div>
 
-    <!-- 3-pack -->
     <div class="pg-card pg-featured">
       <div class="pg-featured-badge">Le plus populaire</div>
       <div class="pg-img-wrap"><img src="images/Prod_3_pack.png" alt="Don Alberto 3-pack"></div>
@@ -1210,7 +1145,6 @@
       </div>
     </div>
 
-    <!-- 2.5kg -->
     <div class="pg-card">
       <div class="pg-img-wrap"><img src="images/Prod_Both_Formats.png" alt="Don Alberto 2.5kg"></div>
       <div class="pg-body">
@@ -1247,13 +1181,9 @@
       </div>
     </div>
 
-  </div><!-- /prod-cards-grid -->
+  </div>
 </section>
 
-
-<!-- ═══════════════════════════════════
-   COMMANDER — Trois formats, une même passion
-   ═══════════════════════════════════ -->
 <section class="order-cta" id="commander">
   <div class="reveal" style="position:relative;z-index:1;">
     <div class="section-label-b light">Commander</div>
@@ -1311,49 +1241,39 @@
   </div>
 </section>
 
-
-<!-- ═══════════════════════════════════
-   TRUST BAR — 4 Pillars
-   ═══════════════════════════════════ -->
 <div class="btrust-bar">
   <div class="btrust-inner">
     <div class="btrust-item reveal">
       <div class="btrust-icon"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><rect x="9" y="14" width="18" height="16" rx="2"/><path d="M13 14v-4a5 5 0 0110 0v4"/><circle cx="18" cy="22" r="2" fill="currentColor" stroke="none"/></svg></div>
-      <div class="btrust-h">Paiement sécurisé</div>
-      <div class="btrust-d">PayPal · Revolut · Wise<br>Transactions protégées</div>
+      <div class="btrust-h" data-i18n="t1h">Paiement sécurisé</div>
+      <div class="btrust-d" data-i18n="t1d">PayPal · Revolut · Wise<br>Transactions protégées</div>
     </div>
     <div class="btrust-item reveal">
       <div class="btrust-icon"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="13" width="22" height="14" rx="2"/><path d="M25 17h5l3 5v5h-8"/><circle cx="10" cy="29" r="2.5"/><circle cx="28" cy="29" r="2.5"/></svg></div>
-      <div class="btrust-h">Livraison internationale</div>
-      <div class="btrust-d">France, Europe & monde<br>Colisage soigné</div>
+      <div class="btrust-h" data-i18n="t2h">Livraison internationale</div>
+      <div class="btrust-d" data-i18n="t2d">France, Europe & monde<br>Colisage soigné</div>
     </div>
     <div class="btrust-item reveal">
       <div class="btrust-icon"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><ellipse cx="18" cy="18" rx="9" ry="14"/><path d="M18 6 Q22 12 22 18 Q22 25 18 30"/><line x1="9" y1="18" x2="27" y2="18"/></svg></div>
-      <div class="btrust-h">Café de spécialité</div>
-      <div class="btrust-d">100% Arabica Castillo<br>SCA 84.5 · Procédé Lavé</div>
+      <div class="btrust-h" data-i18n="t3h">Café de spécialité</div>
+      <div class="btrust-d" data-i18n="t3d">100% Arabica Castillo<br>SCA 84.5 · Procédé Lavé</div>
     </div>
     <div class="btrust-item reveal">
       <div class="btrust-icon"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M18 4 L22 14 L32 14 L25 21 L27 31 L18 26 L9 31 L11 21 L4 14 L14 14 Z"/></svg></div>
-      <div class="btrust-h">Traçabilité totale</div>
-      <div class="btrust-d">De la ferme à votre tasse<br>Signature familiale</div>
+      <div class="btrust-h" data-i18n="t4h">Traçabilité totale</div>
+      <div class="btrust-d" data-i18n="t4d">De la ferme à votre tasse<br>Signature familiale</div>
     </div>
   </div>
 </div>
 
-
-<!-- ═══════════════════════════════════
-   SCA SCORECARD (Certification)
-   ═══════════════════════════════════ -->
 <section id="score" style="background:var(--teal-deep,#064e65);padding:80px 80px;position:relative;overflow:hidden;">
   <div style="position:absolute;inset:0;background:url('images/farm_cherries1.jpeg') center/cover;opacity:.06;"></div>
   <div style="position:relative;z-index:1;max-width:1300px;margin:0 auto;display:grid;grid-template-columns:340px 1fr 1fr;gap:60px;align-items:start;">
 
-    <!-- COL 0 — Product image -->
     <div class="reveal" style="display:flex;align-items:flex-start;justify-content:center;padding-top:20px;">
       <img src="images/Prod_Both_Formats.png" alt="Don Alberto — Formats" style="width:100%;max-width:300px;object-fit:contain;filter:drop-shadow(0 20px 60px rgba(0,0,0,.4));">
     </div>
 
-    <!-- LEFT — Score bars -->
     <div class="reveal">
       <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid rgba(196,160,80,.25);">
         <div>
@@ -1369,9 +1289,7 @@
         Évalué par <strong style="color:rgba(250,248,244,.7);">Impulso Coffee Lab</strong> · 21 Décembre 2025<br>Q-Grader Certifié SCA
       </div>
 
-      <!-- Bars -->
       <div style="display:flex;flex-direction:column;gap:11px;">
-        <!-- helper macro via inline HTML -->
         <div style="display:grid;grid-template-columns:110px 1fr 36px;align-items:center;gap:10px;">
           <div style="font-family:'Lato',sans-serif;font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(250,248,244,.45);text-align:right;">Arôme</div>
           <div style="background:rgba(255,255,255,.1);height:5px;border-radius:2px;overflow:hidden;"><div style="width:78%;height:100%;background:linear-gradient(90deg,var(--teal-mid,#1a7e9c),var(--gold,#c4a050));border-radius:2px;"></div></div>
@@ -1402,7 +1320,6 @@
           <div style="background:rgba(255,255,255,.1);height:5px;border-radius:2px;overflow:hidden;"><div style="width:78%;height:100%;background:linear-gradient(90deg,var(--teal-mid,#1a7e9c),var(--gold,#c4a050));border-radius:2px;"></div></div>
           <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;color:#faf8f4;">7.8</div>
         </div>
-        <!-- Perfect scores -->
         <div style="display:grid;grid-template-columns:110px 1fr 36px;align-items:center;gap:10px;margin-top:6px;">
           <div style="font-family:'Lato',sans-serif;font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(196,160,80,.75);text-align:right;">Uniformité</div>
           <div style="background:rgba(255,255,255,.1);height:5px;border-radius:2px;overflow:hidden;"><div style="width:100%;height:100%;background:var(--gold,#c4a050);border-radius:2px;"></div></div>
@@ -1425,7 +1342,6 @@
         </div>
       </div>
 
-      <!-- Bottom stats -->
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:32px;border-top:1px solid rgba(196,160,80,.2);padding-top:20px;">
         <div style="text-align:center;padding:0 10px;border-right:1px solid rgba(255,255,255,.08);">
           <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#faf8f4;">11.8%</div>
@@ -1447,13 +1363,11 @@
       <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:rgba(250,248,244,.38);margin-top:16px;line-height:1.7;">"Miel · Chocolat · Expressif · Corps médium · Acidité médium · Finale nette &amp; élégante"</p>
     </div>
 
-    <!-- RIGHT — Product info card -->
     <div class="reveal">
       <div style="font-family:'Lato',sans-serif;font-size:8px;letter-spacing:4px;text-transform:uppercase;color:var(--gold,#c4a050);margin-bottom:12px;">Specialty Quality</div>
       <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(44px,6vw,80px);font-weight:300;color:#faf8f4;line-height:.95;margin-bottom:14px;">Castillo</h2>
       <div style="font-family:'Lato',sans-serif;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:rgba(250,248,244,.45);margin-bottom:28px;">Arabica · Lavé · Torréfaction Artisanale Moyenne</div>
 
-      <!-- Tasting notes pills -->
       <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px;">
         <span style="border:1px solid rgba(196,160,80,.35);padding:6px 14px;font-family:'Lato',sans-serif;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(250,248,244,.7);">☕ Miel Délicat</span>
         <span style="border:1px solid rgba(196,160,80,.35);padding:6px 14px;font-family:'Lato',sans-serif;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(250,248,244,.7);">🍫 Chocolat Fin</span>
@@ -1461,7 +1375,6 @@
         <span style="border:1px solid rgba(196,160,80,.35);padding:6px 14px;font-family:'Lato',sans-serif;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(250,248,244,.7);">🌿 Finale Nette &amp; Élégante</span>
       </div>
 
-      <!-- Spec table -->
       <div style="border-top:1px solid rgba(255,255,255,.08);">
         <div style="display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06);">
           <span style="font-family:'Lato',sans-serif;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(250,248,244,.32);">Formats</span>
@@ -1493,7 +1406,6 @@
         </div>
       </div>
 
-      <!-- Bullet points -->
       <ul style="margin:20px 0 28px;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px;">
         <li style="font-family:'Lato',sans-serif;font-size:11px;color:rgba(250,248,244,.6);display:flex;gap:10px;align-items:baseline;"><span style="color:var(--gold,#c4a050);">·</span>Micro-lot sélectionné à la main</li>
         <li style="font-family:'Lato',sans-serif;font-size:11px;color:rgba(250,248,244,.6);display:flex;gap:10px;align-items:baseline;"><span style="color:var(--gold,#c4a050);">·</span>Traçabilité complète de la ferme à la tasse</li>
@@ -1508,14 +1420,9 @@
     </div>
 
   </div>
-  <!-- responsive -->
   <style>@media(max-width:1100px){#score>div>div:first-child{display:none!important;}#score>div{grid-template-columns:1fr 1fr!important;}}@media(max-width:700px){#score>div{grid-template-columns:1fr!important;}}</style>
 </section>
 
-
-<!-- ═══════════════════════════════════
-   SCA EDUCATION
-   ═══════════════════════════════════ -->
 <section class="bsca-edu" id="sca">
   <div class="reveal" style="text-align:center;">
     <div class="section-label-b center">Comprendre la Qualité</div>
@@ -1524,7 +1431,6 @@
   </div>
   <div class="bsca-edu-grid">
     <div class="reveal">
-      <!-- SCA Radar Chart -->
       <svg viewBox="0 0 340 340" style="width:100%;max-width:360px;display:block;margin:0 auto;">
         <defs>
           <linearGradient id="rg2" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -1597,10 +1503,6 @@
   </div>
 </section>
 
-
-<!-- ═══════════════════════════════════
-   PROCESS — Café Lavé
-   ═══════════════════════════════════ -->
 <section class="bprocess-section" id="process">
   <div class="bprocess-bg"></div>
   <div class="bprocess-inner">
@@ -1657,10 +1559,6 @@
   </div>
 </section>
 
-
-<!-- ═══════════════════════════════════
-   GRAIN ENTIER
-   ═══════════════════════════════════ -->
 <section class="bgrain-section" id="grain">
   <div class="bgrain-hero">
     <img src="images/coffee_beans_bg.png" alt="Grains de café Don Alberto" onerror="this.parentElement.style.background='#064e65'">
@@ -1694,26 +1592,19 @@
   </div>
 </section>
 
-
-<!-- ═══════════════════════════════════
-   FAMILY — Des visages derrière chaque grain
-   ═══════════════════════════════════ -->
 <section class="bfamily-section" id="famille">
 
-  <!-- Title centred -->
   <div class="bfamily-header reveal">
     <div class="section-label-b center" id="fam-label">La Famille</div>
     <h2 class="h2-b" style="margin-top:14px;" id="fam-title">Des visages derrière<br><em>chaque grain</em></h2>
   </div>
 
-  <!-- Full-width three-column image gallery -->
   <div class="bfamily-gallery">
     <div class="bfamily-photo"><img src="images/family_group.jpeg" alt="La famille Don Alberto"></div>
     <div class="bfamily-photo"><img src="images/family_farm1.jpeg" alt="La ferme de Boyacá"></div>
     <div class="bfamily-photo harvest"><img src="images/harvest_man2.jpeg" alt="Récolte manuelle"></div>
   </div>
 
-  <!-- Text block centred below images -->
   <div class="bfamily-text reveal">
     <p class="body-text-b" id="fam-p1" style="margin-bottom:20px;">Don Alberto Café est bien plus qu’une marque : c’est une signature familiale. Nous sommes un collectif de familles et d’amis d’enfance revenant à nos racines pour mettre en œuvre cet amour de la terre qui nous a été transmis. Ayant grandi à Boyacá au milieu des caféiers, nous connaissons chaque grain par cœur et cultivons ces terres en préservant le savoir-faire artisanal de nos ancêtres. </p>
     <p class="body-text-b" id="fam-p2">Chaque sac est une signature familiale, une preuve d'artisanat et de dévotion portée à chaque détail. Nous offrons une transparence totale et une traçabilité absolue, de notre ferme à votre tasse.</p>
@@ -1725,10 +1616,6 @@
 
 </section>
 
-
-<!-- ═══════════════════════════════════
-   PAYMENT MODAL (from shell)
-   ═══════════════════════════════════ -->
 <div id="payModal" class="pay-modal">
   <div class="pay-backdrop" onclick="closePayment()"></div>
   <div class="pay-box">
@@ -1770,11 +1657,6 @@
 .pay-header { display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px;padding-bottom:16px;border-bottom:1px solid rgba(9,102,133,.12); }
 </style>
 
-
-
-<!-- ═══════════════════════════════════
-   NEWSLETTER
-   ═══════════════════════════════════ -->
 <section class="nl-section">
   <div class="nl-text">
     <h2 id="nl-h">Rejoignez la communauté <em>Don Alberto</em></h2>
@@ -1786,23 +1668,16 @@
   </form>
 </section>
 
-<!-- ═══════════════════════════════════
-   SHELL: footer injected by da-shell.js
-   ═══════════════════════════════════ -->
 <div id="site-footer"></div>
 
 <script src="da-shell.js"></script>
 <script>
-/* ══════════════════════════════════
-   BOUTIQUE — Filter & Tab Logic
-   ══════════════════════════════════ */
 (function () {
   const tabs = document.querySelectorAll('.btab');
   const cards = document.querySelectorAll('.pcard');
 
   let activeTab = 'all';
 
-  // Tab click
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
       tabs.forEach(t => t.classList.remove('active'));
@@ -1852,7 +1727,6 @@
     applyFilters();
   };
 
-  // Sticky tab on scroll — always follow main-nav bottom edge
   function updateTabTop() {
     const util = document.getElementById('util-bar');
     const nav  = document.getElementById('main-nav');
@@ -1864,14 +1738,12 @@
     }
   }
   window.addEventListener('resize', updateTabTop);
-  // Re-measure on every scroll (util-bar collapses, changing layout)
   window.addEventListener('scroll', updateTabTop, { passive: true });
   document.addEventListener('DOMContentLoaded', updateTabTop);
   setTimeout(updateTabTop, 100);
   setTimeout(updateTabTop, 600);
 })();
 
-/* Scroll anchor smoothing for boutique page */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const target = document.querySelector(a.getAttribute('href'));
@@ -1881,7 +1753,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 </script>
 
 <script>
-// ── PRODUCT CAROUSEL ──
 (function(){
   const grid   = document.getElementById('prod-grid');
   const dotsEl = document.getElementById('carousel-dots');
@@ -1918,7 +1789,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     const vis = visibleCards();
     const max = Math.max(0, cards.length - Math.floor(vis));
     idx = Math.max(0, Math.min(idx, max));
-    const cardW = cards[0].offsetWidth + 2; // gap
+    const cardW = cards[0].offsetWidth + 2;
     grid.style.transform = `translateX(${-idx * cardW}px)`;
     dotsEl && dotsEl.querySelectorAll('.carousel-dot').forEach((d,i)=>d.classList.toggle('active', i===idx));
   }
@@ -1926,7 +1797,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   window.carouselPrev = ()=>{ idx = Math.max(0, idx-1); update(); };
   window.carouselNext = ()=>{ const cards = getCards(); const vis = Math.floor(visibleCards()); idx = Math.min(cards.length - vis, idx+1); update(); };
 
-  // Drag / swipe
   grid.addEventListener('mousedown', e=>{ startX=e.clientX; isDragging=true; grid.classList.add('dragging'); });
   window.addEventListener('mousemove', e=>{ if(!isDragging) return; dragOffset=e.clientX-startX; });
   window.addEventListener('mouseup', e=>{
@@ -1940,11 +1810,9 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if(Math.abs(diff)>50){ diff<0 ? carouselNext() : carouselPrev(); }
   });
 
-  // Init + resize
   setTimeout(()=>{ buildDots(); update(); }, 200);
   window.addEventListener('resize', ()=>{ buildDots(); update(); });
 
-  // Re-init after filter changes
   document.addEventListener('filterChanged', ()=>{ idx=0; buildDots(); update(); });
 })();
 </script>
