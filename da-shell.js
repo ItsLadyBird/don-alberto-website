@@ -810,7 +810,24 @@ function setLang(lang) {
       }
     }
   });
+document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key]) {
+      if (t[key].includes('<') || t[key].includes('&')) {
+        el.innerHTML = t[key];
+      } else {
+        el.textContent = t[key];
+      }
+    }
+  });
 
+  const track = document.querySelector('.attrs-track');
+  if (track && t.ticker) {
+    const doubled = [...t.ticker, ...t.ticker];
+    track.innerHTML = doubled.map(item =>
+      `<div class="attr-item"><div class="attr-dot"></div><span class="attr-text">${item.text}</span><span class="attr-value">${item.val}</span></div>`
+    ).join('');
+  }
   const bs = (id,v) => { const el=_$(id); if(el&&v!==undefined){ if(v.includes('<')) el.innerHTML=v; else el.textContent=v; } };
   bs('btab-all', t.btab_all); bs('btab-grains', t.btab_grains); bs('btab-moulu', t.btab_moulu); bs('btab-sub', t.btab_sub);
   bs('bfilter-lbl', t.bfilter_lbl); bs('bfilter-reset', t.bfilter_reset);
