@@ -1,4 +1,3 @@
-/* da-shell.js */
 const SHELL_HEADER = `
 <style>
 .ni.has-dropdown{position:relative;}
@@ -776,23 +775,9 @@ function setLang(lang) {
     set('cs3-val', t.cs3_val); set('cs3-lbl', t.cs3_lbl); set('cs3-desc', t.cs3_desc);
     set('cs4-val', t.cs4_val); set('cs4-lbl', t.cs4_lbl); set('cs4-desc', t.cs4_desc);
     set('cs5-val', t.cs5_val); set('cs5-lbl', t.cs5_lbl); set('cs5-desc', t.cs5_desc);
-
-    set('cb1-t', t.cs1_lbl); set('cb1-d', t.cs1_desc);
-    set('cb2-t', t.cs2_lbl); set('cb2-d', t.cs2_desc);
-    set('cb3-t', t.cs3_lbl); set('cb3-d', t.cs3_desc);
-    set('cb4-t', t.cs4_lbl); set('cb4-d', t.cs4_desc);
-    set('cb5-t', t.cs5_lbl); set('cb5-d', t.cs5_desc);
   }
    
   if (t.fol_lbl)   set('footer-follow-lbl', t.fol_lbl);
-  
-  const track = document.querySelector('.attrs-track');
-  if (track && t.ticker) {
-    const doubled = [...t.ticker, ...t.ticker];
-    track.innerHTML = doubled.map(item =>
-      `<div class="attr-item"><div class="attr-dot"></div><span class="attr-text">${item.text}</span><span class="attr-value">${item.val}</span></div>`
-    ).join('');
-  }
   
   if (t.olabel) set('o-label', t.olabel);
   if (t.oh2)   setH('o-h2', t.oh2);
@@ -815,7 +800,6 @@ function setLang(lang) {
 
   document.dispatchEvent(new CustomEvent('da-lang', { detail: { lang, t } }));
 
-  // Dynamic Translation Loop for standard elements
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (t[key]) {
