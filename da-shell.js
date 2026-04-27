@@ -1,30 +1,5 @@
-/* ═══════════════════════════════════════════════════════════
-   DON ALBERTO CAFÉ — Master Shell JS
-   Single source of truth for all pages.
-
-   USAGE: Each page just needs:
-     <div id="site-header"></div>   ← top of <body>
-     <div id="site-footer"></div>   ← bottom of <body>, before this <script>
-     <script src="da-shell.js"></script>
-
-   Sections:
-     1. Shell HTML (header + footer templates)
-     2. Shell Injection
-     3. Scroll Handler
-     4. Mobile Menu
-     5. Language Dropdown
-     6. Language Data & setLang()
-     7. Checkout Modal
-     8. Payment Modal
-     9. Init (DOMContentLoaded)
-   ═══════════════════════════════════════════════════════════ */
-
-/* ══════════════════════════════════════════
-   1. SHELL HTML TEMPLATES
-   ══════════════════════════════════════════ */
 const SHELL_HEADER = `
 <style>
-/* ── NAV DROPDOWN — injected globally by da-shell.js ── */
 .ni.has-dropdown{position:relative;}
 .ni.has-dropdown>a::after{content:'';display:inline-block;width:0;height:0;border-left:3px solid transparent;border-right:3px solid transparent;border-top:4px solid currentColor;margin-left:6px;vertical-align:middle;opacity:.5;transition:transform .2s;}
 .ni.has-dropdown:hover>a::after{transform:rotate(180deg);}
@@ -57,10 +32,8 @@ const SHELL_HEADER = `
 .nav-dropdown a:last-child{border-bottom:none;}
 .nav-dropdown a:hover{color:var(--teal,#096685);background:rgba(9,102,133,.05);}
 .nav-dropdown a .nd-sub{display:block;font-size:8px;color:rgba(6,78,101,.45);letter-spacing:1px;margin-top:3px;text-transform:none;font-weight:300;}
-/* ── ALWAYS-STICKY BOTH BARS ── */
 #util-bar{position:sticky;top:0;z-index:1002;}
 #main-nav{position:sticky;top:var(--util-h,38px);z-index:1001;}
-/* ── MOBILE: compact logo centred, scroll-controlled ── */
 @media(max-width:980px){
   #main-nav{top:var(--util-h,38px)!important;}
   .nav-logo-compact{
@@ -78,7 +51,6 @@ const SHELL_HEADER = `
   }
 }
 </style>
-<!-- UTILITY BAR -->
 <div id="util-bar">
   <div class="ub-left">
     <a href="maison.html" class="ub-link" id="ub-maison">La Maison</a>
@@ -101,8 +73,6 @@ const SHELL_HEADER = `
     <a href="b2b.html" class="ub-pro" id="ub-pro">Espace professionnel</a>
   </div>
 </div>
-
-<!-- FULL HEADER BRAND (scrolls away, reveals compact logo) -->
 <div id="hdr-full">
   <a href="index.html" class="hf-brand-link">
     <div class="hf-icon">
@@ -117,8 +87,6 @@ const SHELL_HEADER = `
     <span class="hf-sl2" id="hf-sl2">ARTISANAT CAFÉIER ANCESTRAL</span>
   </div>
 </div>
-
-<!-- MAIN NAV (sticky) -->
 <header id="main-nav">
   <div class="nav-inner">
     <nav class="nav-left" aria-label="Nav gauche">
@@ -151,8 +119,6 @@ const SHELL_HEADER = `
     </button>
   </div>
 </header>
-
-<!-- MOBILE MENU -->
 <div class="mob-menu" id="mob-menu">
   <div class="mm-hdr">
     <div class="mm-logo-row">
@@ -179,7 +145,6 @@ const SHELL_HEADER = `
 `;
 
 const SHELL_FOOTER = `
-<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
@@ -255,8 +220,6 @@ const SHELL_FOOTER = `
     </div>
   </div>
 </footer>
-
-<!-- CHECKOUT MODAL -->
 <div id="coModal" class="co-modal">
   <div class="co-bd" onclick="closeCheckout()"></div>
   <div class="co-box">
@@ -264,8 +227,6 @@ const SHELL_FOOTER = `
     <iframe src="https://tally.so/r/LZ04RG" width="100%" height="600" frameborder="0" title="Commander" style="display:block;border:none;"></iframe>
   </div>
 </div>
-
-<!-- WHATSAPP -->
 <div class="wa-wrap">
   <div class="wa-bubble" id="wa-bubble">
     <span id="wa-txt">Besoin d'aide ?</span>
@@ -277,11 +238,6 @@ const SHELL_FOOTER = `
 </div>
 `;
 
-/* ══════════════════════════════════════════
-   2. SHELL INJECTION
-   Injects header + footer HTML into placeholder divs.
-   Call once inside DOMContentLoaded, before setLang().
-   ══════════════════════════════════════════ */
 function injectShell() {
   const hdrPlaceholder = document.getElementById('site-header');
   if (hdrPlaceholder) hdrPlaceholder.outerHTML = SHELL_HEADER;
@@ -289,7 +245,6 @@ function injectShell() {
   const ftrPlaceholder = document.getElementById('site-footer');
   if (ftrPlaceholder) ftrPlaceholder.outerHTML = SHELL_FOOTER;
 
-  // Mark active nav link based on current page
   const page = location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('#main-nav a, .mm-lnk, .mm-sub').forEach(a => {
     const href = a.getAttribute('href') || '';
@@ -298,20 +253,13 @@ function injectShell() {
       if (linkPage === page) a.classList.add('act', 'mm-active');
     }
   });
-  // Utility bar active state
   document.querySelectorAll('#util-bar .ub-link').forEach(a => {
     const href = a.getAttribute('href') || '';
     if (href.split('/').pop() === page) a.classList.add('ub-active');
   });
 }
 
-/* ══════════════════════════════════════════
-   3. SCROLL HANDLER
-   Hides util bar on scroll-down, shows compact logo once
-   full brand header scrolls out of view.
-   ══════════════════════════════════════════ */
 let _lastY = 0, _ticking = false;
-
 window.addEventListener('scroll', () => {
   if (_ticking) return;
   _ticking = true;
@@ -323,7 +271,7 @@ window.addEventListener('scroll', () => {
     const hdrFull    = document.getElementById('hdr-full');
 
     if (utilBar) {
-      utilBar.classList.remove('hide'); // Both bars always visible
+      utilBar.classList.remove('hide'); 
     }
 
     if (hdrFull && compactLogo && mainNav) {
@@ -337,15 +285,11 @@ window.addEventListener('scroll', () => {
         if (y < 10) mainNav.classList.remove('shadowed');
       }
     }
-
     _lastY = y <= 0 ? 0 : y;
     _ticking = false;
   });
 }, { passive: true });
 
-/* ══════════════════════════════════════════
-   4. MOBILE MENU
-   ══════════════════════════════════════════ */
 function toggleMob() {
   const m = document.getElementById('mob-menu');
   if (!m) return;
@@ -353,9 +297,6 @@ function toggleMob() {
   document.body.style.overflow = m.classList.contains('open') ? 'hidden' : '';
 }
 
-/* ══════════════════════════════════════════
-   5. LANGUAGE DROPDOWN
-   ══════════════════════════════════════════ */
 function toggleLang() {
   const lw = document.getElementById('lang-wrap');
   if (lw) lw.classList.toggle('open');
@@ -367,9 +308,6 @@ document.addEventListener('click', e => {
   }
 });
 
-/* ══════════════════════════════════════════
-   6. LANGUAGE DATA & setLang()
-   ══════════════════════════════════════════ */
 const L = {
   fr:{
     sl:'Terre de caractère, grain d\'excellence', craft:'ARTISANAT CAFÉIER ANCESTRAL',
@@ -418,14 +356,14 @@ const L = {
       {text:'Tasse Propre',val:'Score 10/10'}
     ],
     col_label: "Le café premium mondial récolté en continu",
-col_h2: "Colombie - <em>1er Producteur de Café Premium</em>",
-col_p1: "Avec ses 86 microclimats, ses cordillères andines et ses sols volcaniques perchés entre 1 200 et 2 000 mètres, la Colombie offre une diversité rare et riche. Premier producteur mondial d'Arabica de haute qualité, elle possède un terroir exceptionnel reconnu comme l'une des origines les plus complexes au monde.",
-cs1_val: "~50%", cs1_lbl: "Andisols Volcaniques", cs1_desc: "Près de 50 % des régions productrices de café en Colombie sont situées sur des sols formés par des cendres volcaniques. Ils retiennent parfaitement l'eau et les nutriments, développant la complexité aromatique unique de nos grains.",
-cs2_val: "8–15%", cs2_lbl: "Matière Organique", cs2_desc: "Les sols caféiers colombiens contiennent 8 à 15 % de matière organique, bien au-dessus de la moyenne mondiale (1 à 3 %). Cette richesse nourrit naturellement la plante, garantissant une pureté et une vigueur exceptionnelles.",
-cs3_val: "15%", cs3_lbl: "Carbone Total", cs3_desc: "Dans l'horizon supérieur, le carbone total atteint 15 %. Ce réservoir naturel gorge la plante d'énergie continue pour produire des cerises plus denses et sucrées.",
-cs4_val: ">65%", cs4_lbl: "Porosité du Sol", cs4_desc: "Ces sols présentent une extrême légèreté, avec une porosité dépassant 65 à 75 %. Cela assure un drainage parfait où l'eau s'écoule sans stagner, protégeant les racines de l'asphyxie.",
-cs5_val: "0,7 g/cm³", cs5_lbl: "Faible Densité", cs5_desc: "Ces terres ont une densité de 0,7 à 0,9 g/cm³ contre 1,2 à 1,6 g/cm³ pour un sol agricole standard. Cette structure ultra-légère permet aux racines de s'ancrer profondément et de s'oxygéner, renforçant la vitalité du caféier.",
-col_cta: "Découvrir La Maison →",
+    col_h2: "Colombie - <em>1er Producteur de Café Premium</em>",
+    col_p1: "Avec ses 86 microclimats, ses cordillères andines et ses sols volcaniques perchés entre 1 200 et 2 000 mètres, la Colombie offre une diversité rare et riche. Premier producteur mondial d'Arabica de haute qualité, elle possède un terroir exceptionnel reconnu comme l'une des origines les plus complexes au monde.",
+    cs1_val: "~50%", cs1_lbl: "Andisols Volcaniques", cs1_desc: "Près de 50 % des régions productrices de café en Colombie sont situées sur des sols formés par des cendres volcaniques. Ils retiennent parfaitement l'eau et les nutriments, développant la complexité aromatique unique de nos grains.",
+    cs2_val: "8–15%", cs2_lbl: "Matière Organique", cs2_desc: "Les sols caféiers colombiens contiennent 8 à 15 % de matière organique, bien au-dessus de la moyenne mondiale (1 à 3 %). Cette richesse nourrit naturellement la plante, garantissant une pureté et une vigueur exceptionnelles.",
+    cs3_val: "15%", cs3_lbl: "Carbone Total", cs3_desc: "Dans l'horizon supérieur, le carbone total atteint 15 %. Ce réservoir naturel gorge la plante d'énergie continue pour produire des cerises plus denses et sucrées.",
+    cs4_val: ">65%", cs4_lbl: "Porosité du Sol", cs4_desc: "Ces sols présentent une extrême légèreté, avec une porosité dépassant 65 à 75 %. Cela assure un drainage parfait où l'eau s'écoule sans stagner, protégeant les racines de l'asphyxie.",
+    cs5_val: "0,7 g/cm³", cs5_lbl: "Faible Densité", cs5_desc: "Ces terres ont une densité de 0,7 à 0,9 g/cm³ contre 1,2 à 1,6 g/cm³ pour un sol agricole standard. Cette structure ultra-légère permet aux racines de s'ancrer profondément et de s'oxygéner, renforçant la vitalité du caféier.",
+    col_cta: "Découvrir La Maison →",
     fol_lbl:'Nous Suivre',
     olabel:'Specialty Coffee Boyacá Colombia',
     oh2:'Rondón, Boyacá —<br><em>là où tout commence</em>',
@@ -435,23 +373,17 @@ col_cta: "Découvrir La Maison →",
     hh1tag:'Origine Exclusive', hh1title:'Seule Green Coffee Farm<br>de Boyacá', hh1desc:"L'unique ferme certifiée d'un département de 1,3 million d'habitants.",
     hh2tag:'Top 5–10% Mondial', hh2title:'Café de Spécialité<br>Certifié SCA · 84.5', hh2desc:'Seuls 5 à 10 % des cafés au monde atteignent le grade « specialty ».',
     hh3tag:'Traçabilité Totale', hh3title:'Ferme → Tasse<br>Zéro Intermédiaire', hh3desc:'Circuit court maîtrisé : qualité maximale, prix juste, impact direct sur la ferme.',
-    /* card attribute labels */
     kOrigine:'Origine', kVariete:'Variété', kProcede:'Procédé', kAltitude:'Altitude',
     kTorref:'Torréfaction', kContenu:'Contenu', kEconomie:'Économie', kLivraison:'Livraison',
     kUsage:'Usage', kPrixKg:'Prix/kg', kMouture:'Mouture', kDuree:'Durée', kPrixSac:'Prix/sac',
-    /* card tags */
     tagGrains:'Grains Entiers', tagMoulu:'Café Moulu', tagPack:'Pack Découverte', tagPro:'Format Professionnel',
     tagSub3:'Abonnement Mensuel · 3 Mois', tagSub6:'Abonnement Mensuel · 6 Mois', tagSubAnn:'Abonnement · 12 Mois',
-    /* card values */
     vWashed:'Washed · Lavé', vFiltreEsp:'Filtre ou Espresso', vOfferte:'Offerte', vIncluse:'Incluse',
-    /* ship text */
     shipFree:'Livraison offerte', shipCost:'+ livraison €7',
-    /* product notes */
     notesBase:'Cacao & Miel · Agrumes · Texture soyeuse', notesMoulu:'Mouture précisée à la commande · Filtre ou Espresso',
     notesPack:'Idéal pour offrir · Cadeau d\'exception', notesWholesale:'Cafés · Restaurants · Épiceries fines',
     notesEsencia:'La découverte — torréfié frais à chaque envoi', notesRaices:'La fidélité — café frais en continu',
     notesHerencia:'L\'engagement — la meilleure valeur du programme',
-    /* badge */
     badgePop:'Le plus populaire',
     famLabel:'La Famille', famTitle:'Des visages derrière <em>chaque grain</em>',
     famP1:'Don Alberto Café est bien plus qu’une marque : c’est une signature familiale. Nous sommes un collectif de familles et d’amis d’enfance revenant à nos racines pour mettre en œuvre cet amour de la terre qui nous a été transmis. Ayant grandi à Boyacá au milieu des caféiers, nous connaissons chaque grain par cœur et cultivons ces terres en préservant le savoir-faire artisanal de nos ancêtres.',
@@ -466,7 +398,59 @@ col_cta: "Découvrir La Maison →",
     bformats_p:'Choisissez votre format et payez directement. Pour Revolut et Wise, entrez le montant affiché et ajoutez votre adresse en note.',
     bcmd_btn:'Commander →', bjoin_btn:'Rejoindre →',
     bno_results:'Aucun produit ne correspond à vos critères.',
-    bno_reset:'Réinitialiser les filtres'
+    bno_reset:'Réinitialiser les filtres',
+    boutiqueHero: 'La Boutique',
+    optBoyaca: 'Boyacá, Colombie', optRondon: 'Rondón, Boyacá',
+    optCastillo: 'Castillo', optCaturra: 'Caturra', optColombia: 'Colombia', optTypica: 'Typica', optBourbon: 'Bourbon',
+    optWashed: 'Lavé (Washed)', optNatural: 'Nature (Natural)', optHoney: 'Honey', optAnaerobic: 'Anaérobique',
+    optLight: 'Claire (Light Roast)', optMedLight: 'Médium Claire (Medium-Light)', optMedium: 'Médium (Medium Roast)', optDark: 'Foncée (Dark Roast)',
+    opt90plus: '90+ Grand Cru', opt85_89: '85–89 Excellence', opt80_85: '80–85 Specialty Premium', optCommercial: '60–79 Commercial',
+    sca_label: 'Comprendre la Qualité',
+    sca_h2: 'Qu\'est-ce que le <em>Score SCA</em><br>et pourquoi 84.5 compte ?',
+    sca_p: 'La Specialty Coffee Association est l\'autorité mondiale du café de qualité. Son protocole d\'évaluation — réalisé par des experts Q-Grader certifiés — est la référence internationale pour distinguer un café d\'exception d\'un café ordinaire.',
+    sca_t1: 'Café Commercial', sca_badge: 'Notre café', sca_t2: 'Specialty Premium', sca_t3: 'Excellence', sca_t4: 'Grand Cru',
+    sca_h3: 'Comment fonctionne<br><em>l\'évaluation SCA ?</em>',
+    sca_s1_t: 'La dégustation à l\'aveugle',
+    sca_s1_d: 'Un Q-Grader (expert certifié SCA) évalue le café à l\'aveugle sur 10 critères sensoriels — de l\'arôme à l\'impression générale — avec une précision au dixième de point.',
+    sca_s2_t: 'Scores parfaits sur 3 critères',
+    sca_s2_d: 'Notre Castillo obtient des scores parfaits de 10/10 sur l\'uniformité, la propreté en tasse et la douceur — les marqueurs d\'un procédé lavé maîtrisé et d\'une récolte sélective irréprochable.',
+    sca_s3_t: '84.5 — Un seuil rare',
+    sca_s3_d: 'Seuls les cafés atteignant 80+ points sont "Specialty Coffee". Avec 84.5, Don Alberto se place dans le top 10% de la production mondiale — une performance exceptionnelle pour une première ferme de Boyacá.',
+    sca_s4_t: 'Ce que ça signifie dans votre tasse',
+    sca_s4_d: 'Complexité aromatique, clarté, équilibre et une finale propre et élégante. La certification SCA est la garantie que chaque sac Don Alberto tient sa promesse.',
+    score_cta: 'Commander Maintenant →',
+    proc_label: 'Le Procédé',
+    proc_h2: 'Café <em>Lavé</em> — La voie<br>de la pureté aromatique',
+    proc_1_h: '1 · Récolte sélective', proc_1_p: 'Seules les cerises mûres à point sont cueillies à la main, grain par grain. Cette sélection rigoureuse est la première condition de la qualité SCA.',
+    proc_2_h: '2 · Dépulpage immédiat', proc_2_p: 'La pulpe est retirée mécaniquement dans les heures suivant la récolte. La graine, encore recouverte de mucilage, entre en fermentation contrôlée.',
+    proc_3_h: '3 · Fermentation aquatique', proc_3_p: 'Le café fermente dans des cuves d\'eau pendant 24 à 48 heures. Ce processus développe la clarté aromatique signature du café lavé.',
+    proc_4_h: '4 · Lavage & Séchage naturel', proc_4_p: 'Un lavage abondant élimine tout résidu. Le café est séché sur lits africains à l\'air libre à 1 670m d\'altitude, préservant les arômes délicats du terroir.',
+    proc_b1_h: 'Pureté aromatique totale', proc_b1_p: 'En éliminant toute la pulpe, le procédé lavé exprime avec clarté maximale le terroir et la variété. Chaque note de sol de Boyacá transparaît sans interférence.',
+    proc_b2_h: 'Acidité vive et élégante', proc_b2_p: 'Le café lavé développe une acidité plus perceptible et nette. Pour notre Castillo, cela se traduit par une acidité médium agréable qui apporte vivacité sans agressivité.',
+    proc_b3_h: 'Tasse propre · Score 10/10', proc_b3_p: 'Notre café obtient le score parfait de 10/10 en "tasse propre" lors de l\'évaluation SCA — reconnaissance directe de la rigueur de notre procédé lavé.',
+    gr_eyebrow: 'Don Alberto',
+    gr_h2: 'Le grain entier — <em>l\'art de la fraîcheur</em>',
+    gr_lbl: 'Pourquoi Grain Entier ?',
+    gr_sub: 'La mouture libère immédiatement les arômes volatils. En grain entier, vous restez maître du moment — et de la qualité.',
+    gr_c1_h: 'Fraîcheur maximale', gr_c1_p: 'Le café en grain préserve ses huiles aromatiques jusqu\'à 12 mois après torréfaction. Moulu juste avant la préparation, il révèle toute la complexité du terroir andin de Boyacá.',
+    gr_c2_h: 'Contrôle de la mouture', gr_c2_p: 'Espresso, filtre, cafetière à piston, Chemex, moka — chaque méthode demande une granulométrie précise. Le grain entier vous donne cette liberté de personnaliser votre extraction.',
+    gr_c3_h: 'Valeur aromatique intacte', gr_c3_p: 'Une fois moulu, le café perd 60% de ses arômes en 15 minutes. Don Alberto en grain garantit que vous êtes la première et seule personne à briser le grain — au moment précis où vous le choisissez.',
+    cmd_lbl: 'Commander',
+    cmd_h2: 'Trois formats,<br><em>une même passion</em>',
+    cmd_sub: 'Pour PayPal, le montant est pré-rempli automatiquement. Pour Revolut et Wise, entrez le montant exact de votre format et ajoutez votre adresse de livraison en note.',
+    cmd_pp: 'PayPal — montant pré-rempli, paiement immédiat',
+    cmd_rv: 'Revolut — entrez le montant + référence produit',
+    cmd_ws: 'Wise — idéal depuis UK, Suisse, Colombie, hors zone euro',
+    cmd_q: 'Questions : donalberto.coffee@gmail.com',
+    cmd_sum: 'Récapitulatif des prix',
+    cmd_p1: '250g — Grain entier',
+    cmd_p2: '250g — Café Moulu',
+    cmd_p3: '3 × 250g — Pack Découverte',
+    cmd_p4: '2,5 kg — Wholesale',
+    cmd_del: 'Livraison offerte',
+    cmd_req: 'Revolut & Wise — Informations requises',
+    cmd_req_desc: 'Dans la <strong style="color:white;">note de paiement</strong>, veuillez inclure :<br>· Votre <strong style="color:white;">nom complet</strong><br>· Le <strong style="color:white;">produit commandé</strong> (ex: DA-250g)<br>· Votre <strong style="color:white;">adresse de livraison complète</strong>',
+    cmd_foot: 'PayPal · Revolut · Wise<br>Livraison France métropolitaine · 5–10 jours'
   },
   en:{
     sl:'Soul in the Soil, Being in the Bean', craft:'ANCESTRAL COFFEE CRAFTING',
@@ -514,15 +498,15 @@ col_cta: "Découvrir La Maison →",
       {text:'SCA Score',val:'84.5+ / 100'},
       {text:'Clean Cup',val:'Score 10/10'}
     ],
-   col_label: "The world's premium coffee harvested continuously",
-col_h2: "Colombia - <em>#1 Premium Coffee Producer</em>",
-col_p1: "With its 86 microclimates, Andean mountain ranges, and volcanic soils perched between 1,200 and 2,000 meters, Colombia offers a rare and rich diversity. The world's leading producer of high-quality Arabica, it boasts an exceptional terroir recognized as one of the most complex origins in the world.",
-cs1_val: "~50%", cs1_lbl: "Volcanic Andisols", cs1_desc: "Nearly 50% of Colombia’s coffee-growing regions are situated on soils formed by volcanic ash. They perfectly retain water and nutrients, developing the unique aromatic complexity of our beans.",
-cs2_val: "8–15%", cs2_lbl: "Organic Matter", cs2_desc: "Colombian coffee soils average 8% to 15% organic matter, significantly higher than the global average of 1% to 3%. This richness naturally nourishes the plant, guaranteeing exceptional purity and vigor.",
-cs3_val: "15%", cs3_lbl: "Total Carbon", cs3_desc: "In the upper horizon, total carbon reaches 15%. This natural reservoir continuously fuels the plant to produce denser, sweeter cherries.",
-cs4_val: ">65%", cs4_lbl: "Soil Porosity", cs4_desc: "These soils exhibit extreme fluffiness, with porosity exceeding 65% to 75%. This ensures perfect drainage where water flows without stagnating, protecting roots from asphyxiation.",
-cs5_val: "0.7 g/cm³", cs5_lbl: "Low Density", cs5_desc: "These soils have a density of 0.7 to 0.9 g/cm³ compared to 1.2 to 1.6 g/cm³ for standard agricultural soil. This ultra-light structure allows roots to anchor deeply and absorb oxygen, strengthening the tree's vitality.",
-col_cta: "Discover The House →",
+    col_label: "The world's premium coffee harvested continuously",
+    col_h2: "Colombia - <em>#1 Premium Coffee Producer</em>",
+    col_p1: "With its 86 microclimates, Andean mountain ranges, and volcanic soils perched between 1,200 and 2,000 meters, Colombia offers a rare and rich diversity. The world's leading producer of high-quality Arabica, it boasts an exceptional terroir recognized as one of the most complex origins in the world.",
+    cs1_val: "~50%", cs1_lbl: "Volcanic Andisols", cs1_desc: "Nearly 50% of Colombia’s coffee-growing regions are situated on soils formed by volcanic ash. They perfectly retain water and nutrients, developing the unique aromatic complexity of our beans.",
+    cs2_val: "8–15%", cs2_lbl: "Organic Matter", cs2_desc: "Colombian coffee soils average 8% to 15% organic matter, significantly higher than the global average of 1% to 3%. This richness naturally nourishes the plant, guaranteeing exceptional purity and vigor.",
+    cs3_val: "15%", cs3_lbl: "Total Carbon", cs3_desc: "In the upper horizon, total carbon reaches 15%. This natural reservoir continuously fuels the plant to produce denser, sweeter cherries.",
+    cs4_val: ">65%", cs4_lbl: "Soil Porosity", cs4_desc: "These soils exhibit extreme fluffiness, with porosity exceeding 65% to 75%. This ensures perfect drainage where water flows without stagnating, protecting roots from asphyxiation.",
+    cs5_val: "0.7 g/cm³", cs5_lbl: "Low Density", cs5_desc: "These soils have a density of 0.7 to 0.9 g/cm³ compared to 1.2 to 1.6 g/cm³ for standard agricultural soil. This ultra-light structure allows roots to anchor deeply and absorb oxygen, strengthening the tree's vitality.",
+    col_cta: "Discover The House →",
     fol_lbl:'Follow Us',
     olabel:'Specialty Coffee Boyacá Colombia',
     oh2:'Rondón, Boyacá —<br><em>where it all begins</em>',
@@ -532,23 +516,17 @@ col_cta: "Discover The House →",
     hh1tag:'Exclusive Origin', hh1title:'The Only Green Coffee Farm<br>in Boyacá', hh1desc:'The sole certified farm in a department of 1.3 million people.',
     hh2tag:'Top 5–10% Worldwide', hh2title:'SCA Certified<br>Specialty Coffee · 84.5', hh2desc:'Only 5–10% of coffees worldwide reach the specialty grade standard.',
     hh3tag:'Full Traceability', hh3title:'Farm → Cup<br>Zero Middle-Men', hh3desc:'Direct supply chain: maximum quality, fair pricing, full impact on the farm.',
-    /* card attribute labels */
     kOrigine:'Origin', kVariete:'Variety', kProcede:'Process', kAltitude:'Altitude',
     kTorref:'Roast', kContenu:'Contents', kEconomie:'Saving', kLivraison:'Shipping',
     kUsage:'Use', kPrixKg:'Price/kg', kMouture:'Grind', kDuree:'Duration', kPrixSac:'Price/bag',
-    /* card tags */
     tagGrains:'Whole Bean', tagMoulu:'Ground Coffee', tagPack:'Discovery Pack', tagPro:'Pro Format',
     tagSub3:'Monthly Sub · 3 Months', tagSub6:'Monthly Sub · 6 Months', tagSubAnn:'Annual Sub',
-    /* card values */
     vWashed:'Washed', vFiltreEsp:'Filter or Espresso', vOfferte:'Free', vIncluse:'Included',
-    /* ship text */
     shipFree:'Free shipping', shipCost:'+ shipping €7',
-    /* product notes */
     notesBase:'Cocoa & Honey · Citrus · Silky Texture', notesMoulu:'Grind specified at checkout · Filter or Espresso',
     notesPack:'Perfect gift · Exceptional experience', notesWholesale:'Cafés · Restaurants · Fine Grocery',
     notesEsencia:'Discovery — freshly roasted with each delivery', notesRaices:'Loyalty — fresh coffee non-stop',
     notesHerencia:'Commitment — best value in the program',
-    /* badge */
     badgePop:'Most popular',
     famLabel:'The Family', famTitle:'Faces behind <em>every bean</em>',
     famP1:'Don Alberto Café is more than just a brand; it\'s a family legacy. We are a collective of families and childhood friends returning to our roots to cultivate the love of the land that has been passed down to us. Having grown up in Boyacá surrounded by coffee trees, we know every bean by heart and cultivate these lands while preserving the traditional knowledge of our ancestors.',
@@ -563,7 +541,59 @@ col_cta: "Discover The House →",
     bformats_p:'Choose your format and pay directly. For Revolut and Wise, enter the displayed amount and add your address in the note.',
     bcmd_btn:'Order →', bjoin_btn:'Join →',
     bno_results:'No products match your criteria.',
-    bno_reset:'Reset filters'
+    bno_reset:'Reset filters',
+    boutiqueHero: 'The Shop',
+    optBoyaca: 'Boyacá, Colombia', optRondon: 'Rondón, Boyacá',
+    optCastillo: 'Castillo', optCaturra: 'Caturra', optColombia: 'Colombia', optTypica: 'Typica', optBourbon: 'Bourbon',
+    optWashed: 'Washed', optNatural: 'Natural', optHoney: 'Honey', optAnaerobic: 'Anaerobic',
+    optLight: 'Light Roast', optMedLight: 'Medium-Light', optMedium: 'Medium Roast', optDark: 'Dark Roast',
+    opt90plus: '90+ Grand Cru', opt85_89: '85–89 Excellence', opt80_85: '80–85 Specialty Premium', optCommercial: '60–79 Commercial',
+    sca_label: 'Understanding Quality',
+    sca_h2: 'What is the <em>SCA Score</em><br>and why does 84.5 matter?',
+    sca_p: 'The Specialty Coffee Association is the global authority on coffee quality. Its evaluation protocol — conducted by certified Q-Graders — is the international standard for distinguishing exceptional coffee from ordinary coffee.',
+    sca_t1: 'Commercial Coffee', sca_badge: 'Our coffee', sca_t2: 'Specialty Premium', sca_t3: 'Excellence', sca_t4: 'Grand Cru',
+    sca_h3: 'How does the<br><em>SCA evaluation work?</em>',
+    sca_s1_t: 'Blind Tasting',
+    sca_s1_d: 'A Q-Grader (SCA certified expert) blindly evaluates the coffee on 10 sensory criteria — from aroma to overall impression — with decimal-point precision.',
+    sca_s2_t: 'Perfect scores on 3 criteria',
+    sca_s2_d: 'Our Castillo achieves perfect 10/10 scores on uniformity, clean cup, and sweetness — the markers of a mastered washed process and impeccable selective harvesting.',
+    sca_s3_t: '84.5 — A rare threshold',
+    sca_s3_d: 'Only coffees reaching 80+ points are "Specialty Coffee". At 84.5, Don Alberto ranks in the top 10% of global production — an exceptional achievement for a first farm in Boyacá.',
+    sca_s4_t: 'What it means in your cup',
+    sca_s4_d: 'Aromatic complexity, clarity, balance, and a clean, elegant finish. The SCA certification guarantees that every bag of Don Alberto delivers on its promise.',
+    score_cta: 'Order Now →',
+    proc_label: 'The Process',
+    proc_h2: '<em>Washed</em> Coffee — The path<br>to aromatic purity',
+    proc_1_h: '1 · Selective harvesting', proc_1_p: 'Only perfectly ripe cherries are hand-picked, bean by bean. This rigorous selection is the first condition for SCA quality.',
+    proc_2_h: '2 · Immediate depulping', proc_2_p: 'The pulp is mechanically removed within hours of harvest. The seed, still covered in mucilage, enters controlled fermentation.',
+    proc_3_h: '3 · Aquatic fermentation', proc_3_p: 'The coffee ferments in water tanks for 24 to 48 hours. This process develops the aromatic clarity signature to washed coffee.',
+    proc_4_h: '4 · Washing & Natural drying', proc_4_p: 'An abundant wash eliminates any residue. The coffee is then sun-dried on African beds at 1,670m altitude, preserving the delicate terrior aromas.',
+    proc_b1_h: 'Total aromatic purity', proc_b1_p: 'By eliminating all the pulp, the washed process expresses the terroir and variety with maximum clarity. Every note of the Boyacá soil shines through without interference.',
+    proc_b2_h: 'Bright and elegant acidity', proc_b2_p: 'Washed coffee develops a more perceptible and crisp acidity. For our Castillo, this translates to a pleasant medium acidity that brings liveliness without aggressiveness.',
+    proc_b3_h: 'Clean cup · Score 10/10', proc_b3_p: 'Our coffee obtained the perfect score of 10/10 in "clean cup" during the SCA evaluation — a direct recognition of our rigorous washed process.',
+    gr_eyebrow: 'Don Alberto',
+    gr_h2: 'Whole bean — <em>the art of freshness</em>',
+    gr_lbl: 'Why Whole Bean?',
+    gr_sub: 'Grinding immediately releases volatile aromas. In whole bean form, you remain the master of the moment — and the quality.',
+    gr_c1_h: 'Maximum freshness', gr_c1_p: 'Whole bean coffee preserves its aromatic oils up to 12 months after roasting. Ground just before brewing, it reveals all the complexity of the Andean terroir of Boyacá.',
+    gr_c2_h: 'Grind control', gr_c2_p: 'Espresso, filter, French press, Chemex, moka — each method requires a precise grind size. Whole beans give you the freedom to customize your extraction.',
+    gr_c3_h: 'Intact aromatic value', gr_c3_p: 'Once ground, coffee loses 60% of its aromas in 15 minutes. Don Alberto whole beans guarantee that you are the first and only person to break the bean — at the precise moment you choose.',
+    cmd_lbl: 'Order',
+    cmd_h2: 'Three formats,<br><em>one passion</em>',
+    cmd_sub: 'For PayPal, the amount is pre-filled automatically. For Revolut and Wise, enter the exact amount for your format and add your shipping address in the notes.',
+    cmd_pp: 'PayPal — pre-filled amount, instant payment',
+    cmd_rv: 'Revolut — enter the amount + product reference',
+    cmd_ws: 'Wise — ideal from UK, Switzerland, Colombia, outside Eurozone',
+    cmd_q: 'Questions : donalberto.coffee@gmail.com',
+    cmd_sum: 'Price Summary',
+    cmd_p1: '250g — Whole Bean',
+    cmd_p2: '250g — Ground Coffee',
+    cmd_p3: '3 × 250g — Discovery Pack',
+    cmd_p4: '2.5 kg — Wholesale',
+    cmd_del: 'Free shipping',
+    cmd_req: 'Revolut & Wise — Required Information',
+    cmd_req_desc: 'In the <strong style="color:white;">payment note</strong>, please include:<br>· Your <strong style="color:white;">full name</strong><br>· The <strong style="color:white;">ordered product</strong> (e.g. DA-250g)<br>· Your <strong style="color:white;">complete shipping address</strong>',
+    cmd_foot: 'PayPal · Revolut · Wise<br>Shipping to metropolitan France · 5–10 days'
   },
   es:{
     sl:'Esencia del Suelo, Vida en el Fruto', craft:'ARTE CAFETALERO ANCESTRAL',
@@ -611,15 +641,15 @@ col_cta: "Discover The House →",
       {text:'Puntaje SCA',val:'84.5+ / 100'},
       {text:'Taza Limpia',val:'Score 10/10'}
     ],
-   col_label: "El café premium del mundo cosechado continuamente",
-col_h2: "Colombia - <em>Productor #1 de Café Premium</em>",
-col_p1: "Con sus 86 microclimas, cordilleras andinas y suelos volcánicos entre 1.200 y 2.000 metros, Colombia ofrece una diversidad rara y rica. Siendo el principal productor mundial de Arábica de alta calidad, cuenta con un terruño excepcional reconocido como uno de los orígenes más complejos del mundo.",
-cs1_val: "~50%", cs1_lbl: "Andisoles Volcánicos", cs1_desc: "Casi el 50% de las regiones cafetaleras de Colombia están en suelos formados por ceniza volcánica. Retienen perfectamente el agua y los nutrientes, desarrollando la complejidad aromática única de nuestros granos.",
-cs2_val: "8–15%", cs2_lbl: "Materia Orgánica", cs2_desc: "Los suelos cafetaleros colombianos promedian entre 8% y 15% de materia orgánica, muy superior al promedio mundial de 1% a 3%. Esta riqueza nutre naturalmente la planta, garantizando una pureza y vigor excepcionales.",
-cs3_val: "15%", cs3_lbl: "Carbono Total", cs3_desc: "En el horizonte superior, el carbono total alcanza el 15%. Este reservorio natural alimenta continuamente a la planta para producir cerezas más densas y dulces.",
-cs4_val: ">65%", cs4_lbl: "Porosidad del Suelo", cs4_desc: "Estos suelos exhiben una extrema ligereza, con una porosidad que supera el 65% al 75%. Esto asegura un drenaje perfecto donde el agua fluye sin estancarse, protegiendo las raíces de la asfixia.",
-cs5_val: "0.7 g/cm³", cs5_lbl: "Baja Densidad", cs5_desc: "Estas tierras tienen una densidad de 0.7 a 0.9 g/cm³ en comparación con 1.2 a 1.6 g/cm³ para un suelo agrícola estándar. Esta estructura ultraligera permite que las raíces se anclen profundamente y se oxigenen, fortaleciendo la vitalidad del cafeto.",
-col_cta: "Descubrir La Casa →",
+    col_label: "El café premium del mundo cosechado continuamente",
+    col_h2: "Colombia - <em>Productor #1 de Café Premium</em>",
+    col_p1: "Con sus 86 microclimas, cordilleras andinas y suelos volcánicos entre 1.200 y 2.000 metros, Colombia ofrece una diversidad rara y rica. Siendo el principal productor mundial de Arábica de alta calidad, cuenta con un terruño excepcional reconocido como uno de los orígenes más complejos del mundo.",
+    cs1_val: "~50%", cs1_lbl: "Andisoles Volcánicos", cs1_desc: "Casi el 50% de las regiones cafetaleras de Colombia están en suelos formados por ceniza volcánica. Retienen perfectamente el agua y los nutrientes, desarrollando la complejidad aromática única de nuestros granos.",
+    cs2_val: "8–15%", cs2_lbl: "Materia Orgánica", cs2_desc: "Los suelos cafetaleros colombianos promedian entre 8% y 15% de materia orgánica, muy superior al promedio mundial de 1% a 3%. Esta riqueza nutre naturalmente la planta, garantizando una pureza y vigor excepcionales.",
+    cs3_val: "15%", cs3_lbl: "Carbono Total", cs3_desc: "En el horizonte superior, el carbono total alcanza el 15%. Este reservorio natural alimenta continuamente a la planta para producir cerezas más densas y dulces.",
+    cs4_val: ">65%", cs4_lbl: "Porosidad del Suelo", cs4_desc: "Estos suelos exhiben una extrema ligereza, con una porosidad que supera el 65% al 75%. Esto asegura un drenaje perfecto donde el agua fluye sin estancarse, protegiendo las raíces de la asfixia.",
+    cs5_val: "0.7 g/cm³", cs5_lbl: "Baja Densidad", cs5_desc: "Estas tierras tienen una densidad de 0.7 a 0.9 g/cm³ en comparación con 1.2 a 1.6 g/cm³ para un suelo agrícola estándar. Esta estructura ultraligera permite que las raíces se anclen profundamente y se oxigenen, fortaleciendo la vitalidad del cafeto.",
+    col_cta: "Descubrir La Casa →",
     fol_lbl:'Síguenos',
     olabel:'Specialty Coffee Boyacá Colombia',
     oh2:'Rondón, Boyacá —<br><em>donde todo comienza</em>',
@@ -629,23 +659,17 @@ col_cta: "Descubrir La Casa →",
     hh1tag:'Origen Exclusivo', hh1title:'Única Green Coffee Farm<br>en Boyacá', hh1desc:'La única finca certificada en un departamento de 1,3 millones de habitantes.',
     hh2tag:'Top 5–10% Mundial', hh2title:'Café de Especialidad<br>Certificado SCA · 84.5', hh2desc:'Solo el 5–10% de los cafés del mundo alcanzan el grado specialty.',
     hh3tag:'Trazabilidad Total', hh3title:'Finca → Taza<br>Cero Intermediarios', hh3desc:'Cadena directa: máxima calidad, precio justo, impacto real en la finca.',
-    /* card attribute labels */
     kOrigine:'Origen', kVariete:'Variedad', kProcede:'Proceso', kAltitude:'Altitud',
     kTorref:'Tostión', kContenu:'Contenido', kEconomie:'Ahorro', kLivraison:'Envío',
     kUsage:'Uso', kPrixKg:'Precio/kg', kMouture:'Molienda', kDuree:'Duración', kPrixSac:'Precio/bolsa',
-    /* card tags */
     tagGrains:'Grano Entero', tagMoulu:'Café Molido', tagPack:'Pack Descubrimiento', tagPro:'Formato Profesional',
     tagSub3:'Suscripción Mensual · 3 Meses', tagSub6:'Suscripción Mensual · 6 Meses', tagSubAnn:'Suscripción · 12 Meses',
-    /* card values */
     vWashed:'Lavado', vFiltreEsp:'Filtro o Espresso', vOfferte:'Gratis', vIncluse:'Incluido',
-    /* ship text */
     shipFree:'Envío gratis', shipCost:'+ envío €7',
-    /* product notes */
     notesBase:'Cacao & Miel · Cítricos · Textura Sedosa', notesMoulu:'Molienda especificada al pedir · Filtro o Espresso',
     notesPack:'Ideal para regalar · Experiencia excepcional', notesWholesale:'Cafés · Restaurantes · Tiendas Gourmet',
     notesEsencia:'Descubrimiento — tostado fresco en cada envío', notesRaices:'Fidelidad — café fresco sin parar',
     notesHerencia:'Compromiso — mejor valor del programa',
-    /* badge */
     badgePop:'El más popular',
     famLabel:'La Familia', famTitle:'Rostros detrás de <em>cada grano</em>',
     famP1:'Don Alberto Café es mucho más que una marca: es un sello familiar. Somos un colectivo de familias y amigos de la infancia que vuelve a sus raíces para honrar el amor por la tierra que heredamos. Crecimos en Boyacá, entre cafetales; conocemos cada grano de memoria y cultivamos estas tierras preservando la tradición artesanal de nuestros antepasados.',
@@ -660,7 +684,59 @@ col_cta: "Descubrir La Casa →",
     bformats_p:'Elige tu formato y paga directamente. Para Revolut y Wise, ingresa el monto indicado y añade tu dirección en la nota.',
     bcmd_btn:'Ordenar →', bjoin_btn:'Unirse →',
     bno_results:'Ningún producto coincide con tus criterios.',
-    bno_reset:'Reiniciar filtros'
+    bno_reset:'Reiniciar filtros',
+    boutiqueHero: 'La Tienda',
+    optBoyaca: 'Boyacá, Colombia', optRondon: 'Rondón, Boyacá',
+    optCastillo: 'Castillo', optCaturra: 'Caturra', optColombia: 'Colombia', optTypica: 'Typica', optBourbon: 'Bourbon',
+    optWashed: 'Lavado (Washed)', optNatural: 'Natural', optHoney: 'Honey', optAnaerobic: 'Anaeróbico',
+    optLight: 'Tueste Claro', optMedLight: 'Tueste Medio-Claro', optMedium: 'Tueste Medio', optDark: 'Tueste Oscuro',
+    opt90plus: '90+ Grand Cru', opt85_89: '85–89 Excelencia', opt80_85: '80–85 Specialty Premium', optCommercial: '60–79 Comercial',
+    sca_label: 'Entendiendo la Calidad',
+    sca_h2: '¿Qué es el <em>Puntaje SCA</em><br>y por qué importa el 84.5?',
+    sca_p: 'La Specialty Coffee Association es la autoridad mundial en calidad del café. Su protocolo de evaluación — realizado por Q-Graders certificados — es el estándar internacional para distinguir un café excepcional de uno ordinario.',
+    sca_t1: 'Café Comercial', sca_badge: 'Nuestro café', sca_t2: 'Specialty Premium', sca_t3: 'Excelencia', sca_t4: 'Grand Cru',
+    sca_h3: '¿Cómo funciona la<br><em>evaluación SCA?</em>',
+    sca_s1_t: 'Cata a ciegas',
+    sca_s1_d: 'Un Q-Grader (experto certificado SCA) evalúa a ciegas el café en 10 criterios sensoriales — desde el aroma hasta la impresión general — con precisión de un decimal.',
+    sca_s2_t: 'Puntajes perfectos en 3 criterios',
+    sca_s2_d: 'Nuestro Castillo logra puntajes perfectos de 10/10 en uniformidad, taza limpia y dulzura — los marcadores de un proceso lavado dominado y una recolección selectiva impecable.',
+    sca_s3_t: '84.5 — Un umbral raro',
+    sca_s3_d: 'Solo los cafés que alcanzan 80+ puntos son "Specialty Coffee". Con 84.5, Don Alberto se ubica en el top 10% de la producción mundial — un logro excepcional para una primera finca en Boyacá.',
+    sca_s4_t: 'Lo que significa en tu taza',
+    sca_s4_d: 'Complejidad aromática, claridad, equilibrio y un final limpio y elegante. La certificación SCA es la garantía de que cada bolsa de Don Alberto cumple su promesa.',
+    score_cta: 'Ordenar Ahora →',
+    proc_label: 'El Proceso',
+    proc_h2: 'Café <em>Lavado</em> — El camino<br>hacia la pureza aromática',
+    proc_1_h: '1 · Cosecha selectiva', proc_1_p: 'Solo las cerezas maduras se recolectan a mano, grano por grano. Esta rigurosa selección es la primera condición para la calidad SCA.',
+    proc_2_h: '2 · Despulpado inmediato', proc_2_p: 'La pulpa se retira mecánicamente en las horas siguientes a la cosecha. La semilla, aún cubierta de mucílago, entra en fermentación controlada.',
+    proc_3_h: '3 · Fermentación acuática', proc_3_p: 'El café fermenta en tanques de agua durante 24 a 48 horas. Este proceso desarrolla la claridad aromática característica del café lavado.',
+    proc_4_h: '4 · Lavado y Secado natural', proc_4_p: 'Un lavado abundante elimina cualquier residuo. El café se seca al sol en camas africanas a 1.670 m de altitud, preservando los delicados aromas del terruño.',
+    proc_b1_h: 'Pureza aromática total', proc_b1_p: 'Al eliminar toda la pulpa, el proceso lavado expresa con máxima claridad el terruño y la variedad. Cada nota del suelo de Boyacá brilla sin interferencias.',
+    proc_b2_h: 'Acidez brillante y elegante', proc_b2_p: 'El café lavado desarrolla una acidez más perceptible y nítida. Para nuestro Castillo, esto se traduce en una acidez media agradable que aporta vivacidad sin agresividad.',
+    proc_b3_h: 'Taza limpia · Score 10/10', proc_b3_p: 'Nuestro café obtuvo la calificación perfecta de 10/10 en "taza limpia" durante la evaluación SCA — un reconocimiento directo a la rigurosidad de nuestro proceso lavado.',
+    gr_eyebrow: 'Don Alberto',
+    gr_h2: 'Grano entero — <em>el arte de la frescura</em>',
+    gr_lbl: '¿Por qué Grano Entero?',
+    gr_sub: 'La molienda libera inmediatamente los aromas volátiles. En grano entero, usted sigue siendo el dueño del momento — y de la calidad.',
+    gr_c1_h: 'Frescura máxima', gr_c1_p: 'El café en grano conserva sus aceites aromáticos hasta 12 meses después del tueste. Molido justo antes de la preparación, revela toda la complejidad del terruño andino de Boyacá.',
+    gr_c2_h: 'Control de la molienda', gr_c2_p: 'Espresso, filtro, prensa francesa, Chemex, moka — cada método requiere una granulometría precisa. Los granos enteros le dan la libertad de personalizar su extracción.',
+    gr_c3_h: 'Valor aromático intacto', gr_c3_p: 'Una vez molido, el café pierde el 60% de sus aromas en 15 minutos. Los granos enteros Don Alberto garantizan que usted sea la primera y única persona en romper el grano — en el momento exacto que elija.',
+    cmd_lbl: 'Ordenar',
+    cmd_h2: 'Tres formatos,<br><em>una misma pasión</em>',
+    cmd_sub: 'Para PayPal, el monto se completa automáticamente. Para Revolut y Wise, ingrese el monto exacto de su formato y agregue su dirección de envío en la nota.',
+    cmd_pp: 'PayPal — monto precompletado, pago inmediato',
+    cmd_rv: 'Revolut — ingrese el monto + referencia del producto',
+    cmd_ws: 'Wise — ideal desde UK, Suiza, Colombia, fuera de la eurozona',
+    cmd_q: 'Preguntas : donalberto.coffee@gmail.com',
+    cmd_sum: 'Resumen de Precios',
+    cmd_p1: '250g — Grano Entero',
+    cmd_p2: '250g — Café Molido',
+    cmd_p3: '3 × 250g — Pack Descubrimiento',
+    cmd_p4: '2,5 kg — Wholesale',
+    cmd_del: 'Envío gratis',
+    cmd_req: 'Revolut & Wise — Información requerida',
+    cmd_req_desc: 'En la <strong style="color:white;">nota de pago</strong>, por favor incluya:<br>· Su <strong style="color:white;">nombre completo</strong><br>· El <strong style="color:white;">producto ordenado</strong> (ej: DA-250g)<br>· Su <strong style="color:white;">dirección de envío completa</strong>',
+    cmd_foot: 'PayPal · Revolut · Wise<br>Envío a Francia metropolitana · 5–10 días'
   }
 };
 
@@ -683,44 +759,42 @@ function setLang(lang) {
   const set  = (id, val) => { const e = _$(id); if (e && val !== undefined) e.textContent = val; };
   const setH = (id, val) => { const e = _$(id); if (e && val !== undefined) e.innerHTML = val; };
 
-  // Header brand
   set('hf-sl1', t.sl1); set('hf-sl2', t.sl2);
-  // Hero
   set('h-sl', t.sl); set('h-craft', t.craft); set('h-ey', t.ey); set('s-scroll', t.sc);
   set('s-sca', t.ssca); set('s-alt', t.salt); set('s-ara', t.sara); set('s-stat4', t.stat4);
   const hcta = _$('hero-cta-btn'); if (hcta) hcta.textContent = t.hcta;
-  // Home panels
+  
   set('p1-ey', t.p1e); setH('p1-ti', t.p1t); set('p1-ct', t.p1c);
   set('p2-ey', t.p2e); setH('p2-ti', t.p2t); set('p2-ct', t.p2c);
-  // Newsletter
+  
   setH('nl-h', t.nlh); set('nl-p', t.nlp); set('nl-btn', t.nlb);
   const nli = _$('nl-input'); if (nli) nli.placeholder = t.nlph;
-  // Trust bar
+  
   ['1','2','3','4'].forEach(i => { set('t'+i+'h', t['t'+i+'h']); set('t'+i+'d', t['t'+i+'d']); });
-  // Utility bar
+  
   set('ub-maison', t.ubm); set('ub-vlog', t.ubv); set('ub-pro', t.ubp);
-  // Main nav
+  
   set('n-spec', t.nspec); set('n-club', t.nclub); set('n-pro', t.npro); set('n-orig', t.norig);
   const b2bPage = document.body && document.body.classList.contains('page-b2b');
   const cmdTxt = b2bPage && t.ncmd_b2b ? t.ncmd_b2b : t.ncmd;
   set('n-cmd', cmdTxt);
-  // Mobile menu
+  
   set('mm-home', t.home);
   set('mm-spec', t.nspec); set('mm-club', t.nclub); set('mm-orig', t.norig);
   set('mm-pro', t.npro); set('mm-cmd', cmdTxt);
   set('mm-maison', t.fm); set('mm-vlog', t.ubv);
-  // Footer
+  
   set('fc-h1', t.fh1); set('fc-h2', t.fh2); set('fc-h3', t.fh3);
   set('fl-maison', t.fm); set('fl-atelier', t.fa); set('fl-vlog', t.fv);
   set('fl-boutique', t.fb); set('fl-club', t.fc); set('fl-b2b', t.fb2); set('fl-contact', t.fco);
   set('fv-txt', t.fvt); setH('footer-slogan', t.fslogan);
-  // WhatsApp
+  
   set('wa-txt', t.wa);
   const waL = _$('wa-link');
   if (waL) waL.href = 'https://wa.me/33761528450?text=' + encodeURIComponent(t.wa === 'Need help?' ? 'Hello, I have a question about Don Alberto Café.' : t.wa === '¿Necesitas ayuda?' ? 'Hola, tengo una pregunta sobre Don Alberto Café.' : "Bonjour, j'ai une question sur Don Alberto Café.");
-  // Journey steps
+  
   ['1','2','3','4','5'].forEach(i => { setH('jt'+i, t['jt'+i]); set('jd'+i, t['jd'+i]); });
-  // Quality section
+  
   if (t.qlabel) set('q-label', t.qlabel);
   if (t.qh2)   setH('q-h2', t.qh2);
   if (t.qp1)   setH('q-p1', t.qp1);
@@ -728,8 +802,8 @@ function setLang(lang) {
   if (t.qquote) set('q-quote', t.qquote);
   if (t.qcite)  set('q-cite', t.qcite);
   if (t.qcta)   set('q-cta', t.qcta);
-  // Colombia section
-  if (t.col_label) set('col-label', t.col_label);
+  
+  if (t.col_label) set('col-label', t.col_label);
   if (t.col_h2)    setH('col-h2',   t.col_h2);
   if (t.col_p1)    set('col-p1',    t.col_p1);
   if (t.col_cta)   set('col-cta',   t.col_cta);
@@ -740,25 +814,10 @@ function setLang(lang) {
     set('cs3-val', t.cs3_val); set('cs3-lbl', t.cs3_lbl); set('cs3-desc', t.cs3_desc);
     set('cs4-val', t.cs4_val); set('cs4-lbl', t.cs4_lbl); set('cs4-desc', t.cs4_desc);
     set('cs5-val', t.cs5_val); set('cs5-lbl', t.cs5_lbl); set('cs5-desc', t.cs5_desc);
-
-    set('cb1-t', t.cs1_lbl); set('cb1-d', t.cs1_desc);
-    set('cb2-t', t.cs2_lbl); set('cb2-d', t.cs2_desc);
-    set('cb3-t', t.cs3_lbl); set('cb3-d', t.cs3_desc);
-    set('cb4-t', t.cs4_lbl); set('cb4-d', t.cs4_desc);
-    set('cb5-t', t.cs5_lbl); set('cb5-d', t.cs5_desc);
   }
    
-  // Footer follow us
   if (t.fol_lbl)   set('footer-follow-lbl', t.fol_lbl);
-  // Ticker rebuild
-  const track = document.querySelector('.attrs-track');
-  if (track && t.ticker) {
-    const doubled = [...t.ticker, ...t.ticker];
-    track.innerHTML = doubled.map(item =>
-      `<div class="attr-item"><div class="attr-dot"></div><span class="attr-text">${item.text}</span><span class="attr-value">${item.val}</span></div>`
-    ).join('');
-  }
-  // Origin teaser
+  
   if (t.olabel) set('o-label', t.olabel);
   if (t.oh2)   setH('o-h2', t.oh2);
   if (t.op1)   set('o-p1', t.op1);
@@ -768,7 +827,6 @@ function setLang(lang) {
   if (t.of4)   set('o-f4', t.of4);
   if (t.octa)  set('o-cta', t.octa);
 
-  // Hero hooks
   if (t.hh1tag)   set('hh1-tag',   t.hh1tag);
   if (t.hh1title) setH('hh1-title', t.hh1title);
   if (t.hh1desc)  set('hh1-desc',  t.hh1desc);
@@ -779,10 +837,36 @@ function setLang(lang) {
   if (t.hh3title) setH('hh3-title', t.hh3title);
   if (t.hh3desc)  set('hh3-desc',  t.hh3desc);
 
-  // Notify other scripts (subpages can listen for custom lang data)
   document.dispatchEvent(new CustomEvent('da-lang', { detail: { lang, t } }));
 
-  // Boutique page elements
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key]) {
+      if (t[key].includes('<') || t[key].includes('&')) {
+        el.innerHTML = t[key];
+      } else {
+        el.textContent = t[key];
+      }
+    }
+  });
+document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key]) {
+      if (t[key].includes('<') || t[key].includes('&')) {
+        el.innerHTML = t[key];
+      } else {
+        el.textContent = t[key];
+      }
+    }
+  });
+
+  const track = document.querySelector('.attrs-track');
+  if (track && t.ticker) {
+    const doubled = [...t.ticker, ...t.ticker];
+    track.innerHTML = doubled.map(item =>
+      `<div class="attr-item"><div class="attr-dot"></div><span class="attr-text">${item.text}</span><span class="attr-value">${item.val}</span></div>`
+    ).join('');
+  }
   const bs = (id,v) => { const el=_$(id); if(el&&v!==undefined){ if(v.includes('<')) el.innerHTML=v; else el.textContent=v; } };
   bs('btab-all', t.btab_all); bs('btab-grains', t.btab_grains); bs('btab-moulu', t.btab_moulu); bs('btab-sub', t.btab_sub);
   bs('bfilter-lbl', t.bfilter_lbl); bs('bfilter-reset', t.bfilter_reset);
@@ -793,45 +877,7 @@ function setLang(lang) {
   document.querySelectorAll('.bjoin-btn').forEach(b=>{ if(t.bjoin_btn) b.textContent=t.bjoin_btn; });
   const nr=_$('no-results'); if(nr&&t.bno_results){ nr.querySelector('.no-results-txt') && (nr.querySelector('.no-results-txt').textContent=t.bno_results); }
   const nrBtn=_$('no-results-btn'); if(nrBtn&&t.bno_reset) nrBtn.textContent=t.bno_reset;
-  // Update filter select placeholder options
 
-  // Product card i18n — attribute keys, tags, notes, badges
-  const qAll = (sel, prop, val) => { if(!val) return; document.querySelectorAll(sel).forEach(el => { if(prop==='text') el.textContent=val; else el.innerHTML=val; }); };
-  qAll('[data-i18n="kOrigine"]','text', t.kOrigine);
-  qAll('[data-i18n="kVariete"]','text', t.kVariete);
-  qAll('[data-i18n="kProcede"]','text', t.kProcede);
-  qAll('[data-i18n="kAltitude"]','text', t.kAltitude);
-  qAll('[data-i18n="kTorref"]','text', t.kTorref);
-  qAll('[data-i18n="kContenu"]','text', t.kContenu);
-  qAll('[data-i18n="kEconomie"]','text', t.kEconomie);
-  qAll('[data-i18n="kLivraison"]','text', t.kLivraison);
-  qAll('[data-i18n="kUsage"]','text', t.kUsage);
-  qAll('[data-i18n="kPrixKg"]','text', t.kPrixKg);
-  qAll('[data-i18n="kMouture"]','text', t.kMouture);
-  qAll('[data-i18n="kDuree"]','text', t.kDuree);
-  qAll('[data-i18n="kPrixSac"]','text', t.kPrixSac);
-  qAll('[data-i18n="tagGrains"]','text', t.tagGrains);
-  qAll('[data-i18n="tagMoulu"]','text', t.tagMoulu);
-  qAll('[data-i18n="tagPack"]','text', t.tagPack);
-  qAll('[data-i18n="tagPro"]','text', t.tagPro);
-  qAll('[data-i18n="tagSub3"]','text', t.tagSub3);
-  qAll('[data-i18n="tagSub6"]','text', t.tagSub6);
-  qAll('[data-i18n="tagSubAnn"]','text', t.tagSubAnn);
-  qAll('[data-i18n="vWashed"]','text', t.vWashed);
-  qAll('[data-i18n="vFiltreEsp"]','text', t.vFiltreEsp);
-  qAll('[data-i18n="vOfferte"]','text', t.vOfferte);
-  qAll('[data-i18n="vIncluse"]','text', t.vIncluse);
-  qAll('[data-i18n="shipFree"]','text', t.shipFree);
-  qAll('[data-i18n="shipCost"]','text', t.shipCost);
-  qAll('[data-i18n="notesBase"]','text', t.notesBase);
-  qAll('[data-i18n="notesMoulu"]','text', t.notesMoulu);
-  qAll('[data-i18n="notesPack"]','text', t.notesPack);
-  qAll('[data-i18n="notesWholesale"]','text', t.notesWholesale);
-  qAll('[data-i18n="notesEsencia"]','text', t.notesEsencia);
-  qAll('[data-i18n="notesRaices"]','text', t.notesRaices);
-  qAll('[data-i18n="notesHerencia"]','text', t.notesHerencia);
-  qAll('[data-i18n="badgePop"]','text', t.badgePop);
-  // Family section i18n
   const fset = (id,v) => { const e=_$(id); if(e&&v!==undefined){ if(v.includes('<em>')) e.innerHTML=v; else e.textContent=v; } };
   fset('fam-label', t.famLabel);
   fset('fam-title', t.famTitle);
@@ -840,7 +886,6 @@ function setLang(lang) {
   fset('fam-quote', t.famQuote);
   fset('fam-cite', t.famCite);
 
-  // Nav dropdown item labels
   const dset = (id,v) => { const e=_$(id); if(e&&v) e.textContent=v; };
   dset('nd-cafe', t.ndc); dset('nd-sca1', t.nds1); dset('nd-sca2', t.nds2);
   dset('nd-proc', t.ndp); dset('nd-fam', t.ndf);
@@ -852,9 +897,6 @@ function setLang(lang) {
   Object.entries(selMap).forEach(([id,label])=>{ const s=_$(id); if(s&&label){ const opt=s.querySelector('option[value=""]'); if(opt) opt.textContent=label; } });
 }
 
-/* ══════════════════════════════════════════
-   7. CHECKOUT MODAL
-   ══════════════════════════════════════════ */
 function openCheckout() {
   const m = document.getElementById('coModal');
   if (m) { m.classList.add('open'); document.body.style.overflow = 'hidden'; }
@@ -872,9 +914,6 @@ document.addEventListener('keydown', e => {
   }
 });
 
-/* ══════════════════════════════════════════
-   8. PAYMENT MODAL (boutique / subpages)
-   ══════════════════════════════════════════ */
 function openPayment(name, price, imgSrc) {
   const elName  = _$('pay-product-name');
   const elPrice = _$('pay-product-price');
@@ -897,19 +936,13 @@ function buildPayLinks(name, price) {
   const waEl = _$('pay-whatsapp'); if (waEl) waEl.href = waLink;
 }
 
-/* ══════════════════════════════════════════
-   9. INIT
-   ══════════════════════════════════════════ */
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Inject shell (header + footer)
   injectShell();
 
-  // 2. Apply saved language
   let lang = 'fr';
   try { lang = localStorage.getItem('da_lang') || 'fr'; } catch(e) {}
   setLang(lang);
 
-  // 3. Reveal-on-scroll observer
   const revealObs = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
@@ -917,7 +950,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.09 });
   document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-  // 4. SCA progress bars (subpages)
   const bars = document.querySelectorAll('.sca-fill[data-pct]');
   if (bars.length) {
     const barObs = new IntersectionObserver(entries => {
@@ -931,7 +963,6 @@ document.addEventListener('DOMContentLoaded', () => {
     bars.forEach(b => barObs.observe(b));
   }
 
-  // 5. Auto-fade WhatsApp bubble
   setTimeout(() => {
     const b = document.getElementById('wa-bubble');
     if (b) {

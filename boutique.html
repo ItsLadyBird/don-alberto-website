@@ -9,13 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="da-styles.css">
-
 <style>
-/* ══════════════════════════════════════
-   BOUTIQUE PAGE STYLES
-   ══════════════════════════════════════ */
-
-/* ── BOUTIQUE HERO ── */
 .boutique-hero {
   background: var(--teal-deep, #064e65);
   padding: 80px 60px 60px;
@@ -57,8 +51,6 @@
   text-transform: uppercase;
   color: rgba(250,248,244,.5);
 }
-
-/* ── FILTER TABS ── */
 .boutique-tabs-wrap {
   background: #faf8f4;
   border-bottom: 2px solid rgba(9,102,133,.14);
@@ -66,7 +58,6 @@
   position: sticky;
   top: 0;
   z-index: 200;
-  /* ensure it never clips between the two nav bars */
 }
 .boutique-tabs {
   max-width: 1200px;
@@ -96,8 +87,6 @@
   color: var(--teal, #096685);
   border-bottom-color: var(--teal, #096685);
 }
-
-/* ── FILTER BAR ── */
 .filter-bar {
   background: rgba(9,102,133,.04);
   border-bottom: 1px solid rgba(9,102,133,.10);
@@ -164,8 +153,6 @@
   color: rgba(6,78,101,.45);
   text-transform: uppercase;
 }
-
-/* ── PRODUCT CATALOG SECTION ── */
 .product-catalog {
   background: var(--cream, #faf8f4);
   padding: 60px 60px 100px;
@@ -174,7 +161,6 @@
   max-width: 1260px;
   margin: 0 auto;
 }
-/* ── PRODUCT CAROUSEL ── */
 .carousel-wrap {
   position: relative;
   overflow: hidden;
@@ -195,8 +181,6 @@
 @media (max-width: 1100px) { .pcard { flex: 0 0 calc(33.33% - 2px) !important; } }
 @media (max-width: 800px)  { .pcard { flex: 0 0 calc(50% - 2px) !important; } }
 @media (max-width: 520px)  { .pcard { flex: 0 0 85vw !important; } }
-
-/* Carousel nav arrows */
 .carousel-btn {
   position: absolute;
   top: 38%;
@@ -233,8 +217,6 @@
   transition: background .2s, transform .2s;
 }
 .carousel-dot.active { background: var(--teal, #096685); transform: scale(1.3); }
-
-/* ── PRODUCT CARD ── */
 .pcard {
   background: #fff;
   border: 1px solid rgba(0,0,0,.07);
@@ -251,8 +233,6 @@
   z-index: 2;
 }
 .pcard.hidden { display: none; }
-
-/* Featured card */
 .pcard.featured { border-color: var(--gold); }
 .pcard-badge {
   position: absolute;
@@ -268,8 +248,6 @@
   padding: 5px 12px;
   z-index: 3;
 }
-
-/* ── IMAGE AREA — full bleed, stacked product + wheel ── */
 .pcard-img {
   width: 100%;
   aspect-ratio: 3 / 4;
@@ -310,8 +288,6 @@
   opacity: 1;
   transform: scale(1);
 }
-
-/* Hover overlay — specs appear on hover */
 .pcard-overlay {
   position: absolute;
   inset: 0;
@@ -334,8 +310,6 @@
 .pcard-overlay .pcard-attr { font-size: 9px; }
 .pcard-overlay .pcard-attr-key { color: rgba(250,248,244,.5); letter-spacing: 1px; }
 .pcard-overlay .pcard-attr-val { color: rgba(250,248,244,.9); }
-
-/* ── CARD BODY — only always-visible info ── */
 .pcard-body {
   padding: 16px 18px 20px;
   flex: 1;
@@ -365,8 +339,6 @@
   line-height: 1.7;
   margin-bottom: 12px;
 }
-
-/* Attributes row — hidden on card, shown in overlay */
 .pcard-attrs {
   display: flex;
   flex-direction: column;
@@ -384,8 +356,6 @@
 }
 .pcard-attr-key { color: rgba(0,0,0,.32); letter-spacing: 1px; text-transform: uppercase; }
 .pcard-attr-val { color: rgba(0,0,0,.65); font-weight: 400; }
-
-/* Notes — always visible */
 .pcard-notes {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
@@ -394,8 +364,6 @@
   margin-bottom: 10px;
   line-height: 1.5;
 }
-
-/* Price row */
 .pcard-footer {
   margin-top: auto;
   display: flex;
@@ -452,8 +420,6 @@
 .pcard-btn:hover { background: var(--gold, #c4a050); color: #faf8f4; }
 .pcard.featured .pcard-btn { background: var(--gold, #c4a050); }
 .pcard.featured .pcard-btn:hover { background: #a8873a; }
-
-/* SCA badge on card */
 .pcard-sca {
   display: inline-flex;
   align-items: center;
@@ -473,8 +439,6 @@
   border-radius: 50%;
   background: var(--gold, #c4a050);
 }
-
-/* ── NO RESULTS ── */
 .no-results {
   grid-column: 1 / -1;
   text-align: center;
@@ -484,10 +448,6 @@
   font-weight: 300;
   color: rgba(0,0,0,.35);
 }
-
-/* ══════════════════════════════════════
-   FORMATS / PAYMENT SECTION (from OG)
-   ══════════════════════════════════════ */
 .prod-gallery {
   background: #f5f0e8;
   padding: 100px 80px;
@@ -561,10 +521,6 @@
 .pg-pay-note { display: block; font-size: 9.5px; color: rgba(0,0,0,.38); margin-top: 1px; font-family: 'Lato', sans-serif; }
 .pg-pay-amount { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: #141414; }
 .pg-note { font-size: 10px; color: rgba(0,0,0,.3); margin-top: 10px; line-height: 1.6; font-family: 'Lato', sans-serif; font-style: italic; }
-
-/* ══════════════════════════════════════
-   ORDER CTA SECTION
-   ══════════════════════════════════════ */
 .order-cta {
   background: var(--teal-deep, #064e65);
   display: grid;
@@ -574,10 +530,6 @@
   align-items: start;
 }
 @media (max-width: 900px) { .order-cta { grid-template-columns: 1fr; padding: 60px 32px; } }
-
-/* ══════════════════════════════════════
-   TRUST BAR
-   ══════════════════════════════════════ */
 .btrust-bar { background: #faf8f4; border-top: 1px solid rgba(9,102,133,.12); border-bottom: 1px solid rgba(9,102,133,.12); }
 .btrust-inner {
   max-width: 1200px;
@@ -597,14 +549,9 @@
 .btrust-icon svg { width: 100%; height: 100%; }
 .btrust-h { font-family: 'Lato', sans-serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #141414; margin-bottom: 5px; }
 .btrust-d { font-family: 'Lato', sans-serif; font-size: 10.5px; color: rgba(0,0,0,.45); line-height: 1.6; }
-
-/* ══════════════════════════════════════
-   SCA EDUCATION (adapted from OG)
-   ══════════════════════════════════════ */
 .bsca-edu { background: #faf8f4; padding: 100px 80px; }
 .bsca-edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-top: 60px; align-items: start; }
 @media (max-width: 900px) { .bsca-edu-grid { grid-template-columns: 1fr; } }
-
 .score-tiers { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 26px; }
 .tier { padding: 15px 16px; }
 .tier.active { background: rgba(9,102,133,.07); border: 2px solid var(--teal, #096685); }
@@ -612,16 +559,11 @@
 .tier-range { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 300; color: var(--teal-deep, #064e65); }
 .tier-lbl { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: rgba(0,0,0,.4); margin-top: 3px; font-family: 'Lato', sans-serif; }
 .tier-badge { display: inline-block; background: var(--teal, #096685); color: #faf8f4; font-size: 7px; letter-spacing: 1px; text-transform: uppercase; padding: 3px 7px; margin-bottom: 4px; font-family: 'Lato', sans-serif; }
-
 .sca-steps-list { display: flex; flex-direction: column; gap: 28px; }
 .sca-step-item { display: flex; gap: 20px; align-items: flex-start; }
 .sca-step-num { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 300; color: var(--gold, #c4a050); line-height: 1; flex-shrink: 0; width: 48px; text-align: right; }
 .sca-step-body h4 { font-family: 'Cormorant Garamond', serif; font-size: 19px; color: #141414; margin-bottom: 6px; }
 .sca-step-body p { font-size: 12.5px; line-height: 1.9; color: rgba(0,0,0,.5); font-family: 'Lato', sans-serif; font-weight: 300; }
-
-/* ══════════════════════════════════════
-   PROCESS SECTION
-   ══════════════════════════════════════ */
 .bprocess-section {
   background: #141414;
   padding: 100px 80px;
@@ -637,22 +579,16 @@
 .bprocess-inner { position: relative; z-index: 1; }
 .bprocess-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; margin-top: 60px; }
 @media (max-width: 900px) { .bprocess-grid { grid-template-columns: 1fr; } }
-
 .bprocess-steps { display: flex; flex-direction: column; }
 .bprocess-step { display: grid; grid-template-columns: 44px 1fr; gap: 18px; padding: 24px 0; border-bottom: 1px solid rgba(255,255,255,.05); align-items: start; }
 .bstep-icon { width: 38px; height: 38px; border: 1px solid rgba(196,160,80,.28); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .bstep-icon svg { width: 18px; height: 18px; color: var(--gold, #c4a050); }
 .bprocess-step h4 { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: #faf8f4; margin-bottom: 5px; }
 .bprocess-step p { font-size: 11.5px; line-height: 1.9; color: rgba(255,255,255,.45); font-family: 'Lato', sans-serif; font-weight: 300; }
-
 .bproc-benefits { display: flex; flex-direction: column; gap: 16px; }
 .bproc-benefit { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07); padding: 24px; border-top: 2px solid var(--teal-mid, #1a7e9c); }
 .bproc-benefit h4 { font-family: 'Cormorant Garamond', serif; font-size: 19px; color: #faf8f4; margin-bottom: 6px; }
 .bproc-benefit p { font-size: 12px; line-height: 1.9; color: rgba(255,255,255,.45); font-family: 'Lato', sans-serif; font-weight: 300; }
-
-/* ══════════════════════════════════════
-   GRAIN SECTION
-   ══════════════════════════════════════ */
 .bgrain-section { background: rgba(224,240,246,.35); padding: 100px 80px; }
 .bgrain-hero { position: relative; height: 260px; overflow: hidden; margin: -100px -80px 60px; }
 .bgrain-hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -672,10 +608,6 @@
 .bgrain-icon { width: 38px; height: 38px; margin-bottom: 20px; color: var(--teal, #096685); }
 .bgrain-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 21px; margin-bottom: 12px; color: #141414; }
 .bgrain-card p { font-size: 12.5px; line-height: 1.9; color: rgba(0,0,0,.45); font-weight: 300; font-family: 'Lato', sans-serif; }
-
-/* ══════════════════════════════════════
-   FAMILY SECTION — image-first
-   ══════════════════════════════════════ */
 .bfamily-section {
   background: #faf8f4;
   padding: 100px 0 0;
@@ -720,8 +652,6 @@
   .bfamily-text { padding: 50px 32px 70px; }
   .bfamily-header { padding: 0 32px 40px; }
 }
-
-/* ── Utilities ── */
 .section-label-b {
   display: flex;
   align-items: center;
@@ -738,7 +668,6 @@
 .section-label-b.light::before { background: rgba(255,255,255,.25); }
 .section-label-b.center { justify-content: center; }
 .section-label-b.center::before,.section-label-b.center::after { content: ''; width: 24px; height: 1px; background: currentColor; }
-
 .h2-b { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px,3.6vw,46px); font-weight: 300; line-height: 1.15; color: #141414; }
 .h2-b em { font-style: italic; color: var(--teal, #096685); }
 .h2-b.light { color: #faf8f4; }
@@ -771,12 +700,8 @@
 }
 .quote-box-b p { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-style: italic; font-weight: 300; color: var(--teal-deep, #064e65); line-height: 1.6; margin-bottom: 8px; }
 .quote-box-b cite { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: rgba(0,0,0,.3); font-style: normal; font-family: 'Lato', sans-serif; }
-
-/* ── Reveal ── */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity .65s ease, transform .65s ease; }
 .reveal.visible { opacity: 1; transform: none; }
-
-/* ── Responsive ── */
 @media (max-width: 900px) {
   .boutique-tabs { padding: 0 20px; }
   .boutique-tabs .btab { padding: 18px 18px; font-size: 8px; letter-spacing: 2.5px; }
@@ -792,23 +717,14 @@
 </head>
 <body>
 
-<!-- ═══════════════════════════════════
-   SHELL: header injected by da-shell.js
-   ═══════════════════════════════════ -->
 <div id="site-header"></div>
 
-<!-- ═══════════════════════════════════
-   BOUTIQUE HERO
-   ═══════════════════════════════════ -->
 <section class="boutique-hero">
   <div class="inner">
-    <h1>La Boutique</h1>
+    <h1 data-i18n="boutiqueHero">La Boutique</h1>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════
-   FILTER TABS
-   ═══════════════════════════════════ -->
 <div class="boutique-tabs-wrap" id="boutique-tabs">
   <div class="boutique-tabs">
     <button class="btab active" id="btab-all" data-filter="all">Tout</button>
@@ -818,61 +734,55 @@
   </div>
 </div>
 
-<!-- ═══════════════════════════════════
-   FILTER BAR
-   ═══════════════════════════════════ -->
 <div class="filter-bar" id="filter-bar">
   <div class="filter-bar-inner">
-    <span class="filter-label" id="b-filter-label">Filtrer par</span>
+    <span class="filter-label" id="b-filter-label" data-i18n="bfilter_lbl">Filtrer par</span>
 
     <select class="filter-select" id="f-origin" onchange="applyFilters()">
-      <option value="">Origine</option>
-      <option value="boyaca">Boyacá, Colombie</option>
-      <option value="rondon">Rondón, Boyacá</option>
+      <option value="" data-i18n="bfilter_ori">Origine</option>
+      <option value="boyaca" data-i18n="optBoyaca">Boyacá, Colombie</option>
+      <option value="rondon" data-i18n="optRondon">Rondón, Boyacá</option>
     </select>
 
     <select class="filter-select" id="f-varietal" onchange="applyFilters()">
-      <option value="">Variété</option>
-      <option value="castillo">Castillo</option>
-      <option value="caturra">Caturra</option>
-      <option value="colombia">Colombia</option>
-      <option value="typica">Typica</option>
-      <option value="bourbon">Bourbon</option>
+      <option value="" data-i18n="bfilter_var">Variété</option>
+      <option value="castillo" data-i18n="optCastillo">Castillo</option>
+      <option value="caturra" data-i18n="optCaturra">Caturra</option>
+      <option value="colombia" data-i18n="optColombia">Colombia</option>
+      <option value="typica" data-i18n="optTypica">Typica</option>
+      <option value="bourbon" data-i18n="optBourbon">Bourbon</option>
     </select>
 
     <select class="filter-select" id="f-process" onchange="applyFilters()">
-      <option value="">Procédé</option>
-      <option value="washed">Lavé (Washed)</option>
-      <option value="natural">Nature (Natural)</option>
-      <option value="honey">Honey</option>
-      <option value="anaerobic">Anaérobique</option>
+      <option value="" data-i18n="bfilter_proc">Procédé</option>
+      <option value="washed" data-i18n="optWashed">Lavé (Washed)</option>
+      <option value="natural" data-i18n="optNatural">Nature (Natural)</option>
+      <option value="honey" data-i18n="optHoney">Honey</option>
+      <option value="anaerobic" data-i18n="optAnaerobic">Anaérobique</option>
     </select>
 
     <select class="filter-select" id="f-roast" onchange="applyFilters()">
-      <option value="">Torréfaction</option>
-      <option value="light">Claire (Light Roast)</option>
-      <option value="medium-light">Médium Claire (Medium-Light)</option>
-      <option value="medium">Médium (Medium Roast)</option>
-      <option value="dark">Foncée (Dark Roast)</option>
+      <option value="" data-i18n="bfilter_roast">Torréfaction</option>
+      <option value="light" data-i18n="optLight">Claire (Light Roast)</option>
+      <option value="medium-light" data-i18n="optMedLight">Médium Claire (Medium-Light)</option>
+      <option value="medium" data-i18n="optMedium">Médium (Medium Roast)</option>
+      <option value="dark" data-i18n="optDark">Foncée (Dark Roast)</option>
     </select>
 
     <select class="filter-select" id="f-sca" onchange="applyFilters()">
-      <option value="">Score SCA</option>
-      <option value="90plus">90+ Grand Cru</option>
-      <option value="85-89">85–89 Excellence</option>
-      <option value="80-85">80–85 Specialty Premium</option>
-      <option value="commercial">60–79 Commercial</option>
+      <option value="" data-i18n="bfilter_sca">Score SCA</option>
+      <option value="90plus" data-i18n="opt90plus">90+ Grand Cru</option>
+      <option value="85-89" data-i18n="opt85_89">85–89 Excellence</option>
+      <option value="80-85" data-i18n="opt80_85">80–85 Specialty Premium</option>
+      <option value="commercial" data-i18n="optCommercial">60–79 Commercial</option>
     </select>
 
     <div class="filter-sep"></div>
-    <button class="filter-reset" id="bfilter-reset" onclick="resetFilters()">Réinitialiser</button>
+    <button class="filter-reset" id="bfilter-reset" data-i18n="bfilter_reset" onclick="resetFilters()">Réinitialiser</button>
     <span class="filter-count" id="f-count">8 produits</span>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════
-   PRODUCT CATALOG
-   ═══════════════════════════════════ -->
 <section class="product-catalog" id="catalogue">
   <div class="catalog-inner">
     <div class="carousel-wrap" id="carousel-wrap">
@@ -880,7 +790,6 @@
       <button class="carousel-btn next" id="carousel-next" onclick="carouselNext()" aria-label="Suivant">&#8250;</button>
       <div class="prod-grid" id="prod-grid">
 
-      <!-- ─── 250g Grain entier ─── -->
       <div class="pcard" data-cat="grains" data-varietal="castillo" data-process="washed" data-roast="medium-light" data-sca="80-85" data-origin="boyaca">
         <div class="pcard-img">
           <img class="img-product" src="images/Prod_250_gr.png" alt="Don Alberto 250g Grain entier">
@@ -910,7 +819,6 @@
         </div>
       </div>
 
-      <!-- ─── 500g Grain entier ─── -->
       <div class="pcard" data-cat="grains" data-varietal="castillo" data-process="washed" data-roast="medium-light" data-sca="80-85" data-origin="boyaca">
         <div class="pcard-img">
           <img class="img-product" src="images/Prod_250_gr.png" alt="Don Alberto 500g Grain entier">
@@ -940,7 +848,6 @@
         </div>
       </div>
 
-      <!-- ─── 250g Moulu ─── -->
       <div class="pcard" data-cat="moulu" data-varietal="castillo" data-process="washed" data-roast="medium-light" data-sca="80-85" data-origin="boyaca">
         <div class="pcard-img">
           <img class="img-product" src="images/Prod_250_gr.png" alt="Don Alberto 250g Moulu">
@@ -970,7 +877,6 @@
         </div>
       </div>
 
-      <!-- ─── 3×250g Pack Découverte ─── -->
       <div class="pcard featured" data-cat="grains" data-varietal="castillo" data-process="washed" data-roast="medium-light" data-sca="80-85" data-origin="boyaca">
         <div class="pcard-badge" data-i18n="badgePop">Le plus populaire</div>
         <div class="pcard-img">
@@ -1001,7 +907,6 @@
         </div>
       </div>
 
-      <!-- ─── 2.5kg Wholesale ─── -->
       <div class="pcard" data-cat="grains" data-varietal="castillo" data-process="washed" data-roast="medium-light" data-sca="80-85" data-origin="boyaca">
         <div class="pcard-img">
           <img class="img-product" src="images/Prod_Both_Formats.png" alt="Don Alberto 2.5kg">
@@ -1031,7 +936,6 @@
         </div>
       </div>
 
-      <!-- ─── Club Esencia ─── -->
       <div class="pcard" data-cat="abonnement" data-varietal="castillo" data-process="washed" data-roast="medium-light" data-sca="80-85" data-origin="boyaca">
         <div class="pcard-img">
           <img class="img-product" src="images/Club_Esencia.png" alt="Club Esencia">
@@ -1061,7 +965,6 @@
         </div>
       </div>
 
-      <!-- ─── Club Raíces ─── -->
       <div class="pcard" data-cat="abonnement" data-varietal="castillo" data-process="washed" data-roast="medium-light" data-sca="80-85" data-origin="boyaca">
         <div class="pcard-img">
           <img class="img-product" src="images/Club_Raices.png" alt="Club Raíces">
@@ -1091,7 +994,6 @@
         </div>
       </div>
 
-      <!-- ─── Club Herencia ─── -->
       <div class="pcard featured" data-cat="abonnement" data-varietal="castillo" data-process="washed" data-roast="medium-light" data-sca="80-85" data-origin="boyaca">
         <div class="pcard-img">
           <img class="img-product" src="images/Club_Herencia.png" alt="Club Herencia">
@@ -1121,31 +1023,25 @@
         </div>
       </div>
 
-      </div><!-- /prod-grid -->
+      </div>
       <div class="carousel-dots" id="carousel-dots"></div>
-      <!-- No results fallback -->
       <div class="no-results" id="no-results" style="display:none;">
         <span class="no-results-txt">Aucun produit ne correspond à vos critères.</span><br>
         <button id="no-results-btn" onclick="resetFilters()" style="margin-top:14px;background:none;border:1px solid rgba(0,0,0,.2);padding:8px 20px;cursor:pointer;font-family:'Lato',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;">Réinitialiser les filtres</button>
       </div>
 
-    </div><!-- /prod-grid -->
-  </div><!-- /catalog-inner -->
+    </div>
+  </div>
 </section>
 
-
-<!-- ═══════════════════════════════════
-   PRODUCT SELECTION — Formats & Paiement (from OG)
-   ═══════════════════════════════════ -->
 <section class="prod-gallery" id="formats">
   <div class="reveal" style="text-align:center;">
-    <div class="section-label-b center" id="bformats-lbl">Nos Formats</div>
-    <h2 class="h2-b" id="bformats-h" style="margin-top:12px;text-align:center;">Pour chaque usage, <em>une taille</em></h2>
-    <p class="body-text-b" id="bformats-p" style="max-width:520px;margin:14px auto 0;text-align:center;">Choisissez votre format et payez directement. Pour Revolut et Wise, entrez le montant affiché et ajoutez votre adresse en note.</p>
+    <div class="section-label-b center" id="bformats-lbl" data-i18n="bformats_lbl">Nos Formats</div>
+    <h2 class="h2-b" id="bformats-h" data-i18n="bformats_h" style="margin-top:12px;text-align:center;">Pour chaque usage, <em>une taille</em></h2>
+    <p class="body-text-b" id="bformats-p" data-i18n="bformats_p" style="max-width:520px;margin:14px auto 0;text-align:center;">Choisissez votre format et payez directement. Pour Revolut et Wise, entrez le montant affiché et ajoutez votre adresse en note.</p>
   </div>
   <div class="prod-cards-grid reveal">
 
-    <!-- 250g -->
     <div class="pg-card">
       <div class="pg-img-wrap"><img src="images/Prod_250_gr.png" alt="Don Alberto 250g"></div>
       <div class="pg-body">
@@ -1177,7 +1073,6 @@
       </div>
     </div>
 
-    <!-- 3-pack -->
     <div class="pg-card pg-featured">
       <div class="pg-featured-badge">Le plus populaire</div>
       <div class="pg-img-wrap"><img src="images/Prod_3_pack.png" alt="Don Alberto 3-pack"></div>
@@ -1210,7 +1105,6 @@
       </div>
     </div>
 
-    <!-- 2.5kg -->
     <div class="pg-card">
       <div class="pg-img-wrap"><img src="images/Prod_Both_Formats.png" alt="Don Alberto 2.5kg"></div>
       <div class="pg-body">
@@ -1247,113 +1141,99 @@
       </div>
     </div>
 
-  </div><!-- /prod-cards-grid -->
+  </div>
 </section>
 
-
-<!-- ═══════════════════════════════════
-   COMMANDER — Trois formats, une même passion
-   ═══════════════════════════════════ -->
 <section class="order-cta" id="commander">
   <div class="reveal" style="position:relative;z-index:1;">
-    <div class="section-label-b light">Commander</div>
-    <h2 class="h2-b light" style="margin-top:12px;">Trois formats,<br><em>une même passion</em></h2>
-    <p class="body-text-b light" style="margin-top:18px;">Pour PayPal, le montant est pré-rempli automatiquement. Pour Revolut et Wise, entrez le montant exact de votre format et ajoutez votre adresse de livraison en note.</p>
+    <div class="section-label-b light" data-i18n="cmd_lbl">Commander</div>
+    <h2 class="h2-b light" style="margin-top:12px;" data-i18n="cmd_h2">Trois formats,<br><em>une même passion</em></h2>
+    <p class="body-text-b light" style="margin-top:18px;" data-i18n="cmd_sub">Pour PayPal, le montant est pré-rempli automatiquement. Pour Revolut et Wise, entrez le montant exact de votre format et ajoutez votre adresse de livraison en note.</p>
     <div style="margin-top:28px;display:flex;flex-direction:column;gap:10px;">
       <div style="display:flex;align-items:center;gap:12px;">
         <div style="width:30px;height:30px;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--gold);flex-shrink:0;font-size:13px;font-family:'Lato',sans-serif;">P</div>
-        <div style="font-size:11px;color:rgba(255,255,255,.6);font-family:'Lato',sans-serif;">PayPal — montant pré-rempli, paiement immédiat</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.6);font-family:'Lato',sans-serif;" data-i18n="cmd_pp">PayPal — montant pré-rempli, paiement immédiat</div>
       </div>
       <div style="display:flex;align-items:center;gap:12px;">
         <div style="width:30px;height:30px;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--gold);flex-shrink:0;font-size:13px;font-family:'Lato',sans-serif;">R</div>
-        <div style="font-size:11px;color:rgba(255,255,255,.6);font-family:'Lato',sans-serif;">Revolut — entrez le montant + référence produit</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.6);font-family:'Lato',sans-serif;" data-i18n="cmd_rv">Revolut — entrez le montant + référence produit</div>
       </div>
       <div style="display:flex;align-items:center;gap:12px;">
         <div style="width:30px;height:30px;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--gold);flex-shrink:0;font-size:13px;font-family:'Lato',sans-serif;">W</div>
-        <div style="font-size:11px;color:rgba(255,255,255,.6);font-family:'Lato',sans-serif;">Wise — idéal depuis UK, Suisse, Colombie, hors zone euro</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.6);font-family:'Lato',sans-serif;" data-i18n="cmd_ws">Wise — idéal depuis UK, Suisse, Colombie, hors zone euro</div>
       </div>
     </div>
-    <p style="margin-top:22px;font-size:12px;color:rgba(255,255,255,.6);letter-spacing:.3px;font-family:'Lato',sans-serif;">Questions : donalberto.coffee@gmail.com</p>
+    <p style="margin-top:22px;font-size:12px;color:rgba(255,255,255,.6);letter-spacing:.3px;font-family:'Lato',sans-serif;" data-i18n="cmd_q">Questions : donalberto.coffee@gmail.com</p>
   </div>
   <div class="reveal" style="position:relative;z-index:1;">
     <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);padding:36px;">
-      <div style="font-size:8px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:18px;font-family:'Lato',sans-serif;">Récapitulatif des prix</div>
+      <div style="font-size:8px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:18px;font-family:'Lato',sans-serif;" data-i18n="cmd_sum">Récapitulatif des prix</div>
       <div style="display:flex;flex-direction:column;gap:0;">
         <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06);">
-          <div><div style="font-size:12px;color:white;font-family:'Lato',sans-serif;">250g — Grain entier</div><div style="font-size:10px;color:rgba(255,255,255,.32);margin-top:2px;font-family:'Lato',sans-serif;">Livraison offerte</div></div>
+          <div><div style="font-size:12px;color:white;font-family:'Lato',sans-serif;" data-i18n="cmd_p1">250g — Grain entier</div><div style="font-size:10px;color:rgba(255,255,255,.32);margin-top:2px;font-family:'Lato',sans-serif;" data-i18n="cmd_del">Livraison offerte</div></div>
           <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--gold);">€16</div>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06);">
-          <div><div style="font-size:12px;color:white;font-family:'Lato',sans-serif;">250g — Café Moulu</div><div style="font-size:10px;color:rgba(255,255,255,.32);margin-top:2px;font-family:'Lato',sans-serif;">Livraison offerte</div></div>
+          <div><div style="font-size:12px;color:white;font-family:'Lato',sans-serif;" data-i18n="cmd_p2">250g — Café Moulu</div><div style="font-size:10px;color:rgba(255,255,255,.32);margin-top:2px;font-family:'Lato',sans-serif;" data-i18n="cmd_del">Livraison offerte</div></div>
           <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--gold);">€16</div>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06);">
-          <div><div style="font-size:12px;color:white;font-family:'Lato',sans-serif;">3 × 250g — Pack Découverte</div><div style="font-size:10px;color:rgba(255,255,255,.32);margin-top:2px;font-family:'Lato',sans-serif;">Livraison offerte</div></div>
+          <div><div style="font-size:12px;color:white;font-family:'Lato',sans-serif;" data-i18n="cmd_p3">3 × 250g — Pack Découverte</div><div style="font-size:10px;color:rgba(255,255,255,.32);margin-top:2px;font-family:'Lato',sans-serif;" data-i18n="cmd_del">Livraison offerte</div></div>
           <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--gold);">€44</div>
         </div>
         <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 0;">
-          <div><div style="font-size:12px;color:white;font-family:'Lato',sans-serif;">2,5 kg — Wholesale</div><div style="font-size:10px;color:rgba(255,255,255,.32);margin-top:2px;font-family:'Lato',sans-serif;">Livraison offerte</div></div>
+          <div><div style="font-size:12px;color:white;font-family:'Lato',sans-serif;" data-i18n="cmd_p4">2,5 kg — Wholesale</div><div style="font-size:10px;color:rgba(255,255,255,.32);margin-top:2px;font-family:'Lato',sans-serif;" data-i18n="cmd_del">Livraison offerte</div></div>
           <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--gold);">€128</div>
         </div>
       </div>
       <div style="margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.06);">
         <div style="background:rgba(196,160,80,.1);border-left:3px solid var(--gold);padding:16px 18px;margin-bottom:12px;">
-          <div style="font-size:10px;font-weight:700;color:var(--gold);letter-spacing:1px;margin-bottom:8px;text-transform:uppercase;font-family:'Lato',sans-serif;">Revolut & Wise — Informations requises</div>
-          <div style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.9;font-family:'Lato',sans-serif;">Dans la <strong style="color:white;">note de paiement</strong>, veuillez inclure :<br>
+          <div style="font-size:10px;font-weight:700;color:var(--gold);letter-spacing:1px;margin-bottom:8px;text-transform:uppercase;font-family:'Lato',sans-serif;" data-i18n="cmd_req">Revolut & Wise — Informations requises</div>
+          <div style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.9;font-family:'Lato',sans-serif;" data-i18n="cmd_req_desc">Dans la <strong style="color:white;">note de paiement</strong>, veuillez inclure :<br>
             · Votre <strong style="color:white;">nom complet</strong><br>
             · Le <strong style="color:white;">produit commandé</strong> (ex: DA-250g)<br>
             · Votre <strong style="color:white;">adresse de livraison complète</strong>
           </div>
         </div>
-        <div style="font-size:10px;color:rgba(255,255,255,.28);line-height:1.8;font-family:'Lato',sans-serif;">PayPal · Revolut · Wise<br>Livraison France métropolitaine · 5–10 jours</div>
+        <div style="font-size:10px;color:rgba(255,255,255,.28);line-height:1.8;font-family:'Lato',sans-serif;" data-i18n="cmd_foot">PayPal · Revolut · Wise<br>Livraison France métropolitaine · 5–10 jours</div>
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- ═══════════════════════════════════
-   TRUST BAR — 4 Pillars
-   ═══════════════════════════════════ -->
 <div class="btrust-bar">
   <div class="btrust-inner">
     <div class="btrust-item reveal">
       <div class="btrust-icon"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><rect x="9" y="14" width="18" height="16" rx="2"/><path d="M13 14v-4a5 5 0 0110 0v4"/><circle cx="18" cy="22" r="2" fill="currentColor" stroke="none"/></svg></div>
-      <div class="btrust-h">Paiement sécurisé</div>
-      <div class="btrust-d">PayPal · Revolut · Wise<br>Transactions protégées</div>
+      <div class="btrust-h" data-i18n="t1h">Paiement sécurisé</div>
+      <div class="btrust-d" data-i18n="t1d">PayPal · Revolut · Wise<br>Transactions protégées</div>
     </div>
     <div class="btrust-item reveal">
       <div class="btrust-icon"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="13" width="22" height="14" rx="2"/><path d="M25 17h5l3 5v5h-8"/><circle cx="10" cy="29" r="2.5"/><circle cx="28" cy="29" r="2.5"/></svg></div>
-      <div class="btrust-h">Livraison internationale</div>
-      <div class="btrust-d">France, Europe & monde<br>Colisage soigné</div>
+      <div class="btrust-h" data-i18n="t2h">Livraison internationale</div>
+      <div class="btrust-d" data-i18n="t2d">France, Europe & monde<br>Colisage soigné</div>
     </div>
     <div class="btrust-item reveal">
       <div class="btrust-icon"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><ellipse cx="18" cy="18" rx="9" ry="14"/><path d="M18 6 Q22 12 22 18 Q22 25 18 30"/><line x1="9" y1="18" x2="27" y2="18"/></svg></div>
-      <div class="btrust-h">Café de spécialité</div>
-      <div class="btrust-d">100% Arabica Castillo<br>SCA 84.5 · Procédé Lavé</div>
+      <div class="btrust-h" data-i18n="t3h">Café de spécialité</div>
+      <div class="btrust-d" data-i18n="t3d">100% Arabica Castillo<br>SCA 84.5 · Procédé Lavé</div>
     </div>
     <div class="btrust-item reveal">
       <div class="btrust-icon"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M18 4 L22 14 L32 14 L25 21 L27 31 L18 26 L9 31 L11 21 L4 14 L14 14 Z"/></svg></div>
-      <div class="btrust-h">Traçabilité totale</div>
-      <div class="btrust-d">De la ferme à votre tasse<br>Signature familiale</div>
+      <div class="btrust-h" data-i18n="t4h">Traçabilité totale</div>
+      <div class="btrust-d" data-i18n="t4d">De la ferme à votre tasse<br>Signature familiale</div>
     </div>
   </div>
 </div>
 
-
-<!-- ═══════════════════════════════════
-   SCA SCORECARD (Certification)
-   ═══════════════════════════════════ -->
 <section id="score" style="background:var(--teal-deep,#064e65);padding:80px 80px;position:relative;overflow:hidden;">
   <div style="position:absolute;inset:0;background:url('images/farm_cherries1.jpeg') center/cover;opacity:.06;"></div>
   <div style="position:relative;z-index:1;max-width:1300px;margin:0 auto;display:grid;grid-template-columns:340px 1fr 1fr;gap:60px;align-items:start;">
 
-    <!-- COL 0 — Product image -->
     <div class="reveal" style="display:flex;align-items:flex-start;justify-content:center;padding-top:20px;">
       <img src="images/Prod_Both_Formats.png" alt="Don Alberto — Formats" style="width:100%;max-width:300px;object-fit:contain;filter:drop-shadow(0 20px 60px rgba(0,0,0,.4));">
     </div>
 
-    <!-- LEFT — Score bars -->
     <div class="reveal">
       <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid rgba(196,160,80,.25);">
         <div>
@@ -1369,9 +1249,7 @@
         Évalué par <strong style="color:rgba(250,248,244,.7);">Impulso Coffee Lab</strong> · 21 Décembre 2025<br>Q-Grader Certifié SCA
       </div>
 
-      <!-- Bars -->
       <div style="display:flex;flex-direction:column;gap:11px;">
-        <!-- helper macro via inline HTML -->
         <div style="display:grid;grid-template-columns:110px 1fr 36px;align-items:center;gap:10px;">
           <div style="font-family:'Lato',sans-serif;font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(250,248,244,.45);text-align:right;">Arôme</div>
           <div style="background:rgba(255,255,255,.1);height:5px;border-radius:2px;overflow:hidden;"><div style="width:78%;height:100%;background:linear-gradient(90deg,var(--teal-mid,#1a7e9c),var(--gold,#c4a050));border-radius:2px;"></div></div>
@@ -1402,7 +1280,6 @@
           <div style="background:rgba(255,255,255,.1);height:5px;border-radius:2px;overflow:hidden;"><div style="width:78%;height:100%;background:linear-gradient(90deg,var(--teal-mid,#1a7e9c),var(--gold,#c4a050));border-radius:2px;"></div></div>
           <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;color:#faf8f4;">7.8</div>
         </div>
-        <!-- Perfect scores -->
         <div style="display:grid;grid-template-columns:110px 1fr 36px;align-items:center;gap:10px;margin-top:6px;">
           <div style="font-family:'Lato',sans-serif;font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(196,160,80,.75);text-align:right;">Uniformité</div>
           <div style="background:rgba(255,255,255,.1);height:5px;border-radius:2px;overflow:hidden;"><div style="width:100%;height:100%;background:var(--gold,#c4a050);border-radius:2px;"></div></div>
@@ -1425,7 +1302,6 @@
         </div>
       </div>
 
-      <!-- Bottom stats -->
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:32px;border-top:1px solid rgba(196,160,80,.2);padding-top:20px;">
         <div style="text-align:center;padding:0 10px;border-right:1px solid rgba(255,255,255,.08);">
           <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:#faf8f4;">11.8%</div>
@@ -1447,13 +1323,11 @@
       <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:rgba(250,248,244,.38);margin-top:16px;line-height:1.7;">"Miel · Chocolat · Expressif · Corps médium · Acidité médium · Finale nette &amp; élégante"</p>
     </div>
 
-    <!-- RIGHT — Product info card -->
     <div class="reveal">
       <div style="font-family:'Lato',sans-serif;font-size:8px;letter-spacing:4px;text-transform:uppercase;color:var(--gold,#c4a050);margin-bottom:12px;">Specialty Quality</div>
       <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(44px,6vw,80px);font-weight:300;color:#faf8f4;line-height:.95;margin-bottom:14px;">Castillo</h2>
       <div style="font-family:'Lato',sans-serif;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:rgba(250,248,244,.45);margin-bottom:28px;">Arabica · Lavé · Torréfaction Artisanale Moyenne</div>
 
-      <!-- Tasting notes pills -->
       <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px;">
         <span style="border:1px solid rgba(196,160,80,.35);padding:6px 14px;font-family:'Lato',sans-serif;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(250,248,244,.7);">☕ Miel Délicat</span>
         <span style="border:1px solid rgba(196,160,80,.35);padding:6px 14px;font-family:'Lato',sans-serif;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(250,248,244,.7);">🍫 Chocolat Fin</span>
@@ -1461,7 +1335,6 @@
         <span style="border:1px solid rgba(196,160,80,.35);padding:6px 14px;font-family:'Lato',sans-serif;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(250,248,244,.7);">🌿 Finale Nette &amp; Élégante</span>
       </div>
 
-      <!-- Spec table -->
       <div style="border-top:1px solid rgba(255,255,255,.08);">
         <div style="display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06);">
           <span style="font-family:'Lato',sans-serif;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(250,248,244,.32);">Formats</span>
@@ -1493,7 +1366,6 @@
         </div>
       </div>
 
-      <!-- Bullet points -->
       <ul style="margin:20px 0 28px;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px;">
         <li style="font-family:'Lato',sans-serif;font-size:11px;color:rgba(250,248,244,.6);display:flex;gap:10px;align-items:baseline;"><span style="color:var(--gold,#c4a050);">·</span>Micro-lot sélectionné à la main</li>
         <li style="font-family:'Lato',sans-serif;font-size:11px;color:rgba(250,248,244,.6);display:flex;gap:10px;align-items:baseline;"><span style="color:var(--gold,#c4a050);">·</span>Traçabilité complète de la ferme à la tasse</li>
@@ -1501,30 +1373,24 @@
         <li style="font-family:'Lato',sans-serif;font-size:11px;color:rgba(250,248,244,.6);display:flex;gap:10px;align-items:baseline;"><span style="color:var(--gold,#c4a050);">·</span>Chaîne d'approvisionnement verte</li>
       </ul>
 
-      <a href="https://www.paypal.com/instantcommerce/checkout/VBX4WKN8C7TW8" target="_blank"
+      <a href="#formats" data-i18n="score_cta"
          style="display:inline-flex;align-items:center;gap:12px;background:var(--gold,#c4a050);color:#fff;font-family:'Lato',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;font-weight:700;padding:16px 32px;text-decoration:none;transition:background .2s;">
         Commander Maintenant →
       </a>
     </div>
 
   </div>
-  <!-- responsive -->
   <style>@media(max-width:1100px){#score>div>div:first-child{display:none!important;}#score>div{grid-template-columns:1fr 1fr!important;}}@media(max-width:700px){#score>div{grid-template-columns:1fr!important;}}</style>
 </section>
 
-
-<!-- ═══════════════════════════════════
-   SCA EDUCATION
-   ═══════════════════════════════════ -->
 <section class="bsca-edu" id="sca">
   <div class="reveal" style="text-align:center;">
-    <div class="section-label-b center">Comprendre la Qualité</div>
-    <h2 class="h2-b" style="margin-top:12px;">Qu'est-ce que le <em>Score SCA</em><br>et pourquoi 84.5 compte ?</h2>
-    <p class="body-text-b" style="max-width:580px;margin:16px auto 0;">La Specialty Coffee Association est l'autorité mondiale du café de qualité. Son protocole d'évaluation — réalisé par des experts Q-Grader certifiés — est la référence internationale pour distinguer un café d'exception d'un café ordinaire.</p>
+    <div class="section-label-b center" data-i18n="sca_label">Comprendre la Qualité</div>
+    <h2 class="h2-b" style="margin-top:12px;" data-i18n="sca_h2">Qu'est-ce que le <em>Score SCA</em><br>et pourquoi 84.5 compte ?</h2>
+    <p class="body-text-b" style="max-width:580px;margin:16px auto 0;" data-i18n="sca_p">La Specialty Coffee Association est l'autorité mondiale du café de qualité. Son protocole d'évaluation — réalisé par des experts Q-Grader certifiés — est la référence internationale pour distinguer un café d'exception d'un café ordinaire.</p>
   </div>
   <div class="bsca-edu-grid">
     <div class="reveal">
-      <!-- SCA Radar Chart -->
       <svg viewBox="0 0 340 340" style="width:100%;max-width:360px;display:block;margin:0 auto;">
         <defs>
           <linearGradient id="rg2" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -1557,163 +1423,147 @@
         </g>
       </svg>
       <div class="score-tiers" style="margin-top:24px;">
-        <div class="tier"><div class="tier-range">60–79</div><div class="tier-lbl">Café Commercial</div></div>
-        <div class="tier active"><div class="tier-badge">Notre café</div><div class="tier-range">80–85</div><div class="tier-lbl">Specialty Premium</div></div>
-        <div class="tier"><div class="tier-range">85–89</div><div class="tier-lbl">Excellence</div></div>
-        <div class="tier"><div class="tier-range">90+</div><div class="tier-lbl">Grand Cru</div></div>
+        <div class="tier"><div class="tier-range">60–79</div><div class="tier-lbl" data-i18n="sca_t1">Café Commercial</div></div>
+        <div class="tier active"><div class="tier-badge" data-i18n="sca_badge">Notre café</div><div class="tier-range">80–85</div><div class="tier-lbl" data-i18n="sca_t2">Specialty Premium</div></div>
+        <div class="tier"><div class="tier-range">85–89</div><div class="tier-lbl" data-i18n="sca_t3">Excellence</div></div>
+        <div class="tier"><div class="tier-range">90+</div><div class="tier-lbl" data-i18n="sca_t4">Grand Cru</div></div>
       </div>
     </div>
     <div class="sca-steps-list reveal">
-      <h3 class="h2-b" style="font-size:clamp(22px,2.4vw,32px);margin-bottom:32px;">Comment fonctionne<br><em>l'évaluation SCA ?</em></h3>
+      <h3 class="h2-b" style="font-size:clamp(22px,2.4vw,32px);margin-bottom:32px;" data-i18n="sca_h3">Comment fonctionne<br><em>l'évaluation SCA ?</em></h3>
       <div class="sca-step-item">
         <div class="sca-step-num">01</div>
         <div class="sca-step-body">
-          <h4>La dégustation à l'aveugle</h4>
-          <p>Un Q-Grader (expert certifié SCA) évalue le café à l'aveugle sur 10 critères sensoriels — de l'arôme à l'impression générale — avec une précision au dixième de point.</p>
+          <h4 data-i18n="sca_s1_t">La dégustation à l'aveugle</h4>
+          <p data-i18n="sca_s1_d">Un Q-Grader (expert certifié SCA) évalue le café à l'aveugle sur 10 critères sensoriels — de l'arôme à l'impression générale — avec une précision au dixième de point.</p>
         </div>
       </div>
       <div class="sca-step-item">
         <div class="sca-step-num">02</div>
         <div class="sca-step-body">
-          <h4>Scores parfaits sur 3 critères</h4>
-          <p>Notre Castillo obtient des scores parfaits de 10/10 sur l'uniformité, la propreté en tasse et la douceur — les marqueurs d'un procédé lavé maîtrisé et d'une récolte sélective irréprochable.</p>
+          <h4 data-i18n="sca_s2_t">Scores parfaits sur 3 critères</h4>
+          <p data-i18n="sca_s2_d">Notre Castillo obtient des scores parfaits de 10/10 sur l'uniformité, la propreté en tasse et la douceur — les marqueurs d'un procédé lavé maîtrisé et d'une récolte sélective irréprochable.</p>
         </div>
       </div>
       <div class="sca-step-item">
         <div class="sca-step-num">03</div>
         <div class="sca-step-body">
-          <h4>84.5 — Un seuil rare</h4>
-          <p>Seuls les cafés atteignant 80+ points sont "Specialty Coffee". Avec 84.5, Don Alberto se place dans le top 10% de la production mondiale — une performance exceptionnelle pour une première ferme de Boyacá.</p>
+          <h4 data-i18n="sca_s3_t">84.5 — Un seuil rare</h4>
+          <p data-i18n="sca_s3_d">Seuls les cafés atteignant 80+ points sont "Specialty Coffee". Avec 84.5, Don Alberto se place dans le top 10% de la production mondiale — une performance exceptionnelle pour une première ferme de Boyacá.</p>
         </div>
       </div>
       <div class="sca-step-item">
         <div class="sca-step-num">04</div>
         <div class="sca-step-body">
-          <h4>Ce que ça signifie dans votre tasse</h4>
-          <p>Complexité aromatique, clarté, équilibre et une finale propre et élégante. La certification SCA est la garantie que chaque sac Don Alberto tient sa promesse.</p>
+          <h4 data-i18n="sca_s4_t">Ce que ça signifie dans votre tasse</h4>
+          <p data-i18n="sca_s4_d">Complexité aromatique, clarté, équilibre et une finale propre et élégante. La certification SCA est la garantie que chaque sac Don Alberto tient sa promesse.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- ═══════════════════════════════════
-   PROCESS — Café Lavé
-   ═══════════════════════════════════ -->
 <section class="bprocess-section" id="process">
   <div class="bprocess-bg"></div>
   <div class="bprocess-inner">
     <div class="reveal" style="text-align:center;">
-      <div class="section-label-b center light">Le Procédé</div>
-      <h2 class="h2-b light" style="margin-top:12px;">Café <em>Lavé</em> — La voie<br>de la pureté aromatique</h2>
+      <div class="section-label-b center light" data-i18n="proc_label">Le Procédé</div>
+      <h2 class="h2-b light" style="margin-top:12px;" data-i18n="proc_h2">Café <em>Lavé</em> — La voie<br>de la pureté aromatique</h2>
     </div>
     <div class="bprocess-grid">
       <div class="bprocess-steps reveal">
         <div class="bprocess-step">
           <div class="bstep-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8 6 6 10 6 14a6 6 0 0012 0c0-4-2-8-6-12z"/></svg></div>
           <div>
-            <h4>1 · Récolte sélective</h4>
-            <p>Seules les cerises mûres à point sont cueillies à la main, grain par grain. Cette sélection rigoureuse est la première condition de la qualité SCA.</p>
+            <h4 data-i18n="proc_1_h">1 · Récolte sélective</h4>
+            <p data-i18n="proc_1_p">Seules les cerises mûres à point sont cueillies à la main, grain par grain. Cette sélection rigoureuse est la première condition de la qualité SCA.</p>
           </div>
         </div>
         <div class="bprocess-step">
           <div class="bstep-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 3"/></svg></div>
           <div>
-            <h4>2 · Dépulpage immédiat</h4>
-            <p>La pulpe est retirée mécaniquement dans les heures suivant la récolte. La graine, encore recouverte de mucilage, entre en fermentation contrôlée.</p>
+            <h4 data-i18n="proc_2_h">2 · Dépulpage immédiat</h4>
+            <p data-i18n="proc_2_p">La pulpe est retirée mécaniquement dans les heures suivant la récolte. La graine, encore recouverte de mucilage, entre en fermentation contrôlée.</p>
           </div>
         </div>
         <div class="bprocess-step">
           <div class="bstep-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M4 8h16M4 16h10"/></svg></div>
           <div>
-            <h4>3 · Fermentation aquatique</h4>
-            <p>Le café fermente dans des cuves d'eau pendant 24 à 48 heures. Ce processus développe la clarté aromatique signature du café lavé.</p>
+            <h4 data-i18n="proc_3_h">3 · Fermentation aquatique</h4>
+            <p data-i18n="proc_3_p">Le café fermente dans des cuves d'eau pendant 24 à 48 heures. Ce processus développe la clarté aromatique signature du café lavé.</p>
           </div>
         </div>
         <div class="bprocess-step">
           <div class="bstep-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v13M7 9l5 7 5-7"/><line x1="5" y1="21" x2="19" y2="21"/></svg></div>
           <div>
-            <h4>4 · Lavage & Séchage naturel</h4>
-            <p>Un lavage abondant élimine tout résidu. Le café est séché sur lits africains à l'air libre à 1 670m d'altitude, préservant les arômes délicats du terroir.</p>
+            <h4 data-i18n="proc_4_h">4 · Lavage & Séchage naturel</h4>
+            <p data-i18n="proc_4_p">Un lavage abondant élimine tout résidu. Le café est séché sur lits africains à l'air libre à 1 670m d'altitude, préservant les arômes délicats du terroir.</p>
           </div>
         </div>
       </div>
       <div class="bproc-benefits reveal">
         <div class="bproc-benefit">
-          <h4>Pureté aromatique totale</h4>
-          <p>En éliminant toute la pulpe, le procédé lavé exprime avec clarté maximale le terroir et la variété. Chaque note de sol de Boyacá transparaît sans interférence.</p>
+          <h4 data-i18n="proc_b1_h">Pureté aromatique totale</h4>
+          <p data-i18n="proc_b1_p">En éliminant toute la pulpe, le procédé lavé exprime avec clarté maximale le terroir et la variété. Chaque note de sol de Boyacá transparaît sans interférence.</p>
         </div>
         <div class="bproc-benefit">
-          <h4>Acidité vive et élégante</h4>
-          <p>Le café lavé développe une acidité plus perceptible et nette. Pour notre Castillo, cela se traduit par une acidité médium agréable qui apporte vivacité sans agressivité.</p>
+          <h4 data-i18n="proc_b2_h">Acidité vive et élégante</h4>
+          <p data-i18n="proc_b2_p">Le café lavé développe une acidité plus perceptible et nette. Pour notre Castillo, cela se traduit par une acidité médium agréable qui apporte vivacité sans agressivité.</p>
         </div>
         <div class="bproc-benefit">
-          <h4>Tasse propre · Score 10/10</h4>
-          <p>Notre café obtient le score parfait de 10/10 en "tasse propre" lors de l'évaluation SCA — reconnaissance directe de la rigueur de notre procédé lavé.</p>
+          <h4 data-i18n="proc_b3_h">Tasse propre · Score 10/10</h4>
+          <p data-i18n="proc_b3_p">Notre café obtient le score parfait de 10/10 en "tasse propre" lors de l'évaluation SCA — reconnaissance directe de la rigueur de notre procédé lavé.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- ═══════════════════════════════════
-   GRAIN ENTIER
-   ═══════════════════════════════════ -->
 <section class="bgrain-section" id="grain">
   <div class="bgrain-hero">
     <img src="images/coffee_beans_bg.png" alt="Grains de café Don Alberto" onerror="this.parentElement.style.background='#064e65'">
     <div class="bgrain-hero-overlay">
       <div class="bgrain-hero-text">
-        <div style="font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;font-family:'Lato',sans-serif;">Don Alberto</div>
-        <h2>Le grain entier — <em>l'art de la fraîcheur</em></h2>
+        <div style="font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;font-family:'Lato',sans-serif;" data-i18n="gr_eyebrow">Don Alberto</div>
+        <h2 data-i18n="gr_h2">Le grain entier — <em>l'art de la fraîcheur</em></h2>
       </div>
     </div>
   </div>
   <div class="bgrain-header reveal" style="margin-top:60px;">
-    <div class="section-label-b center">Pourquoi Grain Entier ?</div>
-    <p class="body-text-b" style="text-align:center;max-width:520px;margin:14px auto 0;">La mouture libère immédiatement les arômes volatils. En grain entier, vous restez maître du moment — et de la qualité.</p>
+    <div class="section-label-b center" data-i18n="gr_lbl">Pourquoi Grain Entier ?</div>
+    <p class="body-text-b" style="text-align:center;max-width:520px;margin:14px auto 0;" data-i18n="gr_sub">La mouture libère immédiatement les arômes volatils. En grain entier, vous restez maître du moment — et de la qualité.</p>
   </div>
   <div class="bgrain-grid">
     <div class="bgrain-card reveal">
       <svg class="bgrain-icon" viewBox="0 0 44 44" fill="none"><ellipse cx="22" cy="22" rx="9" ry="15" stroke="currentColor" stroke-width="1.5"/><path d="M22 9 Q27 16 27 22 Q27 29 22 35" stroke="currentColor" stroke-width="1"/></svg>
-      <h3>Fraîcheur maximale</h3>
-      <p>Le café en grain préserve ses huiles aromatiques jusqu'à 12 mois après torréfaction. Moulu juste avant la préparation, il révèle toute la complexité du terroir andin de Boyacá.</p>
+      <h3 data-i18n="gr_c1_h">Fraîcheur maximale</h3>
+      <p data-i18n="gr_c1_p">Le café en grain préserve ses huiles aromatiques jusqu'à 12 mois après torréfaction. Moulu juste avant la préparation, il révèle toute la complexité du terroir andin de Boyacá.</p>
     </div>
     <div class="bgrain-card reveal">
       <svg class="bgrain-icon" viewBox="0 0 44 44" fill="none"><circle cx="22" cy="22" r="13" stroke="currentColor" stroke-width="1.5"/><path d="M16 22 Q22 15 28 22 Q22 29 16 22" fill="currentColor" opacity="0.2"/></svg>
-      <h3>Contrôle de la mouture</h3>
-      <p>Espresso, filtre, cafetière à piston, Chemex, moka — chaque méthode demande une granulométrie précise. Le grain entier vous donne cette liberté de personnaliser votre extraction.</p>
+      <h3 data-i18n="gr_c2_h">Contrôle de la mouture</h3>
+      <p data-i18n="gr_c2_p">Espresso, filtre, cafetière à piston, Chemex, moka — chaque méthode demande une granulométrie précise. Le grain entier vous donne cette liberté de personnaliser votre extraction.</p>
     </div>
     <div class="bgrain-card reveal">
       <svg class="bgrain-icon" viewBox="0 0 44 44" fill="none"><path d="M8 36 L22 8 L36 36 Z" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M14 28 L30 28" stroke="currentColor" stroke-width="1"/></svg>
-      <h3>Valeur aromatique intacte</h3>
-      <p>Une fois moulu, le café perd 60% de ses arômes en 15 minutes. Don Alberto en grain garantit que vous êtes la première et seule personne à briser le grain — au moment précis où vous le choisissez.</p>
+      <h3 data-i18n="gr_c3_h">Valeur aromatique intacte</h3>
+      <p data-i18n="gr_c3_p">Une fois moulu, le café perd 60% de ses arômes en 15 minutes. Don Alberto en grain garantit que vous êtes la première et seule personne à briser le grain — au moment précis où vous le choisissez.</p>
     </div>
   </div>
 </section>
 
-
-<!-- ═══════════════════════════════════
-   FAMILY — Des visages derrière chaque grain
-   ═══════════════════════════════════ -->
 <section class="bfamily-section" id="famille">
-
-  <!-- Title centred -->
   <div class="bfamily-header reveal">
     <div class="section-label-b center" id="fam-label">La Famille</div>
     <h2 class="h2-b" style="margin-top:14px;" id="fam-title">Des visages derrière<br><em>chaque grain</em></h2>
   </div>
 
-  <!-- Full-width three-column image gallery -->
   <div class="bfamily-gallery">
     <div class="bfamily-photo"><img src="images/family_group.jpeg" alt="La famille Don Alberto"></div>
     <div class="bfamily-photo"><img src="images/family_farm1.jpeg" alt="La ferme de Boyacá"></div>
     <div class="bfamily-photo harvest"><img src="images/harvest_man2.jpeg" alt="Récolte manuelle"></div>
   </div>
 
-  <!-- Text block centred below images -->
   <div class="bfamily-text reveal">
     <p class="body-text-b" id="fam-p1" style="margin-bottom:20px;">Don Alberto Café est bien plus qu’une marque : c’est une signature familiale. Nous sommes un collectif de familles et d’amis d’enfance revenant à nos racines pour mettre en œuvre cet amour de la terre qui nous a été transmis. Ayant grandi à Boyacá au milieu des caféiers, nous connaissons chaque grain par cœur et cultivons ces terres en préservant le savoir-faire artisanal de nos ancêtres. </p>
     <p class="body-text-b" id="fam-p2">Chaque sac est une signature familiale, une preuve d'artisanat et de dévotion portée à chaque détail. Nous offrons une transparence totale et une traçabilité absolue, de notre ferme à votre tasse.</p>
@@ -1722,13 +1572,8 @@
       <cite id="fam-cite">Fredy Arias, Famille Fondatrice</cite>
     </div>
   </div>
-
 </section>
 
-
-<!-- ═══════════════════════════════════
-   PAYMENT MODAL (from shell)
-   ═══════════════════════════════════ -->
 <div id="payModal" class="pay-modal">
   <div class="pay-backdrop" onclick="closePayment()"></div>
   <div class="pay-box">
@@ -1762,19 +1607,6 @@
   </div>
 </div>
 
-<style>
-.pay-modal { position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:0;transition:opacity .3s; }
-.pay-modal.open { pointer-events:all;opacity:1; }
-.pay-backdrop { position:absolute;inset:0;background:rgba(4,40,52,.7);backdrop-filter:blur(4px); }
-.pay-box { position:relative;z-index:1;background:#faf8f4;width:100%;max-width:460px;max-height:90vh;overflow-y:auto;padding:32px;margin:20px; }
-.pay-header { display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px;padding-bottom:16px;border-bottom:1px solid rgba(9,102,133,.12); }
-</style>
-
-
-
-<!-- ═══════════════════════════════════
-   NEWSLETTER
-   ═══════════════════════════════════ -->
 <section class="nl-section">
   <div class="nl-text">
     <h2 id="nl-h">Rejoignez la communauté <em>Don Alberto</em></h2>
@@ -1786,23 +1618,15 @@
   </form>
 </section>
 
-<!-- ═══════════════════════════════════
-   SHELL: footer injected by da-shell.js
-   ═══════════════════════════════════ -->
 <div id="site-footer"></div>
 
 <script src="da-shell.js"></script>
 <script>
-/* ══════════════════════════════════
-   BOUTIQUE — Filter & Tab Logic
-   ══════════════════════════════════ */
 (function () {
   const tabs = document.querySelectorAll('.btab');
   const cards = document.querySelectorAll('.pcard');
-
   let activeTab = 'all';
 
-  // Tab click
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
       tabs.forEach(t => t.classList.remove('active'));
@@ -1852,7 +1676,6 @@
     applyFilters();
   };
 
-  // Sticky tab on scroll — always follow main-nav bottom edge
   function updateTabTop() {
     const util = document.getElementById('util-bar');
     const nav  = document.getElementById('main-nav');
@@ -1864,14 +1687,12 @@
     }
   }
   window.addEventListener('resize', updateTabTop);
-  // Re-measure on every scroll (util-bar collapses, changing layout)
   window.addEventListener('scroll', updateTabTop, { passive: true });
   document.addEventListener('DOMContentLoaded', updateTabTop);
   setTimeout(updateTabTop, 100);
   setTimeout(updateTabTop, 600);
 })();
 
-/* Scroll anchor smoothing for boutique page */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const target = document.querySelector(a.getAttribute('href'));
@@ -1881,7 +1702,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 </script>
 
 <script>
-// ── PRODUCT CAROUSEL ──
 (function(){
   const grid   = document.getElementById('prod-grid');
   const dotsEl = document.getElementById('carousel-dots');
@@ -1918,7 +1738,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     const vis = visibleCards();
     const max = Math.max(0, cards.length - Math.floor(vis));
     idx = Math.max(0, Math.min(idx, max));
-    const cardW = cards[0].offsetWidth + 2; // gap
+    const cardW = cards[0].offsetWidth + 2; 
     grid.style.transform = `translateX(${-idx * cardW}px)`;
     dotsEl && dotsEl.querySelectorAll('.carousel-dot').forEach((d,i)=>d.classList.toggle('active', i===idx));
   }
@@ -1926,7 +1746,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   window.carouselPrev = ()=>{ idx = Math.max(0, idx-1); update(); };
   window.carouselNext = ()=>{ const cards = getCards(); const vis = Math.floor(visibleCards()); idx = Math.min(cards.length - vis, idx+1); update(); };
 
-  // Drag / swipe
   grid.addEventListener('mousedown', e=>{ startX=e.clientX; isDragging=true; grid.classList.add('dragging'); });
   window.addEventListener('mousemove', e=>{ if(!isDragging) return; dragOffset=e.clientX-startX; });
   window.addEventListener('mouseup', e=>{
@@ -1940,11 +1759,9 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if(Math.abs(diff)>50){ diff<0 ? carouselNext() : carouselPrev(); }
   });
 
-  // Init + resize
   setTimeout(()=>{ buildDots(); update(); }, 200);
   window.addEventListener('resize', ()=>{ buildDots(); update(); });
 
-  // Re-init after filter changes
   document.addEventListener('filterChanged', ()=>{ idx=0; buildDots(); update(); });
 })();
 </script>
