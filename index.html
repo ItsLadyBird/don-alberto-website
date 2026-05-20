@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -12,15 +13,8 @@
 </head>
 <body>
 
-<!-- ═══════════════════════════════════
-   SHELL: header injected by da-shell.js
-   (util bar · full brand · main nav · mobile menu)
-   ═══════════════════════════════════ -->
 <div id="site-header"></div>
 
-<!-- ═══════════════════════════════════
-   HERO — video background
-   ═══════════════════════════════════ -->
 <section class="hero" aria-label="Don Alberto Café — Specialty Coffee from Colombia">
   <video class="hero-video" autoplay muted loop playsinline poster="images/farm_cherries1.jpeg">
     <source src="videos/DA_Intro_Final.mp4" type="video/mp4">
@@ -47,9 +41,6 @@
   <div class="hero-scroll"><div class="scroll-line"></div><span id="s-scroll">Défiler</span></div>
 </section>
 
-<!-- ═══════════════════════════════════
-   HERO HOOKS — three key differentiators
-   ═══════════════════════════════════ -->
 <section class="hero-hooks">
   <div class="hh-inner">
 
@@ -190,9 +181,6 @@
 }
 </style>
 
-<!-- ═══════════════════════════════════
-   HOME PANELS — two large CTAs
-   ═══════════════════════════════════ -->
 <div class="home-panels">
   <a href="boutique.html" class="hp">
     <img class="hp-img" src="images/notre-cafe.png" alt="Specialty Coffee Don Alberto — Boutique" loading="lazy" onerror="this.style.display='none'">
@@ -214,9 +202,6 @@
   </a>
 </div>
 
-<!-- ═══════════════════════════════════
-   JOURNEY / PROCESS
-   ═══════════════════════════════════ -->
 <section class="journey-section">
   <div class="journey-steps">
     <div class="journey-step reveal">
@@ -261,93 +246,59 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════
-   ATTRIBUTES TICKER
-   ═══════════════════════════════════ -->
 <div class="attrs-strip">
   <div class="attrs-track">
-    <!-- Populated dynamically by setLang() in da-shell.js -->
-  </div>
+    </div>
 </div>
 
-<!-- ═══════════════════════════════════
-   PRODUCT IN SALE — Don Alberto Café
-   ═══════════════════════════════════ -->
-<section class="product-section" id="produit">
-  <div class="prod-inner">
-
-    <!-- Left: Visual -->
-    <div class="prod-visual reveal">
-      <div class="prod-img-frame">
-        <img src="images/senor-cafetero.jpg" alt="Don Alberto Café — Rondón Castillo" class="prod-main-img">
-        <div class="prod-img-overlay"></div>
-      </div>
-      <div class="prod-badge">
-        <div class="prod-badge-score">84.5</div>
-        <div class="prod-badge-lbl">Score SCA</div>
-      </div>
-      <div class="prod-origin-tag">Boyacá · Colombie · 1 670 m</div>
-    </div>
-
-    <!-- Right: Content -->
-    <div class="prod-content reveal">
-      <div class="prod-eyebrow">
-        <span class="prod-status">● Actuellement en Vente</span>
-        <span class="prod-cert">SCA Specialty Grade</span>
-      </div>
-
-      <h2 class="prod-title">Don Alberto<br><em>Rondón Castillo</em></h2>
-      <p class="prod-subtitle">Arabica Castillo · Single Origin · Procédé Lavé</p>
-
-      <div class="prod-divider"></div>
-
-      <div class="prod-quality-label">L'Excellence de la Source</div>
-      <p class="prod-desc">
-        À 1&nbsp;670&nbsp;m d'altitude dans les contreforts andins de Boyacá, les fluctuations thermiques de Rondón soumettent les cerises Castillo à un <strong>« stress positif »</strong> naturel : une maturation plus lente qui concentre des esters complexes et des acides organiques dans chaque grain. Ce n'est pas l'intervention humaine qui forge ce café — c'est l'intelligence du terroir lui-même.
-      </p>
-      <p class="prod-desc" style="margin-top:14px;">
-        Le résultat est un profil d'exception : <strong>cacao profond et miel visqueux</strong>, deux signatures de densité aromatique que seule une altitude extrême, un sol volcanique riche et une sélection manuelle rigoureuse rendent possibles.
-      </p>
-
-      <div class="prod-flavors">
-        <span class="prod-flavor">Cacao Profond</span>
-        <span class="prod-flavor">Miel Visqueux</span>
-        <span class="prod-flavor">Esters Complexes</span>
-        <span class="prod-flavor">Corps Velouté</span>
-      </div>
-
-      <div class="prod-stats">
-        <div class="pstat">
-          <div class="pstat-val">1&nbsp;670</div>
-          <div class="pstat-lbl">m Altitude</div>
-        </div>
-        <div class="pstat-div"></div>
-        <div class="pstat">
-          <div class="pstat-val">84.5</div>
-          <div class="pstat-lbl">Score SCA</div>
-        </div>
-        <div class="pstat-div"></div>
-        <div class="pstat">
-          <div class="pstat-val">100%</div>
-          <div class="pstat-lbl">Arabica</div>
-        </div>
-        <div class="pstat-div"></div>
-        <div class="pstat">
-          <div class="pstat-val">#1</div>
-          <div class="pstat-lbl">Green Farm</div>
-        </div>
-      </div>
-
-      <a href="boutique.html#score" class="btn-primary" id="prod-cta" style="margin-top:36px;display:inline-flex;">
-        Voir le score SCA complet →
-      </a>
-    </div>
-
+<section class="colombia-section" id="colombia">
+  <div class="col-header reveal">
+    <div class="section-label center light" id="col-label">Le café premium mondial récolté en continu</div>
+    <h2 class="h2 light" id="col-h2">Colombie - <em>1er Producteur de Café Premium</em></h2>
   </div>
-</section>
 
-<style>
+  <div class="col-images reveal">
+    <img src="images/boyaca-landscapes.jpg" alt="Boyacá Landscapes" class="active">
+    <img src="images/Colombian Mountains.jpg" alt="Colombian Mountains">
+    <img src="images/Agua montañas Boyaca.jpeg" alt="Boyacá Waterfalls">
+    <img src="images/Colombian Landscapes.png" alt="Colombian Flora">
+  </div>
 
+  <div class="col-body reveal">
+    <p class="body-text light" id="col-p1">Avec ses 86 microclimats, ses cordillères andines et ses sols volcaniques perchés entre 1 200 et 2 000 mètres, la Colombie offre une diversité rare et riche. Premier producteur mondial d'Arabica de haute qualité, elle possède un terroir exceptionnel reconnu comme l'une des origines les plus complexes au monde.</p>
+
+    <div class="col-cards-wrapper">
+      <button class="col-arr prev" onclick="moveColCards(-1)">❮</button>
+      
+      <div class="col-cards-viewport">
+        <div class="col-cards" id="col-cards-track">
+          <div class="ccard">
+            <div class="ccard-val" id="cs1-val">~50%</div>
+            <div class="ccard-tit" id="cs1-lbl">Andisols Volcaniques</div>
+            <div class="ccard-desc" id="cs1-desc">Près de 50 % des régions productrices de café en Colombie sont situées sur des sols formés par des cendres volcaniques. Ils retiennent parfaitement l'eau et les nutriments, développant la complexité aromatique unique de nos grains.</div>
+          </div>
+          <div class="ccard">
+            <div class="ccard-val" id="cs2-val">8–15%</div>
+            <div class="ccard-tit" id="cs2-lbl">Matière Organique</div>
+            <div class="ccard-desc" id="cs2-desc">Les sols caféiers colombiens contiennent 8 à 15 % de matière organique, bien au-dessus de la moyenne mondiale (1 à 3 %). Cette richesse nourrit naturellement la plante, garantissant une pureté et une vigueur exceptionnelles.</div>
+          </div>
+          <div class="ccard">
+            <div class="ccard-val" id="cs3-val">15%</div>
+            <div class="ccard-tit" id="cs3-lbl">Carbone Total</div>
+            <div class="ccard-desc" id="cs3-desc">Dans l'horizon supérieur, le carbone total atteint 15 %. Ce réservoir naturel gorge la plante d'énergie continue pour produire des cerises plus denses et sucrées.</div>
+          </div>
+          <div class="ccard">
+            <div class="ccard-val" id="cs4-val">&gt;65%</div>
+            <div class="ccard-tit" id="cs4-lbl">Porosité du Sol</div>
+            <div class="ccard-desc" id="cs4-desc">Ces sols présentent une extrême légèreté, avec une porosité dépassant 65 à 75 %. Cela assure un drainage parfait où l'eau s'écoule sans stagner, protégeant les racines de l'asphyxie.</div>
+          </div>
+          <div class="ccard" style="grid-column: auto;">
+            <div class="ccard-val" id="cs5-val">0,7 g/cm³</div>
+            <div class="ccard-tit" id="cs5-lbl">Faible Densité</div>
+            <div class="ccard-desc" id="cs5-desc">Ces terres ont une densité de 0,7 à 0,9 g/cm³ contre 1,2 à 1,6 g/cm³ pour un sol agricole standard. Cette structure ultra-légère permet aux racines de s'ancrer profondément et de s'oxygéner, renforçant la vitalité du caféier.</div>
+          </div>
+        </div>
+      </div>
 
       <button class="col-arr next" onclick="moveColCards(1)">❯</button>
     </div>
@@ -397,63 +348,91 @@
     }
   });
 </script>
-<!-- ═══════════════════════════════════
-   COLOMBIA — Unique Environment
-   ═══════════════════════════════════ -->
-<section class="colombia-section" id="colombia">
-  <div class="col-header reveal">
-    <div class="section-label center light" id="col-label">Le café premium mondial récolté en continu</div>
-    <h2 class="h2 light" id="col-h2">Colombie - <em>1er Producteur de Café Premium</em></h2>
+
+<section class="product-section" id="produit">
+  <div style="text-align: center; margin-bottom: 70px;">
+    <div style="font-family: 'Lato', sans-serif; font-size: 14px; color: #c4a050; margin-bottom: 15px; text-transform: uppercase; font-weight: 700; letter-spacing: 2px;">SCA Specialty Grade</div>
+    <h2 style="font-family: 'Lato', sans-serif; font-size: 48px; font-weight: 800; color: #1a1a1a; text-transform: uppercase; margin: 0; letter-spacing: 2px;">Actuellement en Vente</h2>
   </div>
 
-  <div class="col-images reveal">
-    <img src="images/boyaca-landscapes.jpg" alt="Boyacá Landscapes" class="active">
-    <img src="images/Colombian Mountains.jpg" alt="Colombian Mountains">
-    <img src="images/Agua montañas Boyaca.jpeg" alt="Boyacá Waterfalls">
-    <img src="images/Colombian Landscapes.png" alt="Colombian Flora">
-  </div>
+  <div class="prod-inner">
 
-  <div class="col-body reveal">
-    <p class="body-text light" id="col-p1">Avec ses 86 microclimats, ses cordillères andines et ses sols volcaniques perchés entre 1 200 et 2 000 mètres, la Colombie offre une diversité rare et riche. Premier producteur mondial d'Arabica de haute qualité, elle possède un terroir exceptionnel reconnu comme l'une des origines les plus complexes au monde.</p>
-
-    <div class="col-cards-wrapper">
-      <button class="col-arr prev" onclick="moveColCards(-1)">❮</button>
+    <div class="prod-visual reveal">
+      <div class="prod-img-frame">
+        <img src="images/Prod_Both_Formats.png" alt="Don Alberto Café — Formats" class="prod-main-img">
+        <div class="prod-img-overlay"></div>
+      </div>
+      <div class="prod-badge">
+        <div class="prod-badge-score">84.5</div>
+        <div class="prod-badge-lbl">Score SCA</div>
+      </div>
+      <div class="prod-origin-tag">Boyacá · Colombie · 1 670 m</div>
       
-      <div class="col-cards-viewport">
-        <div class="col-cards" id="col-cards-track">
-          <div class="ccard">
-            <div class="ccard-val" id="cs1-val">~50%</div>
-            <div class="ccard-tit" id="cs1-lbl">Andisols Volcaniques</div>
-            <div class="ccard-desc" id="cs1-desc">Près de 50 % des régions productrices de café en Colombie sont situées sur des sols formés par des cendres volcaniques. Ils retiennent parfaitement l'eau et les nutriments, développant la complexité aromatique unique de nos grains.</div>
-          </div>
-          <div class="ccard">
-            <div class="ccard-val" id="cs2-val">8–15%</div>
-            <div class="ccard-tit" id="cs2-lbl">Matière Organique</div>
-            <div class="ccard-desc" id="cs2-desc">Les sols caféiers colombiens contiennent 8 à 15 % de matière organique, bien au-dessus de la moyenne mondiale (1 à 3 %). Cette richesse nourrit naturellement la plante, garantissant une pureté et une vigueur exceptionnelles.</div>
-          </div>
-          <div class="ccard">
-            <div class="ccard-val" id="cs3-val">15%</div>
-            <div class="ccard-tit" id="cs3-lbl">Carbone Total</div>
-            <div class="ccard-desc" id="cs3-desc">Dans l'horizon supérieur, le carbone total atteint 15 %. Ce réservoir naturel gorge la plante d'énergie continue pour produire des cerises plus denses et sucrées.</div>
-          </div>
-          <div class="ccard">
-            <div class="ccard-val" id="cs4-val">&gt;65%</div>
-            <div class="ccard-tit" id="cs4-lbl">Porosité du Sol</div>
-            <div class="ccard-desc" id="cs4-desc">Ces sols présentent une extrême légèreté, avec une porosité dépassant 65 à 75 %. Cela assure un drainage parfait où l'eau s'écoule sans stagner, protégeant les racines de l'asphyxie.</div>
-          </div>
-          <div class="ccard" style="grid-column: auto;">
-            <div class="ccard-val" id="cs5-val">0,7 g/cm³</div>
-            <div class="ccard-tit" id="cs5-lbl">Faible Densité</div>
-            <div class="ccard-desc" id="cs5-desc">Ces terres ont une densité de 0,7 à 0,9 g/cm³ contre 1,2 à 1,6 g/cm³ pour un sol agricole standard. Cette structure ultra-légère permet aux racines de s'ancrer profondément et de s'oxygéner, renforçant la vitalité du caféier.</div>
-          </div>
+      <div class="prod-gallery">
+        <div class="pg-item"><img src="images/Prod_250_gr.png" alt="250g" class="pg-contain"></div>
+        <div class="pg-item"><img src="images/notre-cafe.png" alt="Notre Cafe"></div>
+        <div class="pg-item"><img src="images/coffee_kitchen_bg.png" alt="Kitchen Setup"></div>
+        <div class="pg-item"><img src="images/Prod_3_pack.png" alt="3 Pack" class="pg-contain"></div>
+      </div>
+    </div>
+
+    <div class="prod-content reveal">
+      <h2 class="prod-title">Don Alberto<br><em>Rondón Castillo</em></h2>
+      <p class="prod-subtitle">Arabica Castillo · Single Origin · Procédé Lavé</p>
+
+      <div class="prod-divider"></div>
+
+      <div class="prod-quality-label">L'Excellence de la Source</div>
+      <p class="prod-desc">
+        À 1&nbsp;670&nbsp;m d'altitude dans les contreforts andins de Boyacá, les fluctuations thermiques de Rondón soumettent les cerises Castillo à un <strong>« stress positif »</strong> naturel : une maturation plus lente qui concentre des esters complexes et des acides organiques dans chaque grain. Ce n'est pas l'intervention humaine qui forge ce café — c'est l'intelligence du terroir lui-même.
+      </p>
+      <p class="prod-desc" style="margin-top:14px;">
+        Le résultat est un profil d'exception : <strong>cacao profond et miel visqueux</strong>, deux signatures de densité aromatique que seule une altitude extrême, un sol volcanique riche et une sélection manuelle rigoureuse rendent possibles.
+      </p>
+
+      <div class="prod-flavors">
+        <span class="prod-flavor">Cacao Profond</span>
+        <span class="prod-flavor">Miel Visqueux</span>
+        <span class="prod-flavor">Esters Complexes</span>
+        <span class="prod-flavor">Corps Velouté</span>
+      </div>
+
+      <div class="prod-stats">
+        <div class="pstat">
+          <div class="pstat-val">1&nbsp;670</div>
+          <div class="pstat-lbl">m Altitude</div>
+        </div>
+        <div class="pstat-div"></div>
+        <div class="pstat">
+          <div class="pstat-val">84.5</div>
+          <div class="pstat-lbl">Score SCA</div>
+        </div>
+        <div class="pstat-div"></div>
+        <div class="pstat">
+          <div class="pstat-val">100%</div>
+          <div class="pstat-lbl">Arabica</div>
+        </div>
+        <div class="pstat-div"></div>
+        <div class="pstat">
+          <div class="pstat-val">#1</div>
+          <div class="pstat-lbl">Green Farm</div>
         </div>
       </div>
-   
+
+      <a href="boutique.html#score" class="btn-primary" id="prod-cta" style="margin-top:36px;display:inline-flex;background:#222;color:#fff;border-color:#222;">
+        Voir le score SCA complet →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<style>
 /* ── PRODUCT SECTION ───────────────────────────── */
 .product-section {
-  background: #0d0d0d;
-  border-top: 1px solid rgba(196,160,80,.15);
-  border-bottom: 1px solid rgba(196,160,80,.12);
+  background: #ffffff;
+  border-top: 1px solid rgba(0,0,0,.08);
+  border-bottom: 1px solid rgba(0,0,0,.08);
   padding: 100px 0;
 }
 .prod-inner {
@@ -471,25 +450,25 @@
 .prod-img-frame {
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(196,160,80,.18);
+  border: 1px solid rgba(0,0,0,.08);
+  background: #f9f9f9;
 }
 .prod-main-img {
   width: 100%;
-  height: 580px;
-  object-fit: cover;
-  object-position: center top;
+  height: 500px;
+  object-fit: contain;
+  object-position: center;
   display: block;
-  filter: brightness(.86);
-  transition: filter .5s, transform .7s cubic-bezier(.25,.46,.45,.94);
+  mix-blend-mode: multiply;
+  transition: transform .7s cubic-bezier(.25,.46,.45,.94);
 }
 .prod-img-frame:hover .prod-main-img {
-  filter: brightness(.96);
   transform: scale(1.04);
 }
 .prod-img-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(13,13,13,.55) 0%, transparent 55%);
+  background: linear-gradient(to top, rgba(0,0,0,.15) 0%, transparent 40%);
   pointer-events: none;
 }
 .prod-badge {
@@ -506,7 +485,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  box-shadow: 0 4px 20px rgba(196,160,80,.35);
+  box-shadow: 0 4px 20px rgba(0,0,0,.1);
 }
 .prod-badge-score {
   font-family: 'Cormorant Garamond', serif;
@@ -526,51 +505,55 @@
   position: absolute;
   bottom: 22px;
   left: 22px;
-  background: rgba(13,13,13,.78);
-  border: 1px solid rgba(196,160,80,.32);
+  background: rgba(255,255,255,.9);
+  border: 1px solid rgba(0,0,0,.1);
   padding: 7px 14px;
   font-family: 'Lato', sans-serif;
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--gold, #c4a050);
+  color: #1a1a1a;
   backdrop-filter: blur(8px);
+}
+
+.prod-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 15px;
+}
+.pg-item {
+  background: #f9f9f9;
+  border: 1px solid rgba(0,0,0,.05);
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color .2s;
+}
+.pg-item:hover { border-color: rgba(0,0,0,.3); }
+.pg-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: multiply;
+}
+.pg-item img.pg-contain {
+  object-fit: contain;
+  padding: 5px;
 }
 
 /* Content column */
 .prod-content { display: flex; flex-direction: column; }
-.prod-eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  margin-bottom: 22px;
-  flex-wrap: wrap;
-}
-.prod-status {
-  font-family: 'Lato', sans-serif;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #7ecb6e;
-}
-.prod-cert {
-  font-family: 'Lato', sans-serif;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gold, #c4a050);
-  padding: 3px 10px;
-  border: 1px solid rgba(196,160,80,.38);
-}
 .prod-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(38px, 4vw, 56px);
   font-weight: 500;
   line-height: 1.08;
-  color: #f5f0e8;
+  color: #1a1a1a;
   margin: 0;
 }
 .prod-title em {
@@ -580,18 +563,18 @@
 .prod-subtitle {
   font-family: 'Lato', sans-serif;
   font-size: 10px;
-  font-weight: 300;
+  font-weight: 600;
   letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: rgba(245,240,232,.42);
+  color: #666;
   margin-top: 12px;
 }
 .prod-divider {
   width: 46px;
   height: 1px;
-  background: var(--gold, #c4a050);
+  background: #1a1a1a;
   margin: 30px 0;
-  opacity: .55;
+  opacity: .2;
 }
 .prod-quality-label {
   font-family: 'Lato', sans-serif;
@@ -599,18 +582,18 @@
   font-weight: 700;
   letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: var(--gold, #c4a050);
+  color: #1a1a1a;
   margin-bottom: 14px;
 }
 .prod-desc {
   font-family: 'Lato', sans-serif;
   font-size: 13px;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.8;
-  color: rgba(245,240,232,.68);
+  color: #444;
   margin: 0;
 }
-.prod-desc strong { color: #f5f0e8; font-weight: 400; }
+.prod-desc strong { color: #000; font-weight: 700; }
 
 .prod-flavors {
   display: flex;
@@ -624,14 +607,13 @@
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: rgba(245,240,232,.62);
+  color: #1a1a1a;
   padding: 5px 13px;
-  border: 1px solid rgba(245,240,232,.13);
-  transition: border-color .2s, color .2s;
+  border: 1px solid #ccc;
+  transition: border-color .2s;
 }
 .prod-flavor:hover {
-  border-color: rgba(196,160,80,.4);
-  color: var(--gold, #c4a050);
+  border-color: #1a1a1a;
 }
 
 .prod-stats {
@@ -639,14 +621,14 @@
   align-items: center;
   margin-top: 34px;
   padding-top: 30px;
-  border-top: 1px solid rgba(196,160,80,.1);
+  border-top: 1px solid #eee;
 }
 .pstat { flex: 1; text-align: center; }
 .pstat-val {
   font-family: 'Cormorant Garamond', serif;
   font-size: 28px;
-  font-weight: 500;
-  color: var(--gold, #c4a050);
+  font-weight: 600;
+  color: #1a1a1a;
   line-height: 1;
 }
 .pstat-lbl {
@@ -655,13 +637,13 @@
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: rgba(245,240,232,.36);
+  color: #666;
   margin-top: 6px;
 }
 .pstat-div {
   width: 1px;
   height: 34px;
-  background: rgba(196,160,80,.18);
+  background: #eee;
   flex-shrink: 0;
 }
 
@@ -672,18 +654,14 @@
     padding: 0 28px;
   }
   .product-section { padding: 64px 0; }
-  .prod-main-img { height: 360px; }
-  .prod-eyebrow { gap: 12px; }
 }
 @media (max-width: 480px) {
   .prod-flavors { gap: 6px; }
   .pstat-val { font-size: 22px; }
+  .prod-gallery { grid-template-columns: repeat(2, 1fr); }
 }
 </style>
-   
-<!-- ═══════════════════════════════════
-   TRUST BAR
-   ═══════════════════════════════════ -->
+
 <div class="trust-bar">
   <div class="trust-grid">
     <div class="trust-item reveal">
@@ -705,24 +683,17 @@
   </div>
 </div>
 
-<!-- ═══════════════════════════════════
-   NEWSLETTER
-   ═══════════════════════════════════ -->
 <section class="nl-section">
   <div class="nl-text">
     <h2 id="nl-h">Rejoignez la communauté <em>Don Alberto</em></h2>
     <p id="nl-p">Nouvelles récoltes · Actualités ferme · FR · EN · ES</p>
   </div>
 <form class="nl-form" action="https://tally.so/r/kdRxKZ" method="GET" target="_blank">
-  <input type="email" name="email" class="nl-input" id="nl-input" placeholder="Votre adresse email" required autocomplete="email">
-  <button type="submit" class="nl-submit" id="nl-btn">S'inscrire</button>
+  <input type="email" name="email" class="nl-input" id="nl-input" placeholder="Votre adresse email" required autocomplete="email">
+  <button type="submit" class="nl-submit" id="nl-btn">S'inscrire</button>
 </form>
 </section>
 
-<!-- ═══════════════════════════════════
-   SHELL: footer injected by da-shell.js
-   (footer · checkout modal · whatsapp)
-   ═══════════════════════════════════ -->
 <div id="site-footer"></div>
 
 <script src="da-shell.js"></script>
