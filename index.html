@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Don Alberto Café — Specialty Coffee Boyacá Colombia · SCA 84.5</title>
+<meta name="description" content="Don Alberto Café — Café de spécialité Single Origin. Arabica Castillo, Rondón, Boyacá, Colombie. Score SCA 84.5.">
+<link rel="icon" type="image/png" href="logos/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="da-styles.css">
+</head>
+<body>
+
+<!-- ═══════════════════════════════════
+   SHELL: header injected by da-shell.js
+   (util bar · full brand · main nav · mobile menu)
+   ═══════════════════════════════════ -->
+<div id="site-header"></div>
+
+<!-- ═══════════════════════════════════
+   HERO — video background
+   ═══════════════════════════════════ -->
+<section class="hero" aria-label="Don Alberto Café — Specialty Coffee Boyacá Colombia">
+  <video class="hero-video" autoplay muted loop playsinline poster="images/farm_cherries1.jpeg">
+    <source src="videos/DA_Intro_Final.mp4" type="video/mp4">
+    <img src="images/farm_cherries1.jpeg" alt="Don Alberto coffee farm" style="width:100%;height:100%;object-fit:cover;">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow" id="h-ey">Boyacá · Colombie · Single Origin · Specialty</p>
+    <h1 class="hero-title">DON ALBERTO<span id="h-sub">C A F É</span></h1>
+    <p class="hero-slogan" id="h-sl">Terre de caractère, grain d'excellence</p>
+    <p class="hero-craft" id="h-craft">ARTISANAT CAFÉIER ANCESTRAL</p>
+    <div class="hero-stats">
+      <div><div class="hstat-num">84.5</div><div class="hstat-lbl" id="s-sca">Score SCA</div></div>
+      <div class="hero-hdiv"></div>
+      <div><div class="hstat-num">1 670m</div><div class="hstat-lbl" id="s-alt">Altitude</div></div>
+      <div class="hero-hdiv"></div>
+      <div><div class="hstat-num">100%</div><div class="hstat-lbl" id="s-ara">Premium Varietales</div></div>
+      <div class="hero-hdiv"></div>
+      <div><div class="hstat-num">86</div><div class="hstat-lbl" id="s-stat4">Microclimats</div></div>
+    </div>
+    <div style="margin-top:36px;animation:fu .9s 1.1s both;">
+      <a href="boutique.html" id="hero-cta-btn" style="display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--teal-deep);padding:15px 38px;font-family:'Lato',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;font-weight:700;border:none;cursor:pointer;text-decoration:none;transition:background .2s;">Découvrir le café →</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div><span id="s-scroll">Défiler</span></div>
+</section>
+
+<!-- ═══════════════════════════════════
+   HERO HOOKS — three key differentiators
+   ═══════════════════════════════════ -->
+<section class="hero-hooks">
+  <div class="hh-inner">
+
+    <div class="hh-item">
+      <div class="hh-icon">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 6C18 6 10 12 10 24c0 5 2 9 4 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M24 6c6 0 14 6 14 18 0 5-2 9-4 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M24 6v34" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M10 24h28" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M12 16c3 2 7 3 12 3s9-1 12-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M12 32c3-2 7-3 12-3s9 1 12 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="hh-body">
+        <div class="hh-tag" id="hh1-tag">Origine Exclusive</div>
+        <div class="hh-title" id="hh1-title">Seule Green Coffee Farm<br>de Boyacá</div>
+        <div class="hh-desc" id="hh1-desc">L'unique ferme certifiée d'un département de 1,3 million d'habitants.</div>
+      </div>
+    </div>
+
+    <div class="hh-divider"></div>
+
+    <div class="hh-item">
+      <div class="hh-icon">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 4l4.5 9.1 10 1.5-7.2 7 1.7 10L24 27l-9 4.7 1.7-10L9.5 14.6l10-1.5L24 4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+          <path d="M24 34v8M20 38h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="hh-body">
+        <div class="hh-tag" id="hh2-tag">Top 5–10% Mondial</div>
+        <div class="hh-title" id="hh2-title">Café de Spécialité<br>Certifié SCA · 84.5</div>
+        <div class="hh-desc" id="hh2-desc">Seuls 5 à 10 % des cafés au monde atteignent le grade « specialty ».</div>
+      </div>
+    </div>
+
+    <div class="hh-divider"></div>
+
+    <div class="hh-item">
+      <div class="hh-icon">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="10" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/>
+          <circle cx="38" cy="36" r="4" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M14 12h8l6 12h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M34 36h-8l-6-12H14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M10 16v6M38 32v-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="hh-body">
+        <div class="hh-tag" id="hh3-tag">Traçabilité Totale</div>
+        <div class="hh-title" id="hh3-title">Ferme → Tasse<br>Zéro Intermédiaire</div>
+        <div class="hh-desc" id="hh3-desc">Circuit court maîtrisé : qualité maximale, prix juste, impact direct sur la ferme.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+/* ── HERO HOOKS ───────────────────────────── */
+.hero-hooks {
+  background: #0d0d0d;
+  border-top: 1px solid rgba(196,160,80,.18);
+  border-bottom: 1px solid rgba(196,160,80,.18);
+}
+.hh-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  align-items: stretch;
+  padding: 0 40px;
+}
+.hh-item {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+  padding: 44px 32px;
+  transition: background .25s;
+}
+.hh-item:hover { background: rgba(196,160,80,.04); }
+.hh-icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  color: var(--gold, #c4a050);
+  margin-top: 2px;
+}
+.hh-icon svg { width: 100%; height: 100%; }
+.hh-body { display: flex; flex-direction: column; gap: 6px; }
+.hh-tag {
+  font-family: 'Lato', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold, #c4a050);
+}
+.hh-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #f5f0e8;
+  letter-spacing: .3px;
+}
+.hh-desc {
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgba(245,240,232,.55);
+  margin-top: 2px;
+}
+.hh-divider {
+  width: 1px;
+  background: rgba(196,160,80,.2);
+  margin: 28px 0;
+  flex-shrink: 0;
+}
+
+@media (max-width: 860px) {
+  .hh-inner {
+    flex-direction: column;
+    padding: 0 24px;
+  }
+  .hh-item {
+    padding: 28px 8px;
+    gap: 18px;
+  }
+  .hh-divider {
+    width: 100%;
+    height: 1px;
+    margin: 0;
+  }
+  .hh-title { font-size: 18px; }
+}
+</style>
+
+<!-- ═══════════════════════════════════
+   HOME PANELS — two large CTAs
+   ═══════════════════════════════════ -->
+<div class="home-panels">
+  <a href="boutique.html" class="hp">
+    <img class="hp-img" src="images/notre-cafe.png" alt="Specialty Coffee Don Alberto — Boutique" loading="lazy" onerror="this.style.display='none'">
+    <div class="hp-ov"></div>
+    <div class="hp-cnt">
+      <div class="hp-ey" id="p1-ey">Specialty Coffee · Boutique</div>
+      <div class="hp-ti" id="p1-ti">Rondón Castillo —<br>SCA 84.5 · Grain entier</div>
+      <span class="hp-ct" id="p1-ct">Explorer la boutique →</span>
+    </div>
+  </a>
+  <a href="b2b.html" class="hp">
+    <img class="hp-img" src="images/coffee_kitchen_bg.png" alt="Club Don Alberto — Abonnement mensuel" loading="lazy" onerror="this.style.display='none'">
+    <div class="hp-ov"></div>
+    <div class="hp-cnt">
+      <div class="hp-ey" id="p2-ey">Club Don Alberto · Abonnement</div>
+      <div class="hp-ti" id="p2-ti">Café de spécialité frais<br>chaque mois</div>
+      <span class="hp-ct" id="p2-ct">Rejoindre le Club →</span>
+    </div>
+  </a>
+</div>
+
+<!-- ═══════════════════════════════════
+   JOURNEY / PROCESS
+   ═══════════════════════════════════ -->
+<section class="journey-section">
+  <div class="journey-steps">
+    <div class="journey-step reveal">
+      <div class="journey-icon">
+        <svg viewBox="0 0 48 48"><path d="M24 4C16.268 4 10 10.268 10 18c0 10.5 14 26 14 26s14-15.5 14-26c0-7.732-6.268-14-14-14z"/><circle cx="24" cy="18" r="4.5"/></svg>
+      </div>
+      <div class="journey-title" id="jt1"></div>
+      <div class="journey-desc" id="jd1"></div>
+    </div>
+    <div class="journey-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+    <div class="journey-step reveal">
+      <div class="journey-icon">
+        <svg viewBox="0 0 48 48"><circle cx="24" cy="10" r="4.5"/><path d="M24 16v14M17 22c0 0 3-3 7-3s7 3 7 3M17 36h14M20 30l-3 6M28 30l3 6"/></svg>
+      </div>
+      <div class="journey-title" id="jt2"></div>
+      <div class="journey-desc" id="jd2"></div>
+    </div>
+    <div class="journey-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+    <div class="journey-step reveal">
+      <div class="journey-icon">
+        <svg viewBox="0 0 48 48"><path d="M10 20h28v20a2 2 0 01-2 2H12a2 2 0 01-2-2V20z"/><path d="M8 20h32M18 20V14a6 6 0 0112 0v6"/><path d="M20 30a4 4 0 008 0"/></svg>
+      </div>
+      <div class="journey-title" id="jt3"></div>
+      <div class="journey-desc" id="jd3"></div>
+    </div>
+    <div class="journey-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+    <div class="journey-step reveal">
+      <div class="journey-icon">
+        <svg viewBox="0 0 48 48"><rect x="10" y="6" width="28" height="36" rx="3"/><path d="M17 18h14M17 24h14M17 30h8"/><path d="M31 32l3 3 5-5" stroke-width="1.8"/></svg>
+      </div>
+      <div class="journey-title" id="jt4"></div>
+      <div class="journey-desc" id="jd4"></div>
+    </div>
+    <div class="journey-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+    <div class="journey-step reveal">
+      <div class="journey-icon">
+        <svg viewBox="0 0 48 48"><circle cx="24" cy="10" r="4.5"/><path d="M18 42V28l-4-8h20l-4 8v14"/><path d="M14 42h20"/><path d="M24 20v8"/></svg>
+      </div>
+      <div class="journey-title" id="jt5"></div>
+      <div class="journey-desc" id="jd5"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+   ATTRIBUTES TICKER
+   ═══════════════════════════════════ -->
+<div class="attrs-strip">
+  <div class="attrs-track">
+    <!-- Populated dynamically by setLang() in da-shell.js -->
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+   COLOMBIA — Unique Environment
+   ═══════════════════════════════════ -->
+<section class="colombia-section" id="colombia">
+  <div class="colombia-img-wrap reveal">
+    <img src="images/boyaca-landscapes.jpg" alt="Colombia — Terres à café d'exception">
+  </div>
+  <div class="colombia-text reveal">
+    <div class="section-label center light" id="col-label">Colombie · Premier Producteur Mondial</div>
+    <h2 class="h2 light" style="text-align:center;margin-top:16px;" id="col-h2">Le seul pays au monde<br>récolté <em>toute l'année</em></h2>
+    <p class="body-text light" style="text-align:center;margin-top:20px;" id="col-p1">La Colombie compte 86 microclimats distincts, deux chaînes de montagnes andines et des sols volcaniques entre 1 200 et 2 000 m d'altitude. Un terroir d'une richesse inégalée, reconnu par les experts du monde entier comme l'une des origines café les plus complexes et les plus désirables.</p>
+    <div style="text-align:center;margin-top:30px;">
+      <a href="maison.html" class="btn-gold" id="col-cta">Découvrir La Maison →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+   QUALITY SECTION
+   ═══════════════════════════════════ -->
+<section class="quality-section" id="qualite">
+  <div class="quality-img-wrap reveal">
+    <img src="images/senor-cafetero.jpg" alt="Señor cafetero">
+    <div class="quality-badge"><div class="score">84.5</div><div class="score-lbl">Score SCA</div></div>
+  </div>
+  <div class="reveal">
+    <div class="section-label" id="q-label">L'Excellence de la Source</div>
+    <h2 class="h2" id="q-h2">Une densité raffinée,<br>née du terroir de <em>Boyacá</em></h2>
+    <p class="body-text" id="q-p1" style="margin-top:20px;">À 1 670 m d'altitude, les fluctuations thermiques dramatiques de Rondón forcent les cerises Castillo dans un état de « stress positif » — une maturation plus lente qui concentre des esters complexes et des acides organiques dans chaque grain.</p>
+    <p class="body-text" id="q-p2">Le résultat est le profil Don Alberto : <strong>cacao profond et miel visqueux</strong>, obtenus non par intervention mais par l'intelligence de la terre.</p>
+    <div class="quality-stats">
+      <div class="qstat"><div class="qstat-val">1670</div><div class="qstat-lbl">m MSNM</div></div>
+      <div class="qstat"><div class="qstat-val">100%</div><div class="qstat-lbl">Arabica</div></div>
+      <div class="qstat"><div class="qstat-val">84.5</div><div class="qstat-lbl">SCA Score</div></div>
+      <div class="qstat"><div class="qstat-val">#1</div><div class="qstat-lbl">Green Farm</div></div>
+    </div>
+    <a href="https://donalberto.cafe/boutique" class="btn-primary" id="q-cta" style="margin-top:22px;display:inline-flex;">Voir le score SCA complet →</a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+   TRUST BAR
+   ═══════════════════════════════════ -->
+<div class="trust-bar">
+  <div class="trust-grid">
+    <div class="trust-item reveal">
+      <div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg></div>
+      <div><div class="trust-h" id="t1h">Commande directe</div><div class="trust-d" id="t1d">PayPal · Revolut · Wise</div></div>
+    </div>
+    <div class="trust-item reveal">
+      <div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+      <div><div class="trust-h" id="t2h">Livraison internationale</div><div class="trust-d" id="t2d">France, Europe &amp; monde</div></div>
+    </div>
+    <div class="trust-item reveal">
+      <div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+      <div><div class="trust-h" id="t3h">Café de spécialité SCA</div><div class="trust-d" id="t3d">Score 84.5 · Procédé Lavé</div></div>
+    </div>
+    <div class="trust-item reveal">
+      <div class="trust-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+      <div><div class="trust-h" id="t4h">Traçabilité totale</div><div class="trust-d" id="t4d">Ferme → tasse</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+   NEWSLETTER
+   ═══════════════════════════════════ -->
+<section class="nl-section">
+  <div class="nl-text">
+    <h2 id="nl-h">Rejoignez la communauté <em>Don Alberto</em></h2>
+    <p id="nl-p">Nouvelles récoltes · Actualités ferme · FR · EN · ES</p>
+  </div>
+<form class="nl-form" action="https://tally.so/r/kdRxKZ" method="GET" target="_blank">
+  <input type="email" name="email" class="nl-input" id="nl-input" placeholder="Votre adresse email" required autocomplete="email">
+  <button type="submit" class="nl-submit" id="nl-btn">S'inscrire</button>
+</form>
+</section>
+
+<!-- ═══════════════════════════════════
+   SHELL: footer injected by da-shell.js
+   (footer · checkout modal · whatsapp)
+   ═══════════════════════════════════ -->
+<div id="site-footer"></div>
+
+<script src="da-shell.js"></script>
+</body>
+</html>
