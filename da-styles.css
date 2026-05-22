@@ -1,3 +1,4 @@
+
 /* ═══════════════════════════════════════════════════════════
    DON ALBERTO CAFÉ — Master Stylesheet
    Single source of truth for all pages.
@@ -590,7 +591,7 @@ footer{background:#0d1014;padding:clamp(44px,4vw,64px) clamp(20px,4vw,56px) 0;}
   .hf-slogans{flex-direction:column;gap:6px;}
   .hf-sep{display:none;}
   .colombia-section { grid-template-columns: 1fr; gap: 40px; }
-  .colombia-text { max-width: 100%; 
+  .colombia-text { max-width: 100%; }
   .col-images { grid-template-columns: repeat(2, 1fr); }
   .col-images img { height: 260px; }
 }
@@ -745,11 +746,9 @@ footer{background:#0d1014;padding:clamp(44px,4vw,64px) clamp(20px,4vw,56px) 0;}
   .footer-socials { justify-content: center; gap: 14px; }
   .footer-soc { width: 44px; height: 44px; border-radius: 4px; }
   .footer-soc svg { width: 18px; height: 18px; }
-}
 
 /* Hide accordion arrows on desktop */
 @media(min-width:601px) { .f-arr { display: none; } }
-}
 
 /* ══════════════════════════════════════════
    23. SUBPAGE HELPERS
