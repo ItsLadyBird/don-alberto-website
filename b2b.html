@@ -133,7 +133,7 @@
 /* ── PARTENAIRES MAIN SECTION ── */
 .b2b-section {
   background: var(--dark);
-  padding: 100px 80px;
+  padding: 100px var(--page-pad);
   position: relative;
   overflow: hidden;
 }
@@ -146,15 +146,12 @@
 }
 .b2b-inner { position: relative; z-index: 1; }
 
-.b2b-header { text-align: center; max-width: 720px; margin: 0 auto 72px; }
+.b2b-header { text-align: center; margin-bottom: 72px; }
 .b2b-header-desc {
   font-size: 13.5px;
   line-height: 1.9;
   color: rgba(255,255,255,.55);
   margin-top: 18px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 /* Who grid */
@@ -227,8 +224,8 @@
 .b2b-tally-wrap iframe { border: none; width: 100%; min-height: 580px; display: block; background: transparent; }
 
 /* ── CLUB SECTION ── */
-.b2b-club { background: var(--cream); padding: 100px 80px; }
-.b2b-club-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.b2b-club { background: var(--cream); padding: 100px var(--page-pad); }
+.b2b-club-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
 .b2b-club-img-wrap { position: relative; overflow: hidden; }
 .b2b-club-img-wrap img { width: 100%; height: 480px; object-fit: cover; display: block; transition: transform .6s; }
 .b2b-club-img-wrap:hover img { transform: scale(1.03); }
@@ -242,8 +239,8 @@
 .b2b-club-perk-desc { font-size: 12px; color: var(--mid); line-height: 1.7; }
 
 /* ── JOURNEY STRIP ── */
-.b2b-journey { background: var(--cream); padding: 72px 80px; border-top: 1px solid rgba(196,160,80,.12); border-bottom: 1px solid rgba(196,160,80,.12); }
-.b2b-journey-inner { max-width: 1080px; margin: 0 auto; display: flex; align-items: flex-start; justify-content: center; gap: 0; }
+.b2b-journey { background: var(--cream); padding: 72px var(--page-pad); border-top: 1px solid rgba(196,160,80,.12); border-bottom: 1px solid rgba(196,160,80,.12); }
+.b2b-journey-inner { display: flex; align-items: flex-start; justify-content: center; gap: 0; }
 .b2b-j-step { flex: 1; text-align: center; padding: 0 24px; max-width: 200px; }
 .b2b-j-icon { width: 56px; height: 56px; margin: 0 auto 18px; color: var(--teal); }
 .b2b-j-icon svg { width: 100%; height: 100%; }

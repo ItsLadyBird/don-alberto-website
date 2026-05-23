@@ -112,8 +112,8 @@ const SHELL_HEADER = `
     <nav class="nav-right" aria-label="Nav droite">
       <div class="ni"><a href="b2b.html" id="n-pro">Espace Pro</a></div>
       <div class="ni"><a href="origine-boutique.html" id="n-orig">Boutique d'Origine</a></div>
-      <a href="boutique.html#formats" class="nav-cmd" id="n-cmd">Commander</a>
     </nav>
+    <a href="boutique.html#formats" class="nav-cmd" id="n-cmd">Commander</a>
     <button class="mob-tog" id="mob-tog" onclick="toggleMob()" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
