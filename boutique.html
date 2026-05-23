@@ -86,11 +86,25 @@
   border-bottom-color: var(--teal, #096685);
 }
 .filter-bar {
-  background: rgba(9,102,133,.04);
-  border-bottom: 1px solid rgba(9,102,133,.10);
+  background: var(--cream, #faf8f4);
+  border-right: 1px solid rgba(9,102,133,.10);
+}
+.shop-layout {
+  display: flex;
+  align-items: flex-start;
+  background: var(--cream, #faf8f4);
+}
+.filter-sidebar {
+  flex: 0 0 calc(var(--page-pad) + 220px);
+  position: sticky;
+  top: var(--nav-h);
+  max-height: calc(100vh - var(--nav-h));
+  overflow-y: auto;
+  border-right: 1px solid rgba(9,102,133,.10);
+  background: var(--cream, #faf8f4);
 }
 .filter-bar-inner {
-  padding: 20px var(--page-pad);
+  padding: 30px 20px 30px var(--page-pad);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -124,7 +138,7 @@
   background-position: right 12px center;
   transition: border-color .2s;
 }
-.filter-select { width: 300px; }
+.filter-select { width: 100%; }
 .filter-select:hover { border-color: rgba(9,102,133,.45); }
 .filter-sep { display: none; }
 .filter-reset {
@@ -152,7 +166,9 @@
 }
 .product-catalog {
   background: var(--cream, #faf8f4);
-  padding: 60px var(--page-pad) 100px;
+  padding: 60px var(--page-pad) 100px 40px;
+  flex: 1;
+  min-width: 0;
 }
 .catalog-inner {
 }
@@ -694,8 +710,11 @@
 @media (max-width: 900px) {
   .boutique-tabs { padding: 0 20px; }
   .boutique-tabs .btab { padding: 18px 18px; font-size: 10px; letter-spacing: 2.5px; }
-  .filter-bar-inner { padding: 14.5px 20px; }
-  .product-catalog { padding: 40px 20px 60px; }
+  .shop-layout { flex-direction: column; }
+  .filter-sidebar { position: static; flex: none; width: 100%; border-right: none; border-bottom: 1px solid rgba(9,102,133,.10); max-height: none; }
+  .filter-bar-inner { padding: 16px 20px; flex-direction: row; flex-wrap: wrap; }
+  .filter-select { width: auto; }
+  .product-catalog { padding: 40px 20px 60px; flex: none; }
   .prod-gallery { padding: 60px 24px; }
   .bsca-edu { padding: 60px 24px; }
   .bprocess-section { padding: 60px 24px; }
@@ -723,7 +742,8 @@
   </div>
 </div>
 
-<div class="filter-bar" id="filter-bar">
+<div class="shop-layout">
+<aside class="filter-bar filter-sidebar" id="filter-bar">
   <div class="filter-bar-inner">
     <span class="filter-label" id="b-filter-label" data-i18n="bfilter_lbl">Filtrer par</span>
 
@@ -770,7 +790,7 @@
     <button class="filter-reset" id="bfilter-reset" data-i18n="bfilter_reset" onclick="resetFilters()">Réinitialiser</button>
     <span class="filter-count" id="f-count">8 produits</span>
   </div>
-</div>
+</aside>
 
 <section class="product-catalog" id="catalogue">
   <div class="catalog-inner">
@@ -1022,6 +1042,7 @@
     </div>
   </div>
 </section>
+</div><!-- /.shop-layout -->
 
 <section class="prod-gallery" id="formats">
   <div class="reveal" style="text-align:center;">
