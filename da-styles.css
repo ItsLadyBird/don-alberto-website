@@ -135,7 +135,7 @@ ul{list-style:none;}
   transition:box-shadow .25s;
 }
 #main-nav.shadowed{box-shadow:0 2px 20px rgba(0,0,0,.09);}
-.nav-inner{display:flex;align-items:center;height:var(--nav-h);padding:0 var(--page-pad);position:relative;}
+.nav-inner{display:flex;align-items:center;height:var(--nav-h);padding:0 0 0 var(--page-pad);position:relative;}
 .nav-left{flex:1;display:flex;align-items:center;justify-content:space-evenly;}
 .nav-right{flex:1;display:flex;align-items:center;justify-content:space-evenly;}
 .ni{position:relative;}
@@ -179,11 +179,12 @@ ul{list-style:none;}
 
 /* Commander CTA */
 .nav-cmd{
-  display:inline-flex;align-items:center;padding:9px 20px;
+  display:inline-flex;align-items:center;padding:0 24px;
+  height:var(--nav-h);
   background:var(--teal);color:white;
   font-size:11px;letter-spacing:2.5px;text-transform:uppercase;font-weight:700;
   font-family:'Lato',sans-serif;border:none;cursor:pointer;
-  transition:background .2s;margin-left:6px;white-space:nowrap;
+  transition:background .2s;margin-left:8px;white-space:nowrap;flex-shrink:0;
 }
 .nav-cmd:hover{background:var(--teal-deep);}
 
