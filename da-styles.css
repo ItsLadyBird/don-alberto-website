@@ -169,7 +169,7 @@ ul{list-style:none;}
 .nsub a:hover{color:var(--teal);background:rgba(9,102,133,.03);}
 
 /* Centre compact logo */
-.nav-center{display:flex;justify-content:center;align-items:center;}
+.nav-center{position:absolute;left:50%;transform:translateX(-50%);display:flex;justify-content:center;align-items:center;}
 .nav-logo-compact{opacity:0;transform:translateY(-6px);transition:opacity .3s ease,transform .3s ease;pointer-events:none;}
 .nav-logo-compact.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
 .nav-logo-compact img{height:34px;width:auto;object-fit:contain;display:block;}
@@ -181,12 +181,12 @@ ul{list-style:none;}
 .nav-cmd{
   display:inline-flex;align-items:center;padding:0 24px;
   height:var(--nav-h);
-  background:var(--teal);color:white;
+  background:var(--gold);color:var(--teal-deep);
   font-size:11px;letter-spacing:2.5px;text-transform:uppercase;font-weight:700;
   font-family:'Lato',sans-serif;border:none;cursor:pointer;
   transition:background .2s;margin-left:8px;white-space:nowrap;flex-shrink:0;
 }
-.nav-cmd:hover{background:var(--teal-deep);}
+.nav-cmd:hover{background:var(--gold-light);}
 
 /* ══════════════════════════════════════════
    7. MOBILE MENU

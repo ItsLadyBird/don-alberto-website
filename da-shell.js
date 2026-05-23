@@ -450,7 +450,12 @@ const L = {
     cmd_del: 'Livraison offerte',
     cmd_req: 'Revolut & Wise — Informations requises',
     cmd_req_desc: 'Dans la <strong style="color:white;">note de paiement</strong>, veuillez inclure :<br>· Votre <strong style="color:white;">nom complet</strong><br>· Le <strong style="color:white;">produit commandé</strong> (ex: DA-250g)<br>· Votre <strong style="color:white;">adresse de livraison complète</strong>',
-    cmd_foot: 'PayPal · Revolut · Wise<br>Livraison France métropolitaine · 5–10 jours'
+    cmd_foot: 'PayPal · Revolut · Wise<br>Livraison France métropolitaine · 5–10 jours',
+    prod_grade:'SCA Specialty Grade', prod_en_vente:'Actuellement en Vente',
+    prod_p1:'À 1 670 m d\'altitude dans les contreforts andins de Boyacá, les fluctuations thermiques de Rondón soumettent les cerises Castillo à un <strong>« stress positif »</strong> naturel : une maturation plus lente qui concentre des esters complexes et des acides organiques dans chaque grain. Ce n\'est pas l\'intervention humaine qui forge ce café — c\'est l\'intelligence du terroir lui-même.',
+    prod_p2:'Le résultat est un profil d\'exception : <strong>cacao profond et miel visqueux</strong>, deux signatures de densité aromatique que seule une altitude extrême, un sol volcanique riche et une sélection manuelle rigoureuse rendent possibles.',
+    prod_f1:'Cacao Profond', prod_f2:'Miel Visqueux', prod_f3:'Esters Complexes', prod_f4:'Corps Velouté',
+    prod_alt_lbl:'m Altitude'
   },
   en:{
     sl:'Soul in the Soil, Being in the Bean', craft:'ANCESTRAL COFFEE CRAFTING',
@@ -593,7 +598,12 @@ const L = {
     cmd_del: 'Free shipping',
     cmd_req: 'Revolut & Wise — Required Information',
     cmd_req_desc: 'In the <strong style="color:white;">payment note</strong>, please include:<br>· Your <strong style="color:white;">full name</strong><br>· The <strong style="color:white;">ordered product</strong> (e.g. DA-250g)<br>· Your <strong style="color:white;">complete shipping address</strong>',
-    cmd_foot: 'PayPal · Revolut · Wise<br>Shipping to metropolitan France · 5–10 days'
+    cmd_foot: 'PayPal · Revolut · Wise<br>Shipping to metropolitan France · 5–10 days',
+    prod_grade:'SCA Specialty Grade', prod_en_vente:'Currently on Sale',
+    prod_p1:'At 1,670 m altitude in the Andean foothills of Boyacá, the thermal fluctuations of Rondón subject the Castillo cherries to a natural <strong>"positive stress"</strong>: a slower ripening that concentrates complex esters and organic acids in every bean. It\'s not human intervention that forges this coffee — it\'s the intelligence of the terroir itself.',
+    prod_p2:'The result is an exceptional profile: <strong>deep cacao and viscous honey</strong>, two signatures of aromatic density that only extreme altitude, rich volcanic soil and rigorous hand selection make possible.',
+    prod_f1:'Deep Cacao', prod_f2:'Viscous Honey', prod_f3:'Complex Esters', prod_f4:'Velvety Body',
+    prod_alt_lbl:'m Altitude'
   },
   es:{
     sl:'Esencia del Suelo, Vida en el Fruto', craft:'ARTE CAFETALERO ANCESTRAL',
@@ -736,7 +746,12 @@ const L = {
     cmd_del: 'Envío gratis',
     cmd_req: 'Revolut & Wise — Información requerida',
     cmd_req_desc: 'En la <strong style="color:white;">nota de pago</strong>, por favor incluya:<br>· Su <strong style="color:white;">nombre completo</strong><br>· El <strong style="color:white;">producto ordenado</strong> (ej: DA-250g)<br>· Su <strong style="color:white;">dirección de envío completa</strong>',
-    cmd_foot: 'PayPal · Revolut · Wise<br>Envío a Francia metropolitana · 5–10 días'
+    cmd_foot: 'PayPal · Revolut · Wise<br>Envío a Francia metropolitana · 5–10 días',
+    prod_grade:'SCA Specialty Grade', prod_en_vente:'Actualmente en Venta',
+    prod_p1:'A 1.670 m de altitud en las estribaciones andinas de Boyacá, las fluctuaciones térmicas de Rondón someten las cerezas Castillo a un <strong>«estrés positivo»</strong> natural: una maduración más lenta que concentra ésteres complejos y ácidos orgánicos en cada grano. No es la intervención humana la que forja este café — es la inteligencia del terroir mismo.',
+    prod_p2:'El resultado es un perfil de excepción: <strong>cacao profundo y miel viscosa</strong>, dos firmas de densidad aromática que solo una altitud extrema, un suelo volcánico rico y una selección manual rigurosa hacen posibles.',
+    prod_f1:'Cacao Profundo', prod_f2:'Miel Viscosa', prod_f3:'Ésteres Complejos', prod_f4:'Cuerpo Aterciopelado',
+    prod_alt_lbl:'m Altitud'
   }
 };
 
