@@ -169,7 +169,7 @@ ul{list-style:none;}
 .nsub a:hover{color:var(--teal);background:rgba(9,102,133,.03);}
 
 /* Centre compact logo */
-.nav-center{display:flex;justify-content:center;align-items:center;}
+.nav-center{position:absolute;left:50%;transform:translateX(-50%);display:flex;justify-content:center;align-items:center;}
 .nav-logo-compact{opacity:0;transform:translateY(-6px);transition:opacity .3s ease,transform .3s ease;pointer-events:none;}
 .nav-logo-compact.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
 .nav-logo-compact img{height:34px;width:auto;object-fit:contain;display:block;}
