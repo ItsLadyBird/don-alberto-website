@@ -181,12 +181,12 @@ ul{list-style:none;}
 .nav-cmd{
   display:inline-flex;align-items:center;padding:0 24px;
   height:var(--nav-h);
-  background:var(--teal);color:white;
+  background:var(--gold);color:var(--teal-deep);
   font-size:11px;letter-spacing:2.5px;text-transform:uppercase;font-weight:700;
   font-family:'Lato',sans-serif;border:none;cursor:pointer;
   transition:background .2s;margin-left:8px;white-space:nowrap;flex-shrink:0;
 }
-.nav-cmd:hover{background:var(--teal-deep);}
+.nav-cmd:hover{background:var(--gold-light);}
 
 /* ══════════════════════════════════════════
    7. MOBILE MENU
