@@ -90,11 +90,11 @@
   border-bottom: 1px solid rgba(9,102,133,.10);
 }
 .filter-bar-inner {
-  padding: 16px var(--page-pad);
+  padding: 20px var(--page-pad);
   display: flex;
-  align-items: center;
-  gap: 14.5px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
 }
 .filter-label {
   font-family: 'Lato', sans-serif;
@@ -124,8 +124,9 @@
   background-position: right 12px center;
   transition: border-color .2s;
 }
+.filter-select { width: 300px; }
 .filter-select:hover { border-color: rgba(9,102,133,.45); }
-.filter-sep { width: 1px; height: 18px; background: rgba(9,102,133,.15); }
+.filter-sep { display: none; }
 .filter-reset {
   font-family: 'Lato', sans-serif;
   font-size: 12px;
@@ -141,7 +142,7 @@
 }
 .filter-reset:hover { color: var(--gold); }
 .filter-count {
-  margin-left: auto;
+  margin-left: 0;
   font-family: 'Lato', sans-serif;
   font-size: 12px;
   font-weight: 400;
@@ -592,7 +593,7 @@
 .bgrain-hero-text { text-align: center; }
 .bgrain-hero-text h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px,4vw,50px); font-weight: 300; color: #faf8f4; }
 .bgrain-hero-text h2 em { color: var(--gold, #c4a050); }
-.bgrain-header { max-width: 600px; margin: 0 auto 50px; text-align: center; }
+.bgrain-header { margin-bottom: 50px; text-align: center; }
 .bgrain-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
 @media (max-width: 768px) { .bgrain-grid { grid-template-columns: 1fr; } }
 .bgrain-card { background: #fff; padding: 40px 28px; border-top: 2px solid transparent; transition: border-color .3s, box-shadow .3s; }
@@ -606,9 +607,7 @@
 }
 .bfamily-header {
   text-align: center;
-  padding: 0 60px 60px;
-  max-width: 760px;
-  margin: 0 auto;
+  padding: 0 var(--page-pad) 60px;
 }
 .bfamily-gallery {
   display: grid;
@@ -634,8 +633,6 @@
 .bfamily-photo:hover img { transform: scale(1.04); }
 .bfamily-text {
   padding: 70px var(--page-pad) 90px;
-  max-width: 900px;
-  margin: 0 auto;
   text-align: center;
 }
 @media (max-width: 900px) {
