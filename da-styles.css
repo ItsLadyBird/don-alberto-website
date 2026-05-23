@@ -136,8 +136,8 @@ ul{list-style:none;}
 }
 #main-nav.shadowed{box-shadow:0 2px 20px rgba(0,0,0,.09);}
 .nav-inner{display:flex;align-items:center;height:var(--nav-h);padding:0 var(--page-pad);position:relative;}
-.nav-left{flex:1;display:flex;align-items:center;justify-content:flex-start;}
-.nav-right{flex:1;display:flex;align-items:center;justify-content:flex-end;}
+.nav-left{flex:1;display:flex;align-items:center;justify-content:space-evenly;}
+.nav-right{flex:1;display:flex;align-items:center;justify-content:space-evenly;}
 .ni{position:relative;}
 .ni > a{
   display:flex;align-items:center;gap:4px;padding:0 14px;height:var(--nav-h);
