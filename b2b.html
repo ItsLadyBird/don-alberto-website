@@ -154,25 +154,92 @@
   margin-top: 18px;
 }
 
-/* Who grid */
-.b2b-who-grid {
+/* ── PARTNER PHOTO COLLAGE ── */
+.b2b-partners-collage {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 2px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
   margin-bottom: 72px;
 }
-.b2b-who-card {
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.07);
-  border-top: 2px solid var(--teal-mid);
-  padding: 34px 22px;
-  text-align: center;
-  transition: background .22s;
+.b2b-cp {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  cursor: pointer;
+  background: var(--teal-deep);
+  height: 340px;
+  text-decoration: none;
 }
-.b2b-who-card:hover { background: rgba(255,255,255,.07); }
-.b2b-who-icon { font-size: 30px; margin-bottom: 16px; line-height: 1; }
-.b2b-who-title { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: white; margin-bottom: 10px; line-height: 1.3; }
-.b2b-who-desc { font-size: 11px; color: rgba(255,255,255,.42); line-height: 1.75; }
+.b2b-cp-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform .75s cubic-bezier(.25,.46,.45,.94);
+  display: block;
+}
+.b2b-cp:hover .b2b-cp-img { transform: scale(1.06); }
+.b2b-cp-ov {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(4,20,30,.88) 0%, rgba(4,20,30,.42) 52%, rgba(4,20,30,.12) 100%);
+  transition: background .35s;
+}
+.b2b-cp:hover .b2b-cp-ov {
+  background: linear-gradient(to top, rgba(4,20,30,.94) 0%, rgba(4,20,30,.58) 55%, rgba(4,20,30,.22) 100%);
+}
+.b2b-cp-cnt {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 28px 30px;
+  color: #fff;
+  transform: translateY(5px);
+  transition: transform .38s cubic-bezier(.22,1,.36,1);
+}
+.b2b-cp:hover .b2b-cp-cnt { transform: translateY(0); }
+.b2b-cp-ey {
+  font-family: 'Lato', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 8px;
+  opacity: .9;
+}
+.b2b-cp-ti {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(22px, 2.2vw, 30px);
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: 14px;
+  color: #fff;
+}
+.b2b-cp-ct {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'Lato', sans-serif;
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #fff;
+  border-bottom: 1px solid rgba(255,255,255,.4);
+  padding-bottom: 3px;
+  opacity: 0;
+  transform: translateY(7px);
+  transition: opacity .3s .05s, transform .3s .05s, border-color .2s;
+}
+.b2b-cp:hover .b2b-cp-ct {
+  opacity: 1;
+  transform: translateY(0);
+  border-color: rgba(255,255,255,.9);
+}
 
 /* Two-col */
 .b2b-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: start; margin-bottom: 72px; }
@@ -252,7 +319,10 @@
 /* ══════════════════════════════════════════
    RESPONSIVE
    ══════════════════════════════════════════ */
-@media(max-width:1100px){ .b2b-who-grid { grid-template-columns: repeat(3,1fr); } }
+@media(max-width:980px){
+  .b2b-partners-collage { grid-template-columns: repeat(2, 1fr); }
+  .b2b-cp { height: 300px; }
+}
 @media(max-width:980px){
   .b2b-section { padding: 64px 28px; }
   .b2b-two-col { grid-template-columns: 1fr; gap: 48px; }
@@ -266,14 +336,16 @@
   .b2b-club-inner { grid-template-columns: 1fr; gap: 40px; }
 }
 @media(max-width:780px){
-  .b2b-who-grid { grid-template-columns: 1fr 1fr; }
+  .b2b-partners-collage { grid-template-columns: 1fr 1fr; }
+  .b2b-cp { height: 260px; }
   .b2b-hero { height: 60vh; min-height: 420px; }
   .b2b-hero-content { padding: 0 20px; }
   .b2b-hero-stats { gap: 16px; }
   .b2b-hero-hdiv { display: none; }
 }
 @media(max-width:520px){
-  .b2b-who-grid { grid-template-columns: 1fr; }
+  .b2b-partners-collage { grid-template-columns: 1fr; }
+  .b2b-cp { height: 240px; }
   .b2b-section { padding: 52px 18px; }
   .b2b-form-block { padding: 32px 18px; }
   .b2b-hero-title { font-size: 32px; }
@@ -332,12 +404,61 @@
       <p class="b2b-header-desc" id="b2b-section-desc">Vous êtes restaurateur, barista, hôtelier, épicier fin ou caviste ? Don Alberto Café propose un café de spécialité single origin SCA 84.5 issu de la seule ferme de café vert de Boyacá — un produit unique, une histoire forte, une proposition de valeur différenciante pour votre carte.</p>
     </div>
 
-    <div class="b2b-who-grid reveal">
-      <div class="b2b-who-card"><div class="b2b-who-icon">☕</div><h4 class="b2b-who-title" id="w1-title">Cafés &amp;<br>Restaurants</h4><p class="b2b-who-desc" id="w1-desc">Une origine exclusive pour votre carte, avec une histoire à raconter à vos clients.</p></div>
-      <div class="b2b-who-card"><div class="b2b-who-icon">🏨</div><h4 class="b2b-who-title" id="w2-title">Hôtels &amp;<br>Maisons d'hôtes</h4><p class="b2b-who-desc" id="w2-desc">Offrez à vos clients une expérience café mémorable — une signature premium à l'image de votre établissement.</p></div>
-      <div class="b2b-who-card"><div class="b2b-who-icon">🏪</div><h4 class="b2b-who-title" id="w3-title">Épiceries fines<br>&amp; Cavistes</h4><p class="b2b-who-desc" id="w3-desc">Un produit rare, tracé et porteur d'une identité forte — idéal pour les rayons épicerie fine et cadeaux.</p></div>
-      <div class="b2b-who-card"><div class="b2b-who-icon">🎁</div><h4 class="b2b-who-title" id="w4-title">Cadeaux<br>d'entreprise</h4><p class="b2b-who-desc" id="w4-desc">Offrez un café d'exception à vos équipes ou clients. Coffrets personnalisables sur demande.</p></div>
-      <div class="b2b-who-card"><div class="b2b-who-icon">🌿</div><h4 class="b2b-who-title" id="w5-title">Boutiques<br>bio &amp; éthiques</h4><p class="b2b-who-desc" id="w5-desc">Une supply chain verte, une ferme familiale indépendante, un impact direct sur le producteur.</p></div>
+    <div class="b2b-partners-collage reveal">
+      <a class="b2b-cp" href="#contact">
+        <img class="b2b-cp-img" src="images/cafes.png" alt="Cafés — Don Alberto Café B2B">
+        <div class="b2b-cp-ov"></div>
+        <div class="b2b-cp-cnt">
+          <div class="b2b-cp-ey" id="cp1-ey">☕ Specialty Coffee</div>
+          <div class="b2b-cp-ti" id="cp1-ti">Cafés</div>
+          <span class="b2b-cp-ct" id="cp1-ct">Devenir partenaire →</span>
+        </div>
+      </a>
+      <a class="b2b-cp" href="#contact">
+        <img class="b2b-cp-img" src="images/restaurants.png" alt="Restaurants — Don Alberto Café B2B">
+        <div class="b2b-cp-ov"></div>
+        <div class="b2b-cp-cnt">
+          <div class="b2b-cp-ey" id="cp2-ey">🍽️ Gastronomie</div>
+          <div class="b2b-cp-ti" id="cp2-ti">Restaurants</div>
+          <span class="b2b-cp-ct" id="cp2-ct">Devenir partenaire →</span>
+        </div>
+      </a>
+      <a class="b2b-cp" href="#contact">
+        <img class="b2b-cp-img" src="images/fine_grocers.png" alt="Épiceries fines — Don Alberto Café B2B">
+        <div class="b2b-cp-ov"></div>
+        <div class="b2b-cp-cnt">
+          <div class="b2b-cp-ey" id="cp3-ey">🧺 Épicerie fine</div>
+          <div class="b2b-cp-ti" id="cp3-ti">Fine Groceries</div>
+          <span class="b2b-cp-ct" id="cp3-ct">Devenir partenaire →</span>
+        </div>
+      </a>
+      <a class="b2b-cp" href="#contact">
+        <img class="b2b-cp-img" src="images/hotels.png" alt="Hôtels — Don Alberto Café B2B">
+        <div class="b2b-cp-ov"></div>
+        <div class="b2b-cp-cnt">
+          <div class="b2b-cp-ey" id="cp4-ey">🏨 Hospitalité</div>
+          <div class="b2b-cp-ti" id="cp4-ti">Hotels</div>
+          <span class="b2b-cp-ct" id="cp4-ct">Devenir partenaire →</span>
+        </div>
+      </a>
+      <a class="b2b-cp" href="#contact">
+        <img class="b2b-cp-img" src="images/corporate.png" alt="Corporate — Don Alberto Café B2B">
+        <div class="b2b-cp-ov"></div>
+        <div class="b2b-cp-cnt">
+          <div class="b2b-cp-ey" id="cp5-ey">🎁 Entreprise</div>
+          <div class="b2b-cp-ti" id="cp5-ti">Corporate</div>
+          <span class="b2b-cp-ct" id="cp5-ct">Devenir partenaire →</span>
+        </div>
+      </a>
+      <a class="b2b-cp" href="#contact">
+        <img class="b2b-cp-img" src="images/organic_shops.png" alt="Boutiques bio — Don Alberto Café B2B">
+        <div class="b2b-cp-ov"></div>
+        <div class="b2b-cp-cnt">
+          <div class="b2b-cp-ey" id="cp6-ey">🌿 Bio &amp; Éthique</div>
+          <div class="b2b-cp-ti" id="cp6-ti">Organic Shops</div>
+          <span class="b2b-cp-ct" id="cp6-ct">Devenir partenaire →</span>
+        </div>
+      </a>
     </div>
 
     <div class="b2b-two-col reveal">
@@ -461,11 +582,12 @@ fr:{
   stat1:'Specialty Grade', stat2:'Boyacá · Colombie', stat3:'Réponse garantie', scroll:'Découvrir',
   sLbl:'Pour les Professionnels', sH2:'Don Alberto Café<br>&amp; les <em>professionnels</em>',
   sDesc:"Vous êtes restaurateur, barista, hôtelier, épicier fin ou caviste ? Don Alberto Café propose un café de spécialité single origin SCA 84.5 issu de la seule ferme de café vert de Boyacá — un produit unique, une histoire forte, une proposition de valeur différenciante pour votre carte.",
-  w1t:'Cafés &amp;<br>Restaurants', w1d:"Une origine exclusive pour votre carte, avec une histoire à raconter à vos clients.",
-  w2t:'Hôtels &amp;<br>Maisons d\'hôtes', w2d:"Offrez à vos clients une expérience café mémorable — une signature premium à l'image de votre établissement.",
-  w3t:'Épiceries fines<br>&amp; Cavistes', w3d:"Un produit rare, tracé et porteur d'une identité forte — idéal pour les rayons épicerie fine et cadeaux.",
-  w4t:'Cadeaux<br>d\'entreprise', w4d:"Offrez un café d'exception à vos équipes ou clients. Coffrets personnalisables sur demande.",
-  w5t:'Boutiques<br>bio &amp; éthiques', w5d:"Une supply chain verte, une ferme familiale indépendante, un impact direct sur le producteur.",
+  cp1ey:'☕ Specialty Coffee', cp1ti:'Cafés', cp1ct:'Devenir partenaire →',
+  cp2ey:'🍽️ Gastronomie', cp2ti:'Restaurants', cp2ct:'Devenir partenaire →',
+  cp3ey:'🧺 Épicerie fine', cp3ti:'Fine Groceries', cp3ct:'Devenir partenaire →',
+  cp4ey:'🏨 Hospitalité', cp4ti:'Hotels', cp4ct:'Devenir partenaire →',
+  cp5ey:'🎁 Entreprise', cp5ti:'Corporate', cp5ct:'Devenir partenaire →',
+  cp6ey:'🌿 Bio &amp; Éthique', cp6ti:'Organic Shops', cp6ct:'Devenir partenaire →',
   whyLbl:'Pourquoi Don Alberto ?', whyT:'Un café <em>rare</em> avec<br>une histoire vraie',
   c1h:'Exclusivité géographique', c1p:"Seule ferme de café vert de spécialité du département de Boyacá. Vos clients ne retrouveront pas ce café ailleurs.",
   c2h:'SCA 84.5 — certifié specialty', c2p:"Score certifié par Impulso Coffee Lab. Miel, chocolat, texture soyeuse — un profil aromatique premium, identifiable.",
@@ -503,11 +625,12 @@ en:{
   stat1:'Specialty Grade', stat2:'Boyacá · Colombia', stat3:'Response guaranteed', scroll:'Discover',
   sLbl:'For Professionals', sH2:'Don Alberto Café<br>&amp; <em>professionals</em>',
   sDesc:"Are you a restaurateur, barista, hotelier, fine grocer or wine merchant? Don Alberto Café offers a single origin specialty coffee SCA 84.5 from the only green coffee farm in Boyacá — a unique product, a compelling story, a differentiating value proposition for your offering.",
-  w1t:'Cafés &amp;<br>Restaurants', w1d:'An exclusive origin for your menu, with a story to tell your customers.',
-  w2t:'Hotels &amp;<br>Guest Houses', w2d:'Offer your guests a memorable coffee experience — a premium signature reflecting your establishment.',
-  w3t:'Fine Grocers<br>&amp; Wine Merchants', w3d:'A rare, traceable product with a strong identity — ideal for specialty food and gift sections.',
-  w4t:'Corporate<br>Gifts', w4d:'Offer an exceptional coffee to your teams or clients. Customizable gift sets on request.',
-  w5t:'Organic &amp;<br>Ethical Shops', w5d:'A green supply chain, an independent family farm, direct impact on the producer.',
+  cp1ey:'☕ Specialty Coffee', cp1ti:'Cafés', cp1ct:'Become a partner →',
+  cp2ey:'🍽️ Gastronomy', cp2ti:'Restaurants', cp2ct:'Become a partner →',
+  cp3ey:'🧺 Fine Food', cp3ti:'Fine Groceries', cp3ct:'Become a partner →',
+  cp4ey:'🏨 Hospitality', cp4ti:'Hotels', cp4ct:'Become a partner →',
+  cp5ey:'🎁 Business', cp5ti:'Corporate', cp5ct:'Become a partner →',
+  cp6ey:'🌿 Bio &amp; Ethics', cp6ti:'Organic Shops', cp6ct:'Become a partner →',
   whyLbl:'Why Don Alberto?', whyT:'A <em>rare</em> coffee with<br>a true story',
   c1h:'Geographic exclusivity', c1p:"The only specialty green coffee farm in the Boyacá department. Your customers won't find this coffee anywhere else.",
   c2h:'SCA 84.5 — certified specialty', c2p:'Score certified by Impulso Coffee Lab. Honey, chocolate, silky texture — a premium, identifiable aromatic profile.',
@@ -545,11 +668,12 @@ es:{
   stat1:'Specialty Grade', stat2:'Boyacá · Colombia', stat3:'Respuesta garantizada', scroll:'Descubrir',
   sLbl:'Para los Profesionales', sH2:'Don Alberto Café<br>&amp; los <em>profesionales</em>',
   sDesc:"¿Es usted restaurador, barista, hotelero, tendero gourmet o comerciante de vinos? Don Alberto Café ofrece un café de especialidad single origin SCA 84.5 proveniente de la única finca de café verde de Boyacá — un producto único, una historia poderosa, una propuesta de valor diferenciadora para su carta.",
-  w1t:'Cafés &amp;<br>Restaurantes', w1d:"Un origen exclusivo para su carta, con una historia que contar a sus clientes.",
-  w2t:'Hoteles &amp;<br>Casas de huéspedes', w2d:"Ofrezca a sus clientes una experiencia de café memorable — una firma premium a imagen de su establecimiento.",
-  w3t:'Tiendas gourmet<br>&amp; Vinotecas', w3d:"Un producto raro, trazado y con una identidad sólida — ideal para las secciones de alimentación fina y regalos.",
-  w4t:'Regalos<br>corporativos', w4d:"Ofrezca un café excepcional a sus equipos o clientes. Cajas personalizables bajo pedido.",
-  w5t:'Tiendas<br>bio &amp; éticas', w5d:"Una cadena de suministro verde, una finca familiar independiente, impacto directo en el productor.",
+  cp1ey:'☕ Specialty Coffee', cp1ti:'Cafés', cp1ct:'Ser socio →',
+  cp2ey:'🍽️ Gastronomía', cp2ti:'Restaurantes', cp2ct:'Ser socio →',
+  cp3ey:'🧺 Alimentación fina', cp3ti:'Fine Groceries', cp3ct:'Ser socio →',
+  cp4ey:'🏨 Hospitalidad', cp4ti:'Hoteles', cp4ct:'Ser socio →',
+  cp5ey:'🎁 Empresa', cp5ti:'Corporate', cp5ct:'Ser socio →',
+  cp6ey:'🌿 Bio &amp; Ética', cp6ti:'Organic Shops', cp6ct:'Ser socio →',
   whyLbl:'¿Por qué Don Alberto?', whyT:'Un café <em>raro</em> con<br>una historia real',
   c1h:'Exclusividad geográfica', c1p:"Única finca de café verde de especialidad del departamento de Boyacá. Sus clientes no encontrarán este café en ningún otro lugar.",
   c2h:'SCA 84.5 — certificado specialty', c2p:"Puntuación certificada por Impulso Coffee Lab. Miel, chocolate, textura sedosa — un perfil aromático premium e identificable.",
@@ -592,11 +716,12 @@ function applyB2B(lang){
   si('b2b-stat1',t.stat1); si('b2b-stat2',t.stat2); si('b2b-stat3',t.stat3);
   si('b2b-scroll',t.scroll);
   si('b2b-section-label',t.sLbl); si('b2b-section-h2',t.sH2); si('b2b-section-desc',t.sDesc);
-  si('w1-title',t.w1t); si('w1-desc',t.w1d);
-  si('w2-title',t.w2t); si('w2-desc',t.w2d);
-  si('w3-title',t.w3t); si('w3-desc',t.w3d);
-  si('w4-title',t.w4t); si('w4-desc',t.w4d);
-  si('w5-title',t.w5t); si('w5-desc',t.w5d);
+  si('cp1-ey',t.cp1ey); si('cp1-ti',t.cp1ti); si('cp1-ct',t.cp1ct);
+  si('cp2-ey',t.cp2ey); si('cp2-ti',t.cp2ti); si('cp2-ct',t.cp2ct);
+  si('cp3-ey',t.cp3ey); si('cp3-ti',t.cp3ti); si('cp3-ct',t.cp3ct);
+  si('cp4-ey',t.cp4ey); si('cp4-ti',t.cp4ti); si('cp4-ct',t.cp4ct);
+  si('cp5-ey',t.cp5ey); si('cp5-ti',t.cp5ti); si('cp5-ct',t.cp5ct);
+  si('cp6-ey',t.cp6ey); si('cp6-ti',t.cp6ti); si('cp6-ct',t.cp6ct);
   si('why-label',t.whyLbl); si('why-title',t.whyT);
   si('c1-h',t.c1h); si('c1-p',t.c1p);
   si('c2-h',t.c2h); si('c2-p',t.c2p);

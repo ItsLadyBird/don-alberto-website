@@ -62,40 +62,113 @@
   line-height: 1.55;
 }
 
-/* Intro section */
-.club-intro {
+/* ── EDITORIAL SPLIT (replaces old intro + benefits) ── */
+.club-editorial {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 680px;
+}
+.club-ed-text {
   background: var(--cream);
-  padding: clamp(60px, 6vw, 100px) var(--page-pad) 0;
+  padding: clamp(52px, 6vw, 96px) clamp(32px, 5vw, 88px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-.club-intro-inner {
-  text-align: center;
-  margin-bottom: 70px;
+.club-ed-h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(34px, 3.8vw, 56px);
+  font-weight: 300;
+  line-height: 1.06;
+  color: var(--dark);
+  margin: 12px 0 22px;
 }
-.club-intro-inner .h2 {
-  margin-top: 14px;
+.club-ed-h2 em { color: var(--teal); font-style: italic; }
+.club-ed-p {
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--mid);
+  max-width: 460px;
+  margin-bottom: 36px;
+}
+.club-ed-benefits {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+.club-ed-benefit {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(0,0,0,.07);
+}
+.club-ed-benefit:first-child { border-top: 1px solid rgba(0,0,0,.07); }
+.club-ed-bicon {
+  width: 36px;
+  height: 36px;
+  color: var(--teal);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.club-ed-btitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--dark);
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+.club-ed-bdesc {
+  font-size: 12.5px;
+  line-height: 1.8;
+  color: var(--mid);
 }
 
-/* Benefits grid */
-.club-benefits {
-  background: var(--cream);
-  padding: 0 var(--page-pad) 60px;
+/* ── SLIDING IMAGE CAROUSEL ── */
+.club-ed-visual {
+  position: relative;
+  overflow: hidden;
+  min-height: 480px;
 }
-.club-benefits-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 2px;
-  margin-bottom: 60px;
+.club-ed-rotator {
+  position: absolute;
+  inset: 0;
 }
-.club-benefit-card {
-  background: var(--teal-pale);
-  padding: 36px 32px;
-  border-top: 2px solid var(--teal);
+.cer-slide {
+  position: absolute;
+  inset: 0;
+  transform: translateX(105%);
+  transition: transform 0.85s cubic-bezier(.77,0,.175,1);
 }
-.club-benefit-icon {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 18px;
-  color: var(--teal);
+.cer-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.cer-slide.active { transform: translateX(0); }
+.cer-slide.exiting { transform: translateX(-105%); }
+.cer-dots {
+  position: absolute;
+  bottom: 24px;
+  right: 28px;
+  display: flex;
+  gap: 7px;
+  z-index: 3;
+}
+.cer-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.35);
+  transition: background .4s, transform .4s;
+  cursor: pointer;
+}
+.cer-dot.active {
+  background: rgba(255,255,255,.9);
+  transform: scale(1.3);
 }
 
 /* Steps */
@@ -488,10 +561,9 @@
 
 /* Responsive */
 @media (max-width: 900px) {
-  .club-benefits-grid,
-  .prod-cards-grid {
-    grid-template-columns: 1fr;
-  }
+  .club-editorial { grid-template-columns: 1fr; }
+  .club-ed-visual { min-height: 380px; order: -1; }
+  .prod-cards-grid { grid-template-columns: 1fr; }
   .club-steps {
     grid-template-columns: 1fr 1fr;
     padding: 36px 28px;
@@ -500,8 +572,8 @@
 @media (max-width: 600px) {
   .club-hero { height: 320px; }
   .club-steps { grid-template-columns: 1fr; }
-  .club-benefits { padding: 0 18px 40px; }
-  .club-intro { padding: clamp(40px,4vw,80px) 18px 0; }
+  .club-ed-text { padding: 44px 22px; }
+  .club-ed-visual { min-height: 300px; }
   .club-tiers { padding: 0 18px 40px; }
   .club-tiers-heading { padding: 0 18px 36px; }
   .club-steps-wrap { padding: 0 18px 40px; }
@@ -530,60 +602,83 @@
 </div>
 
 <!-- ═══════════════════════════════════
-   INTRO
+   EDITORIAL SPLIT — Intro + Benefits + Rotating Image
    ═══════════════════════════════════ -->
-<section class="club-intro">
-  <div class="club-intro-inner reveal">
-    <div class="section-label center" id="ci-label">Club Don Alberto</div>
-    <h2 class="h2" id="ci-h2">Le café Don Alberto,<br><em>chaque mois chez vous</em></h2>
-    <p class="body-text" style="margin-top:18px;" id="ci-p">Recevez deux sacs de 250g par mois, directement depuis notre ferme de Boyacá. Un engagement simple, un prix réduit, et la garantie que votre café est toujours frais.</p>
+<section class="club-editorial">
+
+  <!-- LEFT: text + benefits -->
+  <div class="club-ed-text reveal">
+    <div class="section-label" id="ci-label">Club Don Alberto</div>
+    <h2 class="club-ed-h2" id="ci-h2">Le café Don Alberto,<br><em>chaque mois chez vous</em></h2>
+    <p class="club-ed-p" id="ci-p">Recevez deux sacs de 250g par mois, directement depuis notre ferme de Boyacá. Un engagement simple, un prix réduit, et la garantie que votre café est toujours frais.</p>
+
+    <div class="club-ed-benefits">
+
+      <div class="club-ed-benefit">
+        <div class="club-ed-bicon">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4">
+            <path d="M20 4 C12 10 8 16 8 22a12 12 0 0024 0C32 14 24 4 20 4z"/>
+            <path d="M20 14v8"/><path d="M16 18h8"/>
+          </svg>
+        </div>
+        <div>
+          <div class="club-ed-btitle" id="cb1-title">Pour vous</div>
+          <div class="club-ed-bdesc" id="cb1-desc">Prix exclusif abonné — jusqu'à <strong>30% de réduction</strong> vs l'achat unitaire. Livraison incluse, sans surprise. Résiliez quand vous le souhaitez à la fin de votre période.</div>
+        </div>
+      </div>
+
+      <div class="club-ed-benefit">
+        <div class="club-ed-bicon">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4">
+            <path d="M8 32 Q8 20 20 18 Q32 20 32 32"/>
+            <path d="M14 18 Q14 10 20 7 Q26 10 26 18"/>
+            <ellipse cx="20" cy="7" rx="3" ry="2"/>
+          </svg>
+        </div>
+        <div>
+          <div class="club-ed-btitle" id="cb2-title">Pour la ferme</div>
+          <div class="club-ed-bdesc" id="cb2-desc">Votre engagement nous permet de planifier chaque récolte avec sérénité. Les volumes garantis assurent la stabilité économique de la famille et le soin apporté à chaque plant.</div>
+        </div>
+      </div>
+
+      <div class="club-ed-benefit">
+        <div class="club-ed-bicon">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4">
+            <path d="M8 20 L16 28 L32 12"/>
+            <circle cx="20" cy="20" r="16"/>
+          </svg>
+        </div>
+        <div>
+          <div class="club-ed-btitle" id="cb3-title">Fraîcheur garantie</div>
+          <div class="club-ed-bdesc" id="cb3-desc">Chaque envoi est torréfié dans les 10 jours précédant la livraison. Vous recevez votre café au sommet de son expression aromatique, jamais un stock dormant.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <a href="#" onclick="document.querySelector('.club-tiers').scrollIntoView({behavior:'smooth'});return false;" class="btn-primary" style="align-self:flex-start;" id="ci-cta">S'abonner au Club →</a>
   </div>
-</section>
 
-<!-- ═══════════════════════════════════
-   BENEFITS
-   ═══════════════════════════════════ -->
-<section class="club-benefits">
-  <div class="club-benefits-grid reveal">
-
-    <!-- Card 1 -->
-    <div class="club-benefit-card">
-      <div class="club-benefit-icon">
-        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4">
-          <path d="M20 4 C12 10 8 16 8 22a12 12 0 0024 0C32 14 24 4 20 4z"/>
-          <path d="M20 14v8"/><path d="M16 18h8"/>
-        </svg>
+  <!-- RIGHT: rotating images -->
+  <div class="club-ed-visual">
+    <div class="club-ed-rotator">
+      <div class="cer-slide active">
+        <img src="images/club-unboxing.jpg" alt="Don Alberto Club — Livraison mensuelle" onerror="this.style.display='none'">
       </div>
-      <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;margin-bottom:10px;color:var(--dark);" id="cb1-title">Pour vous</h3>
-      <p style="font-size:12.5px;line-height:1.9;color:var(--mid);" id="cb1-desc">Prix exclusif abonné — jusqu'à <strong>30% de réduction</strong> vs l'achat unitaire. Livraison incluse, sans surprise. Résiliez quand vous le souhaitez à la fin de votre période.</p>
-    </div>
-
-    <!-- Card 2 -->
-    <div class="club-benefit-card">
-      <div class="club-benefit-icon">
-        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4">
-          <path d="M8 32 Q8 20 20 18 Q32 20 32 32"/>
-          <path d="M14 18 Q14 10 20 7 Q26 10 26 18"/>
-          <ellipse cx="20" cy="7" rx="3" ry="2"/>
-        </svg>
+      <div class="cer-slide">
+        <img src="images/club-delivery.jpg" alt="Don Alberto Club — Réception colis" onerror="this.style.display='none'">
       </div>
-      <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;margin-bottom:10px;color:var(--dark);" id="cb2-title">Pour la ferme</h3>
-      <p style="font-size:12.5px;line-height:1.9;color:var(--mid);" id="cb2-desc">Votre engagement nous permet de planifier chaque récolte avec sérénité. Les volumes garantis assurent la stabilité économique de la famille et le soin apporté à chaque plant.</p>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="club-benefit-card">
-      <div class="club-benefit-icon">
-        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4">
-          <path d="M8 20 L16 28 L32 12"/>
-          <circle cx="20" cy="20" r="16"/>
-        </svg>
+      <div class="cer-slide">
+        <img src="images/Monthly subscription image.png" alt="Don Alberto Club — Abonnement café" onerror="this.style.display='none'">
       </div>
-      <h3 style="font-family:'Cormorant Garamond',serif;font-size:20px;margin-bottom:10px;color:var(--dark);" id="cb3-title">Fraîcheur garantie</h3>
-      <p style="font-size:12.5px;line-height:1.9;color:var(--mid);" id="cb3-desc">Chaque envoi est torréfié dans les 10 jours précédant la livraison. Vous recevez votre café au sommet de son expression aromatique, jamais un stock dormant.</p>
     </div>
-
+    <div class="cer-dots">
+      <div class="cer-dot active" data-idx="0"></div>
+      <div class="cer-dot" data-idx="1"></div>
+      <div class="cer-dot" data-idx="2"></div>
+    </div>
   </div>
+
 </section>
 
 <!-- ═══════════════════════════════════
@@ -786,6 +881,7 @@
       ciLabel: 'Club Don Alberto',
       ciH2:    'Le café Don Alberto,<br><em>chaque mois chez vous</em>',
       ciP:     'Recevez deux sacs de 250g par mois, directement depuis notre ferme de Boyacá. Un engagement simple, un prix réduit, et la garantie que votre café est toujours frais.',
+      ciCta:   'S\'abonner au Club →',
       /* benefits */
       cb1Title: 'Pour vous',
       cb1Desc:  'Prix exclusif abonné — jusqu\'à <strong>30% de réduction</strong> vs l\'achat unitaire. Livraison incluse, sans surprise. Résiliez quand vous le souhaitez à la fin de votre période.',
@@ -848,6 +944,7 @@
       ciLabel: 'Club Don Alberto',
       ciH2:    'Don Alberto coffee,<br><em>every month at your door</em>',
       ciP:     'Receive two 250g bags per month, directly from our farm in Boyacá. A simple commitment, a reduced price, and the guarantee that your coffee is always fresh.',
+      ciCta:   'Subscribe to the Club →',
       /* benefits */
       cb1Title: 'For you',
       cb1Desc:  'Exclusive subscriber pricing — up to <strong>30% off</strong> vs single purchases. Shipping included, no surprises. Cancel anytime at the end of your period.',
@@ -910,6 +1007,7 @@
       ciLabel: 'Club Don Alberto',
       ciH2:    'El café Don Alberto,<br><em>cada mes en tu puerta</em>',
       ciP:     'Recibe dos bolsas de 250g por mes, directamente desde nuestra finca en Boyacá. Un compromiso sencillo, un precio reducido, y la garantía de que tu café siempre es fresco.',
+      ciCta:   'Suscribirse al Club →',
       /* benefits */
       cb1Title: 'Para ti',
       cb1Desc:  'Precio exclusivo para suscriptores — hasta <strong>30% de descuento</strong> vs compra individual. Envío incluido, sin sorpresas. Cancela cuando quieras al final de tu período.',
@@ -983,6 +1081,7 @@
     s('ci-label',   t.ciLabel);
     s('ci-h2',      t.ciH2);
     s('ci-p',       t.ciP);
+    s('ci-cta',     t.ciCta);
 
     s('cb1-title',  t.cb1Title);  s('cb1-desc', t.cb1Desc);
     s('cb2-title',  t.cb2Title);  s('cb2-desc', t.cb2Desc);
@@ -1043,8 +1142,35 @@
   document.addEventListener('DOMContentLoaded', function() {
     let lang = 'fr';
     try { lang = localStorage.getItem('da_lang') || 'fr'; } catch(err) {}
-    /* Small delay to let setLang() fire first from da-shell.js */
     setTimeout(function() { applyClub(lang); }, 0);
+
+    /* ── Sliding image carousel ── */
+    var slides = Array.from(document.querySelectorAll('.cer-slide'));
+    var dots   = Array.from(document.querySelectorAll('.cer-dot'));
+    if (slides.length > 1) {
+      var cur = 0;
+      function goTo(n) {
+        n = ((n % slides.length) + slides.length) % slides.length;
+        if (n === cur) return;
+        var prev = cur; cur = n;
+        slides[prev].classList.add('exiting');
+        slides[prev].classList.remove('active');
+        slides[n].classList.add('active');
+        dots[prev] && dots[prev].classList.remove('active');
+        dots[n]    && dots[n].classList.add('active');
+        /* After the slide-out finishes, silently snap the slide back to the right */
+        setTimeout(function() {
+          slides[prev].style.transition = 'none';
+          slides[prev].classList.remove('exiting');
+          slides[prev].offsetHeight; /* force reflow */
+          slides[prev].style.transition = '';
+        }, 900);
+      }
+      dots.forEach(function(d) {
+        d.addEventListener('click', function() { goTo(+d.dataset.idx); });
+      });
+      setInterval(function() { goTo(cur + 1); }, 4500);
+    }
   });
 
 })();
