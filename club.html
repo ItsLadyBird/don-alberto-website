@@ -125,7 +125,7 @@
   color: var(--mid);
 }
 
-/* ── ROTATING IMAGE ── */
+/* ── SLIDING IMAGE CAROUSEL ── */
 .club-ed-visual {
   position: relative;
   overflow: hidden;
@@ -135,17 +135,21 @@
   position: absolute;
   inset: 0;
 }
-.cer-img {
+.cer-slide {
   position: absolute;
   inset: 0;
+  transform: translateX(105%);
+  transition: transform 0.85s cubic-bezier(.77,0,.175,1);
+}
+.cer-slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
-  opacity: 0;
-  transition: opacity 1.4s cubic-bezier(.4,0,.2,1);
+  display: block;
 }
-.cer-img.active { opacity: 1; }
+.cer-slide.active { transform: translateX(0); }
+.cer-slide.exiting { transform: translateX(-105%); }
 .cer-dots {
   position: absolute;
   bottom: 24px;
@@ -658,9 +662,15 @@
   <!-- RIGHT: rotating images -->
   <div class="club-ed-visual">
     <div class="club-ed-rotator">
-      <img class="cer-img active" src="images/club-unboxing.jpg" alt="Don Alberto Club — Livraison mensuelle" onerror="this.style.display='none'">
-      <img class="cer-img" src="images/club-delivery.jpg" alt="Don Alberto Club — Réception colis" onerror="this.style.display='none'">
-      <img class="cer-img" src="images/Monthly subscription image.png" alt="Don Alberto Club — Abonnement café" onerror="this.style.display='none'">
+      <div class="cer-slide active">
+        <img src="images/club-unboxing.jpg" alt="Don Alberto Club — Livraison mensuelle" onerror="this.style.display='none'">
+      </div>
+      <div class="cer-slide">
+        <img src="images/club-delivery.jpg" alt="Don Alberto Club — Réception colis" onerror="this.style.display='none'">
+      </div>
+      <div class="cer-slide">
+        <img src="images/Monthly subscription image.png" alt="Don Alberto Club — Abonnement café" onerror="this.style.display='none'">
+      </div>
     </div>
     <div class="cer-dots">
       <div class="cer-dot active" data-idx="0"></div>
@@ -1134,22 +1144,32 @@
     try { lang = localStorage.getItem('da_lang') || 'fr'; } catch(err) {}
     setTimeout(function() { applyClub(lang); }, 0);
 
-    /* ── Image rotator ── */
-    var imgs = document.querySelectorAll('.cer-img');
-    var dots = document.querySelectorAll('.cer-dot');
-    if (imgs.length > 1) {
-      var idx = 0;
+    /* ── Sliding image carousel ── */
+    var slides = Array.from(document.querySelectorAll('.cer-slide'));
+    var dots   = Array.from(document.querySelectorAll('.cer-dot'));
+    if (slides.length > 1) {
+      var cur = 0;
       function goTo(n) {
-        imgs[idx].classList.remove('active');
-        dots[idx] && dots[idx].classList.remove('active');
-        idx = (n + imgs.length) % imgs.length;
-        imgs[idx].classList.add('active');
-        dots[idx] && dots[idx].classList.add('active');
+        n = ((n % slides.length) + slides.length) % slides.length;
+        if (n === cur) return;
+        var prev = cur; cur = n;
+        slides[prev].classList.add('exiting');
+        slides[prev].classList.remove('active');
+        slides[n].classList.add('active');
+        dots[prev] && dots[prev].classList.remove('active');
+        dots[n]    && dots[n].classList.add('active');
+        /* After the slide-out finishes, silently snap the slide back to the right */
+        setTimeout(function() {
+          slides[prev].style.transition = 'none';
+          slides[prev].classList.remove('exiting');
+          slides[prev].offsetHeight; /* force reflow */
+          slides[prev].style.transition = '';
+        }, 900);
       }
-      dots.forEach(function(dot) {
-        dot.addEventListener('click', function() { goTo(parseInt(dot.dataset.idx)); });
+      dots.forEach(function(d) {
+        d.addEventListener('click', function() { goTo(+d.dataset.idx); });
       });
-      var timer = setInterval(function() { goTo(idx + 1); }, 4500);
+      setInterval(function() { goTo(cur + 1); }, 4500);
     }
   });
 
