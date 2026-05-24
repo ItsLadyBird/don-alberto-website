@@ -537,15 +537,23 @@ footer{background:#0d1014;padding:clamp(44px,4vw,64px) var(--page-pad) 0;}
     transition:all .28s!important;
   }
 
-  /* ── Compact logo: centered, controlled by scroll JS ── */
-  .nav-logo-compact{
+  /* ── Compact logo: always visible and centered in mobile nav ── */
+  .nav-center{
     position:absolute!important;
     left:50%!important;
-    top:50%!important;
-    transform:translate(-50%,-50%)!important;
-    opacity:0!important;
+    top:0!important;
+    height:100%!important;
+    transform:translateX(-50%)!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+  }
+  .nav-logo-compact{
+    position:static!important;
+    opacity:1!important;
+    transform:none!important;
+    pointer-events:auto!important;
     transition:opacity .3s ease!important;
-    pointer-events:none!important;
   }
   .nav-logo-compact.visible{
     opacity:1!important;

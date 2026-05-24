@@ -36,17 +36,20 @@ const SHELL_HEADER = `
 #main-nav{position:sticky;top:var(--util-h,38px);z-index:1001;}
 @media(max-width:980px){
   #main-nav{top:var(--util-h,38px)!important;}
-  .nav-logo-compact{
+  .nav-center{
     position:absolute!important;
     left:50%!important;
-    top:50%!important;
-    transform:translate(-50%,-50%)!important;
-    opacity:0!important;
-    transition:opacity .3s ease!important;
-    pointer-events:none!important;
+    top:0!important;
+    height:100%!important;
+    transform:translateX(-50%)!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
   }
-  .nav-logo-compact.visible{
+  .nav-logo-compact{
+    position:static!important;
     opacity:1!important;
+    transform:none!important;
     pointer-events:auto!important;
   }
 }
