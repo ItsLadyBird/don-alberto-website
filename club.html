@@ -19,11 +19,12 @@
   height: 420px;
   overflow: hidden;
   margin-top: 0;
-  background-color: #064e65;
-  background-image: url('/images/coffee_kitchen_bg.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+}
+.club-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .club-hero-overlay {
   position: absolute;
@@ -593,6 +594,7 @@
    HERO BANNER
    ═══════════════════════════════════ -->
 <div class="club-hero">
+  <img src="images/coffee_kitchen_bg.png" alt="Club Don Alberto — Abonnement café spécialité" onerror="this.style.background='linear-gradient(135deg,#064e65,#096685)';this.style.display='block';this.removeAttribute('src');">
   <div class="club-hero-overlay">
     <div class="club-hero-eyebrow">Don Alberto</div>
     <h1 class="club-hero-title" id="ch-title">Club Don Alberto</h1>
