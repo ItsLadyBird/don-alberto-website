@@ -94,7 +94,7 @@ ul{list-style:none;}
 .lang-drop{
   display:none;position:absolute;top:calc(100% + 8px);right:0;
   background:var(--teal-deep);border:1px solid rgba(255,255,255,.15);
-  min-width:68px;z-index:200;
+  min-width:68px;z-index:1100;
 }
 .lang-wrap.open .lang-drop{display:block;}
 .lang-drop button{
