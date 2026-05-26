@@ -32,10 +32,11 @@ const SHELL_HEADER = `
 .nav-dropdown a:last-child{border-bottom:none;}
 .nav-dropdown a:hover{color:var(--teal,#096685);background:rgba(9,102,133,.05);}
 .nav-dropdown a .nd-sub{display:block;font-size:8px;color:rgba(6,78,101,.45);letter-spacing:1px;margin-top:3px;text-transform:none;font-weight:300;}
-#util-bar{position:sticky;top:0;z-index:1002;}
-#main-nav{position:sticky;top:var(--util-h,38px);z-index:1001;}
+#promo-bar{position:sticky;top:0;z-index:1003;background:#0a0a0a;color:#fff;text-align:center;font-family:'Lato',sans-serif;font-size:11px;letter-spacing:1.4px;text-transform:uppercase;padding:9px 16px;line-height:1.3;}
+#util-bar{position:sticky;top:var(--promo-h,34px);z-index:1002;}
+#main-nav{position:sticky;top:calc(var(--promo-h,34px) + var(--util-h,38px));z-index:1001;}
 @media(max-width:980px){
-  #main-nav{top:var(--util-h,38px)!important;}
+  #main-nav{top:calc(var(--promo-h,34px) + var(--util-h,38px))!important;}
   .nav-center{
     position:absolute!important;
     left:50%!important;
@@ -54,6 +55,7 @@ const SHELL_HEADER = `
   }
 }
 </style>
+<div id="promo-bar"><span id="promo-txt">Livraison partout en France · -10% en vous inscrivant à la newsletter</span></div>
 <div id="util-bar">
   <div class="ub-left">
     <a href="maison.html" class="ub-link" id="ub-maison">La Maison</a>
@@ -321,7 +323,8 @@ const L = {
     p1e:'Specialty Coffee · Boutique', p1t:'Specialty Single Origins<br>de Colombie · SCA 84.5+', p1c:'Explorer la boutique →',
     p2e:'Club Don Alberto · Abonnement', p2t:'Café de spécialité frais<br>chaque mois', p2c:'Rejoindre le Club →',
     nlh:'Rejoignez la communauté <em>Don Alberto</em>', nlp:'Nouvelles récoltes · Actualités ferme', nlb:"S'inscrire",
-    t1h:'Commande directe', t1d:'PayPal · Revolut · Wise', t2h:'Livraison internationale', t2d:'France, Europe & Monde',
+    promo:'Livraison partout en France · -10% en vous inscrivant à la newsletter',
+    t1h:'Commande directe', t1d:'PayPal · Revolut · Wise', t2h:'Livraison', t2d:'France métropolitaine',
     t3h:'Café de spécialité SCA', t3d:'Score 84.5 · Procédé Lavé', t4h:'Traçabilité totale', t4d:'Ferme → tasse',
     ubm:'La Maison', ubv:'Le Vlog', ubp:'Espace professionnel',
     home:'Accueil',
@@ -469,7 +472,8 @@ const L = {
     p1e:'Specialty Coffee · Shop', p1t:'Colombia Specialty<br>Single Origins · SCA 84.5+', p1c:'Explore the shop →',
     p2e:'Club Don Alberto · Subscription', p2t:'Fresh specialty coffee<br>every month', p2c:'Join the Club →',
     nlh:'Join the <em>Don Alberto</em> community', nlp:'New harvests · Farm news', nlb:'Subscribe',
-    t1h:'Direct order', t1d:'PayPal · Revolut · Wise', t2h:'International shipping', t2d:'France, Europe & Worldwide',
+    promo:'Shipping across France · -10% when you join the newsletter',
+    t1h:'Direct order', t1d:'PayPal · Revolut · Wise', t2h:'Shipping', t2d:'Metropolitan France',
     t3h:'SCA Specialty Coffee', t3d:'Score 84.5 · Washed Process', t4h:'Full traceability', t4d:'Farm → cup',
     ubm:'The House', ubv:'The Vlog', ubp:'Professional space',
     home:'Home',
@@ -617,7 +621,8 @@ const L = {
     p1e:'Specialty Coffee · Tienda', p1t:'Specialty Single Origins<br>de Colombia · SCA 84.5+', p1c:'Explorar la tienda →',
     p2e:'Club Don Alberto · Suscripción', p2t:'Café especial fresco<br>cada mes', p2c:'Unirse al Club →',
     nlh:'Únete a la comunidad <em>Don Alberto</em>', nlp:'Cosechas · Noticias de la finca', nlb:'Suscribirse',
-    t1h:'Pedido directo', t1d:'PayPal · Revolut · Wise', t2h:'Envío internacional', t2d:'Francia, Europa y El Mundo',
+    promo:'Envío a toda Francia · -10% al suscribirte a la newsletter',
+    t1h:'Pedido directo', t1d:'PayPal · Revolut · Wise', t2h:'Envío', t2d:'Francia metropolitana',
     t3h:'Café de especialidad SCA', t3d:'Puntaje 84.5 · Proceso Lavado', t4h:'Trazabilidad total', t4d:'Finca → taza',
     ubm:'La Casa', ubv:'El Vlog', ubp:'Espacio profesional',
     home:'Inicio',
@@ -777,6 +782,7 @@ function setLang(lang) {
   const set  = (id, val) => { const e = _$(id); if (e && val !== undefined) e.textContent = val; };
   const setH = (id, val) => { const e = _$(id); if (e && val !== undefined) e.innerHTML = val; };
 
+  set('promo-txt', t.promo);
   set('hf-sl1', t.sl1); set('hf-sl2', t.sl2);
   set('h-sl', t.sl); set('h-craft', t.craft); set('h-ey', t.ey); set('s-scroll', t.sc);
   set('s-sca', t.ssca); set('s-alt', t.salt); set('s-ara', t.sara); set('s-stat4', t.stat4);
