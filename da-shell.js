@@ -32,8 +32,9 @@ const SHELL_HEADER = `
 .nav-dropdown a:last-child{border-bottom:none;}
 .nav-dropdown a:hover{color:var(--teal,#096685);background:rgba(9,102,133,.05);}
 .nav-dropdown a .nd-sub{display:block;font-size:8px;color:rgba(6,78,101,.45);letter-spacing:1px;margin-top:3px;text-transform:none;font-weight:300;}
-#promo-bar{position:fixed;top:0;left:0;right:0;height:var(--promo-h,34px);z-index:1003;background:#0a0a0a;color:#fff;text-align:center;font-family:'Lato',sans-serif;font-size:11px;letter-spacing:1.4px;text-transform:uppercase;padding:0 16px;line-height:var(--promo-h,34px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-@media(max-width:980px){#promo-bar{position:sticky;height:auto;line-height:1.4;padding:8px 12px;white-space:normal;}}
+#site-bars{position:fixed;top:0;left:0;right:0;z-index:1003;}
+#promo-bar{height:var(--promo-h,34px);background:#0a0a0a;color:#fff;text-align:center;font-family:'Lato',sans-serif;font-size:11px;letter-spacing:1.4px;text-transform:uppercase;padding:0 16px;line-height:var(--promo-h,34px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+@media(max-width:980px){#site-bars{position:sticky;}#promo-bar{height:auto;line-height:1.4;padding:8px 12px;white-space:normal;}}
 #main-nav{position:sticky;top:calc(var(--promo-h,34px) + var(--util-h,38px));z-index:1001;}
 @media(max-width:980px){
   #main-nav{top:calc(var(--promo-h,34px) + var(--util-h,38px))!important;}
@@ -55,6 +56,7 @@ const SHELL_HEADER = `
   }
 }
 </style>
+<div id="site-bars">
 <div id="promo-bar"><span id="promo-txt">LIVRAISON PARTOUT EN FRANCE · PARIS GRATUIT (LANCEMENT) · POINT RELAIS OFFERT DÈS 50€</span></div>
 <div id="util-bar">
   <div class="ub-left">
@@ -77,6 +79,7 @@ const SHELL_HEADER = `
     <div class="ub-sep"></div>
     <a href="b2b.html" class="ub-pro" id="ub-pro">Espace professionnel</a>
   </div>
+</div>
 </div>
 <div id="hdr-full">
   <a href="index.html" class="hf-brand-link">
