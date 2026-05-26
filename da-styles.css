@@ -108,7 +108,7 @@ ul{list-style:none;}
    5. FULL HEADER BRAND
    ══════════════════════════════════════════ */
 #hdr-full{
-  background:var(--cream);padding:32px 20px 24px;text-align:center;
+  background:var(--cream);padding:calc(var(--promo-h,34px) + var(--util-h,38px) + 18px) 20px 24px;text-align:center;
   border-bottom:1px solid rgba(9,102,133,.08);
 }
 .hf-brand-link{display:block;text-decoration:none;color:inherit;}
@@ -676,6 +676,7 @@ footer{background:#0d1014;padding:clamp(44px,4vw,64px) var(--page-pad) 0;}
   .quality-badge{right:0;bottom:0;}
   .nl-form{flex-direction:column;}
   .nl-input{border-right:1px solid rgba(255,255,255,.15);}
+  #hdr-full{padding-top:26px;}
   .hf-icon{width:70px;height:70px;}
   .hf-icon img{width:70px;height:70px;}
   .hf-name{font-size:22px;}
