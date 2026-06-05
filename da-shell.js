@@ -196,7 +196,7 @@ const SHELL_FOOTER = `
     <div class="footer-social-col">
       <h4 class="footer-social-hd" id="footer-follow-lbl">Follow Us</h4>
       <div class="footer-socials">
-        <a href="mailto:contact@donalberto.cafe" target="_blank" rel="noopener" class="footer-soc" aria-label="Email">
+        <a href="mailto:donalberto.coffee@gmail.com" target="_blank" rel="noopener" class="footer-soc" aria-label="Email">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
         </a>
         <a href="https://instagram.com/donalberto.cafe" target="_blank" rel="noopener" class="footer-soc" aria-label="Instagram">
