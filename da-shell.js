@@ -50,8 +50,12 @@ const SHELL_HEADER = `
   }
   .nav-logo-compact{
     position:static!important;
-    opacity:1!important;
+    opacity:0!important;
     transform:none!important;
+    pointer-events:none!important;
+  }
+  .nav-logo-compact.visible{
+    opacity:1!important;
     pointer-events:auto!important;
   }
 }

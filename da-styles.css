@@ -549,9 +549,9 @@ footer{background:#0d1014;padding:clamp(44px,4vw,64px) var(--page-pad) 0;}
   }
   .nav-logo-compact{
     position:static!important;
-    opacity:1!important;
+    opacity:0!important;
     transform:none!important;
-    pointer-events:auto!important;
+    pointer-events:none!important;
     transition:opacity .3s ease!important;
   }
   .nav-logo-compact.visible{
