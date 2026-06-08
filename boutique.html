@@ -172,8 +172,10 @@
 }
 .catalog-inner {
 }
-.carousel-wrap {
+.carousel-outer {
   position: relative;
+}
+.carousel-wrap {
   overflow: hidden;
   padding: 0 0 20px;
 }
@@ -723,33 +725,61 @@
 }
 /* ── MOBILE SINGLE-CARD CAROUSEL ── */
 @media (max-width: 767px) {
+  /* Full-width section, padding only for header row */
   .product-catalog { padding-left: 0 !important; padding-right: 0 !important; }
   .catalog-header-row { padding: 0 20px; }
-  /* Reasonable image height on mobile — not 3:4 full-screen */
-  .pcard-img { aspect-ratio: 1 / 1; }
-  /* Disable wheel flip & overlay on touch devices */
+
+  /* Outer wrapper: extra side padding so arrows sit outside the card */
+  .carousel-outer { padding: 0 48px; }
+
+  /* Card: fixed height, column layout */
+  .pcard { flex: 0 0 100% !important; flex-direction: column !important; }
+
+  /* Image: fixed height — not an aspect-ratio that fills screen */
+  .pcard-img {
+    aspect-ratio: unset !important;
+    height: 200px !important;
+    width: 100%;
+  }
+
+  /* Body: compact */
+  .pcard-body { padding: 14px 16px 16px !important; }
+  .pcard-name { font-size: 21px; margin-bottom: 6px; }
+  .pcard-notes { font-size: 12px; margin-bottom: 8px; }
+  .pcard-price { font-size: 28px; }
+  .pcard-btn { font-size: 9px; padding: 12px 14px; margin-top: 10px; }
+
+  /* Disable hover/touch wheel flip */
   .pcard:hover .pcard-img .img-product { opacity: 1 !important; transform: none !important; }
   .pcard:hover .pcard-img .img-wheel { opacity: 0 !important; }
   .pcard:hover .pcard-overlay { opacity: 0 !important; }
   .pcard:hover { transform: none !important; box-shadow: none !important; }
-  /* Arrows: large, centred on the image, clearly visible */
+
+  /* Arrows: positioned on the carousel-OUTER (no overflow clip), flanking the card */
   .carousel-btn {
-    top: 30%;
-    width: 48px !important;
-    height: 48px !important;
-    font-size: 22px;
-    background: rgba(255,255,255,.95) !important;
-    box-shadow: 0 3px 16px rgba(0,0,0,.25) !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 22px !important;
+    background: var(--teal-deep, #064e65) !important;
+    color: #fff !important;
+    box-shadow: 0 3px 14px rgba(0,0,0,.28) !important;
     border: none !important;
   }
-  .carousel-btn.prev { left: 12px !important; }
-  .carousel-btn.next { right: 12px !important; }
+  .carousel-btn.prev { left: 4px !important; }
+  .carousel-btn.next { right: 4px !important; }
+
   .carousel-dots { padding: 12px 0 0; }
-  .pcard-body { padding: 16px 20px 20px; }
+
+  /* View All: single column with padding */
+  .catalog-inner.view-all .carousel-outer { padding: 0; }
   .catalog-inner.view-all .prod-grid {
     grid-template-columns: 1fr !important;
     padding: 0 20px;
   }
+  .catalog-inner.view-all .pcard { flex-direction: column !important; }
+  .catalog-inner.view-all .pcard-img { height: 220px !important; }
 }
 /* ── VIEW ALL MODE ── */
 .catalog-inner.view-all .carousel-wrap { overflow: visible; }
@@ -846,9 +876,10 @@
         <svg id="view-toggle-icon" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 8h14M9 2l6 6-6 6"/></svg>
       </button>
     </div>
-    <div class="carousel-wrap" id="carousel-wrap">
+    <div class="carousel-outer">
       <button class="carousel-btn prev" id="carousel-prev" onclick="carouselPrev()" aria-label="Précédent">&#8249;</button>
       <button class="carousel-btn next" id="carousel-next" onclick="carouselNext()" aria-label="Suivant">&#8250;</button>
+      <div class="carousel-wrap" id="carousel-wrap">
       <div class="prod-grid" id="prod-grid">
 
       <div class="pcard" data-cat="grains" data-varietal="castillo" data-process="washed" data-roast="medium-light" data-sca="80-85" data-origin="boyaca">
@@ -1027,13 +1058,13 @@
       </div>
 
       </div>
+      </div><!-- /.carousel-wrap -->
       <div class="carousel-dots" id="carousel-dots"></div>
       <div class="no-results" id="no-results" style="display:none;">
         <span class="no-results-txt">Aucun produit ne correspond à vos critères.</span><br>
         <button id="no-results-btn" onclick="resetFilters()" style="margin-top:14px;background:none;border:1px solid rgba(0,0,0,.2);padding:10px 20px;cursor:pointer;font-family:'Lato',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;">Réinitialiser les filtres</button>
       </div>
-
-    </div>
+    </div><!-- /.carousel-outer -->
   </div>
 </section>
 </div><!-- /.shop-layout -->
