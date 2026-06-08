@@ -61,7 +61,7 @@ const SHELL_HEADER = `
 }
 </style>
 <div id="site-bars">
-<div id="promo-bar"><span id="promo-txt">LIVRAISON PARTOUT EN FRANCE · PARIS GRATUIT (LANCEMENT) · POINT RELAIS OFFERT DÈS 50€</span></div>
+<div id="promo-bar"><span id="promo-txt">· LIVRAISON GRATUITE À PARIS (LANCEMENT) · POINT RELAIS OFFERT DÈS 50€ PARTOUT EN FRANCE</span></div>
 <div id="util-bar">
   <div class="ub-left">
     <a href="maison.html" class="ub-link" id="ub-maison">La Maison</a>
@@ -330,7 +330,7 @@ const L = {
     p1e:'Specialty Coffee · Boutique', p1t:'Specialty Single Origins<br>de Colombie · SCA 84.5+', p1c:'Explorer la boutique →',
     p2e:'Club Don Alberto · Abonnement', p2t:'Café de spécialité frais<br>chaque mois', p2c:'Rejoindre le Club →',
     nlh:'Rejoignez la communauté <em>Don Alberto</em>', nlp:'Nouvelles récoltes · Actualités ferme', nlb:"S'inscrire",
-    promo:'LIVRAISON PARTOUT EN FRANCE · PARIS GRATUIT (LANCEMENT) · POINT RELAIS OFFERT DÈS 50€',
+    promo:'· LIVRAISON GRATUITE À PARIS (LANCEMENT) · POINT RELAIS OFFERT DÈS 50€ PARTOUT EN FRANCE',
     t1h:'Commande directe', t1d:'PayPal · Revolut · Wise', t2h:'Livraison', t2d:'France métropolitaine',
     t3h:'Café de spécialité SCA', t3d:'Score 84.5 · Procédé Lavé', t4h:'Traçabilité totale', t4d:'Ferme → tasse',
     ubm:'La Maison', ubv:'Le Vlog', ubp:'Espace professionnel',
@@ -479,7 +479,7 @@ const L = {
     p1e:'Specialty Coffee · Shop', p1t:'Colombia Specialty<br>Single Origins · SCA 84.5+', p1c:'Explore the shop →',
     p2e:'Club Don Alberto · Subscription', p2t:'Fresh specialty coffee<br>every month', p2c:'Join the Club →',
     nlh:'Join the <em>Don Alberto</em> community', nlp:'New harvests · Farm news', nlb:'Subscribe',
-    promo:'SHIPPING ACROSS FRANCE · FREE IN PARIS (LAUNCH) · FREE PICK-UP POINT FROM €50',
+    promo:'· FREE SHIPPING IN PARIS (LAUNCH) · FREE PICK-UP POINT FROM €50 ACROSS FRANCE',
     t1h:'Direct order', t1d:'PayPal · Revolut · Wise', t2h:'Shipping', t2d:'Metropolitan France',
     t3h:'SCA Specialty Coffee', t3d:'Score 84.5 · Washed Process', t4h:'Full traceability', t4d:'Farm → cup',
     ubm:'The House', ubv:'The Vlog', ubp:'Professional space',
@@ -628,7 +628,7 @@ const L = {
     p1e:'Specialty Coffee · Tienda', p1t:'Specialty Single Origins<br>de Colombia · SCA 84.5+', p1c:'Explorar la tienda →',
     p2e:'Club Don Alberto · Suscripción', p2t:'Café especial fresco<br>cada mes', p2c:'Unirse al Club →',
     nlh:'Únete a la comunidad <em>Don Alberto</em>', nlp:'Cosechas · Noticias de la finca', nlb:'Suscribirse',
-    promo:'ENVÍO A TODA FRANCIA · PARÍS GRATIS (LANZAMIENTO) · PUNTO DE RECOGIDA GRATIS DESDE 50€',
+    promo:'· ENVÍO GRATUITO EN PARÍS (LANZAMIENTO) · PUNTO DE RECOGIDA GRATIS DESDE 50€ EN TODA FRANCIA',
     t1h:'Pedido directo', t1d:'PayPal · Revolut · Wise', t2h:'Envío', t2d:'Francia metropolitana',
     t3h:'Café de especialidad SCA', t3d:'Puntaje 84.5 · Proceso Lavado', t4h:'Trazabilidad total', t4d:'Finca → taza',
     ubm:'La Casa', ubv:'El Vlog', ubp:'Espacio profesional',
