@@ -742,8 +742,18 @@
   /* Card: use 100vw minus the 96px arrow padding — bypasses flex width cascade */
   .pcard { flex: 0 0 calc(100vw - 96px) !important; flex-direction: column !important; min-width: 0; }
 
-  /* Image: fixed 180px — not an aspect-ratio that fills the screen */
-  .pcard-img { aspect-ratio: unset !important; height: 180px !important; width: 100% !important; }
+  /* Image: fixed height, contain so the full bag is visible on transparent PNG */
+  .pcard-img {
+    aspect-ratio: unset !important;
+    height: 200px !important;
+    width: 100% !important;
+    background: #fff !important;
+  }
+  .pcard-img .img-product {
+    object-fit: contain !important;
+    object-position: center center !important;
+    padding: 10px !important;
+  }
 
   /* Disable wheel-flip and overlay on touch */
   .pcard:hover .pcard-img .img-product { opacity: 1 !important; transform: none !important; }
@@ -752,11 +762,14 @@
   .pcard:hover { transform: none !important; box-shadow: none !important; }
 
   /* Compact card body */
-  .pcard-body  { padding: 12px 14px 14px !important; }
-  .pcard-name  { font-size: 20px; margin-bottom: 4px; }
-  .pcard-notes { font-size: 11px; margin-bottom: 6px; }
-  .pcard-price { font-size: 28px; }
-  .pcard-btn   { font-size: 9px; padding: 11px 14px; margin-top: 8px; }
+  .pcard-body  { padding: 10px 14px 12px !important; }
+  .pcard-tag   { display: none !important; }
+  .pcard-name  { font-size: 18px !important; margin-bottom: 2px !important; line-height: 1.1 !important; }
+  .pcard-desc  { display: none !important; }
+  .pcard-notes { font-size: 11px !important; margin-bottom: 4px !important; line-height: 1.3 !important; }
+  .pcard-attrs { display: none !important; }
+  .pcard-price { font-size: 26px !important; }
+  .pcard-btn   { font-size: 9px !important; padding: 9px 14px !important; margin-top: 6px !important; }
 
   /* Arrows: teal circles sitting in the 48px zones on each side of the card */
   .carousel-btn {
