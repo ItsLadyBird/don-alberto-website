@@ -97,7 +97,30 @@
     </div>
 
   </div>
+  <div class="hh-dots" id="hh-dots"></div>
 </section>
+
+<script>
+(function(){
+  const inner = document.querySelector('.hh-inner');
+  const dotsEl = document.getElementById('hh-dots');
+  if(!inner || !dotsEl) return;
+  const items = inner.querySelectorAll('.hh-item');
+  const n = items.length;
+  let dots = [];
+  for(let i=0;i<n;i++){
+    const d = document.createElement('div');
+    d.className = 'hh-dot' + (i===0?' active':'');
+    d.onclick = ()=>{ inner.scrollTo({left: items[i].offsetLeft, behavior:'smooth'}); };
+    dotsEl.appendChild(d);
+    dots.push(d);
+  }
+  inner.addEventListener('scroll', ()=>{
+    const idx = Math.round(inner.scrollLeft / inner.offsetWidth);
+    dots.forEach((d,i)=>d.classList.toggle('active', i===idx));
+  }, {passive:true});
+})();
+</script>
 
 <style>
 /* ── HERO HOOKS ───────────────────────────── */
@@ -161,20 +184,43 @@
 }
 
 @media (max-width: 860px) {
+  .hero-hooks { position: relative; }
   .hh-inner {
-    flex-direction: column;
-    padding: 0 24px;
+    flex-direction: row;
+    padding: 0;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
+  .hh-inner::-webkit-scrollbar { display: none; }
   .hh-item {
-    padding: 28px 8px;
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    padding: 32px 24px;
     gap: 18px;
   }
-  .hh-divider {
-    width: 100%;
-    height: 1px;
-    margin: 0;
-  }
+  .hh-divider { display: none; }
   .hh-title { font-size: 18px; }
+  .hh-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 0 14px;
+    background: #0d0d0d;
+    border-bottom: 1px solid rgba(196,160,80,.18);
+  }
+  .hh-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: rgba(196,160,80,.25);
+    cursor: pointer;
+    transition: background .2s, transform .2s;
+  }
+  .hh-dot.active { background: var(--gold, #c4a050); transform: scale(1.3); }
+}
+@media (min-width: 861px) {
+  .hh-dots { display: none; }
 }
 </style>
 

@@ -821,7 +821,10 @@ function setLang(lang) {
   const waL = _$('wa-link');
   if (waL) waL.href = 'https://wa.me/33761528450?text=' + encodeURIComponent(t.wa === 'Need help?' ? 'Hello, I have a question about Don Alberto Café.' : t.wa === '¿Necesitas ayuda?' ? 'Hola, tengo una pregunta sobre Don Alberto Café.' : "Bonjour, j'ai une question sur Don Alberto Café.");
   
-  ['1','2','3','4','5'].forEach(i => { setH('jt'+i, t['jt'+i]); set('jd'+i, t['jd'+i]); });
+  ['1','2','3','4','5'].forEach(i => {
+    setH('jt'+i, t['jt'+i]); set('jd'+i, t['jd'+i]);
+    setH('jt'+i+'b', t['jt'+i]); set('jd'+i+'b', t['jd'+i]);
+  });
   
   if (t.qlabel) set('q-label', t.qlabel);
   if (t.qh2)   setH('q-h2', t.qh2);

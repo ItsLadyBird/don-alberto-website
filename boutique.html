@@ -721,6 +721,22 @@
   .bgrain-section { padding: 60px 24px; }
   .bgrain-hero { margin: -60px -24px 40px; }
 }
+/* ── VIEW ALL MODE ── */
+.catalog-inner.view-all .carousel-wrap { overflow: visible; }
+.catalog-inner.view-all #carousel-prev,
+.catalog-inner.view-all #carousel-next { display: none; }
+.catalog-inner.view-all .prod-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 14px;
+  transform: none !important;
+  transition: none;
+  flex: none;
+  cursor: default;
+}
+.catalog-inner.view-all .pcard { flex: none !important; }
+.catalog-inner.view-all .carousel-dots { display: none; }
+#view-toggle-btn:hover { color: var(--teal-deep, #064e65); }
 </style>
 </head>
 <body>
@@ -794,6 +810,12 @@
 
 <section class="product-catalog" id="catalogue">
   <div class="catalog-inner">
+    <div style="display:flex;justify-content:flex-end;margin-bottom:16px;">
+      <button id="view-toggle-btn" onclick="toggleViewAll()" style="background:none;border:none;font-family:'Lato',sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal,#096685);cursor:pointer;padding:4px 0;transition:color .2s;display:flex;align-items:center;gap:8px;">
+        <span id="view-toggle-txt">VIEW ALL</span>
+        <svg id="view-toggle-icon" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 8h14M9 2l6 6-6 6"/></svg>
+      </button>
+    </div>
     <div class="carousel-wrap" id="carousel-wrap">
       <button class="carousel-btn prev" id="carousel-prev" onclick="carouselPrev()" aria-label="Précédent">&#8249;</button>
       <button class="carousel-btn next" id="carousel-next" onclick="carouselNext()" aria-label="Suivant">&#8250;</button>
@@ -1471,36 +1493,59 @@
   </div>
 </section>
 
-<section class="bgrain-section" id="grain">
-  <div class="bgrain-hero">
-    <img src="images/coffee_beans_bg.png" alt="Grains de café Don Alberto" onerror="this.parentElement.style.background='#064e65'">
-    <div class="bgrain-hero-overlay">
-      <div class="bgrain-hero-text">
-        <div style="font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-family:'Lato',sans-serif;" data-i18n="gr_eyebrow">Don Alberto</div>
-        <h2 data-i18n="gr_h2">Le grain entier — <em>l'art de la fraîcheur</em></h2>
+<section class="journey-section" id="grain">
+  <div class="jv-grid">
+
+    <div class="jv-panel reveal">
+      <img src="images/Terroirs_unicos.png" alt="Terroirs uniques de Colombie" class="jv-img" loading="lazy">
+      <div class="jv-overlay"></div>
+      <div class="jv-content">
+        <span class="jv-num">01</span>
+        <div class="journey-title" id="jt1b"></div>
+        <div class="journey-desc" id="jd1b"></div>
       </div>
     </div>
-  </div>
-  <div class="bgrain-header reveal" style="margin-top:60px;">
-    <div class="section-label-b center" data-i18n="gr_lbl">Pourquoi Grain Entier ?</div>
-    <p class="body-text-b" style="text-align:center;max-width:520px;margin:14px auto 0;" data-i18n="gr_sub">La mouture libère immédiatement les arômes volatils. En grain entier, vous restez maître du moment — et de la qualité.</p>
-  </div>
-  <div class="bgrain-grid">
-    <div class="bgrain-card reveal">
-      <svg class="bgrain-icon" viewBox="0 0 44 44" fill="none"><ellipse cx="22" cy="22" rx="9" ry="15" stroke="currentColor" stroke-width="1.5"/><path d="M22 9 Q27 16 27 22 Q27 29 22 35" stroke="currentColor" stroke-width="1"/></svg>
-      <h3 data-i18n="gr_c1_h">Fraîcheur maximale</h3>
-      <p data-i18n="gr_c1_p">Le café en grain préserve ses huiles aromatiques jusqu'à 12 mois après torréfaction. Moulu juste avant la préparation, il révèle toute la complexité du terroir andin de Boyacá.</p>
+
+    <div class="jv-panel reveal">
+      <img src="images/harvest_man2.jpeg" alt="Récolte à la main" class="jv-img" loading="lazy">
+      <div class="jv-overlay"></div>
+      <div class="jv-content">
+        <span class="jv-num">02</span>
+        <div class="journey-title" id="jt2b"></div>
+        <div class="journey-desc" id="jd2b"></div>
+      </div>
     </div>
-    <div class="bgrain-card reveal">
-      <svg class="bgrain-icon" viewBox="0 0 44 44" fill="none"><circle cx="22" cy="22" r="13" stroke="currentColor" stroke-width="1.5"/><path d="M16 22 Q22 15 28 22 Q22 29 16 22" fill="currentColor" opacity="0.2"/></svg>
-      <h3 data-i18n="gr_c2_h">Contrôle de la mouture</h3>
-      <p data-i18n="gr_c2_p">Espresso, filtre, cafetière à piston, Chemex, moka — chaque méthode demande une granulométrie précise. Le grain entier vous donne cette liberté de personnaliser votre extraction.</p>
+
+    <div class="jv-panel reveal">
+      <img src="images/Cafe natural.jpg" alt="Procédés artisanaux" class="jv-img" loading="lazy">
+      <div class="jv-overlay"></div>
+      <div class="jv-content">
+        <span class="jv-num">03</span>
+        <div class="journey-title" id="jt3b"></div>
+        <div class="journey-desc" id="jd3b"></div>
+      </div>
     </div>
-    <div class="bgrain-card reveal">
-      <svg class="bgrain-icon" viewBox="0 0 44 44" fill="none"><path d="M8 36 L22 8 L36 36 Z" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M14 28 L30 28" stroke="currentColor" stroke-width="1"/></svg>
-      <h3 data-i18n="gr_c3_h">Valeur aromatique intacte</h3>
-      <p data-i18n="gr_c3_p">Une fois moulu, le café perd 60% de ses arômes en 15 minutes. Don Alberto en grain garantit que vous êtes la première et seule personne à briser le grain — au moment précis où vous le choisissez.</p>
+
+    <div class="jv-panel reveal">
+      <img src="images/cupping.png" alt="Cupping SCA" class="jv-img" loading="lazy">
+      <div class="jv-overlay"></div>
+      <div class="jv-content">
+        <span class="jv-num">04</span>
+        <div class="journey-title" id="jt4b"></div>
+        <div class="journey-desc" id="jd4b"></div>
+      </div>
     </div>
+
+    <div class="jv-panel reveal">
+      <img src="images/Coffee_Roasting.webp" alt="Torréfaction artisanale" class="jv-img" loading="lazy">
+      <div class="jv-overlay"></div>
+      <div class="jv-content">
+        <span class="jv-num">05</span>
+        <div class="journey-title" id="jt5b"></div>
+        <div class="journey-desc" id="jd5b"></div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1715,6 +1760,24 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   window.addEventListener('resize', ()=>{ buildDots(); update(); });
 
   document.addEventListener('filterChanged', ()=>{ idx=0; buildDots(); update(); });
+})();
+</script>
+
+<script>
+(function(){
+  let viewAll = false;
+  window.toggleViewAll = function(){
+    viewAll = !viewAll;
+    const ci = document.querySelector('.catalog-inner');
+    const txt = document.getElementById('view-toggle-txt');
+    const icon = document.getElementById('view-toggle-icon');
+    if(!ci || !txt) return;
+    ci.classList.toggle('view-all', viewAll);
+    txt.textContent = viewAll ? 'VIEW LESS' : 'VIEW ALL';
+    icon.innerHTML = viewAll
+      ? '<path d="M1 8h14M7 2l-6 6 6 6"/>'
+      : '<path d="M1 8h14M9 2l6 6-6 6"/>';
+  };
 })();
 </script>
 </body>
