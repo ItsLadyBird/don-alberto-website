@@ -292,15 +292,16 @@ ul{list-style:none;}
 /* ══════════════════════════════════════════
    10. JOURNEY / PROCESS (index page)
    ══════════════════════════════════════════ */
-.journey-section{background:#f7f3e8;padding:64px var(--page-pad);border-top:1px solid rgba(9,102,133,.07);border-bottom:1px solid rgba(9,102,133,.07);}
-.journey-steps{display:flex;align-items:flex-start;justify-content:center;gap:0;}
-.journey-step{display:flex;flex-direction:column;align-items:center;text-align:center;flex:1;padding:0 12px;}
-.journey-icon{width:56px;height:56px;display:flex;align-items:center;justify-content:center;color:var(--teal);margin-bottom:18px;}
-.journey-icon svg{width:48px;height:48px;stroke:var(--teal);fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;}
-.journey-title{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;line-height:1.3;color:var(--teal);margin-bottom:10px;}
-.journey-desc{font-size:14.5px;line-height:1.75;color:var(--mid);font-weight:300;max-width:160px;}
-.journey-arrow{flex-shrink:0;display:flex;align-items:flex-start;padding-top:28px;color:var(--gold);}
-.journey-arrow svg{width:22px;height:22px;stroke:var(--gold);fill:none;stroke-width:1.5;}
+.journey-section{background:#0a0a0a;padding:0;border:none;}
+.jv-grid{display:grid;grid-template-columns:repeat(5,1fr);height:580px;}
+.jv-panel{position:relative;overflow:hidden;}
+.jv-img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .7s ease;display:block;}
+.jv-panel:hover .jv-img{transform:scale(1.07);}
+.jv-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(4,22,30,.90) 0%,rgba(4,22,30,.40) 55%,rgba(4,22,30,.10) 100%);}
+.jv-content{position:absolute;bottom:0;left:0;right:0;padding:24px 22px 34px;}
+.jv-num{display:block;font-family:'Lato',sans-serif;font-size:10px;letter-spacing:3.5px;color:var(--gold);margin-bottom:10px;text-transform:uppercase;}
+.jv-content .journey-title{font-family:'Cormorant Garamond',serif;font-size:clamp(15px,1.3vw,21px);font-weight:600;line-height:1.25;color:#fff;margin-bottom:9px;}
+.jv-content .journey-desc{font-family:'Lato',sans-serif;font-size:11.5px;line-height:1.65;color:rgba(255,255,255,.72);font-weight:300;max-width:none;}
 
 /* ══════════════════════════════════════════
    11. ATTRIBUTES TICKER
@@ -599,10 +600,10 @@ footer{background:#0d1014;padding:clamp(44px,4vw,64px) var(--page-pad) 0;}
 }
    
 @media(max-width:780px){
-  .journey-steps{flex-direction:column;align-items:center;gap:32px;}
-  .journey-arrow{padding-top:0;transform:rotate(90deg);}
-  .journey-step{padding:0;}
-  .journey-desc{max-width:240px;}
+  .jv-grid{grid-template-columns:1fr;height:auto;}
+  .jv-panel{height:260px;}
+  .jv-content .journey-title{font-size:20px;}
+  .jv-content .journey-desc{font-size:13px;}
 
   /* 1. Images: Convert Grid to Auto-Fading Carousel */
   .col-images {
