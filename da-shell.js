@@ -112,7 +112,7 @@ const SHELL_HEADER = `
           <a href="boutique.html#famille" id="nd-fam">La Famille</a>
         </div>
       </div>
-      <div class="ni"><a href="https://donalberto.cafe/club" id="n-club">Club Don Alberto</a></div>
+      <div class="ni"><a href="https://donalberto.cafe/club" id="n-club">Abonnements</a></div>
     </nav>
     <div class="nav-center">
       <div class="nav-logo-compact" id="compact-logo">
@@ -122,7 +122,7 @@ const SHELL_HEADER = `
       </div>
     </div>
     <nav class="nav-right" aria-label="Nav droite">
-      <div class="ni"><a href="b2b.html" id="n-pro">Espace Pro</a></div>
+      <div class="ni"><a href="b2b.html" id="n-pro">Professionnels</a></div>
       <div class="ni"><a href="origine-boutique.html" id="n-orig">Boutique d'Origine</a></div>
     </nav>
     <a href="boutique.html#formats" class="nav-cmd" id="n-cmd">Commander</a>
@@ -141,9 +141,9 @@ const SHELL_HEADER = `
   <div class="mm-body">
     <a href="index.html" class="mm-lnk" id="mm-home">Accueil</a>
     <a href="boutique.html" class="mm-lnk" id="mm-spec">Specialty Coffee</a>
-    <a href="club.html" class="mm-lnk" id="mm-club">Club Don Alberto</a>
+    <a href="club.html" class="mm-lnk" id="mm-club">Abonnements</a>
     <a href="origine-boutique.html" class="mm-lnk" id="mm-orig">Boutique d'Origine</a>
-    <a href="b2b.html" class="mm-lnk" id="mm-pro">Espace Pro</a>
+    <a href="b2b.html" class="mm-lnk" id="mm-pro">Professionnels</a>
     <a href="boutique.html#formats" onclick="toggleMob();" class="mm-cta" id="mm-cmd">Commander</a>
     <a href="maison.html" class="mm-lnk mm-secondary" id="mm-maison">La Maison</a>
     <a href="vlog.html" class="mm-lnk mm-secondary" id="mm-vlog">Le Vlog</a>
@@ -182,13 +182,13 @@ const SHELL_FOOTER = `
         <h4 onclick="this.parentElement.classList.toggle('open')"><span id="fc-h2">Commander</span> <svg class="f-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg></h4>
         <ul>
           <li><a href="boutique.html" id="fl-boutique">Boutique</a></li>
-          <li><a href="club.html" id="fl-club">Club Don Alberto</a></li>
+          <li><a href="club.html" id="fl-club">Abonnements</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4 onclick="this.parentElement.classList.toggle('open')"><span id="fc-h3">Partenaires &amp; B2B</span> <svg class="f-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg></h4>
         <ul>
-          <li><a href="b2b.html" id="fl-b2b">Espace Pro</a></li>
+          <li><a href="b2b.html" id="fl-b2b">Professionnels</a></li>
           <li><a href="b2b.html#contact" id="fl-contact">Contacter</a></li>
         </ul>
       </div>
@@ -202,11 +202,8 @@ const SHELL_FOOTER = `
         <a href="https://instagram.com/donalberto.cafe" target="_blank" rel="noopener" class="footer-soc" aria-label="Instagram">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
         </a>
-        <a href="#" target="_blank" rel="noopener" class="footer-soc" aria-label="TikTok">
-          <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.27 8.27 0 004.84 1.55V6.78a4.85 4.85 0 01-1.07-.09z"/></svg>
-        </a>
-        <a href="https://facebook.com" target="_blank" rel="noopener" class="footer-soc" aria-label="Facebook">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        <a href="https://www.linkedin.com/company/da-cafe" target="_blank" rel="noopener" class="footer-soc" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
         </a>
         <a href="#" target="_blank" rel="noopener" class="footer-soc" aria-label="YouTube">
           <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
@@ -228,7 +225,7 @@ const SHELL_FOOTER = `
     <div class="footer-bottom-links">
       <a href="#">Mentions légales</a>
       <a href="#">Confidentialité</a>
-      <a href="b2b.html">Espace Pro</a>
+      <a href="b2b.html">Professionnels</a>
     </div>
   </div>
 </footer>
@@ -335,9 +332,9 @@ const L = {
     t3h:'Café de spécialité SCA', t3d:'Score 84.5 · Procédé Lavé', t4h:'Traçabilité totale', t4d:'Ferme → tasse',
     ubm:'La Maison', ubv:'Le Vlog', ubp:'Espace professionnel',
     home:'Accueil',
-    nspec:'Specialty Coffee', nclub:'Club Don Alberto', npro:'Espace Pro', norig:"Boutique d'Origine", ncmd:'Commander', ncmd_b2b:'Contact Pro',
+    nspec:'Specialty Coffee', nclub:'Abonnements', npro:'Professionnels', norig:"Boutique d'Origine", ncmd:'Commander', ncmd_b2b:'Contact Pro',
     fh1:'La Marque', fh2:'Commander', fh3:'Partenaires & B2B',
-    fm:'La Maison', fa:'Le Atelier', fv:'Le Vlog', fb:'Boutique', fc:'Club Don Alberto', fb2:'Espace Pro', fco:'Contacter',
+    fm:'La Maison', fa:'Le Atelier', fv:'Le Vlog', fb:'Boutique', fc:'Abonnements', fb2:'Professionnels', fco:'Contacter',
     fvt:'Notre Vlog — Dans les coulisses de la ferme', wa:"Besoin d'aide ?",
     ssca:'Score SCA', salt:'Altitude', sara:'Premium Varietales', stat4:'Microclimats',
     hcta:'Découvrir le café →',
@@ -484,9 +481,9 @@ const L = {
     t3h:'SCA Specialty Coffee', t3d:'Score 84.5 · Washed Process', t4h:'Full traceability', t4d:'Farm → cup',
     ubm:'The House', ubv:'The Vlog', ubp:'Professional space',
     home:'Home',
-    nspec:'Specialty Coffee', nclub:'Club Don Alberto', npro:'Pro Space', norig:'Origin Boutique', ncmd:'Get Coffee', ncmd_b2b:'Contact Pro',
+    nspec:'Specialty Coffee', nclub:'Subscriptions', npro:'Professionals', norig:'Origin Boutique', ncmd:'Get Coffee', ncmd_b2b:'Contact Pro',
     fh1:'The Brand', fh2:'Order', fh3:'Partners & B2B',
-    fm:'The House', fa:'The Atelier', fv:'The Vlog', fb:'Shop', fc:'Club Don Alberto', fb2:'Pro Space', fco:'Contact',
+    fm:'The House', fa:'The Atelier', fv:'The Vlog', fb:'Shop', fc:'Subscriptions', fb2:'Professionals', fco:'Contact',
     fvt:'Our Vlog — Behind the scenes at the farm', wa:'Need help?',
     ssca:'SCA Score', salt:'Altitude', sara:'Premium Varietals', stat4:'Microclimates',
     hcta:'Discover the Coffee →',
@@ -633,9 +630,9 @@ const L = {
     t3h:'Café de especialidad SCA', t3d:'Puntaje 84.5 · Proceso Lavado', t4h:'Trazabilidad total', t4d:'Finca → taza',
     ubm:'La Casa', ubv:'El Vlog', ubp:'Espacio profesional',
     home:'Inicio',
-    nspec:'Specialty Coffee', nclub:'Club Don Alberto', npro:'Espacio Pro', norig:'Boutique de Origen', ncmd:'Ordenar', ncmd_b2b:'Contacto Pro',
+    nspec:'Specialty Coffee', nclub:'Suscripciones', npro:'Profesionales', norig:'Boutique de Origen', ncmd:'Ordenar', ncmd_b2b:'Contacto Pro',
     fh1:'La Marca', fh2:'Ordenar', fh3:'Socios & B2B',
-    fm:'La Casa', fa:'El Atelier', fv:'El Vlog', fb:'Tienda', fc:'Club Don Alberto', fb2:'Espacio Pro', fco:'Contactar',
+    fm:'La Casa', fa:'El Atelier', fv:'El Vlog', fb:'Tienda', fc:'Suscripciones', fb2:'Profesionales', fco:'Contactar',
     fvt:'Nuestro Vlog — Detrás de escena en la finca', wa:'¿Necesitas ayuda?',
     ssca:'Puntaje SCA', salt:'Altitud', sara:'Premium Varietales', stat4:'Microclimas',
     hcta:'Descubrir el café →',
