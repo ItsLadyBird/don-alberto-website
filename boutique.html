@@ -712,11 +712,12 @@
 @media (max-width: 900px) {
   .boutique-tabs { padding: 0 20px; }
   .boutique-tabs .btab { padding: 18px 18px; font-size: 10px; letter-spacing: 2.5px; }
-  .shop-layout { flex-direction: column; }
+  /* align-items: stretch so product-catalog fills full width in column layout */
+  .shop-layout { flex-direction: column; align-items: stretch; }
   .filter-sidebar { position: static; flex: none; width: 100%; border-right: none; border-bottom: 1px solid rgba(9,102,133,.10); max-height: none; }
   .filter-bar-inner { padding: 16px 20px; flex-direction: row; flex-wrap: wrap; }
   .filter-select { width: auto; }
-  .product-catalog { padding: 40px 20px 60px; flex: none; }
+  .product-catalog { padding: 40px 20px 60px; flex: none; width: 100%; }
   .prod-gallery { padding: 60px 24px; }
   .bsca-edu { padding: 60px 24px; }
   .bprocess-section { padding: 60px 24px; }
@@ -725,61 +726,62 @@
 }
 /* ── MOBILE SINGLE-CARD CAROUSEL ── */
 @media (max-width: 767px) {
-  /* Full-width section, padding only for header row */
-  .product-catalog { padding-left: 0 !important; padding-right: 0 !important; }
+  /* Remove horizontal padding — carousel goes edge to edge */
+  .product-catalog { padding: 20px 0 40px !important; width: 100% !important; }
   .catalog-header-row { padding: 0 20px; }
 
-  /* Outer wrapper: extra side padding so arrows sit outside the card */
-  .carousel-outer { padding: 0 48px; }
-
-  /* Card: fixed height, column layout */
-  .pcard { flex: 0 0 100% !important; flex-direction: column !important; }
-
-  /* Image: fixed height — not an aspect-ratio that fills screen */
-  .pcard-img {
-    aspect-ratio: unset !important;
-    height: 200px !important;
+  /* Carousel containers must be explicitly full-width */
+  .carousel-outer {
+    position: relative;
     width: 100%;
+    box-sizing: border-box;
+    padding: 0 48px; /* 48px each side = space for the arrows */
   }
+  .carousel-wrap { width: 100%; overflow: hidden; padding-bottom: 8px; }
 
-  /* Body: compact */
-  .pcard-body { padding: 14px 16px 16px !important; }
-  .pcard-name { font-size: 21px; margin-bottom: 6px; }
-  .pcard-notes { font-size: 12px; margin-bottom: 8px; }
-  .pcard-price { font-size: 28px; }
-  .pcard-btn { font-size: 9px; padding: 12px 14px; margin-top: 10px; }
+  /* Card: use 100vw minus the 96px arrow padding — bypasses flex width cascade */
+  .pcard { flex: 0 0 calc(100vw - 96px) !important; flex-direction: column !important; min-width: 0; }
 
-  /* Disable hover/touch wheel flip */
+  /* Image: fixed 180px — not an aspect-ratio that fills the screen */
+  .pcard-img { aspect-ratio: unset !important; height: 180px !important; width: 100% !important; }
+
+  /* Disable wheel-flip and overlay on touch */
   .pcard:hover .pcard-img .img-product { opacity: 1 !important; transform: none !important; }
-  .pcard:hover .pcard-img .img-wheel { opacity: 0 !important; }
-  .pcard:hover .pcard-overlay { opacity: 0 !important; }
+  .pcard:hover .pcard-img .img-wheel   { opacity: 0 !important; }
+  .pcard:hover .pcard-overlay          { opacity: 0 !important; }
   .pcard:hover { transform: none !important; box-shadow: none !important; }
 
-  /* Arrows: positioned on the carousel-OUTER (no overflow clip), flanking the card */
+  /* Compact card body */
+  .pcard-body  { padding: 12px 14px 14px !important; }
+  .pcard-name  { font-size: 20px; margin-bottom: 4px; }
+  .pcard-notes { font-size: 11px; margin-bottom: 6px; }
+  .pcard-price { font-size: 28px; }
+  .pcard-btn   { font-size: 9px; padding: 11px 14px; margin-top: 8px; }
+
+  /* Arrows: teal circles sitting in the 48px zones on each side of the card */
   .carousel-btn {
+    position: absolute !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
-    width: 40px !important;
-    height: 40px !important;
+    width: 40px !important; height: 40px !important;
     font-size: 22px !important;
     background: var(--teal-deep, #064e65) !important;
     color: #fff !important;
-    box-shadow: 0 3px 14px rgba(0,0,0,.28) !important;
     border: none !important;
+    border-radius: 50% !important;
+    box-shadow: 0 3px 12px rgba(0,0,0,.3) !important;
+    display: flex !important; align-items: center !important; justify-content: center !important;
   }
   .carousel-btn.prev { left: 4px !important; }
   .carousel-btn.next { right: 4px !important; }
 
-  .carousel-dots { padding: 12px 0 0; }
+  .carousel-dots { padding: 14px 0 0; }
 
-  /* View All: single column with padding */
+  /* View All: single column, no arrow padding needed */
   .catalog-inner.view-all .carousel-outer { padding: 0; }
-  .catalog-inner.view-all .prod-grid {
-    grid-template-columns: 1fr !important;
-    padding: 0 20px;
-  }
-  .catalog-inner.view-all .pcard { flex-direction: column !important; }
-  .catalog-inner.view-all .pcard-img { height: 220px !important; }
+  .catalog-inner.view-all .prod-grid { grid-template-columns: 1fr !important; padding: 0 20px; }
+  .catalog-inner.view-all .pcard { flex: none !important; }
+  .catalog-inner.view-all .pcard-img { height: 200px !important; }
 }
 /* ── VIEW ALL MODE ── */
 .catalog-inner.view-all .carousel-wrap { overflow: visible; }
